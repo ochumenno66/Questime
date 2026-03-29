@@ -1,0 +1,424 @@
+@font-face {
+  font-family: "Dihjauti";
+  src:
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff") format("woff"),
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.ttf") format("truetype"),
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot")
+      format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dihjauti";
+  src:
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff") format("woff"),
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.ttf") format("truetype"),
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot")
+      format("embedded-opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Overpass";
+  src:
+    url("../assets/fonts/Overpass/Overpass-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Overpass/Overpass-Regular.woff") format("woff"),
+    url("../assets/fonts/Overpass/Overpass-Regular.ttf") format("truetype"),
+    url("../assets/fonts/Overpass/Overpass-Regular.eot")
+      format("embedded-opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Overpass";
+  src:
+    url("../assets/fonts/Overpass/Overpass-Light.woff2") format("woff2"),
+    url("../assets/fonts/Overpass/Overpass-Light.woff") format("woff"),
+    url("../assets/fonts/Overpass/Overpass-Light.ttf") format("truetype"),
+    url("../assets/fonts/Overpass/Overpass-Light.eot")
+      format("embedded-opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src:
+    url("../assets/fonts/Lora/Lora-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Lora/Lora-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src:
+    url("../assets/fonts/Lora/Lora-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Lora/Lora-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Шрифты */
+  /* Шрифт для инпутов меню */
+  --font-family: "Overpass", sans-serif;
+  /* Шрифт для кнопок, описания и подзаголовков */
+  --third-family: "Lora", sans-serif;
+  /* Шрифт для заголовков */
+  --font3: "Dihjauti", sans-serif;
+
+  /* Веса шрифтов */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Цвета */
+  --color-bg: #f9f9ef;
+  --color-text: #191a18;
+  --color-header-footer-bg: #191a18;
+  --color-white: #ffffff;
+  --color-card: #f3f1e8;
+  --color-orange: #d75300;
+  --color-form-input: rgba(25, 26, 24, 0.5);
+
+  /* Адаптивная высота обрезанного края блоков */
+  --tear-height: clamp(40px, 4.9vw, 100px);
+}
+
+input,
+textarea,
+select {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  font-size: 32px;
+}
+
+select,
+option {
+  color: inherit;
+  font-family: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color-text);
+  font-weight: 400;
+  background-color: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: transform 0.2s ease;
+}
+
+body.hidden {
+  overflow: hidden;
+}
+
+header,
+footer {
+  flex: 0 0 auto;
+  background-color: var(--color-header-footer-bg);
+  color: var(--color-bg);
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.container {
+  margin: auto;
+  max-width: 1660px;
+}
+
+h6,
+h5,
+h4,
+h3,
+h2,
+h1,
+.h6,
+.h5,
+.h4,
+.h3,
+.h2,
+.h1 {
+  margin: 0;
+  font-family: var(--font3);
+  display: inline-block;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+/* Заголовок в HERO */
+h1,
+.h1 {
+  font-size: clamp(32px, 4.2vw, 80px);
+}
+
+/* Заголовки всех секций */
+h2,
+.h2 {
+  font-size: clamp(24px, 2.083vw, 40px);
+  margin-bottom: clamp(30px, 2.9vw, 56px);
+  text-transform: uppercase;
+}
+
+/* Подзаголовки блоков Benefits, CTA, Testimonials */
+h3,
+.h3 {
+  font-size: clamp(20px, 1.67vw, 32px);
+}
+
+/* Заголовки карточек в Quests*/
+h4,
+.h4 {
+  font-size: clamp(18px, 1.25vw, 24px);
+}
+
+/* Для заголовков, чтобы центрировать */
+.text-align {
+  width: 100%;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* BTN */
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: none;
+  border-radius: 48px;
+}
+
+/* Кнопка для секции Quests и Header */
+.btn-card {
+  padding: 8px 24px;
+  font-size: 20px;
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family);
+  line-height: 167%;
+}
+
+/* Кнопка для всех блоков кроме Hero и Quests */
+.btn-secondary {
+  padding: 16px 40px;
+  font-size: 20px;
+  font-weight: var(--font-weight-bold);
+  font-family: var(--third-family);
+  letter-spacing: 0.15em;
+}
+
+/* Обычная секция */
+.section-common {
+  padding-top: clamp(50px, 5.9vw, 120px);
+  padding-bottom: clamp(50px, 5.9vw, 120px);
+}
+
+/* Секция блога */
+.section-special {
+  padding-top: calc(var(--tear-height) + clamp(20px, 1.6vw, 25px));
+  padding-bottom: clamp(50px, 5.9vw, 120px);
+}
+
+/* Секции с рваными краями */
+.section-decorated-light,
+.section-decorated-dark,
+.decorated-dark-stats,
+.decorated-light-stats,
+.decorated-dark-cta,
+.decorated-light-cta {
+  position: relative;
+  width: 100%;
+}
+
+/* Низ оборванного края */
+.section-decorated-dark::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--tear-height) + 1px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/border-dark.png") center bottom / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+.decorated-dark-stats::after {
+  content: "";
+  position: absolute;
+  bottom: calc(0 * var(--tear-height) - 2px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/border-dark-stats.png") center bottom / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+.decorated-dark-cta::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--tear-height) + 1px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/border-dark-cta.png") center bottom / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+/* Верх оборванного края */
+.section-decorated-light::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--tear-height) + 2px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/border-light.png") center top / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+.decorated-light-stats::before {
+  content: "";
+  position: absolute;
+  top: calc(0 * var(--tear-height) - 1px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/border-light-stats.png") center top / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+.decorated-light-cta::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--tear-height) + 2px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/border-light-cta.png") center top / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+/* Header */
+.header {
+}
+
+/* Hero */
+.hero {
+  height: 200px;
+  background-color: var(--color-text);
+}
+
+/* Quests */
+.quests {
+}
+
+/* Services */
+.services {
+   background-image: url(../assets/images/main/services.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+/* About */
+.about {
+}
+
+/* Stats */
+.stats {
+  background-image: url(../assets/images/main/stats.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+/* Benefits */
+.benefits {
+}
+
+/* Cta */
+.cta {
+}
+
+/* Gallery */
+.gallery {
+}
+
+/* Testimonials */
+.testimonials {
+  height: 200px;
+  background-color: var(--color-text);
+}
+
+/* Partners */
+.partners {
+}
+
+/* Form */
+.form {
+}
+
+/* Footer */
+.footer {
+  padding-bottom: 0;
+}
