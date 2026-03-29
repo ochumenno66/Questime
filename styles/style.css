@@ -422,3 +422,19 @@ button {
 .footer {
   padding-bottom: 0;
 }
+
+/* Adaptiv */
+@media (max-width: 1440px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 575px) {
+}
+
+@media (max-width: 480px) {
+}
