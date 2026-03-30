@@ -92,6 +92,7 @@
   --color-card: #f3f1e8;
   --color-orange: #d75300;
   --color-form-input: rgba(25, 26, 24, 0.5);
+  --sandy: #dec884;
 
   /* Адаптивная высота обрезанного края блоков */
   --tear-height: clamp(40px, 4.9vw, 100px);
@@ -268,14 +269,14 @@ button {
 
 /* Обычная секция */
 .section-common {
-  padding-top: clamp(50px, 5.9vw, 120px);
-  padding-bottom: clamp(50px, 5.9vw, 120px);
+  margin-top: clamp(50px, 5.9vw, 120px);
+  margin-bottom: clamp(50px, 5.9vw, 120px);
 }
 
 /* Секция блога */
 .section-special {
-  padding-top: calc(var(--tear-height) + clamp(20px, 1.6vw, 25px));
-  padding-bottom: clamp(50px, 5.9vw, 120px);
+  margin-top: calc(var(--tear-height) + clamp(20px, 1.6vw, 25px));
+  margin-bottom: clamp(50px, 5.9vw, 120px);
 }
 
 /* Секции с рваными краями */
@@ -284,7 +285,8 @@ button {
 .decorated-dark-stats,
 .decorated-light-stats,
 .decorated-dark-cta,
-.decorated-light-cta {
+.decorated-light-cta,
+.decorated-dark-header {
   position: relative;
   width: 100%;
 }
@@ -309,8 +311,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-stats.png") center bottom / cover
-    no-repeat;
+  background: url("../assets/images/border-dark-stats.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -322,6 +324,18 @@ button {
   width: 100%;
   height: var(--tear-height);
   background: url("../assets/images/border-dark-cta.png") center bottom / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+.decorated-dark-header::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--tear-height) + 1px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/border-dark-header.png") center bottom / cover
     no-repeat;
   pointer-events: none;
 }
@@ -369,8 +383,6 @@ button {
 
 /* Hero */
 .hero {
-  height: 200px;
-  background-color: var(--color-text);
 }
 
 /* Quests */
@@ -379,7 +391,7 @@ button {
 
 /* Services */
 .services {
-   background-image: url(../assets/images/main/services.webp);
+  background-image: url(../assets/images/main/services.webp);
   background-size: cover;
   background-position: center;
   height: 200px;
@@ -426,6 +438,45 @@ button {
 /* Footer */
 .footer {
   padding-bottom: 0;
+}
+
+/* GAMIFIED-TOURS */
+.quote {
+  background-image: url(../assets/images/gamifiedTours/quote-GT.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+.cta-gt {
+  background-image: url(../assets/images/gamifiedTours/cta-GT.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+/* TEAM BUILDING */
+.quote-tb {
+  background-image: url(../assets/images/team-building/quote-TB.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+}
+
+/* EVENTS PAGE */
+
+/* SCHEDULE */
+
+/* CUSTOM GAMES */
+
+/* 404 */
+
+/* ABOUT US */
+.subscribe {
+   background-image: url(../assets/images/main/stats.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
 }
 
 /* Adaptiv */
