@@ -71,11 +71,11 @@
 }
 
 :root {
-  /* Шрифты */
+ /* Шрифты */
   /* Шрифт для инпутов меню */
-  --font-family: "Overpass", sans-serif;
+  --font-family: "Lora", sans-serif;
   /* Шрифт для кнопок, описания и подзаголовков */
-  --third-family: "Lora", sans-serif;
+  --second-family: "Overpass", sans-serif;
   /* Шрифт для заголовков */
   --font3: "Dihjauti", sans-serif;
 
@@ -263,7 +263,7 @@ button {
   padding: 16px 40px;
   font-size: 20px;
   font-weight: var(--font-weight-bold);
-  font-family: var(--third-family);
+  font-family: var(--second-family);
   letter-spacing: 0.15em;
 }
 
