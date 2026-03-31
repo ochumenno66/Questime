@@ -388,7 +388,8 @@ header {
   background: var(--color-header-footer-bg);
 }
 
-.header__wrapper {
+.header__wrapper,
+.footer__wrapper {
   height: 100%;
   display: flex;
   align-items: center;
@@ -399,7 +400,8 @@ header {
   flex-shrink: 0;
 }
 
-.header-menu{
+.header-menu,
+.footer-menu {
   display: flex;
   align-items: center;
   gap: 35px;
@@ -434,6 +436,16 @@ nav a:hover {
 }
 nav a:hover::after { 
   transform: scaleX(1); 
+}
+
+.header__right {
+  display: flex;
+  gap: 40px;
+}
+
+.header-socials__wrapper {
+  display: flex;
+  gap: 8px;
 }
 
 .btn-book {
@@ -734,7 +746,7 @@ nav a:hover::after {
 
 /* Footer */
 .footer {
-  padding-bottom: 0;
+  padding: 36px 0;
 }
 
 /* GAMIFIED-TOURS */
