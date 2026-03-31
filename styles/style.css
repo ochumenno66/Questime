@@ -415,7 +415,54 @@ button {
 
 /* Cta */
 .cta {
+  background-image: url(../assets/images/main/cta.webp);
+  background-size: cover;
+  background-position: center;
+  padding-top: clamp(60px, 7vw, 140px);
+  padding-bottom: clamp(60px, 7vw, 140px);
 }
+
+.cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(16px, 2vw, 32px);
+}
+
+.cta__title {
+  font-family: var(--font3);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(24px, 2.083vw, 40px);
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+}
+
+.cta__title-orange {
+  color: var(--color-orange);
+}
+
+.cta__title-white {
+  color: var(--color-white);
+}
+
+.cta__desc {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(16px, 1.25vw, 20px);
+  color: var(--color-white);
+}
+
+.cta__btn {
+  color: var(--color-white);
+  background: transparent;
+  border: 1px solid var(--color-white);
+  height: 58px;
+  margin-top: 28px;
+}
+
 
 /* Gallery */
 .gallery {
@@ -493,6 +540,10 @@ button {
 }
 
 @media (max-width: 480px) {
+  .cta__btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
 }
 
 
