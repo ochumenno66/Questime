@@ -494,3 +494,8 @@ button {
 
 @media (max-width: 480px) {
 }
+
+
+/* Hover only for desktop  */
+@media (hover: hover) and (pointer: fine) {
+}
