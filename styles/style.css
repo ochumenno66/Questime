@@ -549,4 +549,10 @@ button {
 
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
+  .cta__btn:hover {
+    transform: scale(1.05);
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+    transition: all 0.3s ease;
+  }
 }
