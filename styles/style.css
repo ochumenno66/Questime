@@ -494,12 +494,18 @@ nav a:hover::after {
 }
 
 .hero-left {
-  padding-top: 36px;
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   height: 100%;
+}
+
+.hero-top__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .hero-title {
@@ -509,7 +515,6 @@ nav a:hover::after {
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--color-white);
-  margin-bottom: 40px;
 }
 
 .hero-tagline {
@@ -540,8 +545,8 @@ nav a:hover::after {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 0;
-  margin-top: auto;
+  /* margin-bottom: 0;
+  margin-top: auto; */
 }
 
 .hero-card {
