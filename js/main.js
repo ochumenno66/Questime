@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Автослайдер в секции HERO
     const INTERVAL = 4200;
-    const slides = document.querySelectorAll('.slide');
-    const dots   = document.querySelectorAll('.dot');
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots   = document.querySelectorAll('.hero-dot');
     let current  = 0;
     let autoTimer;
 
