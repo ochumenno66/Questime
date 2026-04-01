@@ -65,6 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     mobileOverlay.addEventListener('click', closeMenu);
 
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeMenu();
+        }
+    });
+
     window.addEventListener('resize', function () {
         if (window.innerWidth >= 1320) {
         closeMenu();
@@ -75,8 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener('click', closeMenu);
     });
 
-    document.getElementById('header').addEventListener('click', function (e) {
-        if (!e.target.closest('#burgerBtn')) {
+    document.addEventListener('click', function (e) {
+        const isClickInsideMenu = e.target.closest('#burgerDropdown');
+        const isClickOnBurger = e.target.closest('#burgerBtn');
+
+        if (!isClickInsideMenu && !isClickOnBurger) {
             closeMenu();
         }
     });
