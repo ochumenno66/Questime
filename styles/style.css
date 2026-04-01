@@ -175,7 +175,7 @@ h1,
   margin: 0;
   font-family: var(--font3);
   display: inline-block;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   color: var(--color-orange);
 }
 
@@ -200,7 +200,7 @@ h2,
 /* Подзаголовки блоков Benefits, CTA, Testimonials */
 h3,
 .h3 {
-  font-size: clamp(20px, 1.67vw, 32px);
+  font-size: clamp(20px, 1.97vw, 32px);
 }
 
 /* Заголовки карточек в Quests*/
@@ -273,7 +273,7 @@ button {
   margin-bottom: clamp(50px, 5.9vw, 120px);
 }
 
-/* Секция блога */
+/* Секция quests */
 .section-special {
   margin-top: calc(var(--tear-height) + clamp(20px, 1.6vw, 25px));
   margin-bottom: clamp(50px, 5.9vw, 120px);
@@ -413,25 +413,24 @@ button {
 .benefits__wrapper {
   display: flex;
   justify-content: center;
-  gap: 87px;
-  padding: 0px 105px;
+  gap: clamp(18px, 4vw, 87px);
 }
 
 .benefits__card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   max-width: 385px;
 }
 
 .benefits__icon {
-  width: 190px;
-  height: 190px;
+  width: clamp(69px, 10vw, 190px);
+  height: clamp(69px, 10vw, 190px);
+  object-fit: contain;
 }
 
 .benefits__card-title {
-  font-family: var(--font-family);
+  font-family: var(--second-family);
   font-weight: var(--font-weight-regular);
   line-height: 150%;
   padding: 32px 0 24px 0;
@@ -440,17 +439,18 @@ button {
 .benefits__card-text {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
-  font-size: 32px;
+  font-size: clamp(16px, 1.87vw, 32px);
   line-height: 150%;
   color: var(--color-text);
 }
 
 .benefits__btn {
-  display: block;
-  margin: 56px auto 0;
   font-family: var(--font-family);
   color: var(--color-white);
   background-color: var(--color-orange);
+  font-size: clamp(14px, 1.4vw, 20px);
+  padding: 16px 40px;
+  margin: 56px auto 0;
 }
 
 /* Cta */
@@ -496,6 +496,11 @@ button {
 }
 
 /* TEAM BUILDING */
+/* Benefits */
+.benefits__card-title--tb {
+  text-transform: uppercase;
+}
+
 .quote-tb {
   background-image: url(../assets/images/team-building/quote-TB.webp);
   background-size: cover;
@@ -512,6 +517,11 @@ button {
 /* 404 */
 
 /* ABOUT US */
+/* Benefits */
+.benefits--au {
+  padding: 0 0 50px;
+}
+
 .subscribe {
   background-image: url(../assets/images/main/stats.webp);
   background-size: cover;
@@ -524,18 +534,70 @@ button {
 }
 
 @media (max-width: 1024px) {
+  /* Benefits */
+  .benefits {
+    padding: 40px 0;
+    margin-top: 0;
+  }
+
+  .benefits--au {
+    padding: 0 0 50px;
+  }
+
+  .benefits__title {
+    line-height: 140%;
+    margin-bottom: 24px;
+  }
+
+  .benefits__wrapper {
+    gap: 24px;
+  }
+
+  .benefits__card {
+    max-width: 289px;
+  }
+
+  .benefits__card-title {
+    padding: 16px 0 12px;
+  }
 }
 
 @media (max-width: 768px) {
+  /* Benefits */
+  .benefits__card {
+    max-width: 231px;
+  }
+
+  .benefits__card-title {
+    padding: 16px 0 12px;
+  }
+
+  .benefits__btn {
+    margin: 24px auto 0;
+    padding: 6px 16px;
+  }
 }
 
 @media (max-width: 575px) {
+  /* Benefits */
+  .benefits__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefits__card {
+    max-width: 100%;
+  }
+
+  .benefits__btn {
+    padding: 4px 14px;
+  }
 }
 
 @media (max-width: 480px) {
 }
 
-
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
+  /* Benefits */
 }
