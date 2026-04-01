@@ -431,13 +431,6 @@ nav a::after {
   transition: transform 0.22s;
 }
 
-nav a:hover { 
-  color: var(--color-white); 
-}
-nav a:hover::after { 
-  transform: scaleX(1); 
-}
-
 .header__right {
   display: flex;
   gap: 40px;
@@ -470,11 +463,6 @@ nav a:hover::after {
   text-decoration: none;
   cursor: pointer;
   transition: background 0.22s, border-color 0.22s;
-}
-
-.btn-book:hover {
-  background: var(--color-orange);
-  border-color: var(--color-orange);
 }
 
 .burger-btn {
@@ -572,13 +560,6 @@ nav a:hover::after {
   transition: transform 0.22s;
 }
 
-.burger-dropdown__menu a:hover { 
-  color: var(--color-white); 
-}
-.burger-dropdown__menu a:hover::after { 
-  transform: scaleX(1); 
-}
-
 .mobile-overlay {
   display: none;
   position: fixed;
@@ -641,11 +622,6 @@ nav a:hover::after {
   transition: color 0.22s, padding-left 0.22s;
 }
 
-.mobile-menu__nav a:hover {
-  color: var(--color-orange);
-  padding-left: 8px;
-}
-
 .mobile-menu__footer {
   display: flex;
   flex-direction: column;
@@ -662,10 +638,6 @@ nav a:hover::after {
 .mobile-menu__socials a {
   opacity: 0.8;
   transition: opacity 0.22s;
-}
-
-.mobile-menu__socials a:hover {
-  opacity: 1;
 }
 
 /* Секция Hero */
@@ -787,10 +759,6 @@ nav a:hover::after {
   pointer-events: none;
 }
 
-.hero-card:hover {
-  transform: translateY(-1px);
-}
-
 .hero-card strong {
   color: var(--color-orange);
   font-weight: 700;
@@ -805,10 +773,6 @@ nav a:hover::after {
   flex-shrink: 0;
   bottom: 10px;
   right: 10px;
-}
-
-.hero-card:hover .hero-card-arrow { 
-  transform: translateX(4px); 
 }
 
 .hero-right {
@@ -1153,6 +1117,28 @@ nav a:hover::after {
 
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
+  .burger-dropdown__menu a:hover { 
+    color: var(--color-white); 
+  }
+  .burger-dropdown__menu a:hover::after { 
+    transform: scaleX(1); 
+  }
+  nav a:hover { 
+    color: var(--color-white); 
+  }
+  nav a:hover::after { 
+    transform: scaleX(1); 
+  }
+  .btn-book:hover {
+    background: var(--color-orange);
+    border-color: var(--color-orange);
+  }
+  .hero-card:hover {
+    transform: translateY(-1px);
+  }
+  .hero-card:hover .hero-card-arrow { 
+    transform: translateX(4px); 
+  }
 }
 
 @media (max-width: 360px) {
