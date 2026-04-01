@@ -90,4 +90,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Кнопка Наверх
+    const scrollBtn = document.getElementById('scrollTop');
+    const footer = document.querySelector('footer');
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY + window.innerHeight;
+        const footerTop = footer.offsetTop;
+
+        if (scrollY > window.innerHeight && scrollY < footerTop) {
+            scrollBtn.classList.add('is-visible');
+        } else {
+            scrollBtn.classList.remove('is-visible');
+        }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
 });

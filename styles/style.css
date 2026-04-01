@@ -160,6 +160,37 @@ main {
   padding: 0 30px;
 }
 
+/* Кнопка НАВЕРХ */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(215, 83, 0, 0.3); 
+  color: var(--color-orange);
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 500;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
 h6,
 h5,
 h4,
@@ -1138,6 +1169,9 @@ nav a::after {
   }
   .hero-card:hover .hero-card-arrow { 
     transform: translateX(4px); 
+  }
+  .scroll-top:hover {
+    transform: translateY(-2px) scale(1.05);
   }
 }
 
