@@ -443,7 +443,8 @@ nav a:hover::after {
   gap: 40px;
 }
 
-.header-socials__wrapper {
+.header-socials__wrapper,
+.footer-socials__wrapper {
   display: flex;
   gap: 8px;
 }
@@ -481,8 +482,8 @@ nav a:hover::after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background: transparent;
   border: 1px solid var(--color-bg);
   border-radius: 50%;
@@ -709,8 +710,12 @@ nav a:hover::after {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  gap: 45px;
+  justify-content: center;
+  /* justify-content: space-between; */
+  /* justify-content: flex-end; */
   height: 100%;
+  /* padding-top: 34px; */
 }
 
 .hero-top__wrapper {
@@ -729,8 +734,7 @@ nav a:hover::after {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  margin-bottom: 46px;
-
+  /* margin-bottom: 46px; */
 }
 
 .hero-tagline span {
@@ -1007,18 +1011,68 @@ nav a:hover::after {
   .burger-btn {
     display: flex;
   }
+  .footer-nav {
+    display: none;
+  }
 }
 
 @media (max-width: 1024px) {
+  .hero {
+    height: 400px;
+    padding-top: 0;
+    /* padding-bottom: 0; */
+    margin-top: 114px;
+  }
+  .hero__wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .hero-left {
+    gap: 24px;
+    justify-content: space-between;
+  }
+  .hero-top__wrapper {
+    gap: 8px;
+  }
+  .hero-tagline span {
+    font-size: 24px;
+  }
+  .hero-card {
+    height: 70px;
+  }
+
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+  .header {
+    height: 72px;
+  }
+  .logo img{
+    height: 28px;
+  }
+  .btn-book {
+    padding: 7px 19px;
+  }
   .burger-dropdown {
     display: none;
   }
   .mobile-overlay,
   .mobile-menu {
     display: flex;
+  }
+  .social-icon {
+    aspect-ratio: 1 / 1;
+    width: 24px;
+  }
+  .social-icon img {
+    width: 100%;
+    height: 100%;
+  }
+  .hero {
+    padding-top: 86px;
   }
 }
 
@@ -1032,4 +1086,10 @@ nav a:hover::after {
 }
 
 @media (max-width: 480px) {
+}
+
+@media (max-width: 360px) {
+  .btn-book--notmobile {
+    display: none;
+  }
 }

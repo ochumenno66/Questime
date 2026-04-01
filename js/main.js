@@ -75,4 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
         link.addEventListener('click', closeMenu);
     });
 
+    document.getElementById('header').addEventListener('click', function (e) {
+        if (!e.target.closest('#burgerBtn')) {
+            closeMenu();
+        }
+    });
+
 });
