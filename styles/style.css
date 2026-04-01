@@ -461,6 +461,7 @@ button {
   border: 1px solid var(--color-white);
   height: 58px;
   margin-top: 28px;
+  transition: all 0.3s ease;
 }
 
 
@@ -605,10 +606,71 @@ button {
   color: var(--color-white);
   background: transparent;
   border: 1px solid var(--color-white);
+  transition: all 0.3s ease;
 }
 
 /* Partners */
-.partners {
+.partners__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partners__header {
+  margin-bottom: clamp(40px, 5vw, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.partners__subtitle {
+  color: var(--color-orange);
+  text-transform: uppercase;
+  font-family: var(--font3);
+  font-weight: var(--font-weight-regular);
+  margin-top: -20px;
+}
+
+.partners__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(30px, 4vw, 60px);
+  max-width: 1200px;
+  margin-bottom: clamp(40px, 5vw, 80px);
+}
+
+.partners__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 1 calc(25% - 60px); 
+  min-width: 150px;
+}
+
+.partners__item img {
+  max-width: 100%;
+  height: auto;
+  filter: grayscale(0); 
+  transition: transform 0.3s ease;
+}
+
+.partners__item img:hover {
+  transform: scale(1.1);
+}
+
+.partners__footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.partners__btn {
+  background: transparent;
+  border: 1px solid var(--color-orange);
+  color: var(--color-orange);
+  transition: all 0.3s ease;
 }
 
 /* Form */
@@ -693,9 +755,19 @@ button {
   .testimonials__quote-text {
     font-size: clamp(14px, 1.8vw, 22px);
   }
+
+  .partners__item {
+    flex: 0 1 calc(33.333% - 40px);
+  }
 }
 
 @media (max-width: 768px) {
+  .partners__item {
+    flex: 0 1 calc(50% - 30px);
+  }
+  .partners__subtitle {
+    margin-top: -10px;
+  }
   
 }
 
@@ -736,16 +808,21 @@ button {
     font-size: 16px;
     padding: 12px 24px;
   }
+
+  .partners__item {
+    flex: 0 1 100%;
+  }
 }
 
 
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
-  .cta__btn:hover {
+  .cta__btn:hover,
+  .testimonials__btn:hover,
+  .partners__btn:hover {
     transform: scale(1.05);
     border-color: var(--color-orange);
     color: var(--color-orange);
-    transition: all 0.3s ease;
   }
 
   .testimonials__btn:hover {
