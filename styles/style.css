@@ -1080,12 +1080,58 @@ nav a:hover::after {
   .hero {
     height: clamp(301px, calc(215px + 24vw), 399px);
     margin-top: 72px;
-    
   }
+
 }
 
 @media (max-width: 680px) {
   .header-socials__wrapper--mobile {
+    display: none;
+  }
+  .hero {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .hero.section-decorated-dark::after {
+    content: none;
+  }
+  .hero__wrapper {
+    display: block;
+    padding-bottom: 24px;
+    padding-top: 24px;
+  }
+  .hero__wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    background: rgba(25, 26, 24, 0.65);
+  }
+  .hero-right {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-top__wrapper {
+    align-items: center;
+  }
+  .hero-left {
+    position: relative;
+    z-index: 3;
+  }
+  .hero-title {
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0%;
+  }
+  .hero-tagline span {
+    font-size: 16px;
+    line-height: 1.31;
+    letter-spacing: -0.56px;
+  }
+  .hero-slider-dots {
     display: none;
   }
 }
