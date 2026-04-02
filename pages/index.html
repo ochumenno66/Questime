@@ -1,55 +1,101 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Questime</title>
-    <!-- Фавиконки -->
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
 
-    <link rel="stylesheet" href="../styles/style.css" />
-  </head>
-  <body>
-    <header id="header" class="header"></header>
-    <main>
-      <!-- Секция Hero -->
-      <section class="hero section-decorated-dark" id="hero">
-        <h1>WELCOME TO QUESTIME</h1>
-      </section>
-      <!-- Секция Quests -->
-      <section class="quests section-special" id="quests">
-        <h2 class="text-align">Explore our unique quests</h2>
-      </section>
-      <!-- Секция Services -->
-      <section class="services section-decorated-light section-decorated-dark" id="services"></section>
-      <!-- Секция About -->
-      <section class="about section-common" id="about">
-        <h2 class="text-align">WHO WE ARE</h2>
-      </section>
-      <!-- Секция Stats -->
-      <section class="stats decorated-dark-stats decorated-light-stats" id="stats"></section>
-      <!-- Секция Benefits -->
-      <section class="benefits section-common" id="benefits">
-        <h2 class="text-align">WHY us?</h2>
-      </section>
-      <!-- Секция CTA -->
-      <section class="cta decorated-dark-cta decorated-light-cta" id="cta"></section>
-      <!-- Секция Gallery -->
-      <section class="gallery section-common" id="gallery">
-        <h2 class="text-align">GALLERY</h2>
-      </section>
-      <!-- Секция Testimonials -->
-      <section class="testimonials section-decorated-light section-decorated-dark" id="testimonials"></section>
-      <!-- Секция Partners -->
-      <section class="partners section-common" id="partners">
-        <h2 class="text-align">They have played with us</h2>
-      </section>
-      <!-- Секция Form -->
-      <section class="form section-common" id="form"></section>
-    </main>
-    <footer class="footer section-decorated-light"></footer>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questime</title>
+  <!-- Фавиконки -->
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
 
-    <script type="module" src="../js/main.js"></script>
-  </body>
+  <link rel="stylesheet" href="../styles/style.css" />
+</head>
+
+<body>
+  <header id="header" class="header"></header>
+  <main>
+    <!-- Секция Hero -->
+    <section class="hero section-decorated-dark" id="hero">
+      <h1>WELCOME TO QUESTIME</h1>
+    </section>
+    <!-- Секция Quests -->
+    <section class="quests section-special" id="quests">
+      <h2 class="text-align">Explore our unique quests</h2>
+    </section>
+    <!-- Секция Services -->
+    <section class="services section-decorated-light section-decorated-dark" id="services">
+      <div class="services__bg">
+        <picture class="services__bg-img">
+          <source media="(max-width: 575px)" srcset="../assets/images/main/services-mobile.webp">
+          <img src="../assets/images/main/services.webp" alt="Natalia and Mark" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="container">
+        <div class="services__inner">
+          <h2 class="services__heading">What we can offer</h2>
+          <div class="services__list">
+            <div class="services__item">
+              <img src="../assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              City Games &amp; Quests
+            </div>
+            <div class="services__item">
+              <img src="../assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              Immersive Theme Performances
+            </div>
+            <div class="services__item">
+              <img src="../assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              Teambuilding Activities
+            </div>
+            <div class="services__item">
+              <img src="../assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              Event Gamification
+            </div>
+            <div class="services__item">
+              <img src="../assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              Online Quests &amp; Quizzies
+            </div>
+            <div class="services__item">
+              <img src="../assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              Family Days
+            </div>
+            <div class="services__item">
+              <img src="../assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              Edutainment
+            </div>
+          </div>
+          <a href="#" class="btn btn-secondary services__btn">Contact us</a>
+        </div>
+      </div>
+    </section>
+    <!-- Секция About -->
+    <section class="about section-common" id="about">
+      <h2 class="text-align">WHO WE ARE</h2>
+    </section>
+    <!-- Секция Stats -->
+    <section class="stats decorated-dark-stats decorated-light-stats" id="stats"></section>
+    <!-- Секция Benefits -->
+    <section class="benefits section-common" id="benefits">
+      <h2 class="text-align">WHY us?</h2>
+    </section>
+    <!-- Секция CTA -->
+    <section class="cta decorated-dark-cta decorated-light-cta" id="cta"></section>
+    <!-- Секция Gallery -->
+    <section class="gallery section-common" id="gallery">
+      <h2 class="text-align">GALLERY</h2>
+    </section>
+    <!-- Секция Testimonials -->
+    <section class="testimonials section-decorated-light section-decorated-dark" id="testimonials"></section>
+    <!-- Секция Partners -->
+    <section class="partners section-common" id="partners">
+      <h2 class="text-align">They have played with us</h2>
+    </section>
+    <!-- Секция Form -->
+    <section class="form section-common" id="form"></section>
+  </main>
+  <footer class="footer section-decorated-light"></footer>
+
+  <script type="module" src="../js/main.js"></script>
+</body>
+
 </html>
