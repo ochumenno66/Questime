@@ -888,7 +888,140 @@ nav a::after {
 }
 
 /* Quests */
-.quests {}
+.quests__slider-wrap {
+  position: relative;
+}
+
+.quest-card {
+  padding: 40px 60px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.quest-card__top {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.quest-card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.quest-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* .quest-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(120, 40, 0, 0.35);
+  mix-blend-mode: multiply;
+} */
+
+.quest-card__top-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quest-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quest-card__tag {
+  padding: 3px 16px;
+  border: 1px solid var(--color-text);
+  border-radius: 48px;
+  font-family: var(--second-family);
+  font-size: clamp(12px, 0.938vw, 18px);
+}
+
+.quest-card__tag:first-child {
+  border: 1px solid var(--color-orange);
+  color: var(--color-orange);
+}
+
+.quest-card__desc {
+  flex: 1;
+  margin-bottom: 32px;
+  font-size: clamp(14px, 1.25vw, 24px);
+  line-height: 140%;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.quest-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.quest-card__btn-contact {
+  background: var(--color-orange);
+  color: var(--color-white);
+  flex: 1;
+  white-space: nowrap;
+}
+
+.quest-card__btn-learn {
+  border: 1px solid var(--color-text);
+  flex: 1;
+  white-space: nowrap;
+}
+
+.quests__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  right: -20px;
+  transform: translateY(-60%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.quests__nav-btn {
+  pointer-events: all;
+  width: 32px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.quests__btn-prev {
+  background: url("../assets/icons/left-arrow.svg") center / contain no-repeat;
+}
+
+.quests__btn-next {
+  background: url("../assets/icons/right-arrow.svg") center / contain no-repeat;
+}
+
+.quests__pagination.swiper-pagination-bullets {
+  display: none;
+}
 
 /* Services */
 .services {
@@ -1261,7 +1394,57 @@ nav a::after {
   .hero-slider__wrapper {
     min-height: unset;
   }
-  
+
+  /* Quests */
+  .quest-card {
+    padding: 16px;
+  }
+
+  .quest-card__top {
+    margin-bottom: 16px;
+    gap: 16px;
+  }
+
+  .quest-card__tag {
+    padding: 0px 8px;
+  }
+
+  .quest-card__desc {
+    margin-bottom: 16px;
+    line-height: 160%;
+    -webkit-line-clamp: 6;
+  }
+
+  .quest-card__actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .quest-card__btn-contact,
+  .quest-card__btn-learn {
+    width: fit-content;
+    padding: 6px 30px;
+    font-size: 16px;
+  }
+
+  .quests__nav {
+    left: -10px;
+    right: -10px;
+  }
+
+  .quests__nav-btn {
+    width: 17px;
+  }
+
+  .quests__btn-prev {
+    background-image: url("../assets/icons/left-arrow-mobile.svg");
+  }
+
+  .quests__btn-next {
+    background-image: url("../assets/icons/right-arrow-mobile.svg");
+  }
+
   /* About */
   .about__content {
     padding-bottom: 40px;
@@ -1326,8 +1509,8 @@ nav a::after {
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
-  } 
-  
+  }
+
   /* Benefits */
   .benefits {
     padding: 40px 0;
@@ -1487,9 +1670,92 @@ nav a::after {
   .hero-slider-dots {
     display: none;
   }
+
+  /* Quests */
+  .quest-card {
+    padding: 12px;
+    border-radius: 24px;
+    background: rgba(229, 131, 69, 0.15);
+  }
+
+  .quest-card__top {
+    margin-bottom: 8px;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .quest-card__image {
+    width: 156px;
+  }
+
+  .quest-card__top-text {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .quest-card__title {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 140%;
+  }
+
+  .quest-card__tags {
+    gap: 4px;
+  }
+
+  .quest-card__tag {
+    padding: 0px 8px;
+  }
+
+  .quest-card__desc {
+    margin-bottom: 8px;
+    -webkit-line-clamp: 5;
+  }
+
+  .quest-card__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .quest-card__btn-contact,
+  .quest-card__btn-learn {
+    padding: 2px 14px;
+    font-size: 14px;
+  }
+
+  .quests__nav {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .quests__nav-btn {
+    width: 12px;
+    height: 18px;
+  }
+
+  .quests__pagination.swiper-pagination-bullets {
+    width: fit-content;
+    display: flex;
+  }
+
+  .quests .swiper-pagination-bullet {
+    width: 5px;
+    height: 5px;
+    background: var(--color-bg);
+    border: 2px solid var(--color-orange);
+    ;
+  }
+
+  .quests .swiper-pagination-bullet-active {
+    background: var(--color-orange);
+  }
 }
 
 @media (max-width: 575px) {
+
   /* About */
   .about__content {
     padding-bottom: 15px;
@@ -1548,7 +1814,7 @@ nav a::after {
     width: 12px;
     height: 9px;
   }
-  
+
   /* Benefits */
   .benefits__wrapper {
     flex-direction: column;
@@ -1600,6 +1866,11 @@ nav a::after {
 
   .scroll-top:hover {
     transform: translateY(-2px) scale(1.05);
+  }
+
+  /* Quests */
+  .quests__nav-btn:hover {
+    transform: scale(1.1);
   }
 }
 
