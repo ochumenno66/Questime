@@ -170,7 +170,7 @@ main {
   border: none;
   border-radius: 50%;
   background: transparent;
-  border: 1px solid rgba(215, 83, 0, 0.3); 
+  border: 1px solid rgba(215, 83, 0, 0.3);
   color: var(--color-orange);
   font-size: 24px;
   font-weight: bold;
@@ -411,10 +411,10 @@ button {
 /* Header */
 header {
   position: fixed;
-  top: 0; 
-  left: 0; 
+  top: 0;
+  left: 0;
   right: 0;
-  z-index: 500; 
+  z-index: 500;
   height: 114px;
   background: var(--color-header-footer-bg);
 }
@@ -452,9 +452,11 @@ nav a {
 }
 
 nav a::after {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: -4px; left: 0; right: 0;
+  bottom: -4px;
+  left: 0;
+  right: 0;
   height: 1px;
   background: var(--color-orange);
   transform: scaleX(0);
@@ -493,7 +495,9 @@ nav a::after {
   line-height: 30px;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.22s, border-color 0.22s;
+  transition:
+    background 0.22s,
+    border-color 0.22s;
 }
 
 .burger-btn {
@@ -509,7 +513,9 @@ nav a::after {
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
-  transition: border-color 0.22s, background 0.22s;
+  transition:
+    border-color 0.22s,
+    background 0.22s;
 }
 
 .burger-icon {
@@ -525,7 +531,10 @@ nav a::after {
   height: 1.5px;
   background: var(--color-bg);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    width 0.3s ease;
   transform-origin: center;
 }
 
@@ -549,7 +558,9 @@ nav a::after {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  transition: max-height 0.35s ease, opacity 0.3s ease;
+  transition:
+    max-height 0.35s ease,
+    opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -581,9 +592,11 @@ nav a::after {
 }
 
 .burger-dropdown__menu a::after {
-  content: '';
+  content: "";
   position: absolute;
-  bottom: -3px; left: 0; right: 0;
+  bottom: -3px;
+  left: 0;
+  right: 0;
   height: 1px;
   background: var(--color-orange);
   transform: scaleX(0);
@@ -650,7 +663,9 @@ nav a::after {
   font-family: var(--second-family);
   letter-spacing: -0.5px;
   text-transform: uppercase;
-  transition: color 0.22s, padding-left 0.22s;
+  transition:
+    color 0.22s,
+    padding-left 0.22s;
 }
 
 .mobile-menu__footer {
@@ -689,16 +704,21 @@ nav a::after {
 }
 
 .hero__wrapper::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(90deg, #191A18 0%, rgba(25, 26, 24, 0.5) 16%, rgba(25, 26, 24, 0) 31%);
+  background: linear-gradient(
+    90deg,
+    #191a18 0%,
+    rgba(25, 26, 24, 0.5) 16%,
+    rgba(25, 26, 24, 0) 31%
+  );
 }
 
 .hero__wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -771,7 +791,10 @@ nav a::after {
   font-weight: 700;
   letter-spacing: 3px;
   cursor: pointer;
-  transition: background 0.22s, border-color 0.22s, transform 0.18s;
+  transition:
+    background 0.22s,
+    border-color 0.22s,
+    transform 0.18s;
   backdrop-filter: blur(4px);
 }
 
@@ -813,11 +836,17 @@ nav a::after {
 }
 
 .hero-right::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 180px; height: 100%;
-  background: linear-gradient(90deg, var(--color-header-footer-bg) 0%, transparent 100%);
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-header-footer-bg) 0%,
+    transparent 100%
+  );
   z-index: 5;
   pointer-events: none;
 }
@@ -839,26 +868,28 @@ nav a::after {
   will-change: opacity;
 }
 
-.hero-slide.active { opacity: 1; }
+.hero-slide.active {
+  opacity: 1;
+}
 
 .hero-slide::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(15,4,2,0.15);
+  background: rgba(15, 4, 2, 0.15);
 }
 
-.s1 { 
-  background-image: url('../assets/images/main/hero.webp'); 
+.s1 {
+  background-image: url("../assets/images/main/hero.webp");
 }
-.s2 { 
-  background-image: url('../assets/images/main/hero-2.jpg'); 
+.s2 {
+  background-image: url("../assets/images/main/hero-2.jpg");
 }
-.s3 { 
-  background-image: url('../assets/images/main/hero-3.jpg'); 
+.s3 {
+  background-image: url("../assets/images/main/hero-3.jpg");
 }
-.s4 { 
-  background-image: url('../assets/images/main/hero-4.jpg'); 
+.s4 {
+  background-image: url("../assets/images/main/hero-4.jpg");
 }
 
 .hero-slider-dots {
@@ -872,11 +903,14 @@ nav a::after {
 }
 
 .hero-dot {
-  width: 5px; height: 5px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: rgba(245,240,230,0.28);
+  background: rgba(245, 240, 230, 0.28);
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s;
 }
 
 .hero-dot.active {
@@ -972,7 +1006,97 @@ nav a::after {
 }
 
 /* Form */
-.form {
+.contact-form__wrapper {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.contact-form__content {
+  max-width: 772px;
+  width: 100%;
+}
+
+.contact-form__info {
+  margin-bottom: 40px;
+}
+
+.contact-form__title {
+  margin-bottom: 24px;
+}
+
+.contact-form__text {
+  font-size: clamp(14px, 1.8vw, 32px);
+  line-height: 1.5;
+}
+
+.contact-form__phone {
+  color: var(--color-orange);
+}
+
+/* Форма */
+.contact-form__form {
+  margin-top: 24px;
+}
+
+.contact-form__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-family: var(--font-family);
+  font-size: 32px;
+  line-height: 150%;
+  color: var(--color-form-input);
+}
+
+.contact-form__input {
+  width: 100%;
+}
+
+.contact-form__textarea {
+  resize: none;
+  margin: 20px 0 24px;
+  width: 100%;
+  max-width: 100%;
+  height: 140px;
+}
+
+.contact-form__btn {
+  font-family: var(--font-family);
+  background-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+/* Картинка */
+.contact-form__image-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.contact-form__image-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 50px;
+  height: 100%;
+  background: url("../assets/images/Mask-contact.png") repeat-y center / 100%
+    auto;
+}
+
+.contact-form__image {
+  width: 100%;
+  max-width: 790px;
+  height: auto;
+  display: block;
 }
 
 /* Footer */
@@ -1124,13 +1248,16 @@ nav a::after {
 }
 
 @media (max-width: 768px) {
+  h2 {
+    text-transform: math-auto;
+  }
   .container {
     padding: 0 20px;
   }
   .header {
     height: 72px;
   }
-  .logo img{
+  .logo img {
     height: 28px;
   }
   .btn-book {
@@ -1160,7 +1287,7 @@ nav a::after {
     margin-right: 0;
   }
 
-   /* Benefits */
+  /* Benefits */
   .benefits__card {
     max-width: 231px;
   }
@@ -1173,7 +1300,6 @@ nav a::after {
     margin: 24px auto 0;
     padding: 6px 16px;
   }
-
 }
 
 @media (max-width: 680px) {
@@ -1193,7 +1319,7 @@ nav a::after {
     padding-top: 24px;
   }
   .hero__wrapper::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -1252,17 +1378,17 @@ nav a::after {
 
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
-  .burger-dropdown__menu a:hover { 
-    color: var(--color-white); 
+  .burger-dropdown__menu a:hover {
+    color: var(--color-white);
   }
-  .burger-dropdown__menu a:hover::after { 
-    transform: scaleX(1); 
+  .burger-dropdown__menu a:hover::after {
+    transform: scaleX(1);
   }
-  nav a:hover { 
-    color: var(--color-white); 
+  nav a:hover {
+    color: var(--color-white);
   }
-  nav a:hover::after { 
-    transform: scaleX(1); 
+  nav a:hover::after {
+    transform: scaleX(1);
   }
   .btn-book:hover {
     background: var(--color-orange);
@@ -1271,8 +1397,8 @@ nav a::after {
   .hero-card:hover {
     transform: translateY(-1px);
   }
-  .hero-card:hover .hero-card-arrow { 
-    transform: translateX(4px); 
+  .hero-card:hover .hero-card-arrow {
+    transform: translateX(4px);
   }
   .scroll-top:hover {
     transform: translateY(-2px) scale(1.05);
