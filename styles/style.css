@@ -975,7 +975,8 @@ nav a::after {
   background: var(--color-orange);
   font-family: var(--font-family);
   color: var(--color-white);
-  
+}
+
 /* About */
 .about__content {
   position: relative;
@@ -1325,6 +1326,7 @@ nav a::after {
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
+  } 
   
   /* Benefits */
   .benefits {
