@@ -947,9 +947,10 @@ nav a::after {
   font-family: var(--font-family);
   color: var(--color-white);
   background-color: var(--color-orange);
-  font-size: clamp(14px, 1.4vw, 20px);
+  font-size: clamp(16px, 1.4vw, 20px);
   padding: 16px 40px;
   margin: 56px auto 0;
+  line-height: 160%;
 }
 
 /* Cta */
@@ -1242,6 +1243,7 @@ nav a::after {
 
   .benefits__btn {
     padding: 4px 14px;
+    font-size: 14px;
   }
 }
 
