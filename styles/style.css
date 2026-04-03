@@ -95,7 +95,7 @@
   --sandy: #dec884;
 
   /* Адаптивная высота обрезанного края блоков */
-  --tear-height: clamp(40px, 4.9vw, 100px);
+  --tear-height: clamp(20px, 4.9vw, 100px);
 }
 
 input,
