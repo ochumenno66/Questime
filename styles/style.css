@@ -1275,8 +1275,9 @@ nav a::after {
 }
 
 .cta__desc {
-  font-size: clamp(16px, 1.67vw, 32px);
   color: var(--color-white);
+  font-weight: var(--font-weight-regular);
+  font-family: var(--font-family);
 }
 
 .cta__btn {
