@@ -1263,12 +1263,6 @@ nav a::after {
 }
 
 .cta__title {
-  font-family: var(--font3);
-  font-weight: var(--font-weight-bold);
-  font-size: clamp(24px, 2.083vw, 40px);
-  line-height: 1.25;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
   margin-bottom: 0;
 }
 
@@ -1281,9 +1275,7 @@ nav a::after {
 }
 
 .cta__desc {
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-regular);
-  font-size: clamp(16px, 1.25vw, 20px);
+  font-size: clamp(16px, 1.67vw, 32px);
   color: var(--color-white);
 }
 
@@ -1293,6 +1285,7 @@ nav a::after {
   border: 1px solid var(--color-white);
   height: 58px;
   margin-top: 28px;
+  font-family: var(--font-family);
 }
 
 
@@ -1584,6 +1577,13 @@ nav a::after {
 
   .benefits__card-title {
     padding: 16px 0 12px;
+  }
+
+  .cta__btn {
+    font-size: 16px;
+    font-weight: var(--font-weight-regular);
+    padding: 6px 16px;
+    height: auto;
   }
 }
 
@@ -1883,16 +1883,11 @@ nav a::after {
   .cta__btn {
     font-size: 16px;
     padding: 12px 24px;
+    height: auto;
   }
 }
 
 
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
-  .cta__btn:hover {
-    transform: scale(1.05);
-    border-color: var(--color-orange);
-    color: var(--color-orange);
-    transition: all 0.3s ease;
-  }
 }
