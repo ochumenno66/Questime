@@ -1317,13 +1317,14 @@ nav a::after {
 
 .testimonials__title {
   color: var(--color-white);
-  margin-bottom: clamp(16px, 1.5vw, 24px);
+  margin-bottom: 0;
 }
 
 .testimonials__subtitle {
   color: var(--color-white);
   text-align: center;
   margin-bottom: clamp(30px, 2.9vw, 56px);
+  font-weight: var(--font-weight-regular);
 }
 
 .testimonials__accent {
@@ -1422,7 +1423,7 @@ nav a::after {
 
 .testimonials__name {
   font-family: var(--font-family);
-  font-size: clamp(18px, 1vw, 24px);
+  font-size: clamp(16px, 1.25vw, 24px);
   font-weight: var(--font-weight-bold);
   color: var(--color-white);
 }
@@ -1437,6 +1438,8 @@ nav a::after {
   color: var(--color-white);
   background: transparent;
   border: 1px solid var(--color-white);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 3px;
 }
 
 /* Partners */
