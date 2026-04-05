@@ -1194,10 +1194,43 @@ nav a::after {
 
 /* Stats */
 .stats {
-  background-image: url(../assets/images/main/stats.webp);
+  position: relative;
+  background: linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)), linear-gradient(178.88deg, #191A18 0.92%, rgba(25, 26, 24, 0) 49.96%, #191A18 99%), url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 500px;
+}
+
+.stats__wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  flex: 1;
+  color: var(--color-white);
+}
+
+.stat-number {
+  font-family: var(--font3);
+  color: var(--color-orange);
+}
+
+.stat-text {
+  font-size: 32px;
+  line-height: 150%;
+  max-width: 385px;
 }
 
 /* Benefits */
