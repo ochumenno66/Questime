@@ -139,4 +139,50 @@ document.addEventListener("DOMContentLoaded", () => {
       el: ".quests__pagination",
     },
   });
+  // Счетчик в секции СТАТИСТИКА
+  const counters = document.querySelectorAll('.stat-number');
+  const statsWrapper = document.querySelector('.stats__wrapper');
+
+  function animateCounters() {
+  const duration = 2000;
+  const startTime = performance.now();
+
+  counters.forEach(counter => {
+      counter.textContent = '0';
+  });
+
+  function update(time) {
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      counters.forEach(counter => {
+      const target = +counter.dataset.target.replace(/\s/g, '');
+      counter.textContent = Math.floor(target * progress).toLocaleString();
+      });
+
+      if (progress < 1) {
+      requestAnimationFrame(update);
+      } else {
+      counters.forEach(counter => {
+          counter.textContent = counter.dataset.target;
+      });
+      }
+  }
+
+  requestAnimationFrame(update);
+  }
+
+  counters.forEach(counter => {
+  counter.dataset.target = counter.textContent.trim();
+  });
+
+  const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+      if (entry.isIntersecting) {
+      animateCounters();
+      }
+  });
+  }, {threshold: 0.5});
+
+  observer.observe(statsWrapper);
 });
