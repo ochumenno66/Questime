@@ -208,7 +208,8 @@ h1,
 
 /* Заголовок в HERO */
 h1,
-.h1 {
+.h1,
+.stat-number {
   font-size: clamp(32px, 4.2vw, 80px);
   line-height: 1.25;
   letter-spacing: 5px;
@@ -471,20 +472,24 @@ nav a::after {
 
 .btn-book {
   flex-shrink: 0;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 4px;
-  padding: 8px 24px;
+  padding: 7px 24px;
   border: 1px solid var(--color-bg);
   border-radius: 48px;
   background: transparent;
   color: var(--color-white);
-  font-family: var(--font-family);
-  font-size: 18px;
-  line-height: 30px;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.22s, border-color 0.22s;
+  height: 40px;
+}
+
+.btn-book span {
+  font-family: var(--second-family);
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .burger-btn {
@@ -893,7 +898,7 @@ nav a::after {
 }
 
 .quest-card {
-  padding: 40px 60px;
+  padding: 40px 30px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -1195,42 +1200,100 @@ nav a::after {
 /* Stats */
 .stats {
   position: relative;
-  background: linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)), linear-gradient(178.88deg, #191A18 0.92%, rgba(25, 26, 24, 0) 49.96%, #191A18 99%), url(../assets/images/main/stats-bg.jpg);
+  background: linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(178.88deg, #191a18 0.92%, rgba(25, 26, 24, 0) 49.96%, #191a18 99%),
+    url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
-  height: 500px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
 }
 
 .stats__wrapper {
   width: 100%;
-  height: 100%;
   position: relative;
   z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  column-gap: 0;
+  row-gap: 8px;
 }
 
 .stat__wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: contents;
+}
+
+.stat-number,
+.stat-text {
   text-align: center;
-  gap: 8px;
-  flex: 1;
   color: var(--color-white);
+}
+
+.stat__wrapper:nth-child(1) .stat-number { 
+  grid-column: 1; 
+  grid-row: 1; 
+}
+
+.stat__wrapper:nth-child(2) .stat-number { 
+  grid-column: 2; 
+  grid-row: 1; 
+}
+
+.stat__wrapper:nth-child(3) .stat-number { 
+  grid-column: 3; 
+  grid-row: 1; 
+}
+
+.stat__wrapper:nth-child(1) .stat-text { 
+  grid-column: 1; 
+  grid-row: 2; 
+}
+
+.stat__wrapper:nth-child(2) .stat-text { 
+  grid-column: 2; 
+  grid-row: 2; 
+}
+
+.stat__wrapper:nth-child(3) .stat-text { 
+  grid-column: 3; 
+  grid-row: 2; 
 }
 
 .stat-number {
   font-family: var(--font3);
   color: var(--color-orange);
+  align-self: end;
 }
 
 .stat-text {
   font-size: 32px;
   line-height: 150%;
   max-width: 385px;
+  margin: 0 auto;
+  align-self: start;
+}
+
+@supports (grid-template-rows: subgrid) {
+  .stat__wrapper {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    align-items: start;
+  }
+
+  .stat__wrapper:nth-child(1) .stat-number,
+  .stat__wrapper:nth-child(2) .stat-number,
+  .stat__wrapper:nth-child(3) .stat-number,
+  .stat__wrapper:nth-child(1) .stat-text,
+  .stat__wrapper:nth-child(2) .stat-text,
+  .stat__wrapper:nth-child(3) .stat-text {
+    grid-column: unset;
+    grid-row: unset;
+  }
 }
 
 /* Benefits */
@@ -1623,6 +1686,20 @@ nav a::after {
   .hero-card strong {
     font-weight: 400;
     margin-right: 0;
+  }
+
+  /* Stats */
+  .stats {
+    min-height: 250px;
+  }
+  .stat-number {
+    font-size: 24px;
+    line-height: 140%;
+  }
+
+  .stat-text {
+    font-size: 16px;
+    line-height: 160%;
   }
 
   /* Benefits */
