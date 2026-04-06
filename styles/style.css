@@ -170,6 +170,8 @@ main {
   color: var(--color-orange);
   font-size: 24px;
   font-weight: bold;
+  line-height: 1;
+  padding-bottom: 0.1em;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1450,6 +1452,9 @@ nav a::after {
 }
 
 @media (max-width: 1024px) {
+  .scroll-top {
+    display: none !important;
+  }
   .hero {
     height: 400px;
     padding-top: 16px;

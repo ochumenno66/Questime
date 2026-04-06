@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.querySelector("footer");
 
   window.addEventListener("scroll", () => {
+    if (window.innerWidth <= 1024) return;
+
     const scrollY = window.scrollY + window.innerHeight;
     const footerTop = footer.offsetTop;
 
