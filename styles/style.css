@@ -1219,6 +1219,13 @@ nav a::after {
   align-items: center;
 }
 
+.stats__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
 .stats__wrapper {
   width: 100%;
   position: relative;
@@ -1302,6 +1309,12 @@ nav a::after {
     grid-column: unset;
     grid-row: unset;
   }
+}
+
+.btn-download {
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  font-family: var(--font-family);
 }
 
 /* Benefits */
@@ -1663,6 +1676,14 @@ nav a::after {
     padding: 0 20px;
   }
 
+  .btn-secondary {
+    padding: 6px 16px;
+    font-size: 16px;
+    line-height: 160%;
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0%;
+  }
+
   .header {
     height: 72px;
   }
@@ -1965,7 +1986,12 @@ nav a::after {
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  .btn-secondary {
+    padding: 2px 14px;
+    font-size: 14px;
+  }
+}
 
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
