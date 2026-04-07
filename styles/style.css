@@ -171,6 +171,8 @@ main {
   color: var(--color-orange);
   font-size: 24px;
   font-weight: bold;
+  line-height: 1;
+  padding-bottom: 0.1em;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -209,7 +211,8 @@ h1,
 
 /* Заголовок в HERO */
 h1,
-.h1 {
+.h1,
+.stat-number {
   font-size: clamp(32px, 4.2vw, 80px);
   line-height: 1.25;
   letter-spacing: 5px;
@@ -471,23 +474,32 @@ nav a::after {
 }
 
 .btn-book {
-  flex-shrink: 0;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 8px 24px;
+  padding: 0 24px;
   border: 1px solid var(--color-bg);
   border-radius: 48px;
   background: transparent;
   color: var(--color-white);
-  font-family: var(--font-family);
-  font-size: 18px;
-  line-height: 30px;
   text-decoration: none;
   cursor: pointer;
-  transition:
-    background 0.22s,
-    border-color 0.22s;
+  transition: background 0.22s, border-color 0.22s;
+  box-sizing: border-box;
+}
+
+.btn-book span {
+  display: block;
+  font-family: var(--second-family);
+  font-size: 18px;
+  line-height: 1;
+  padding-top: 0.12em;
+}
+
+.btn-book svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .burger-btn {
@@ -618,8 +630,8 @@ nav a::after {
   background: var(--color-header-footer-bg);
   z-index: 400;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
+  /* justify-content: space-between; */
+  gap: 30px;
   padding: 100px 32px 40px;
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -911,7 +923,140 @@ nav a::after {
 }
 
 /* Quests */
-.quests {}
+.quests__slider-wrap {
+  position: relative;
+}
+
+.quest-card {
+  padding: 40px 30px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.quest-card__top {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.quest-card__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.quest-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* .quest-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(120, 40, 0, 0.35);
+  mix-blend-mode: multiply;
+} */
+
+.quest-card__top-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quest-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quest-card__tag {
+  padding: 3px 16px;
+  border: 1px solid var(--color-text);
+  border-radius: 48px;
+  font-family: var(--second-family);
+  font-size: clamp(12px, 0.938vw, 18px);
+}
+
+.quest-card__tag:first-child {
+  border: 1px solid var(--color-orange);
+  color: var(--color-orange);
+}
+
+.quest-card__desc {
+  flex: 1;
+  margin-bottom: 32px;
+  font-size: clamp(14px, 1.25vw, 24px);
+  line-height: 140%;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.quest-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.quest-card__btn-contact {
+  background: var(--color-orange);
+  color: var(--color-white);
+  flex: 1;
+  white-space: nowrap;
+}
+
+.quest-card__btn-learn {
+  border: 1px solid var(--color-text);
+  flex: 1;
+  white-space: nowrap;
+}
+
+.quests__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  right: -20px;
+  transform: translateY(-60%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.quests__nav-btn {
+  pointer-events: all;
+  width: 32px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.quests__btn-prev {
+  background: url("../assets/icons/left-arrow.svg") center / contain no-repeat;
+}
+
+.quests__btn-next {
+  background: url("../assets/icons/right-arrow.svg") center / contain no-repeat;
+}
+
+.quests__pagination.swiper-pagination-bullets {
+  display: none;
+}
 
 /* Services */
 .services {
@@ -1084,10 +1229,113 @@ nav a::after {
 
 /* Stats */
 .stats {
-  background-image: url(../assets/images/main/stats.webp);
+  position: relative;
+  background: linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(178.88deg, #191a18 0.92%, rgba(25, 26, 24, 0) 49.96%, #191a18 99%),
+    url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
-  height: 200px;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.stats__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.stats__wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  column-gap: 10px;
+  row-gap: 8px;
+}
+
+.stat__wrapper {
+  display: contents;
+}
+
+.stat-number,
+.stat-text {
+  text-align: center;
+  color: var(--color-white);
+}
+
+.stat__wrapper:nth-child(1) .stat-number { 
+  grid-column: 1; 
+  grid-row: 1; 
+}
+
+.stat__wrapper:nth-child(2) .stat-number { 
+  grid-column: 2; 
+  grid-row: 1; 
+}
+
+.stat__wrapper:nth-child(3) .stat-number { 
+  grid-column: 3; 
+  grid-row: 1; 
+}
+
+.stat__wrapper:nth-child(1) .stat-text { 
+  grid-column: 1; 
+  grid-row: 2; 
+}
+
+.stat__wrapper:nth-child(2) .stat-text { 
+  grid-column: 2; 
+  grid-row: 2; 
+}
+
+.stat__wrapper:nth-child(3) .stat-text { 
+  grid-column: 3; 
+  grid-row: 2; 
+}
+
+.stat-number {
+  font-family: var(--font3);
+  color: var(--color-orange);
+  align-self: end;
+}
+
+.stat-text {
+  font-size: 32px;
+  line-height: 150%;
+  max-width: 385px;
+  margin: 0 auto;
+  align-self: start;
+}
+
+@supports (grid-template-rows: subgrid) {
+  .stat__wrapper {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    align-items: start;
+  }
+
+  .stat__wrapper:nth-child(1) .stat-number,
+  .stat__wrapper:nth-child(2) .stat-number,
+  .stat__wrapper:nth-child(3) .stat-number,
+  .stat__wrapper:nth-child(1) .stat-text,
+  .stat__wrapper:nth-child(2) .stat-text,
+  .stat__wrapper:nth-child(3) .stat-text {
+    grid-column: unset;
+    grid-row: unset;
+  }
+}
+
+.btn-download {
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  font-family: var(--font-family);
 }
 
 /* Benefits */
@@ -1328,6 +1576,9 @@ nav a::after {
 }
 
 @media (max-width: 1024px) {
+  .scroll-top {
+    display: none !important;
+  }
   .hero {
     height: 400px;
     padding-top: 16px;
@@ -1375,7 +1626,57 @@ nav a::after {
   .hero-slider__wrapper {
     min-height: unset;
   }
-  
+
+  /* Quests */
+  .quest-card {
+    padding: 16px;
+  }
+
+  .quest-card__top {
+    margin-bottom: 16px;
+    gap: 16px;
+  }
+
+  .quest-card__tag {
+    padding: 0px 8px;
+  }
+
+  .quest-card__desc {
+    margin-bottom: 16px;
+    line-height: 160%;
+    -webkit-line-clamp: 6;
+  }
+
+  .quest-card__actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .quest-card__btn-contact,
+  .quest-card__btn-learn {
+    width: fit-content;
+    padding: 6px 30px;
+    font-size: 16px;
+  }
+
+  .quests__nav {
+    left: -10px;
+    right: -10px;
+  }
+
+  .quests__nav-btn {
+    width: 17px;
+  }
+
+  .quests__btn-prev {
+    background-image: url("../assets/icons/left-arrow-mobile.svg");
+  }
+
+  .quests__btn-next {
+    background-image: url("../assets/icons/right-arrow-mobile.svg");
+  }
+
   /* About */
   .about__content {
     padding-bottom: 40px;
@@ -1440,8 +1741,13 @@ nav a::after {
     font-weight: 400;
     font-size: 16px;
     line-height: 160%;
-  } 
-  
+  }
+
+  /* Stats */
+  .stat-number {
+    letter-spacing: 0%;
+  }
+
   /* Benefits */
   .benefits {
     padding: 40px 0;
@@ -1480,6 +1786,14 @@ nav a::after {
 
   .container {
     padding: 0 20px;
+  }
+
+  .btn-secondary {
+    padding: 6px 16px;
+    font-size: 16px;
+    line-height: 160%;
+    font-weight: var(--font-weight-regular);
+    letter-spacing: 0%;
   }
 
   .header {
@@ -1521,6 +1835,20 @@ nav a::after {
   .hero-card strong {
     font-weight: 400;
     margin-right: 0;
+  }
+
+  /* Stats */
+  .stats {
+    min-height: 250px;
+  }
+  .stat-number {
+    font-size: 24px;
+    line-height: 140%;
+  }
+
+  .stat-text {
+    font-size: 16px;
+    line-height: 160%;
   }
 
   /* Benefits */
@@ -1600,9 +1928,100 @@ nav a::after {
   .hero-slider-dots {
     display: none;
   }
+
+  /* Quests */
+  .quest-card {
+    padding: 12px;
+    border-radius: 24px;
+    background: rgba(229, 131, 69, 0.15);
+  }
+
+  .quest-card__top {
+    margin-bottom: 8px;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .quest-card__image {
+    width: 156px;
+  }
+
+  .quest-card__top-text {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .quest-card__title {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 140%;
+  }
+
+  .quest-card__tags {
+    gap: 4px;
+  }
+
+  .quest-card__tag {
+    padding: 0px 8px;
+  }
+
+  .quest-card__desc {
+    margin-bottom: 8px;
+    -webkit-line-clamp: 5;
+  }
+
+  .quest-card__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .quest-card__btn-contact,
+  .quest-card__btn-learn {
+    padding: 2px 14px;
+    font-size: 14px;
+  }
+
+  .quests__nav {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .quests__nav-btn {
+    width: 12px;
+    height: 18px;
+  }
+
+  .quests__pagination.swiper-pagination-bullets {
+    width: fit-content;
+    display: flex;
+  }
+
+  .quests .swiper-pagination-bullet {
+    width: 5px;
+    height: 5px;
+    background: var(--color-bg);
+    border: 2px solid var(--color-orange);
+    ;
+  }
+
+  .quests .swiper-pagination-bullet-active {
+    background: var(--color-orange);
+  }
+  /* Stats */
+  .stats__wrapper {
+    grid-template-columns: 1fr 123px 1fr;
+  }
+  .stat-text {
+    font-size: 14px;
+    line-height: 160%;
+  }
 }
 
 @media (max-width: 575px) {
+
   /* About */
   .about__content {
     padding-bottom: 15px;
@@ -1661,7 +2080,7 @@ nav a::after {
     width: 12px;
     height: 9px;
   }
-  
+
   /* Benefits */
   .benefits__wrapper {
     flex-direction: column;
@@ -1678,7 +2097,12 @@ nav a::after {
   }
 }
 
-@media (max-width: 480px) {}
+@media (max-width: 480px) {
+  .btn-secondary {
+    padding: 2px 14px;
+    font-size: 14px;
+  }
+}
 
 /* Hover only for desktop  */
 @media (hover: hover) and (pointer: fine) {
@@ -1713,6 +2137,11 @@ nav a::after {
 
   .scroll-top:hover {
     transform: translateY(-2px) scale(1.05);
+  }
+
+  /* Quests */
+  .quests__nav-btn:hover {
+    transform: scale(1.1);
   }
 }
 
