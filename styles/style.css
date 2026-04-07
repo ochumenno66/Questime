@@ -306,14 +306,14 @@ button {
 
 /* Обычная секция */
 .section-common {
-  margin-top: clamp(50px, 5.2083vw, 100px);
-  margin-bottom: clamp(50px, 5.2083vw, 100px);
+  margin-top: clamp(40px, 5.56vw, 80px);
+  margin-bottom: clamp(40px, 5.56vw, 80px);
 }
 
 /* Секция quests */
 .section-special {
   margin-top: calc(var(--tear-height) + clamp(20px, 1.6vw, 25px));
-  margin-bottom: clamp(50px, 5.2083vw, 100px);
+  margin-bottom: clamp(40px, 5.56vw, 80px);
 }
 
 /* Секции с рваными краями */
