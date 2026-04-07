@@ -718,9 +718,9 @@ nav a::after {
 
 /* Секция Hero */
 .hero {
-  height: 100vh;
+  height: calc(100vh - 88px);
   max-height: 800px;
-  padding-top: 88px;
+  margin-top: 88px;
   padding-bottom: 40px;
   background: var(--color-header-footer-bg);
 }
@@ -1484,6 +1484,107 @@ nav a::after {
 /* SCHEDULE */
 
 /* CUSTOM GAMES */
+/* HERO */
+.btn--orange {
+  background: var(--color-orange);
+}
+
+.custom-games-hero {
+  position: relative;
+  padding-bottom: 0 !important;
+}
+.custom-games-hero__wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.custom-games-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(180deg, #191A18 0%, rgba(25, 26, 24, 0) 49.04%, #191A18 100%),
+    url('../assets/images/custom-games/hero-full.jpg') center / cover no-repeat;
+  z-index: 0;
+}
+.custom-games-hero__image-wrap {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: clamp(280px, 34vw, 480px);
+  aspect-ratio: 1;
+  animation: zoomIn .9s .15s cubic-bezier(.22,1,.36,1) both;
+}
+
+.custom-games-hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.custom-games-hero__content {
+  color: var(--color-white);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.custom-games-hero__body {
+  width: 56%;
+  max-width: 790px;
+  font-size: var(--font-family);
+  font-size: 24px;
+}
+
+.custom-games-hero__body p:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.custom-games-hero__title {
+  text-transform: uppercase;
+}
+
+.custom-games-hero__actions {
+  display: flex;
+  gap: 40px;
+}
+
+/* Хлебные крошки */
+.hero__breadcrumbs {
+  position: absolute;
+  top: 24px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__breadcrumbs a,
+.hero__breadcrumbs span {
+  font-family: var(--second-family);
+  color: var(--light-orange);
+  font-size: 18px;
+  line-height: 1.333;
+}
+
+.breadcrumb__link {
+  color: var(--light-orange);
+  text-decoration: none;
+  transition: color .2s;
+  text-transform: none;
+}
+
+.breadcrumb__link:hover {
+  color: var(--light-orange);
+}
 
 /* 404 */
 
