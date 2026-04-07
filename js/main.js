@@ -7,18 +7,31 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Testimonials carousel
-  const testimonialsSwiper = new Swiper(".testimonials__carousel", {
-    loop: true,
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: "auto",
-    spaceBetween: 24,
-    breakpoints: {
-      575: {
-        slidesPerView: "auto",
-      },
-    },
-  });
+  let testimonialsSwiper;
+
+  function initTestimonialsSwiper() {
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth > 575) {
+      if (!testimonialsSwiper) {
+        testimonialsSwiper = new Swiper(".testimonials__carousel", {
+          loop: true,
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          spaceBetween: 24,
+        });
+      }
+    } else {
+      if (testimonialsSwiper) {
+        testimonialsSwiper.destroy(true, true); 
+        testimonialsSwiper = null;
+      }
+    }
+  }
+
+  initTestimonialsSwiper();
+  window.addEventListener("resize", initTestimonialsSwiper);
 
   // Автослайдер в секции HERO
   const INTERVAL = 4200;
