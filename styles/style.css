@@ -1432,23 +1432,25 @@ nav a::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(30px, 4vw, 80px);
+  gap: clamp(40px, 5vw, 80px);
 }
 
 .partners__grid {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
   gap: clamp(20px, 3vw, 48px);
+  max-width: 1200px;
 }
 
 .partners__item {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  flex: 0 1 calc(25% - 48px); 
+  min-width: 150px;
   height: clamp(60px, 8.7vw, 167px);
 }
 
@@ -2089,11 +2091,6 @@ nav a::after {
   .benefits__btn {
     padding: 4px 14px;
     font-size: 14px;
-  }
-
-  /* Partners */
-  .partners__grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
