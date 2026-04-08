@@ -1518,10 +1518,6 @@ nav a::after {
 }
 
 /* TEAM BUILDING */
-/* Benefits */
-.benefits__card-title--tb {
-  text-transform: uppercase;
-}
 
 .quote-tb {
   background-image: url(../assets/images/team-building/quote-TB.webp);
@@ -1543,10 +1539,6 @@ nav a::after {
 /* 404 */
 
 /* ABOUT US */
-/* Benefits */
-.benefits--au {
-  padding: 0 0 50px;
-}
 
 .subscribe {
   background-image: url(../assets/images/main/stats.webp);
