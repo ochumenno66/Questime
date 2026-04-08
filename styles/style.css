@@ -1436,7 +1436,51 @@ nav a::after {
 }
 
 /* Gallery */
-.gallery {
+.gallery-slider {
+  overflow: hidden;
+  padding: clamp(40px, 8vw, 120px) 0 0;
+}
+
+.gallery-slider__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(9px, 1.1vw, 15px);
+}
+
+.slider-track__horizontal,
+.slider-track__vertical {
+  display: flex;
+  align-items: center;
+  /*gap: clamp(12px, 1.39vw, 18px);*/
+  width: max-content;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+.slide-top,
+.slide-bottom {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-right: clamp(9px, 1.1vw, 15px);
+}
+
+.slide-top {
+  /*height: clamp(7.25rem, 16vw + 3rem, 16rem);*/
+  height: clamp(7.5rem, 14vw + 3rem, 15rem);
+}
+
+.slide-bottom {
+  /*height: clamp(10rem, 18vw + 4rem, 24rem);*/
+  height: clamp(10rem, 22vw + 4rem, 24rem);
+}
+
+.slide-top img,
+.slide-bottom img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* Testimonials */
@@ -1487,6 +1531,10 @@ nav a::after {
 }
 
 /* EVENTS PAGE */
+/* Gallery */
+.gallery-slider--ep {
+  padding-top: 0;
+}
 
 /* SCHEDULE */
 
