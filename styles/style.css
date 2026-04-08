@@ -1458,17 +1458,12 @@ nav a::after {
 }
 
 .slide-top {
-  /*height: clamp(7.25rem, 26.296vw + 1.333rem, 400px);
-  height: clamp(7.25rem, 10.556vw + 4.875rem, 14.375rem);*/
-  /*max-width: 808px;
-  height: clamp(7.25rem, 18vw + 3rem, 20rem);*/
-  height: clamp(7.25rem, 16vw + 3rem, 16rem);
+  /*height: clamp(7.25rem, 16vw + 3rem, 16rem);*/
+  height: clamp(7.5rem, 14vw + 3rem, 15rem);
 }
 
 .slide-bottom {
-  /*height: clamp(12.5rem, 36.111vw + 4.375rem, 690px);
-  height: clamp(9.625rem, 20.926vw + 4.917rem, 23.75rem);
-  height: clamp(11rem, 28vw + 4rem, 32rem);*/
+  /*height: clamp(10rem, 18vw + 4rem, 24rem);*/
   height: clamp(10rem, 22vw + 4rem, 24rem);
 }
 
