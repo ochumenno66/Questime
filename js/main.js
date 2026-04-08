@@ -193,73 +193,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Слайдер в секции Gallery
   function initSlider(trackSelector, speed, direction) {
-  const track = document.querySelector(trackSelector);
-  if (!track) return;
+    const track = document.querySelector(trackSelector);
+    if (!track) return;
 
-  const slides = [...track.children];
-  let position = direction === "right" ? -track.scrollWidth / 2 : 0;
-  let trackWidth = 0;
-  let isPaused = false;
+    const slides = [...track.children];
+    let position = direction === "right" ? -track.scrollWidth / 2 : 0;
+    let trackWidth = 0;
+    let isPaused = false;
 
-  slides.forEach((slide) => {
-    track.appendChild(slide.cloneNode(true));
-  });
+    slides.forEach((slide) => {
+      track.appendChild(slide.cloneNode(true));
+    });
 
-  function updateTrackWidth() {
-    trackWidth = track.scrollWidth / 2;
+    function updateTrackWidth() {
+      trackWidth = track.scrollWidth / 2;
 
-    if (direction === "right") {
-      position = -trackWidth;
-      track.style.transform = `translateX(${position}px)`;
-    }
-  }
-
-  function animate() {
-    if (!isPaused) {
-      position += direction === "left" ? -speed : speed;
-
-      if (direction === "left" && Math.abs(position) >= trackWidth) {
-        position = 0;
-      }
-
-      if (direction === "right" && position >= 0) {
+      if (direction === "right") {
         position = -trackWidth;
+        track.style.transform = `translateX(${position}px)`;
       }
-
-      track.style.transform = `translateX(${position}px)`;
     }
 
-    requestAnimationFrame(animate);
+    function animate() {
+      if (!isPaused) {
+        position += direction === "left" ? -speed : speed;
+
+        if (direction === "left" && Math.abs(position) >= trackWidth) {
+          position = 0;
+        }
+
+        if (direction === "right" && position >= 0) {
+          position = -trackWidth;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    const pauseSlider = () => {
+      isPaused = true;
+    };
+
+    const startSlider = () => {
+      isPaused = false;
+    };
+
+    track.addEventListener("mouseenter", pauseSlider);
+    track.addEventListener("mouseleave", startSlider);
+    track.addEventListener("touchstart", pauseSlider, { passive: true });
+    track.addEventListener("touchend", startSlider);
+    track.addEventListener("touchcancel", startSlider);
+
+    updateTrackWidth();
+    animate();
+
+    window.addEventListener("resize", updateTrackWidth);
   }
 
-  const pauseSlider = () => {
-    isPaused = true;
-  };
+  window.addEventListener("load", () => {
+    const isMobile = window.innerWidth <= 768;
 
-  const startSlider = () => {
-    isPaused = false;
-  };
+    const speedTop = isMobile ? 0.18 : 0.4;
+    const speedBottom = isMobile ? 0.12 : 0.3;
 
-  track.addEventListener("mouseenter", pauseSlider);
-  track.addEventListener("mouseleave", startSlider);
-  track.addEventListener("touchstart", pauseSlider, { passive: true });
-  track.addEventListener("touchend", startSlider);
-  track.addEventListener("touchcancel", startSlider);
-
-  updateTrackWidth();
-  animate();
-
-  window.addEventListener("resize", updateTrackWidth);
-}
-
-window.addEventListener("load", () => {
-  const isMobile = window.innerWidth <= 768;
-
-  const speed = isMobile ? 0.3 : 0.5;
-
-  initSlider("#slider-track__horizontal", speed, "left");
-  initSlider("#slider-track__vertical", speed, "right");
-});
+    initSlider("#slider-track__horizontal", speedTop, "left");
+    initSlider("#slider-track__vertical", speedBottom, "right");
+  });
 
   /*
   function initSlider(trackSelector, speed, direction) {
