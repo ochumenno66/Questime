@@ -1436,7 +1436,7 @@ nav a::after {
 .gallery-slider__wrapper {
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1.39vw, 18px);
+  gap: clamp(9px, 1.1vw, 15px);
 }
 
 .slider-track__horizontal,
@@ -1454,7 +1454,7 @@ nav a::after {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  margin-right: clamp(10px, 1.2vw, 16px);
+  margin-right: clamp(9px, 1.1vw, 15px);
 }
 
 .slide-top {

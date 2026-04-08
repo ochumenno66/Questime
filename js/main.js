@@ -255,8 +255,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", () => {
     const isMobile = window.innerWidth <= 768;
 
-    const speedTop = isMobile ? 0.18 : 0.4;
-    const speedBottom = isMobile ? 0.12 : 0.3;
+    const speedTop = isMobile ? 0.22 : 0.4;
+    const speedBottom = isMobile ? 0.15 : 0.3;
 
     initSlider("#slider-track__horizontal", speedTop, "left");
     initSlider("#slider-track__vertical", speedBottom, "right");
