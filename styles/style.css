@@ -159,7 +159,7 @@ main {
 
 .container {
   margin: auto;
-  max-width: 1440px;
+  max-width: 1460px;
   padding: 0 30px;
 }
 
@@ -421,7 +421,7 @@ header {
   left: 0;
   right: 0;
   z-index: 500;
-  height: 114px;
+  height: 88px;
   background: var(--color-header-footer-bg);
 }
 
@@ -472,6 +472,7 @@ nav a::after {
 
 .header__right {
   display: flex;
+  align-items: center;
   gap: 40px;
 }
 
@@ -486,12 +487,23 @@ nav a::after {
   gap: 8px;
 }
 
+.social-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.social-icon img {
+  width: 100%;
+  height: 100%;
+}
+
 .btn-book {
-  height: 40px;
+  /* height: 40px; */
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 0 24px;
+  padding: 5px 24px 4px;
   border: 1px solid var(--color-bg);
   border-radius: 48px;
   background: transparent;
@@ -570,7 +582,7 @@ nav a::after {
 
 .burger-dropdown {
   position: absolute;
-  top: 114px;
+  top: 88px;
   left: 0;
   right: 0;
   background: var(--color-header-footer-bg);
@@ -645,7 +657,6 @@ nav a::after {
   background: var(--color-header-footer-bg);
   z-index: 400;
   flex-direction: column;
-  /* justify-content: space-between; */
   gap: 30px;
   padding: 100px 32px 40px;
   transform: translateX(100%);
@@ -709,7 +720,7 @@ nav a::after {
 .hero {
   height: 100vh;
   max-height: 800px;
-  padding-top: 114px;
+  padding-top: 88px;
   padding-bottom: 40px;
   background: var(--color-header-footer-bg);
 }
@@ -761,7 +772,6 @@ nav a::after {
 }
 
 .hero-title {
-  font-family: var(--font3);
   text-transform: uppercase;
   color: var(--color-white);
 }
@@ -774,9 +784,9 @@ nav a::after {
 
 .hero-tagline span {
   font-family: var(--font3);
-  font-size: 40px;
+  font-size: 35px;
   text-transform: uppercase;
-  line-height: 1.125;
+  line-height: 1.286;
   letter-spacing: 5%;
 }
 
@@ -1437,7 +1447,7 @@ nav a::after {
 
 /* Footer */
 .footer {
-  padding: 36px 0;
+  padding: 14px 0;
 }
 
 /* GAMIFIED-TOURS */
@@ -1525,8 +1535,8 @@ nav a::after {
   }
   .hero {
     height: 400px;
-    padding-top: 16px;
-    margin-top: 114px;
+    padding-top: 24px;
+    margin-top: 88px;
   }
 
   .hero__wrapper {
@@ -1539,8 +1549,26 @@ nav a::after {
     justify-content: space-between;
   }
 
+  .hero-title span {
+    display: block;
+  }
+
+  .hero-title span:first-child {
+      margin-bottom: 10px;
+  }
+
+  .hero-tagline span {
+    line-height: 160%;
+  }
+
   .hero-top__wrapper {
     gap: 8px;
+  }
+
+  .hero-title {
+    font-size: 35px;
+    line-height: 1.286;
+    letter-spacing: 5%;
   }
 
   .hero-tagline span {
@@ -1849,12 +1877,14 @@ nav a::after {
 
   .hero-top__wrapper {
     align-items: center;
+    gap: 16px;
   }
 
   .hero-left {
     position: relative;
     z-index: 3;
     justify-content: flex-end;
+    gap: 20px;
   }
 
   .hero-title {
@@ -1868,6 +1898,14 @@ nav a::after {
     font-size: 16px;
     line-height: 1.31;
     letter-spacing: -0.56px;
+  }
+
+  .hero-title span {
+    display: inline;
+  }
+
+  .hero-title span:first-child {
+    margin-bottom: 0;
   }
 
   .hero-slider-dots {
