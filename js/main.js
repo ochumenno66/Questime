@@ -253,8 +253,12 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 window.addEventListener("load", () => {
-  initSlider("#slider-track__horizontal", 0.5, "left");
-  initSlider("#slider-track__vertical", 0.5, "right");
+  const isMobile = window.innerWidth <= 768;
+
+  const speed = isMobile ? 0.3 : 0.5;
+
+  initSlider("#slider-track__horizontal", speed, "left");
+  initSlider("#slider-track__vertical", speed, "right");
 });
 
   /*
