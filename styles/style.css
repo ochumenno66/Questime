@@ -1523,6 +1523,10 @@ nav a::after {
 }
 
 /* EVENTS PAGE */
+/* Gallery */
+.gallery-slider--ep {
+  padding-top: 0;
+}
 
 /* SCHEDULE */
 

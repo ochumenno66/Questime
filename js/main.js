@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!track) return;
 
     const slides = [...track.children];
-    let position = direction === "right" ? -track.scrollWidth / 2 : 0;
+    let position = 0;
     let trackWidth = 0;
     let isPaused = false;
 
@@ -232,19 +232,29 @@ document.addEventListener("DOMContentLoaded", () => {
       requestAnimationFrame(animate);
     }
 
-    const pauseSlider = () => {
+    track.addEventListener("mouseenter", () => {
       isPaused = true;
-    };
+    });
 
-    const startSlider = () => {
+    track.addEventListener("mouseleave", () => {
       isPaused = false;
-    };
+    });
 
-    track.addEventListener("mouseenter", pauseSlider);
-    track.addEventListener("mouseleave", startSlider);
-    track.addEventListener("touchstart", pauseSlider, { passive: true });
-    track.addEventListener("touchend", startSlider);
-    track.addEventListener("touchcancel", startSlider);
+    track.addEventListener(
+      "touchstart",
+      () => {
+        isPaused = true;
+      },
+      { passive: true },
+    );
+
+    track.addEventListener("touchend", () => {
+      isPaused = false;
+    });
+
+    track.addEventListener("touchcancel", () => {
+      isPaused = false;
+    });
 
     updateTrackWidth();
     animate();
@@ -253,86 +263,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("load", () => {
-    const isMobile = window.innerWidth <= 768;
+    const width = window.innerWidth;
 
-    const speedTop = isMobile ? 0.22 : 0.4;
-    const speedBottom = isMobile ? 0.15 : 0.3;
+    let speedTop;
+    let speedBottom;
+
+    if (width <= 576) {
+      speedTop = 0.23;
+      speedBottom = 0.18;
+    } else if (width <= 768) {
+      speedTop = 0.38;
+      speedBottom = 0.28;
+    } else if (width <= 1024) {
+      speedTop = 0.6;
+      speedBottom = 0.45;
+    } else {
+      speedTop = 0.67;
+      speedBottom = 0.49;
+    }
 
     initSlider("#slider-track__horizontal", speedTop, "left");
     initSlider("#slider-track__vertical", speedBottom, "right");
   });
-
-  /*
-  function initSlider(trackSelector, speed, direction) {
-    const track = document.querySelector(trackSelector);
-    if (!track) return;
-
-    const slides = Array.from(track.children);
-    let position = 0;
-    let trackWidth = 0;
-    let isPaused = false;
-
-    slides.forEach((slide) => {
-      const clone = slide.cloneNode(true);
-      track.appendChild(clone);
-    });
-
-    function updateTrackWidth() {
-      trackWidth = track.scrollWidth / 2;
-
-      if (direction === "right" && position === 0) {
-        position = -trackWidth;
-        track.style.transform = `translateX(${position}px)`;
-      }
-    }
-
-    function animate() {
-      if (!isPaused) {
-        if (direction === "left") {
-          position -= speed;
-
-          if (Math.abs(position) >= trackWidth) {
-            position = 0;
-          }
-        }
-
-        if (direction === "right") {
-          position += speed;
-
-          if (position >= 0) {
-            position = -trackWidth;
-          }
-        }
-
-        track.style.transform = `translateX(${position}px)`;
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    function pauseSlider() {
-      isPaused = true;
-    }
-
-    function startSlider() {
-      isPaused = false;
-    }
-
-    track.addEventListener("mouseenter", pauseSlider);
-    track.addEventListener("mouseleave", startSlider);
-    track.addEventListener("touchstart", pauseSlider, { passive: true });
-    track.addEventListener("touchend", startSlider);
-    track.addEventListener("touchcancel", startSlider);
-
-    updateTrackWidth();
-    animate();
-
-    window.addEventListener("resize", updateTrackWidth);
-  }
-
-  window.addEventListener("load", () => {
-    initSlider("#slider-track__horizontal", 0.5, "left");
-    initSlider("#slider-track__vertical", 0.5, "right");
-  });
-  */
 });
