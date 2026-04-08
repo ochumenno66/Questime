@@ -772,7 +772,6 @@ nav a::after {
 }
 
 .hero-title {
-  font-family: var(--font3);
   text-transform: uppercase;
   color: var(--color-white);
 }
