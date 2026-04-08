@@ -269,8 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let speedBottom;
 
     if (width <= 576) {
-      speedTop = 0.23;
-      speedBottom = 0.18;
+      speedTop = 0.29;
+      speedBottom = 0.23;
     } else if (width <= 768) {
       speedTop = 0.38;
       speedBottom = 0.28;
