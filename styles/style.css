@@ -1428,7 +1428,56 @@ nav a::after {
 }
 
 /* Gallery */
-.gallery {
+.gallery-slider {
+  overflow: hidden;
+  padding: clamp(40px, 8vw, 120px) 0 0;
+}
+
+.gallery-slider__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.39vw, 18px);
+}
+
+.slider-track__horizontal,
+.slider-track__vertical {
+  display: flex;
+  align-items: center;
+  /*gap: clamp(12px, 1.39vw, 18px);*/
+  width: max-content;
+  will-change: transform;
+  touch-action: pan-y;
+}
+
+.slide-top,
+.slide-bottom {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  margin-right: clamp(12px, 1.39vw, 18px);
+}
+
+.slide-top {
+  /*height: clamp(7.25rem, 26.296vw + 1.333rem, 400px);
+  height: clamp(7.25rem, 10.556vw + 4.875rem, 14.375rem);*/
+  /*max-width: 808px;
+  height: clamp(7.25rem, 18vw + 3rem, 20rem);*/
+  height: clamp(7.25rem, 16vw + 3rem, 16rem);
+}
+
+.slide-bottom {
+  /*height: clamp(12.5rem, 36.111vw + 4.375rem, 690px);
+  height: clamp(9.625rem, 20.926vw + 4.917rem, 23.75rem);
+  height: clamp(11rem, 28vw + 4rem, 32rem);*/
+  height: clamp(10rem, 22vw + 4rem, 24rem);
+}
+
+.slide-top img,
+.slide-bottom img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* Testimonials */
@@ -1554,7 +1603,7 @@ nav a::after {
   }
 
   .hero-title span:first-child {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   .hero-tagline span {
