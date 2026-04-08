@@ -1379,6 +1379,14 @@ nav a::after {
 }
 
 /* Benefits */
+.benefits {
+  margin-top: 40px;
+}
+
+.benefits__title {
+  margin-bottom: clamp(24px, 2.5vw, 40px);
+}
+
 .benefits__wrapper {
   display: flex;
   justify-content: center;
@@ -1393,23 +1401,23 @@ nav a::after {
 }
 
 .benefits__icon {
-  width: clamp(69px, 10vw, 190px);
-  height: clamp(69px, 10vw, 190px);
+  width: clamp(69px, 6.25vw, 100px);
+  height: clamp(69px, 6.25vw, 100px);
   object-fit: contain;
 }
 
 .benefits__card-title {
-  font-family: var(--second-family);
-  font-weight: var(--font-weight-regular);
-  line-height: 150%;
-  padding: 32px 0 24px 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+  padding: 24px 0;
 }
 
 .benefits__card-text {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
-  font-size: clamp(16px, 1.87vw, 32px);
-  line-height: 150%;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 155%;
   color: var(--color-text);
 }
 
@@ -1417,10 +1425,10 @@ nav a::after {
   font-family: var(--font-family);
   color: var(--color-white);
   background-color: var(--color-orange);
-  font-size: clamp(16px, 1.4vw, 20px);
-  padding: 16px 40px;
-  margin: 56px auto 0;
-  line-height: 160%;
+  font-size: clamp(14px, 1.4vw, 20px);
+  padding: 10px 32px;
+  margin: clamp(24px, 2.5vw, 40px) 0 clamp(24px, 2.5vw, 40px);
+  line-height: 150%;
 }
 
 /* Cta */
@@ -1554,7 +1562,7 @@ nav a::after {
   }
 
   .hero-title span:first-child {
-      margin-bottom: 10px;
+    margin-bottom: 10px;
   }
 
   .hero-tagline span {
@@ -1721,11 +1729,6 @@ nav a::after {
   }
 
   /* Benefits */
-  .benefits {
-    padding: 40px 0;
-    margin-top: 0;
-  }
-
   .benefits--au {
     padding: 0 0 50px;
   }
@@ -1825,12 +1828,18 @@ nav a::after {
   }
 
   /* Benefits */
+  .benefits {
+    margin-bottom: 60px;
+  }
+
   .benefits__card {
     max-width: 231px;
   }
 
   .benefits__card-title {
     padding: 16px 0 12px;
+    font-weight: var(--font-weight-regular);
+    font-size: 18px;
   }
 
   .benefits__btn {
@@ -2077,17 +2086,17 @@ nav a::after {
   .benefits__card {
     max-width: 100%;
   }
-
-  .benefits__btn {
-    padding: 4px 14px;
-    font-size: 14px;
-  }
 }
 
 @media (max-width: 480px) {
   .btn-secondary {
-    padding: 2px 14px;
+    padding: 4px 14px;
     font-size: 14px;
+  }
+
+  /* Benefits */
+  .benefits {
+    margin: 40px 0;
   }
 }
 
