@@ -176,49 +176,147 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   });
   // Счетчик в секции СТАТИСТИКА
-  const counters = document.querySelectorAll('.stat-number');
-  const statsWrapper = document.querySelector('.stats__wrapper');
+  const counters = document.querySelectorAll(".stat-number");
+  const statsWrapper = document.querySelector(".stats__wrapper");
 
   function animateCounters() {
-  const duration = 2000;
-  const startTime = performance.now();
+    const duration = 2000;
+    const startTime = performance.now();
 
-  counters.forEach(counter => {
-      counter.textContent = '0';
-  });
+    counters.forEach((counter) => {
+      counter.textContent = "0";
+    });
 
-  function update(time) {
+    function update(time) {
       const elapsed = time - startTime;
       const progress = Math.min(elapsed / duration, 1);
 
-      counters.forEach(counter => {
-      const target = +counter.dataset.target.replace(/\s/g, '');
-      counter.textContent = Math.floor(target * progress).toLocaleString();
+      counters.forEach((counter) => {
+        const target = +counter.dataset.target.replace(/\s/g, "");
+        counter.textContent = Math.floor(target * progress).toLocaleString();
       });
 
       if (progress < 1) {
-      requestAnimationFrame(update);
+        requestAnimationFrame(update);
       } else {
-      counters.forEach(counter => {
+        counters.forEach((counter) => {
           counter.textContent = counter.dataset.target;
+        });
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  counters.forEach((counter) => {
+    counter.dataset.target = counter.textContent.trim();
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounters();
+        }
       });
-      }
-  }
-
-  requestAnimationFrame(update);
-  }
-
-  counters.forEach(counter => {
-  counter.dataset.target = counter.textContent.trim();
-  });
-
-  const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-      if (entry.isIntersecting) {
-      animateCounters();
-      }
-  });
-  }, {threshold: 0.5});
+    },
+    { threshold: 0.5 },
+  );
 
   observer.observe(statsWrapper);
+
+  // Слайдер в секции Gallery
+  function initSlider(trackSelector, speed, direction) {
+    const track = document.querySelector(trackSelector);
+    if (!track) return;
+
+    const slides = [...track.children];
+    let position = 0;
+    let trackWidth = 0;
+    let isPaused = false;
+
+    slides.forEach((slide) => {
+      track.appendChild(slide.cloneNode(true));
+    });
+
+    function updateTrackWidth() {
+      trackWidth = track.scrollWidth / 2;
+
+      if (direction === "right") {
+        position = -trackWidth;
+        track.style.transform = `translateX(${position}px)`;
+      }
+    }
+
+    function animate() {
+      if (!isPaused) {
+        position += direction === "left" ? -speed : speed;
+
+        if (direction === "left" && Math.abs(position) >= trackWidth) {
+          position = 0;
+        }
+
+        if (direction === "right" && position >= 0) {
+          position = -trackWidth;
+        }
+
+        track.style.transform = `translateX(${position}px)`;
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    track.addEventListener("mouseenter", () => {
+      isPaused = true;
+    });
+
+    track.addEventListener("mouseleave", () => {
+      isPaused = false;
+    });
+
+    track.addEventListener(
+      "touchstart",
+      () => {
+        isPaused = true;
+      },
+      { passive: true },
+    );
+
+    track.addEventListener("touchend", () => {
+      isPaused = false;
+    });
+
+    track.addEventListener("touchcancel", () => {
+      isPaused = false;
+    });
+
+    updateTrackWidth();
+    animate();
+
+    window.addEventListener("resize", updateTrackWidth);
+  }
+
+  window.addEventListener("load", () => {
+    const width = window.innerWidth;
+
+    let speedTop;
+    let speedBottom;
+
+    if (width <= 576) {
+      speedTop = 0.29;
+      speedBottom = 0.23;
+    } else if (width <= 768) {
+      speedTop = 0.38;
+      speedBottom = 0.28;
+    } else if (width <= 1024) {
+      speedTop = 0.6;
+      speedBottom = 0.45;
+    } else {
+      speedTop = 0.67;
+      speedBottom = 0.49;
+    }
+
+    initSlider("#slider-track__horizontal", speedTop, "left");
+    initSlider("#slider-track__vertical", speedBottom, "right");
+  });
 });
