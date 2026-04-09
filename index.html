@@ -511,21 +511,25 @@
               <div class="contact-form__info">
                 <p class="contact-form__text">Feel free to ask your question or make a request directly. Nataly or Mark will contact you within one business day.</p>
                 <p class="contact-form__text">Prefer to call? Please do!</p>
-                <p class="contact-form__text">Our number is <a class="contact-form__phone" href="tel:+31612365246">+31 6 123 65 246</a></p>
+                <p class="contact-form__text">Our number is <a class="contact-form__phone" href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a></p>
               </div>
               <form class="contact-form__form" action="#" method="post">
                 <div class="contact-form__fields">
-                  <input class="contact-form__input" type="text" name="name" placeholder="Name">
-                  <input class="contact-form__input" type="tel" name="phone" placeholder="Phone number">
-                  <input class="contact-form__input" type="text" name="company" placeholder="Company">
-                  <input class="contact-form__input" type="email" name="email" placeholder="Email">
+                  <input class="contact-form__input" type="text" name="name" placeholder="Name" required>
+                  <input class="contact-form__input" type="tel" name="phone" placeholder="Phone number" required>
+                  <input class="contact-form__input" type="text" name="company" placeholder="Company" required>
+                  <input class="contact-form__input" type="email" name="email" placeholder="Email" required>
                 </div>
-              <textarea class="contact-form__textarea" name="message" placeholder="Text of your request"></textarea>
+              <textarea class="contact-form__textarea" name="message" placeholder="Text of your request" required></textarea>
               <button class="btn btn-secondary contact-form__btn" type="submit">Answer me!</button>
+              <div class="checkbox">
+                <input type="checkbox" id="agree" required>
+                <label for="agree">By subscribing, you agree to our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></label>
+              </div>
               </form>
             </div>
           <div class="contact-form__image-wrapper">
-            <img class="contact-form__image" src="../assets/images/main/contact.jpg" alt="Nataly and Mark"></div>
+            <img class="contact-form__image" src="./assets/images/main/contact.jpg" alt="Nataly and Mark"></div>
           </div>
       </div>
     </section>
