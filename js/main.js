@@ -1,12 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  // CTA - Download button
-  const ctaBtn = document.querySelector(".cta__btn");
-  if (ctaBtn) {
-    ctaBtn.setAttribute("href", "/wp-content/uploads/presentation.pdf");
-  }
-
-  // Testimonials carousel
+ // Testimonials carousel
   let testimonialsSwiper;
 
   function initTestimonialsSwiper() {
@@ -24,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else {
       if (testimonialsSwiper) {
+        // destroy(true, true) — удаляет объект и ВСЕ инлайновые стили
         testimonialsSwiper.destroy(true, true); 
         testimonialsSwiper = null;
       }
