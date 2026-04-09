@@ -1427,11 +1427,7 @@ nav a::after {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: clamp(16px, 2vw, 32px);
-}
-
-.cta__title {
-  margin-bottom: 0;
+  gap: clamp(16px, 2.08vw, 40px);
 }
 
 .cta__title-orange {
@@ -1444,20 +1440,21 @@ nav a::after {
 
 .cta__desc {
   color: var(--color-white);
-  font-weight: var(--font-weight-regular);
-  font-family: var(--font-family);
 }
 
 .cta__btn {
   color: var(--color-white);
   background: transparent;
   border: 1px solid var(--color-white);
-  height: 58px;
   margin-top: 28px;
   font-family: var(--font-family);
 }
 
-.cta {
+.cta--gamified,
+.cta--event-page,
+.cta--team-building {
+  min-height: clamp(318px, 32vw, 615px);
+  align-content: center;
 }
 
 /* Gallery */
@@ -2093,6 +2090,16 @@ nav a::after {
   .benefits__btn {
     padding: 4px 14px;
     font-size: 14px;
+  }
+
+  .cta--gamified .cta__title,
+  .cta--team-building .cta__title,
+  .cta--event-page .cta__title {
+    font-size: 14px;
+  }
+
+  .cta__inner {
+    gap: 0;
   }
 }
 
