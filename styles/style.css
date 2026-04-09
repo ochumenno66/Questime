@@ -1446,7 +1446,7 @@ nav a::after {
   color: var(--color-white);
   background: transparent;
   border: 1px solid var(--color-white);
-  margin-top: 28px;
+  margin-top: 80px;
   font-family: var(--font-family);
 }
 
