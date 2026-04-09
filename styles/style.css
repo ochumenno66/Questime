@@ -1450,6 +1450,10 @@ nav a::after {
   font-family: var(--font-family);
 }
 
+.cta--event-page .cta__btn {
+  margin-top: 40px;
+}
+
 .cta--gamified,
 .cta--event-page,
 .cta--team-building {
