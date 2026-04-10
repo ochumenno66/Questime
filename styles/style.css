@@ -1332,6 +1332,9 @@ nav a::after {
 
 .testimonials__subtitle {
   color: var(--color-white);
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 .testimonials__accent {
