@@ -1,4 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Testimonials carousel
+  let testimonialsSwiper;
+
+  function initTestimonialsSwiper() {
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth > 575) {
+      if (!testimonialsSwiper) {
+        testimonialsSwiper = new Swiper(".testimonials__carousel", {
+          loop: true,
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          spaceBetween: 24,
+        });
+      }
+    } else {
+      if (testimonialsSwiper) {
+        // destroy(true, true) — удаляет объект и ВСЕ инлайновые стили
+        testimonialsSwiper.destroy(true, true); 
+        testimonialsSwiper = null;
+      }
+    }
+  }
+
+  initTestimonialsSwiper();
+  window.addEventListener("resize", initTestimonialsSwiper);
+
   // Автослайдер в секции HERO
   const INTERVAL = 4200;
   const slides = document.querySelectorAll(".hero-slide");
