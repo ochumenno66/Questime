@@ -1522,22 +1522,22 @@ nav a::after {
 .testimonials__card {
   background-color: rgba(249, 249, 239, 0.1);
   border-radius: 48px;
-  padding: 32px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 14px;
 }
 
 .testimonials__card--text {
-  width: 290px;
+  width: 340px;
 }
 
 .testimonials__card--photo-vertical {
-  width: 400px;
+  width: 360px;
 }
 
 .testimonials__card--photo-horizontal {
-  width: 520px;
+  width: 450px;
 }
 
 .testimonials__card-top {
@@ -1597,6 +1597,12 @@ nav a::after {
   background: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 3px;
+  padding: 10px 32px;
+  transition: all 0.3s ease;
 }
 
 
@@ -1932,6 +1938,13 @@ nav a::after {
   .testimonials__author {
     justify-content: center;
     margin-top: 24px;
+  }
+
+  .testimonials__btn {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    padding: 6px 20px;
   }
 }
 
@@ -2290,7 +2303,7 @@ nav a::after {
     opacity: 1;
     transform: scale(1);
     border-radius: 32px;
-    padding: 24px 20px;
+    padding: 30px 26px;
     flex-shrink: 1;
   }
 
@@ -2300,6 +2313,11 @@ nav a::after {
 
   .testimonials__footer {
     margin-top: 32px;
+  }
+
+  .testimonials__btn {
+    font-size: 14px;
+    padding: 5px 16px;
   }
 }
 
