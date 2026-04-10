@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us</title>
     <!-- Фавиконки -->
-    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
 
-    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
   </head>
   <body>
     <header id="header" class="header">
       <div class="header__wrapper container">
-        <a href="index.html" class="logo"><img src="../assets/icons/logo.svg" alt="logo" /></a>
+        <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
         <nav class="header-nav">
           <ul class="header-menu">
             <li><a href="gamified-tours.html">Gamified Tours</a></li>
@@ -25,18 +27,18 @@
           </ul>
         </nav>
         <div class="header-socials__wrapper--mobile">
-          <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-          <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_instagram.svg" alt="instagram"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
         </div>
         <div class="header__right">
             <div class="header-socials__wrapper">
-              <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-              <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_threads.svg" alt="threads"></a>
-              <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_instagram.svg" alt="instagram"></a>
+              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
             </div>
             <a class="btn-book btn-book--notmobile" href="schedule.html">
-              <img src="../assets/icons/schedule-2.svg" alt="Booking Button">
+              <img src="./assets/icons/schedule-2.svg" alt="Booking Button">
               <span>Book Now</span>
             </a>
             <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
@@ -75,12 +77,12 @@
       </nav>
       <div class="mobile-menu__footer">
         <div class="mobile-menu__socials">
-          <a class="social-icon" href="#" target="_blank"><img src="../assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="../assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="../assets/icons/logo_instagram.svg" alt="instagram"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
         </div>
         <a class="btn-book" href="schedule.html">
-          <img src="../assets/icons/schedule-2.svg" alt="Booking Button">
+          <img src="./assets/icons/schedule-2.svg" alt="Booking Button">
           <span>Book Now</span>
         </a>
       </div>
@@ -103,30 +105,35 @@
       <!-- Секция Subscribe -->
       <section class="subscribe section-common decorated-light-stats decorated-dark-stats" id="subscribe"></section>
       <!-- Секция Benefits -->
-      <section class="benefits benefits--au text-align section-common" id="benefits">
+      <section class="benefits text-align section-common" id="benefits">
         <div class="container">
-          <h2 class="benefits__title ">WHY us?</h2>
+          <h2 class="benefits__title ">Why us?</h2>
           <div class="benefits__wrapper">
             <div class="benefits__card">
-              <img class="benefits__icon" src="../assets/icons/benefits/loupe.svg" alt="Loupe">
-              <h3 class="benefits__card-title benefits__card-title--tb">EXPERIENCE</h3>
-              <p class="benefits__card-text">We have extensive experience in event management - over 13 years</p>
+              <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
+              <h3 class="benefits__card-title">Deep Historical Research</h3>
+              <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
+                historically accurate</p>
             </div>
             <div class="benefits__card">
-              <img class="benefits__icon" src="../assets/icons/benefits/lamp.svg" alt="Lamp">
-              <h3 class="benefits__card-title benefits__card-title--tb">Team</h3>
+              <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
+              <h3 class="benefits__card-title">Smart Gamification</h3>
               <p class="benefits__card-text">
-                We have a well-established team of specialists with whom we speak  the same language and who love people
+                We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
+                strategic, immersive, and fun
               </p>
             </div>
             <div class="benefits__card">
-              <img class="benefits__icon" src="../assets/icons/benefits/dollar.svg" alt="Dollar">
-              <h3 class="benefits__card-title benefits__card-title--tb">PRICES</h3>
+              <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
+              <h3 class="benefits__card-title">Cinematic Storytelling</h3>
               <p class="benefits__card-text">
-                Thanks to our established database and contacts, we offer affordable prices
+                Our experiences are built like films — with tension, characters, and powerful narrative arcs
               </p>
             </div>
           </div>
+          <button class="benefits__btn btn btn-secondary">
+            Learn More About Us
+          </button>
         </div>
       </section>
       <!-- Секция CTA -->
@@ -146,7 +153,7 @@
     </main>
     <footer class="footer section-decorated-light">
       <div class="footer__wrapper container">
-        <a href="index.html" class="logo"><img src="../assets/icons/logo.svg" alt="logo" /></a>
+        <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
         <nav class="footer-nav">
           <ul class="footer-menu">
             <li><a href="gamified-tours.html">Gamified Tours</a></li>
@@ -159,9 +166,9 @@
         </nav>
 
         <div class="footer-socials__wrapper">
-          <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-          <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" targer="_blank"><img src="../assets/icons/logo_instagram.svg" alt="instagram"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
         </div>
       </div>
     </footer>
@@ -170,6 +177,6 @@
       ↑
     </button>
 
-    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
