@@ -1445,7 +1445,13 @@ nav a::after {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: clamp(16px, 2.08vw, 40px);
+  gap: 40px;
+}
+
+.cta__title {
+  line-height: 1.28;
+  letter-spacing: 0.05em;
+  margin-bottom: 0; 
 }
 
 .cta__title-orange {
@@ -1458,18 +1464,20 @@ nav a::after {
 
 .cta__desc {
   color: var(--color-white);
+  font-size: clamp(18px, 2.2vw, 32px);
+  line-height: 1.5;
+  text-align: center;
+
 }
 
 .cta__btn {
   color: var(--color-white);
   background: transparent;
   border: 1px solid var(--color-white);
-  margin-top: 80px;
-  font-family: var(--font-family);
-}
-
-.cta--event-page .cta__btn {
   margin-top: 40px;
+  font-family: var(--font-family);
+  line-height: 1;
+  padding: 12px 40px;
 }
 
 .cta--gamified,
@@ -1833,11 +1841,31 @@ nav a::after {
     padding: 16px 0 12px;
   }
 
+  .cta__inner {
+    gap: 16px;
+  }
+
+  .cta__title {
+    font-size: 24px; 
+    line-height: 1.4;
+  }
+
+  .cta--gamified .cta__line {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  
+  .cta--gamified .cta__line:last-child {
+    margin-bottom: 0;
+  }
+
   .cta__btn {
     font-size: 16px;
-    font-weight: var(--font-weight-regular);
+    font-weight: 400;
     padding: 6px 16px;
-    height: auto;
+    letter-spacing: 0;
+    line-height: 1.55;
   }
 }
 
@@ -1935,6 +1963,10 @@ nav a::after {
   .benefits__btn {
     margin: 24px auto 0;
     padding: 6px 16px;
+  }
+
+  .cta__btn {
+    margin-top: 0;
   }
 }
 
@@ -2182,14 +2214,18 @@ nav a::after {
     font-size: 14px;
   }
 
+  .cta--gamified {
+    min-height: 150px;
+  }
+
   .cta--gamified .cta__title,
   .cta--team-building .cta__title,
   .cta--event-page .cta__title {
     font-size: 14px;
   }
 
-  .cta__inner {
-    gap: 0;
+  .cta__main-title {
+    text-transform: uppercase;
   }
 }
 
