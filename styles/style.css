@@ -1691,6 +1691,11 @@ nav a::after {
 /* HERO */
 .btn--orange {
   background: var(--color-orange);
+  transition: background 0.3s ease;
+}
+
+.btn--transparent {
+  transition: all 0.3s ease;
 }
 
 .custom-games-hero {
@@ -2512,6 +2517,15 @@ nav a::after {
   .btn-book:hover {
     background: var(--color-orange);
     border-color: var(--color-orange);
+  }
+
+  .btn--orange:hover {
+    background: var(--light-orange);
+  }
+
+  .btn--transparent:hover {
+    color: var(--light-orange);
+    border-color: var(--light-orange);
   }
 
   .hero-card:hover {
