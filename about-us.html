@@ -1,76 +1,25 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
-    <!-- Фавиконки -->
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
 
-    <link rel="stylesheet" href="./styles/style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us</title>
+  <!-- Фавиконки -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
-  </head>
-  <body>
-    <header id="header" class="header">
-      <div class="header__wrapper container">
-        <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-        <nav class="header-nav">
-          <ul class="header-menu">
-            <li><a href="gamified-tours.html">Gamified Tours</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-            <li><a href="custom-games.html">Custom Games</a></li>
-            <li><a href="about-us.html">About</a></li>
-          </ul>
-        </nav>
-        <div class="header-socials__wrapper--mobile">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
-        </div>
-        <a class="btn-book btn-book--mobile" href="schedule.html">
-          <img src="./assets/icons/chat.svg" alt="">
-          <span>Contact us</span>
-        </a>
-        <div class="header__right">
-            <div class="header-socials__wrapper">
-              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
-            </div>
-            <a class="btn-book btn-book--notmobile" href="schedule.html">
-              <img src="./assets/icons/chat.svg" alt="Booking Button">
-              <span>Contact us</span>
-            </a>
-            <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
-              <span class="burger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </button>
-        </div>
-      </div>
-      <div class="burger-dropdown" id="burgerDropdown">
-        <div class="container">
-          <ul class="burger-dropdown__menu">
-            <li><a href="gamified-tours.html">Gamified Tours</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-            <li><a href="custom-games.html">Custom Games</a></li>
-            <li><a href="about-us.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </header>
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-      <nav class="mobile-menu__nav">
-        <ul>
+  <link rel="stylesheet" href="./styles/style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+</head>
+
+<body>
+  <header id="header" class="header">
+    <div class="header__wrapper container">
+      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
+      <nav class="header-nav">
+        <ul class="header-menu">
           <li><a href="gamified-tours.html">Gamified Tours</a></li>
           <li><a href="schedule.html">Schedule</a></li>
           <li><a href="#reviews">Reviews</a></li>
@@ -79,108 +28,299 @@
           <li><a href="about-us.html">About</a></li>
         </ul>
       </nav>
-      <div class="mobile-menu__footer">
-        <div class="mobile-menu__socials">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+      <div class="header-socials__wrapper--mobile">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+      <a class="btn-book btn-book--mobile" href="schedule.html">
+        <img src="./assets/icons/chat.svg" alt="">
+        <span>Contact us</span>
+      </a>
+      <div class="header__right">
+        <div class="header-socials__wrapper">
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg"
+              alt="linkedin"></a>
           <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+              alt="instagram"></a>
         </div>
-        <a class="btn-book" href="schedule.html">
+        <a class="btn-book btn-book--notmobile" href="schedule.html">
           <img src="./assets/icons/chat.svg" alt="Booking Button">
           <span>Contact us</span>
         </a>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+          <span class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
     </div>
-    <main>
-      <!-- Секция Hero -->
-      <section class="hero section-decorated-dark" id="hero">
-        <h1>ABOUT OUR TEAM</h1>
-      </section>
-      <!-- Секция Stats -->
-      <section class="stats-au" id="stats-au"></section>
-      <!-- Секция Story -->
-      <section class="story section-common" id="story">
-        <h2 class="text-align">Our Story</h2>
-      </section>
-      <!-- Секция Team -->
-      <section class="team section-common" id="team">
-        <h2 class="text-align">OUR TEAM</h2>
-      </section>
-      <!-- Секция Subscribe -->
-      <section class="subscribe section-common decorated-light-stats decorated-dark-stats" id="subscribe"></section>
-      <!-- Секция Benefits -->
-      <section class="benefits text-align section-common" id="benefits">
-        <div class="container">
-          <h2 class="benefits__title ">Why us?</h2>
-          <div class="benefits__wrapper">
-            <div class="benefits__card">
-              <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
-              <h3 class="benefits__card-title">Deep Historical Research</h3>
-              <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
-                historically accurate</p>
+    <div class="burger-dropdown" id="burgerDropdown">
+      <div class="container">
+        <ul class="burger-dropdown__menu">
+          <li><a href="gamified-tours.html">Gamified Tours</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+          <li><a href="custom-games.html">Custom Games</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__nav">
+      <ul>
+        <li><a href="gamified-tours.html">Gamified Tours</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+        <li><a href="custom-games.html">Custom Games</a></li>
+        <li><a href="about-us.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__footer">
+      <div class="mobile-menu__socials">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+      <a class="btn-book" href="schedule.html">
+        <img src="./assets/icons/chat.svg" alt="Booking Button">
+        <span>Contact us</span>
+      </a>
+    </div>
+  </div>
+  <main>
+    <!-- Секция Hero -->
+    <section class="hero section-decorated-dark" id="hero">
+      <h1>ABOUT OUR TEAM</h1>
+    </section>
+    <!-- Секция Stats -->
+    <section class="stats-au" id="stats-au"></section>
+    <!-- Секция Story -->
+    <section class="story section-common" id="story">
+      <h2 class="text-align">Our Story</h2>
+    </section>
+    <!-- Секция Team -->
+    <section class="team section-common" id="team">
+      <h2 class="team__title text-align">Our Team</h2>
+      <div class="team__list">
+        <div class="team__member">
+          <div class="container">
+            <div class="team__photo-wrap">
+              <img class="team__photo" src="./assets/images/about-us/mark.webp" alt="Mark Minskii" />
             </div>
-            <div class="benefits__card">
-              <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
-              <h3 class="benefits__card-title">Smart Gamification</h3>
-              <p class="benefits__card-text">
-                We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
-                strategic, immersive, and fun
-              </p>
-            </div>
-            <div class="benefits__card">
-              <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
-              <h3 class="benefits__card-title">Cinematic Storytelling</h3>
-              <p class="benefits__card-text">
-                Our experiences are built like films — with tension, characters, and powerful narrative arcs
-              </p>
+            <div class="team__info">
+              <h3 class="team__name">Mark Minskii</h3>
+              <div class="team__bio-wrapper">
+                <p class="team__bio">Questime isn't just a business for me: it's an opportunity to make the people who
+                  play our quests a little happier, more fun, and smarter. Hosting games is a great pleasure for me. I'm
+                  also a versatile presenter :)) I work with a variety of audiences, from corporate clients to children.
+                </p>
+                <p class="team__bio">About me: I graduated from Moscow State University and the Plekhanov Russian
+                  University of Economics, and previously headed marketing departments at several large companies. I've
+                  also developed training courses on presentations and public speaking.</p>
+              </div>
+              <div class="team__stats">
+                <div class="team__stat">
+                  <span class="team__stat-value">10</span>
+                  <span class="team__stat-label">years</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">500</span>
+                  <span class="team__stat-label">plays</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">50</span>
+                  <span class="team__stat-label">projects</span>
+                </div>
+              </div>
             </div>
           </div>
-          <button class="benefits__btn btn btn-secondary">
-            Learn More About Us
-          </button>
         </div>
-      </section>
-      <!-- Секция CTA -->
-      <section class="cta about-cta decorated-dark-cta decorated-light-cta" id="cta">
-        <div class="container">
-          <div class="cta__inner">
-            <h2 class="cta__title">
-              <span class="cta__title-orange">Turn</span><span class="cta__title-white"> your team building and outings into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
-              <span class="cta__title-white">!</span>
-            </h2>
-            <a href="../assets/presentation.pdf" class="btn btn-secondary cta__btn" download="Questime_Presentation">Download PDF</a>
+        <div class="team__member team__member--reverse">
+          <div class="container">
+            <div class="team__photo-wrap">
+              <img class="team__photo" src="./assets/images/about-us/natalia.webp" alt="Natalia Minskaia" />
+            </div>
+            <div class="team__info">
+              <h3 class="h3 team__name">Natalia Minskaia</h3>
+              <div class="team__bio-wrapper">
+                <p class="team__bio">A quest author, she graduated from the Gerasimov Institute of Cinematography (VGIK)
+                  and the USC School of Screenwriting. She writes screenplays, plays, and short stories. Natasha's
+                  personal blog about games, quests, and creativity is <a class="team__link"
+                    href="http://www.rubikam.ru" target="_blank">www.rubikam.ru</a>.</p>
+              </div>
+              <div class="team__stats">
+                <div class="team__stat">
+                  <span class="team__stat-value">10</span>
+                  <span class="team__stat-label">years</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">500</span>
+                  <span class="team__stat-label">plays</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">50</span>
+                  <span class="team__stat-label">projects</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-      <!-- Секция Form -->
-      <section class="form section-common" id="form"></section>
-    </main>
-    <footer class="footer section-decorated-light">
-      <div class="footer__wrapper container">
-        <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-        <nav class="footer-nav">
-          <ul class="footer-menu">
-            <li><a href="gamified-tours.html">Gamified Tours</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-            <li><a href="custom-games.html">Custom Games</a></li>
-            <li><a href="about-us.html">About</a></li>
-          </ul>
-        </nav>
-
-        <div class="footer-socials__wrapper">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
+        <div class="team__member">
+          <div class="container">
+            <div class="team__photo-wrap">
+              <img class="team__photo" src="./assets/images/about-us/maria.webp" alt="Maria Boriskina" />
+            </div>
+            <div class="team__info">
+              <h3 class="h3 team__name">Maria Boriskina</h3>
+              <div class="team__bio-wrapper">
+                <p class="team__bio">It was like an electric shock, like love at first sight. I was hooked on quests
+                  from
+                  the very first game, and I knew they were 100% my thing. For me, every game is a stunning performance
+                  with brilliant actors. Everyone can discover qualities within themselves they might not have
+                  previously
+                  suspected. My goal is to help you with this. They offer something so desperately lacking in everyday
+                  life—a thrill, new experiences. In our saturated age, that's especially relevant, don't you think?</p>
+              </div>
+              <div class="team__stats">
+                <div class="team__stat">
+                  <span class="team__stat-value">10</span>
+                  <span class="team__stat-label">years</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">500</span>
+                  <span class="team__stat-label">plays</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">50</span>
+                  <span class="team__stat-label">projects</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="team__member team__member--reverse">
+          <div class="container">
+            <div class="team__photo-wrap">
+              <img class="team__photo" src="./assets/images/about-us/jan.webp" alt="Jan" />
+            </div>
+            <div class="team__info">
+              <h3 class="h3 team__name">Jan</h3>
+              <div class="team__bio-wrapper">
+                <p class="team__bio">A few words about myself: a financier by profession, a prankster by vocation. A
+                  versatile host, co-host, and drinking buddy, depending on the situation.</p>
+                <p class="team__bio">A showman, toastmaster, "foe, chatterbox, and laugher" all rolled into one. If
+                  you're
+                  planning a corporate event, a birthday party, a wedding, or the funeral of an unkissed neighbor, and
+                  you'd like to make the day unforgettable and unique, then don't hesitate to give us a call.</p>
+              </div>
+              <div class="team__stats">
+                <div class="team__stat">
+                  <span class="team__stat-value">10</span>
+                  <span class="team__stat-label">years</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">500</span>
+                  <span class="team__stat-label">plays</span>
+                </div>
+                <div class="team__stat">
+                  <span class="team__stat-value">50</span>
+                  <span class="team__stat-label">projects</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+    </section>
+    <!-- Секция Subscribe -->
+    <section class="subscribe section-common decorated-light-stats decorated-dark-stats" id="subscribe"></section>
+    <!-- Секция Benefits -->
+    <section class="benefits text-align section-common" id="benefits">
+      <div class="container">
+        <h2 class="benefits__title ">Why us?</h2>
+        <div class="benefits__wrapper">
+          <div class="benefits__card">
+            <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
+            <h3 class="benefits__card-title">Deep Historical Research</h3>
+            <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
+              historically accurate</p>
+          </div>
+          <div class="benefits__card">
+            <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
+            <h3 class="benefits__card-title">Smart Gamification</h3>
+            <p class="benefits__card-text">
+              We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
+              strategic, immersive, and fun
+            </p>
+          </div>
+          <div class="benefits__card">
+            <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
+            <h3 class="benefits__card-title">Cinematic Storytelling</h3>
+            <p class="benefits__card-text">
+              Our experiences are built like films — with tension, characters, and powerful narrative arcs
+            </p>
+          </div>
+        </div>
+        <button class="benefits__btn btn btn-secondary">
+          Learn More About Us
+        </button>
+      </div>
+    </section>
+    <!-- Секция CTA -->
+    <section class="cta about-cta decorated-dark-cta decorated-light-cta" id="cta">
+      <div class="container">
+        <div class="cta__inner">
+          <h2 class="cta__title">
+            <span class="cta__title-orange">Turn</span><span class="cta__title-white"> your team building and outings
+              into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
+            <span class="cta__title-white">!</span>
+          </h2>
+          <a href="../assets/presentation.pdf" class="btn btn-secondary cta__btn"
+            download="Questime_Presentation">Download PDF</a>
+        </div>
+      </div>
+    </section>
+    <!-- Секция Form -->
+    <section class="form section-common" id="form"></section>
+  </main>
+  <footer class="footer section-decorated-light">
+    <div class="footer__wrapper container">
+      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
+      <nav class="footer-nav">
+        <ul class="footer-menu">
+          <li><a href="gamified-tours.html">Gamified Tours</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+          <li><a href="custom-games.html">Custom Games</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </ul>
+      </nav>
 
-    <button class="scroll-top" id="scrollTop">
-      ↑
-    </button>
+      <div class="footer-socials__wrapper">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+    </div>
+  </footer>
 
-    <script type="module" src="./js/main.js"></script>
-  </body>
+  <button class="scroll-top" id="scrollTop">
+    ↑
+  </button>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+
 </html>
