@@ -1132,7 +1132,7 @@ nav a::after {
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 60px;
 }
 
 .services__heading {
@@ -1142,10 +1142,10 @@ nav a::after {
 .services__list {
   position: relative;
   width: fit-content;
-  padding: 40px 40px 40px 0;
+  padding: 24px 40px 24px 0;
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 16px;
 }
 
 .services__list::before {
@@ -1161,23 +1161,22 @@ nav a::after {
 }
 
 .services__item {
-  font-size: clamp(14px, 1.667vw, 32px);
-  line-height: 150%;
-  text-transform: uppercase;
+  font-size: clamp(0.875rem, 0.545vw + 0.752rem, 1.25rem);
+  line-height: 155%;
   color: var(--color-white);
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 }
 
 .services__check {
-  width: 38px;
-  height: 29px;
+  width: 16px;
+  height: 12px;
   flex-shrink: 0;
 }
 
 .services__btn {
-  align-self: center;
+  align-self: start;
   background: var(--color-orange);
   font-family: var(--font-family);
   color: var(--color-white);
@@ -1671,11 +1670,6 @@ nav a::after {
     -webkit-line-clamp: 6;
   }
 
-  .quest-card__actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .quest-card__btn-contact,
   .quest-card__btn-learn {
     width: fit-content;
@@ -1725,14 +1719,15 @@ nav a::after {
 
   /* Services */
   .services {
-    padding: 40px 0;
+    padding: 20px 0;
   }
 
   .services__inner {
-    gap: 10px;
+    gap: 8px;
   }
 
   .services__list {
+    margin-bottom: 7px;
     padding: 20px 60px 20px 0;
     gap: 12px;
   }
@@ -1748,11 +1743,10 @@ nav a::after {
   }
 
   .services__btn {
-    align-self: start;
     padding: 6px 16px;
     font-weight: 400;
     font-size: 16px;
-    line-height: 160%;
+    line-height: 155%;
   }
 
   /* Stats */
@@ -2053,16 +2047,21 @@ nav a::after {
   }
 
   /* Services */
-  .services {
-    padding: 20px 0;
+  .services__inner {
+    gap: 16px;
   }
 
   .services__heading {
-    margin-bottom: 80px;
+    margin-bottom: 85px;
   }
 
   .services__list {
-    padding: 15px 15px 15px 0;
+    padding: 8px 8px 8px 0;
+    gap: 8px;
+  }
+
+  .services__item {
+    gap: 6px;
   }
 
   .services__check {
@@ -2070,7 +2069,7 @@ nav a::after {
     height: 9px;
   }
 
-  /* About */
+    /* About */
   .about__content {
     padding-bottom: 23px;
   }
