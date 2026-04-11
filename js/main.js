@@ -292,6 +292,34 @@ document.addEventListener("DOMContentLoaded", () => {
     initSlider("#slider-track__vertical", speedBottom, "right");
   });
 
+  // Testimonials carousel
+  let testimonialsSwiper;
+
+  function initTestimonialsSwiper() {
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth > 575) {
+      if (!testimonialsSwiper) {
+        testimonialsSwiper = new Swiper(".testimonials__carousel", {
+          loop: true,
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          spaceBetween: 24,
+        });
+      }
+    } else {
+      if (testimonialsSwiper) {
+        // destroy(true, true) — удаляет объект и ВСЕ инлайновые стили
+        testimonialsSwiper.destroy(true, true); 
+        testimonialsSwiper = null;
+      }
+    }
+  }
+
+  initTestimonialsSwiper();
+  window.addEventListener("resize", initTestimonialsSwiper);
+
   //FAQ
   const faq = document.querySelector(".faq__list");
 
