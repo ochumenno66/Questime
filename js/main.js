@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cлайдер в секции Quests
   const questsSwiper = new Swiper(".quests__slider", {
     slidesPerView: 1,
-    spaceBetween: 20,
+    spaceBetween: 10,
     loop: true,
 
     navigation: {
@@ -132,9 +132,15 @@ document.addEventListener("DOMContentLoaded", () => {
     breakpoints: {
       575: {
         slidesPerView: 2,
+        spaceBetween: 16,
       },
       768: {
         slidesPerView: 3,
+        spaceBetween: 16,
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 20,
       },
     },
     pagination: {
