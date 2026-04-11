@@ -956,17 +956,17 @@ nav a::after {
 }
 
 .quest-card {
-  padding: 40px 30px;
+  padding: 24px;
   height: auto;
   display: flex;
   flex-direction: column;
 }
 
 .quest-card__top {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
 .quest-card__image {
@@ -994,7 +994,7 @@ nav a::after {
 .quest-card__top-text {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 .quest-card__tags {
@@ -1004,11 +1004,11 @@ nav a::after {
 }
 
 .quest-card__tag {
-  padding: 3px 16px;
+  padding: 0px 10px;
   border: 1px solid var(--color-text);
   border-radius: 48px;
-  font-family: var(--second-family);
-  font-size: clamp(12px, 0.938vw, 18px);
+  font-size: clamp(12px, 0.729vw, 14px);
+  line-height: 160%;
 }
 
 .quest-card__tag:first-child {
@@ -1016,11 +1016,15 @@ nav a::after {
   color: var(--color-orange);
 }
 
+.quest-card__title {
+  font-family: var(--font-family);
+}
+
 .quest-card__desc {
   flex: 1;
-  margin-bottom: 32px;
-  font-size: clamp(14px, 1.25vw, 24px);
-  line-height: 140%;
+  margin-bottom: 16px;
+  font-size: clamp(14px, 0.833vw, 16px);
+  line-height: 155%;
   display: -webkit-box;
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
@@ -1031,7 +1035,7 @@ nav a::after {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 32px;
+  gap: 16px;
 }
 
 .quest-card__btn-contact {
@@ -1182,23 +1186,23 @@ nav a::after {
 /* About */
 .about__content {
   position: relative;
-  padding-bottom: 56px;
+  padding-bottom: 32px;
   display: flex;
   flex-direction: column;
-  border-left: 5px solid var(--color-orange);
-  border-bottom: 5px solid var(--color-orange);
+  border-left: 2px solid var(--color-orange);
+  border-bottom: 2px solid var(--color-orange);
 }
 
 .about__inner {
-  padding-left: 130px;
+  padding-left: 120px;
   display: flex;
-  gap: 130px;
+  gap: 120px;
 }
 
 .about__team {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 30px;
 }
 
 .about__person {
@@ -1208,7 +1212,7 @@ nav a::after {
 }
 
 .about__person-photo {
-  width: clamp(72px, 13.021vw, 250px);
+  width: clamp(72px, 6.51vw, 125px);
   aspect-ratio: 1/1;
   border-radius: 50%;
   overflow: hidden;
@@ -1222,26 +1226,26 @@ nav a::after {
 }
 
 .about__person-name {
-  font-size: clamp(14px, 1.667vw, 32px);
-  line-height: 150%;
+  font-size: clamp(14px, 0.833vw, 16px);
+  line-height: 155%;
 }
 
 .about__facts {
   padding-left: 30px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 16px;
   list-style: disc;
 }
 
 .about__fact {
   padding-left: 10px;
-  font-size: clamp(14px, 1.667vw, 32px);
-  line-height: 150%;
+  font-size: clamp(14px, 1.696vw, 16px);
+  line-height: 155%;
 }
 
 .about__btn {
-  margin-top: 80px;
+  margin-top: 60px;
   align-self: center;
   background: transparent;
   border: 1px solid var(--color-orange);
@@ -1251,11 +1255,11 @@ nav a::after {
 
 .about__dot {
   position: absolute;
-  bottom: -12px;
+  bottom: -3px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 20px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--color-orange);
   outline: 20px solid var(--color-bg);
@@ -1698,6 +1702,7 @@ nav a::after {
   .scroll-top {
     display: none !important;
   }
+
   .hero {
     height: 400px;
     padding-top: 24px;
@@ -1780,20 +1785,18 @@ nav a::after {
 
   .quest-card__desc {
     margin-bottom: 16px;
-    line-height: 160%;
     -webkit-line-clamp: 6;
   }
 
   .quest-card__actions {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
   }
 
   .quest-card__btn-contact,
   .quest-card__btn-learn {
     width: fit-content;
-    padding: 6px 30px;
+    padding: 6px 16px;
     font-size: 16px;
   }
 
@@ -1803,7 +1806,7 @@ nav a::after {
   }
 
   .quests__nav-btn {
-    width: 17px;
+    width: 16px;
   }
 
   .quests__btn-prev {
@@ -1830,22 +1833,11 @@ nav a::after {
     gap: 40px;
   }
 
-  .about__facts {
-    gap: 16px;
-  }
-
   .about__btn {
     margin-top: 24px;
     padding: 6px 16px;
     font-weight: 400;
     font-size: 16px;
-  }
-
-  .about__dot {
-    bottom: -3px;
-    width: 5px;
-    height: 5px;
-    outline: 10px solid var(--color-bg);
   }
 
   /* Services */
@@ -2014,6 +2006,7 @@ nav a::after {
   .stats {
     min-height: 250px;
   }
+
   .stat-number {
     font-size: 24px;
     line-height: 140%;
@@ -2118,6 +2111,24 @@ nav a::after {
     display: none;
   }
 
+  /* Stats */
+  .stats__wrapper {
+    grid-template-columns: 1fr 123px 1fr;
+  }
+
+  .stat-text {
+    font-size: 14px;
+    line-height: 160%;
+  }
+}
+
+@media (max-width: 575px) {
+  h2,
+  .h2 {
+    font-weight: var(--font-weight-regular);
+    line-height: 160%;
+  }
+
   /* Quests */
   .quest-card {
     padding: 12px;
@@ -2141,8 +2152,6 @@ nav a::after {
   }
 
   .quest-card__title {
-    font-family: var(--font-family);
-    font-size: 16px;
     line-height: 140%;
   }
 
@@ -2166,8 +2175,9 @@ nav a::after {
 
   .quest-card__btn-contact,
   .quest-card__btn-learn {
-    padding: 2px 14px;
+    padding: 4px 14px;
     font-size: 14px;
+    line-height: 160%;
   }
 
   .quests__nav {
@@ -2198,26 +2208,28 @@ nav a::after {
   .quests .swiper-pagination-bullet-active {
     background: var(--color-orange);
   }
-  /* Stats */
-  .stats__wrapper {
-    grid-template-columns: 1fr 123px 1fr;
-  }
-  .stat-text {
-    font-size: 14px;
-    line-height: 160%;
-  }
-}
 
-@media (max-width: 575px) {
-  h2,
-  .h2 {
-    font-weight: var(--font-weight-regular);
-    line-height: 160%;
+  /* Services */
+  .services {
+    padding: 20px 0;
+  }
+
+  .services__heading {
+    margin-bottom: 80px;
+  }
+
+  .services__list {
+    padding: 15px 15px 15px 0;
+  }
+
+  .services__check {
+    width: 12px;
+    height: 9px;
   }
 
   /* About */
   .about__content {
-    padding-bottom: 15px;
+    padding-bottom: 23px;
   }
 
   .about__inner {
@@ -2243,7 +2255,6 @@ nav a::after {
 
   .about__facts {
     padding-left: 20px;
-    gap: 16px;
   }
 
   .about__fact {
@@ -2256,22 +2267,14 @@ nav a::after {
     font-size: 14px;
   }
 
-  /* Services */
-  .services {
-    padding: 20px 0;
+  /* Stats */
+  .stats__wrapper {
+    grid-template-columns: 1fr 123px 1fr;
   }
 
-  .services__heading {
-    margin-bottom: 80px;
-  }
-
-  .services__list {
-    padding: 15px 15px 15px 0;
-  }
-
-  .services__check {
-    width: 12px;
-    height: 9px;
+  .stat-text {
+    font-size: 14px;
+    line-height: 160%;
   }
 
   /* Benefits */
