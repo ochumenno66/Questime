@@ -1474,8 +1474,8 @@ nav a::after {
 
 /* Partners */
 .partners {
-  padding-top: clamp(20px, 4vw, 60px);
-  padding-bottom: clamp(20px, 4vw, 60px);
+  padding: clamp(20px, 4vw, 60px) 0;
+  overflow: hidden;
 }
 
 .partners__inner {
@@ -1487,10 +1487,10 @@ nav a::after {
 
 .partners__grid {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: clamp(16px, 2.5vw, 32px); 
   max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); 
+  gap: clamp(12px, 2vw, 32px); 
   justify-items: center;
 }
 
@@ -1498,15 +1498,24 @@ nav a::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 1 calc(20% - 48px); 
-  min-width: 150px;
-  height: clamp(40px, 6vw, 80px);
+  width: 100%;
+  height: clamp(40px, 8vw, 100px);
 }
 
 .partners__item img {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+.partners__item:nth-child(-n+4), 
+.partners__item:nth-child(n+8):nth-child(-n+11) {
+  grid-column: span 3;
+}
+
+.partners__item:nth-child(n+5):nth-child(-n+7),
+.partners__item:nth-child(n+12) {
+  grid-column: span 4;
 }
 
 .partners__footer {
@@ -1909,11 +1918,6 @@ nav a::after {
 
   .benefits__card-title {
     padding: 16px 0 12px;
-  }
-
-  /* Partners */
-  .partners__grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
