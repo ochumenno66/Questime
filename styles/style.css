@@ -707,9 +707,9 @@ nav a::after {
 
 /* Секция Hero */
 .hero {
-  height: calc(100vh - 88px);
+  height: 100vh;
   max-height: 800px;
-  padding-top: 88px;
+  padding-top: 128px;
   padding-bottom: 40px;
   background: var(--color-header-footer-bg);
 }
