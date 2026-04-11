@@ -1683,6 +1683,55 @@ nav a::after {
   height: 200px;
 }
 
+/* Form */
+.contact-form__title-gt {
+  margin-bottom: 4px;
+}
+
+.contact-form__wrapper-gt {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-areas:
+    "title   title   title   title   title   title"
+    "content content content image   image   image"
+    "name    name    email   image   image   image"
+    "interest interest interest date date date"
+    "button  button  button  .       .       ."
+    "checkbox checkbox checkbox .    .       .";
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* Grid Areas */
+.contact-form__title {
+  grid-area: title;
+  margin: 0;
+}
+.contact-form__content {
+  grid-area: content;
+}
+.input-name {
+  grid-area: name;
+}
+.input-email {
+  grid-area: email;
+}
+.input-interest {
+  grid-area: interest;
+}
+.input-date {
+  grid-area: date;
+}
+.contact-form__btn {
+  grid-area: button;
+}
+.checkbox {
+  grid-area: checkbox;
+}
+.contact-form__image-wrapper {
+  grid-area: image;
+}
+
 /* TEAM BUILDING */
 .quote-tb {
   background-image: url(../assets/images/team-building/quote-TB.webp);
