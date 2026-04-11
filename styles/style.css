@@ -1465,11 +1465,25 @@ nav a::after {
   padding: 12px 40px;
 }
 
+.about-cta .cta__btn,
+.cta--event-page .cta__btn {
+  margin-top: 0;
+}
+
 .cta--gamified,
 .cta--event-page,
 .cta--team-building {
   min-height: clamp(318px, 32vw, 615px);
   align-content: center;
+}
+
+.cta__line {
+  display: inline;
+}
+
+.cta__line:first-child {
+  display: block; 
+  width: 100%;
 }
 
 /* Gallery */
@@ -2200,14 +2214,15 @@ nav a::after {
     font-size: 14px;
   }
 
-  .cta--gamified {
+  .cta--gamified,
+  .cta--event-page,
+  .cta--team-building {
     min-height: 150px;
   }
 
-  .cta--gamified .cta__title,
-  .cta--team-building .cta__title,
-  .cta--event-page .cta__title {
+  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta) .cta__title {
     font-size: 14px;
+    line-height: 1.6;
   }
 
   .cta__main-title {
