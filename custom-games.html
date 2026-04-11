@@ -122,11 +122,111 @@
         <h2 class="text-align">PROJECTS</h2>
       </section>
       <!-- Секция Form -->
-      <section class="form section-common" id="form">
-        <h2>Let’s Plan Your Adventure</h2>
+      <section class="contact-form section-common" id="contact-form">
+        <div class="container">
+          <h2 class="contact-form__title-gt">LET’S PLAN YOUR ADVENTURE</h2>
+          <form class="contact-form__wrapper-gt" action="#" method="post">
+            <div class="contact-form__content">
+              <p class="contact-form__text">Have a question? Want to organize a private experience or a custom gamified tour? Tell us what you're looking for! Natalia or Mark will personally get back to you within one business day.</p>
+              <p class="contact-form__text">Prefer to talk it through? Call us directly at <a class="contact-form__phone" href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a> — we’d love to hear your plans.</p>
+            </div>
+            <input class="contact-form__input input-name" type="text" name="name" placeholder="Name*" required>
+            <input class="contact-form__input input-email" type="email" name="email" placeholder="Email*" required>
+            <select class="contact-form__input contact-form__select input-interest" name="interest" required>
+              <option value="" disabled selected hidden>What are you interested in?*</option>
+              <option>Private Tour</option>
+              <option>Gamified Tour</option>
+              <option>Corporate Event</option>
+              <option>Custom Experience</option>
+              <option>Other</option>
+            </select>
+            <input class="contact-form__input input-date" type="date" name="date">
+            <button class="btn btn-secondary contact-form__btn" type="submit">Answer me!</button>
+            <div class="checkbox">
+              <input type="checkbox" id="agree" required>
+              <label for="agree">By subscribing, you agree to our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></label>
+            </div>
+            <div class="contact-form__image-wrapper">
+              <img class="contact-form__image" src="./assets/images/main/contact.jpg" alt="Nataly and Mark">
+            </div>
+          </form>
+        </div>
       </section>
       <!-- Секция Testimonials -->
-      <section class="testimonials section-decorated-light" id="testimonials"></section>
+      <section class="testimonials section-decorated-light section-decorated-dark" id="testimonials">
+        <div class="container">
+          <div class="testimonials__header">
+            <h2 class="testimonials__title text-align">Stories you don't just hear — you live</h2>
+            <h3 class="testimonials__subtitle h3">For <span class="testimonials__accent">over 13 years</span>, we've created and led <span class="testimonials__accent">500+ gamified tours</span> around the world.</h3>
+          </div>
+        </div>
+
+        <div class="testimonials__carousel swiper">
+          <div class="testimonials__track swiper-wrapper">
+
+            <div class="testimonials__card testimonials__card--text swiper-slide">
+              <div class="testimonials__card-top">
+                <img src="../assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+                <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
+              </div>
+              <div class="testimonials__author">
+                <img src="../assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+                <span class="testimonials__name">Alex Frerkel</span>
+              </div>
+            </div>
+
+            <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
+              <img src="../assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+              <div class="testimonials__author">
+                <img src="../assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+                <span class="testimonials__name">Anna Caplan</span>
+              </div>
+            </div>
+
+            <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
+              <img src="../assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+              <div class="testimonials__author">
+                <img src="../assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+                <span class="testimonials__name">Metro Company</span>
+              </div>
+            </div>
+
+            <div class="testimonials__card testimonials__card--text swiper-slide">
+              <div class="testimonials__card-top">
+                <img src="../assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+                <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
+              </div>
+              <div class="testimonials__author">
+                <img src="../assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+                <span class="testimonials__name">Alex Frerkel</span>
+              </div>
+            </div>
+
+            <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
+              <img src="../assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+              <div class="testimonials__author">
+                <img src="../assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+                <span class="testimonials__name">Anna Caplan</span>
+              </div>
+            </div>
+
+            <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
+              <img src="../assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+              <div class="testimonials__author">
+                <img src="../assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+                <span class="testimonials__name">Metro Company</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="testimonials__footer">
+            <a href="#" class="btn btn-card testimonials__btn" target="_blank">Read More Reviews</a>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
       <div class="footer__wrapper container">

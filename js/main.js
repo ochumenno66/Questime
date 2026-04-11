@@ -195,7 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
     { threshold: 0.5 },
   );
 
+  if (statsWrapper) {
   observer.observe(statsWrapper);
+}
 
   // Слайдер в секции Gallery
   function initSlider(trackSelector, speed, direction) {
@@ -291,4 +293,72 @@ document.addEventListener("DOMContentLoaded", () => {
     initSlider("#slider-track__horizontal", speedTop, "left");
     initSlider("#slider-track__vertical", speedBottom, "right");
   });
+
+  // Testimonials carousel
+  let testimonialsSwiper;
+
+  function initTestimonialsSwiper() {
+    const screenWidth = window.innerWidth;
+    
+    if (screenWidth > 575) {
+      if (!testimonialsSwiper) {
+        testimonialsSwiper = new Swiper(".testimonials__carousel", {
+          loop: true,
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          spaceBetween: 24,
+        });
+      }
+    } else {
+      if (testimonialsSwiper) {
+        // destroy(true, true) — удаляет объект и ВСЕ инлайновые стили
+        testimonialsSwiper.destroy(true, true); 
+        testimonialsSwiper = null;
+      }
+    }
+  }
+
+  initTestimonialsSwiper();
+  window.addEventListener("resize", initTestimonialsSwiper);
+
+  //FAQ
+  const faq = document.querySelector(".faq__list");
+
+  if (faq) {
+    const items = faq.querySelectorAll(".faq__item");
+
+    function closeItem(item) {
+      item.classList.remove("is-open");
+      item
+        .querySelector(".faq__question")
+        .setAttribute("aria-expanded", "false");
+      item.querySelector(".faq__answer").style.maxHeight = null;
+    }
+
+    function openItem(item) {
+      const answer = item.querySelector(".faq__answer");
+      item.classList.add("is-open");
+      item
+        .querySelector(".faq__question")
+        .setAttribute("aria-expanded", "true");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+
+    if (items.length) {
+      openItem(items[0]);
+    }
+
+    faq.addEventListener("click", (e) => {
+      const btn = e.target.closest(".faq__question");
+      if (!btn) return;
+
+      const item = btn.closest(".faq__item");
+      const isOpen = item.classList.contains("is-open");
+
+      items.forEach(closeItem);
+
+      if (!isOpen) openItem(item);
+    });
+  }
 });
