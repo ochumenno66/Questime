@@ -2368,17 +2368,40 @@ nav a::after {
   }
 
   /* Страница Custom Games */
-  .custom-games-hero {
+  .custom-games-hero.hero {
+    height: unset;
     min-height: 360px !important;
+    padding-top: 20px;
+    padding-bottom: 16px !important;
   }
+
+  .custom-games-hero__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-games-hero__body {
+    width: 100%;
+  }
+
+  .custom-games-hero__actions {
+    gap: 20px;
+  } 
   
   .custom-games-hero__image-wrap--mobile {
     display: block;
     width: 156px;
     aspect-ratio: 1;
   }
+
   .custom-games-hero__image-wrap {
     display: none;
+  }
+
+  .custom-games-hero__title {
+    font-size: 24px;
+    text-align: center;
   }
   
 }
