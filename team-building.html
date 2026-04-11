@@ -1,73 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team building</title>
-    <!-- Фавиконки -->
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team building</title>
+  <!-- Фавиконки -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./styles/style.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
 </head>
+
 <body>
-    <header id="header" class="header">
-      <div class="header__wrapper container">
-        <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-        <nav class="header-nav">
-          <ul class="header-menu">
-            <li><a href="gamified-tours.html">Gamified Tours</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-            <li><a href="custom-games.html">Custom Games</a></li>
-            <li><a href="about-us.html">About</a></li>
-          </ul>
-        </nav>
-        <div class="header-socials__wrapper--mobile">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
-        </div>
-        <div class="header__right">
-            <div class="header-socials__wrapper">
-              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-              <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
-            </div>
-            <a class="btn-book btn-book--notmobile" href="schedule.html">
-              <img src="./assets/icons/schedule-2.svg" alt="Booking Button">
-              <span>Book Now</span>
-            </a>
-            <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
-              <span class="burger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </button>
-        </div>
-      </div>
-      <div class="burger-dropdown" id="burgerDropdown">
-        <div class="container">
-          <ul class="burger-dropdown__menu">
-            <li><a href="gamified-tours.html">Gamified Tours</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-            <li><a href="custom-games.html">Custom Games</a></li>
-            <li><a href="about-us.html">About</a></li>
-          </ul>
-        </div>
-      </div>
-    </header>
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-    <div class="mobile-menu" id="mobileMenu">
-      <nav class="mobile-menu__nav">
-        <ul>
+  <header id="header" class="header">
+    <div class="header__wrapper container">
+      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
+      <nav class="header-nav">
+        <ul class="header-menu">
           <li><a href="gamified-tours.html">Gamified Tours</a></li>
           <li><a href="schedule.html">Schedule</a></li>
           <li><a href="#reviews">Reviews</a></li>
@@ -76,152 +29,284 @@
           <li><a href="about-us.html">About</a></li>
         </ul>
       </nav>
-      <div class="mobile-menu__footer">
-        <div class="mobile-menu__socials">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+      <div class="header-socials__wrapper--mobile">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+      <div class="header__right">
+        <div class="header-socials__wrapper">
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg"
+              alt="linkedin"></a>
           <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+              alt="instagram"></a>
         </div>
-        <a class="btn-book" href="schedule.html">
+        <a class="btn-book btn-book--notmobile" href="schedule.html">
           <img src="./assets/icons/schedule-2.svg" alt="Booking Button">
           <span>Book Now</span>
         </a>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+          <span class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
       </div>
     </div>
-    <main>
-      <!-- Секция Hero -->
-      <section class="hero section-decorated-dark" id="hero"></section>
-      <!-- Секция Experience -->
-      <section class="experience section-common" id="experience">
-        <h2 class="text-align">What your team gains:</h2>
-      </section>
-      <!-- Секция Stats -->
-      <section class="stats decorated-dark-stats decorated-light-stats" id="stats">
-        <div class="stats__inner container">
-          <div class="stats__wrapper">
-            <div class="stat__wrapper">
-              <span class="stat-number">7</span>
-              <span class="stat-text">stories</span>
-            </div>
-            <div class="stat__wrapper">
-              <span class="stat-number">400 000</span>
-              <span class="stat-text">people have played  our games</span>
-            </div>
-            <div class="stat__wrapper">
-              <span class="stat-number">13</span>
-              <span class="stat-text">years of experience</span>
-            </div>
+    <div class="burger-dropdown" id="burgerDropdown">
+      <div class="container">
+        <ul class="burger-dropdown__menu">
+          <li><a href="gamified-tours.html">Gamified Tours</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+          <li><a href="custom-games.html">Custom Games</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__nav">
+      <ul>
+        <li><a href="gamified-tours.html">Gamified Tours</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+        <li><a href="custom-games.html">Custom Games</a></li>
+        <li><a href="about-us.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__footer">
+      <div class="mobile-menu__socials">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+      <a class="btn-book" href="schedule.html">
+        <img src="./assets/icons/schedule-2.svg" alt="Booking Button">
+        <span>Book Now</span>
+      </a>
+    </div>
+  </div>
+  <main>
+    <!-- Секция Hero -->
+    <section class="hero section-decorated-dark" id="hero"></section>
+    <!-- Секция Experience -->
+    <section class="experience section-common" id="experience">
+      <h2 class="text-align">What your team gains:</h2>
+    </section>
+    <!-- Секция Stats -->
+    <section class="stats decorated-dark-stats decorated-light-stats" id="stats">
+      <div class="stats__inner container">
+        <div class="stats__wrapper">
+          <div class="stat__wrapper">
+            <span class="stat-number">7</span>
+            <span class="stat-text">stories</span>
           </div>
-          <a href="./assets/presentation.pdf" download class="btn btn-secondary btn-download">
-            <span>Download Our Presentation</span>
-          </a>
-        </div>
-      </section>
-      <!-- Секция Quests -->
-      <section class="quests section-special" id="quests">
-        <h2 class="text-align">Explore our unique quests</h2>
-      </section>
-      <!-- Секция Gallery -->
-      <section class="gallery-slider section-common" id="gallery-slider">
-        <div class="gallery-slider__wrapper">
-          <div class="slider-track__horizontal" id="slider-track__horizontal">
-            <div class="slide-top"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-            <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-            <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
-            <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-            <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
-            <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
+          <div class="stat__wrapper">
+            <span class="stat-number">400 000</span>
+            <span class="stat-text">people have played our games</span>
           </div>
-          <div class="slider-track__vertical" id="slider-track__vertical">
-            <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-            <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-            <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-            <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-            <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-            <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-          </div>
-        </div>
-      </section>
-      <!-- Секция Testimonials -->
-      <section class="testimonials section-decorated-light section-decorated-dark" id="testimonials">
-        <h2 class="text-align">Experience that matters</h2>
-      </section>
-      <!-- Секция Benefits -->
-      <section class="benefits benefits_tb text-align section-common" id="benefits">
-        <div class="container">
-          <h2 class="benefits__title ">Why us?</h2>
-          <div class="benefits__wrapper">
-            <div class="benefits__card">
-              <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
-              <h3 class="benefits__card-title">Deep Historical Research</h3>
-              <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
-                historically accurate</p>
-            </div>
-            <div class="benefits__card">
-              <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
-              <h3 class="benefits__card-title">Smart Gamification</h3>
-              <p class="benefits__card-text">
-                We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
-                strategic, immersive, and fun
-              </p>
-            </div>
-            <div class="benefits__card">
-              <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
-              <h3 class="benefits__card-title">Cinematic Storytelling</h3>
-              <p class="benefits__card-text">
-                Our experiences are built like films — with tension, characters, and powerful narrative arcs
-              </p>
-            </div>
-          </div>
-          <button class="benefits__btn btn btn-secondary">
-            Learn More About Us
-          </button>
-        </div>
-      </section>
-      <!-- Секция CTA -->
-      <section class="cta cta--team-building decorated-dark-cta decorated-light-cta" id="cta">
-        <div class="container">
-          <div class="cta__inner">
-            <h2 class="cta__title">
-              <span class="cta__title-orange">Turn</span><span class="cta__title-white"> your team building and outings into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
-              <span class="cta__title-white">!</span>
-            </h2>
+          <div class="stat__wrapper">
+            <span class="stat-number">13</span>
+            <span class="stat-text">years of experience</span>
           </div>
         </div>
-      </section>
-      <!-- Секция Form -->
-      <section class="form section-common" id="form"></section>
-      <!-- Секция FAQ -->
-      <section class="faq section-common" id="faq">
-        <h2 class="container text-align">FAQ</h2>
-      </section>
-    </main>
-    <footer class="footer section-common section-decorated-light">
-      <div class="footer__wrapper container">
-        <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-        <nav class="footer-nav">
-          <ul class="footer-menu">
-            <li><a href="gamified-tours.html">Gamified Tours</a></li>
-            <li><a href="schedule.html">Schedule</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-            <li><a href="custom-games.html">Custom Games</a></li>
-            <li><a href="about-us.html">About</a></li>
-          </ul>
-        </nav>
-
-        <div class="footer-socials__wrapper">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg" alt="instagram"></a>
+        <a href="./assets/presentation.pdf" download class="btn btn-secondary btn-download">
+          <span>Download Our Presentation</span>
+        </a>
+      </div>
+    </section>
+    <!-- Секция Quests -->
+    <section class="quests section-special" id="quests">
+      <h2 class="text-align">Explore our unique quests</h2>
+    </section>
+    <!-- Секция Gallery -->
+    <section class="gallery-slider section-common" id="gallery-slider">
+      <div class="gallery-slider__wrapper">
+        <div class="slider-track__horizontal" id="slider-track__horizontal">
+          <div class="slide-top"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
+          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
+          <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
+          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
+          <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
+          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
+        </div>
+        <div class="slider-track__vertical" id="slider-track__vertical">
+          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
+          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
+          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
+          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
+          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
+          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
         </div>
       </div>
-    </footer>
+    </section>
+    <!-- Секция Testimonials -->
+    <section class="testimonials section-decorated-light section-decorated-dark" id="testimonials">
+      <h2 class="text-align">Experience that matters</h2>
+    </section>
+    <!-- Секция Benefits -->
+    <section class="benefits benefits_tb text-align section-common" id="benefits">
+      <div class="container">
+        <h2 class="benefits__title ">Why us?</h2>
+        <div class="benefits__wrapper">
+          <div class="benefits__card">
+            <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
+            <h3 class="benefits__card-title">Deep Historical Research</h3>
+            <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
+              historically accurate</p>
+          </div>
+          <div class="benefits__card">
+            <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
+            <h3 class="benefits__card-title">Smart Gamification</h3>
+            <p class="benefits__card-text">
+              We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
+              strategic, immersive, and fun
+            </p>
+          </div>
+          <div class="benefits__card">
+            <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
+            <h3 class="benefits__card-title">Cinematic Storytelling</h3>
+            <p class="benefits__card-text">
+              Our experiences are built like films — with tension, characters, and powerful narrative arcs
+            </p>
+          </div>
+        </div>
+        <button class="benefits__btn btn btn-secondary">
+          Learn More About Us
+        </button>
+      </div>
+    </section>
+    <!-- Секция CTA -->
+    <section class="cta cta--team-building decorated-dark-cta decorated-light-cta" id="cta">
+      <div class="container">
+        <div class="cta__inner">
+          <h2 class="cta__title">
+            <span class="cta__title-orange">Turn</span><span class="cta__title-white"> your team building and outings into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
+            <span class="cta__title-white">!</span>
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!-- Секция Form -->
+    <section class="form section-common" id="form"></section>
+    <!-- Секция FAQ -->
+    <section class="faq section-common" id="faq">
+      <div class="container">
+        <h2 class="faq__title text-align">FAQ</h2>
+        <div class="faq__list">
+          <div class="faq__dot"></div>
+          <div class="faq__item is-open">
+            <button class="faq__question" aria-expanded="true">
+              <img class="faq__icon" src="./assets/icons/team-building/question.svg" alt="question" loading="lazy"
+                decoding="async">
+              <span class="faq__question-text">Do I need to prepare anything beforehand?</span>
+              <span class="faq__chevron">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M31.6663 15L19.9997 25L8.33301 15" stroke="#191A18" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">Most of our games need just a little prep — usually printing and cutting out
+                puzzle materials. Sometimes we suggest basic props — like a ball of yarn or a flashlight — but nothing
+                hard to find. You'll always see the full list of what's needed in the "Description" tab under the
+                product photos. And some games require no prep at all. For example, The House of Whispering Bandages</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <img class="faq__icon" src="./assets/icons/team-building/question.svg" alt="question" loading="lazy"
+                decoding="async">
+              <span class="faq__question-text">What if I don't understand something — during setup or while solving a
+                puzzle?</span>
+              <span class="faq__chevron">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M31.6663 15L19.9997 25L8.33301 15" stroke="#191A18" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">We're always here to help. You can reach us via email or the chat on our
+                website. Most questions get answered within a few hours.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <img class="faq__icon" src="./assets/icons/team-building/question.svg" alt="question" loading="lazy"
+                decoding="async">
+              <span class="faq__question-text">How will I receive the home mystery after purchase?</span>
+              <span class="faq__chevron">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M31.6663 15L19.9997 25L8.33301 15" stroke="#191A18" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">After purchase you'll receive a download link to your email. All materials
+                are in PDF format, ready to print at home or at any print shop.</p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <button class="faq__question" aria-expanded="false">
+              <img class="faq__icon" src="./assets/icons/team-building/question.svg" alt="question" loading="lazy"
+                decoding="async">
+              <span class="faq__question-text">What if I don't understand something — during setup or while solving a
+                puzzle?</span>
+              <span class="faq__chevron">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M31.6663 15L19.9997 25L8.33301 15" stroke="#191A18" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+            <div class="faq__answer">
+              <p class="faq__answer-inner">Our support team is available 7 days a week. Just write to us and we'll guide
+                you through any tricky part of the game setup or puzzle solving.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer section-common section-decorated-light">
+    <div class="footer__wrapper container">
+      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
+      <nav class="footer-nav">
+        <ul class="footer-menu">
+          <li><a href="gamified-tours.html">Gamified Tours</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+          <li><a href="custom-games.html">Custom Games</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </ul>
+      </nav>
 
-    <button class="scroll-top" id="scrollTop">
-      ↑
-    </button>
+      <div class="footer-socials__wrapper">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+    </div>
+  </footer>
 
-    <script type="module" src="./js/main.js"></script>
+  <button class="scroll-top" id="scrollTop">
+    ↑
+  </button>
+
+  <script type="module" src="./js/main.js"></script>
 </body>
+
 </html>
