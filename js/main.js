@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
         testimonialsSwiper = new Swiper(".testimonials__carousel", {
           loop: true,
           grabCursor: true,
-          centeredSlides: true,
+          centeredSlides: false,
           slidesPerView: "auto",
           spaceBetween: 24,
         });
@@ -321,6 +321,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initTestimonialsSwiper();
   window.addEventListener("resize", initTestimonialsSwiper);
+
+  // Form
+  document.querySelectorAll('.custom-select').forEach(select => {
+  const trigger = select.querySelector('.custom-select__trigger');
+  const valueEl = select.querySelector('.custom-select__value');
+  const options = select.querySelectorAll('.custom-select__option');
+  const hiddenInput = select.querySelector('input[type="hidden"]');
+
+  trigger.addEventListener('click', () => {
+    select.classList.toggle('is-open');
+  });
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      valueEl.textContent = option.textContent;
+      valueEl.classList.remove('custom-select__value--placeholder');
+      hiddenInput.value = option.dataset.value;
+
+      options.forEach(o => o.classList.remove('is-selected'));
+      option.classList.add('is-selected');
+
+      select.classList.remove('is-open');
+    });
+  });
+
+  // Закрыть при клике вне
+  document.addEventListener('click', (e) => {
+    if (!select.contains(e.target)) {
+      select.classList.remove('is-open');
+    }
+  });
+});
 
   //FAQ
   const faq = document.querySelector(".faq__list");
