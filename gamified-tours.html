@@ -253,10 +253,10 @@
       <!-- Секция Form -->
       <section class="contact-form section-common" id="contact-form">
         <div class="container">
-          <h2 class="contact-form__title-gt">LET’S PLAN YOUR ADVENTURE</h2>
+          <h2 class="contact-form__title-gt">Let’s plan your adventure</h2>
           <form class="contact-form__wrapper-gt" action="#" method="post">
             <div class="contact-form__content">
-              <p class="contact-form__text">Have a question? Want to organize a private experience or a custom gamified tour? Tell us what you're looking for! Natalia or Mark will personally get back to you within one business day.</p>
+              <p class="contact-form__text text-bottom-gt">Have a question? Want to organize a private experience or a custom gamified tour? Tell us what you're looking for! Natalia or Mark will personally get back to you within one business day.</p>
               <p class="contact-form__text">Prefer to talk it through? Call us directly at <a class="contact-form__phone" href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a> — we’d love to hear your plans.</p>
             </div>
             <input class="contact-form__input input-name" type="text" name="name" placeholder="Name*" required>
@@ -264,12 +264,13 @@
             <select class="contact-form__input contact-form__select input-interest" name="interest" required>
               <option value="" disabled selected hidden>What are you interested in?*</option>
               <option>Private Tour</option>
-              <option>Gamified Tour</option>
-              <option>Corporate Event</option>
+              <option>Small Group Tour</option>
+              <option>Self-Guided Experience</option>
               <option>Custom Experience</option>
-              <option>Other</option>
+              <option>Not Sure Yet</option>
             </select>
-            <input class="contact-form__input input-date" type="date" name="date">
+            <input class="contact-form__input input-date" type="text" name="Preferred Date" placeholder="Preferred Date" required>
+            <textarea class="contact-form__textarea input-textarea" name="message" placeholder="Text of your request" required></textarea>
             <button class="btn btn-secondary contact-form__btn" type="submit">Answer me!</button>
             <div class="checkbox">
               <input type="checkbox" id="agree" required>
