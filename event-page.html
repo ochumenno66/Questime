@@ -124,7 +124,13 @@
       </section>
       <!-- Секция Route -->
       <section class="route section-common" id="route">
-        <h2 class="text-align">Route</h2>
+        <h2 class="route__title text-align">Route</h2>
+        <div class="route__body container">
+          <div class="route__points" id="routePointList"></div>
+          <div class="route__map">
+            <div id="map"></div>
+          </div>
+        </div>
       </section>
       <!-- Секция Persons -->
       <section class="persons section-common" id="persons">
@@ -144,54 +150,54 @@
 
             <div class="testimonials__card testimonials__card--text swiper-slide">
               <div class="testimonials__card-top">
-                <img src="../assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+                <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
                 <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
               </div>
               <div class="testimonials__author">
-                <img src="../assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+                <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
                 <span class="testimonials__name">Alex Frerkel</span>
               </div>
             </div>
 
             <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-              <img src="../assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+              <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
               <div class="testimonials__author">
-                <img src="../assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+                <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
                 <span class="testimonials__name">Anna Caplan</span>
               </div>
             </div>
 
             <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-              <img src="../assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+              <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
               <div class="testimonials__author">
-                <img src="../assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+                <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
                 <span class="testimonials__name">Metro Company</span>
               </div>
             </div>
 
             <div class="testimonials__card testimonials__card--text swiper-slide">
               <div class="testimonials__card-top">
-                <img src="../assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+                <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
                 <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
               </div>
               <div class="testimonials__author">
-                <img src="../assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+                <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
                 <span class="testimonials__name">Alex Frerkel</span>
               </div>
             </div>
 
             <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-              <img src="../assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+              <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
               <div class="testimonials__author">
-                <img src="../assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+                <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
                 <span class="testimonials__name">Anna Caplan</span>
               </div>
             </div>
 
             <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-              <img src="../assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+              <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
               <div class="testimonials__author">
-                <img src="../assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+                <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
                 <span class="testimonials__name">Metro Company</span>
               </div>
             </div>
@@ -316,6 +322,8 @@
       ↑
     </button>
 
+    <script src="./js/event.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2J-azecgmc3g6fPNXfMJL4tam2k89J5o&callback=initRouteMap&loading=async" async defer></script>
 </body>
 </html>
