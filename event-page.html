@@ -124,7 +124,13 @@
       </section>
       <!-- Секция Route -->
       <section class="route section-common" id="route">
-        <h2 class="text-align">Route</h2>
+        <h2 class="route__title text-align">Route</h2>
+        <div class="route__body container">
+          <div class="route__points" id="routePointList"></div>
+          <div class="route__map">
+            <div id="map"></div>
+          </div>
+        </div>
       </section>
       <!-- Секция Persons -->
       <section class="persons section-common" id="persons">
@@ -316,6 +322,8 @@
       ↑
     </button>
 
+    <script src="./js/event.js"></script>
     <script type="module" src="./js/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2J-azecgmc3g6fPNXfMJL4tam2k89J5o&callback=initRouteMap&loading=async" async defer></script>
 </body>
 </html>

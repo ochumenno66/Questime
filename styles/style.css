@@ -2150,6 +2150,63 @@ nav a::after {
 }
 
 /* EVENTS PAGE */
+/* ROUTE */
+.route__title {
+  margin-bottom: 32px;
+}
+
+.route__body {
+  display: grid;
+  grid-template-columns: 1fr 60%;
+  gap: 2rem;
+  align-items: center;
+}
+
+.route__points {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.route__point {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.route__point-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.route__point-label {
+  font-family: var(--second-family);
+  font-size: 16px;
+  color: var(--color-text);
+  transition: color 0.2s;
+}
+
+.route__point.active .route__point-label {
+  font-weight: var(--font-weight-bold);
+  color: var(--light-orange);
+}
+
+.route__map {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 340px;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
 /* Gallery */
 .gallery-slider--ep {
   padding-top: 0;
@@ -3049,6 +3106,26 @@ nav a::after {
     padding-bottom: 16px;
     font-size: clamp(14px, 2.083vw, 16px);
   }
+
+  /* Страница Event Page */
+  .route__body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .route__map {
+    order: -1;
+    height: 280px;
+  }
+
+  .route__points {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .route__title {
+    margin-bottom: 24px;
+  }
 }
 
 @media (max-width: 680px) {
@@ -3685,6 +3762,11 @@ nav a::after {
   /* Quests */
   .quests__nav-btn:hover {
     transform: scale(1.1);
+  }
+
+  .route__point:hover,
+  .route__point.active {
+    background: rgba(229, 131, 69, 0.08);
   }
 }
 
