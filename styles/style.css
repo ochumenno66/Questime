@@ -2428,6 +2428,7 @@ nav a::after {
 }
 
 .btn--orange {
+  font-family: var(--font-family);
   background: var(--color-orange);
   transition: background 0.3s ease;
 }
@@ -2707,108 +2708,6 @@ nav a::after {
   top: 22px;
   left: 13px;
 }
-
-/*
-.company {
-  overflow: hidden;
-}
-
-.company__pair {
-  display: grid;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.company__pair--right-photo {
-  grid-template-columns: 56% 41%;
-}
-
-.company__pair--left-photo {
-  grid-template-columns: 41% 56%;
-}
-
-.company__pair:last-child {
-  margin-bottom: 0;
-}
-
-.company__scroll {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.company__scroll-bg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.company__scroll-inner {
-  position: absolute;
-  inset: 36% 11% 20% 12%;
-  display: flex;
-  align-items: center;
-}
-
-.company__text {
-  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
-  line-height: 160%;
-  color: var(--color-text);
-}
-
-.company__polaroid {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.company__polaroid-bg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.company__polaroid-img--right,
-.company__polaroid-img--left {
-  position: absolute;
-  top: 18%;
-  width: 76%;
-  object-fit: cover;
-}
-
-.company__polaroid-img--right {
-  left: 13%;
-  height: 65%;
-}
-
-.company__polaroid-img--left {
-  left: 11%;
-  height: 60%;
-}
-
-.company__polaroid--1 .company__polaroid-bg {
-  transform: rotate(2deg);
-}
-
-.company__polaroid--1 .company__polaroid-img--right,
-.company__polaroid--1 .company__polaroid-caption {
-  transform: rotate(7.5deg);
-  transform-origin: center center;
-}
-
-.company__polaroid--2 .company__polaroid-bg {
-  transform: rotate(1deg);
-}
-
-.company__polaroid--2 .company__polaroid-img--left,
-.company__polaroid--2 .company__polaroid-caption {
-  transform: rotate(-6.5deg);
-  transform-origin: center center;
-}
-*/
 
 /* Benefits */
 .space-between-b {
@@ -3956,6 +3855,7 @@ nav a::after {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 16px;
   }
 
   .custom-games-hero__body {
