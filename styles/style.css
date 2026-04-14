@@ -1046,7 +1046,7 @@ nav a::after {
 .hero-ep__compass {
   width: clamp(32px, 8vw, 125px);
   height: auto;
-  margin: 10px auto clamp(20px, 4vw, 40px);
+  margin: 10px auto 20px;
   display: block;
 }
 
@@ -1075,7 +1075,7 @@ nav a::after {
 }
 
 .hero-ep__text {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   text-align: center;
 }
 
@@ -1114,14 +1114,14 @@ nav a::after {
   gap: clamp(8px, 2vw, 20px);
   width: 100%;
   max-width: 1400px;
-  margin-top: clamp(20px, 4vw, 40px);
+  margin-top: 0;
 }
 
 .feature-card {
   position: relative;
   background-color: rgba(243, 241, 232, 0.64); 
   backdrop-filter: blur(4px);
-  padding: clamp(10px, 2vw, 32px) clamp(5px, 1vw, 20px);
+  padding: 12px 15px 24px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
@@ -3029,7 +3029,7 @@ nav a::after {
   }
 
   .hero-ep__text {
-  margin-bottom: clamp(16px, 3vw, 24px); 
+  margin-bottom: 16px; 
   text-align: center;
 }
 
@@ -3439,6 +3439,7 @@ nav a::after {
   line-height: 1.6;
   margin-top: 0;
   margin-bottom: 8px;
+  text-transform: uppercase;
  }
 
   /* Stats */
@@ -4258,6 +4259,12 @@ nav a::after {
   /* Benefits */
   .benefits {
     margin: 40px 0;
+  }
+
+  .hero-ep__title {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-transform: none;
   }
 
   /* Form */
