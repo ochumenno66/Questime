@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       d.addEventListener("click", () => {
         goTo(+d.dataset.i);
         start();
-      })
+      }),
     );
 
     start();
@@ -199,8 +199,8 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   if (statsWrapper) {
-  observer.observe(statsWrapper);
-}
+    observer.observe(statsWrapper);
+  }
 
   // Слайдер в секции Gallery
   function initSlider(trackSelector, speed, direction) {
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function initTestimonialsSwiper() {
     const screenWidth = window.innerWidth;
-    
+
     if (screenWidth > 575) {
       if (!testimonialsSwiper) {
         testimonialsSwiper = new Swiper(".testimonials__carousel", {
@@ -316,7 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       if (testimonialsSwiper) {
         // destroy(true, true) — удаляет объект и ВСЕ инлайновые стили
-        testimonialsSwiper.destroy(true, true); 
+        testimonialsSwiper.destroy(true, true);
         testimonialsSwiper = null;
       }
     }
@@ -326,36 +326,36 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", initTestimonialsSwiper);
 
   // Form
-  document.querySelectorAll('.custom-select').forEach(select => {
-  const trigger = select.querySelector('.custom-select__trigger');
-  const valueEl = select.querySelector('.custom-select__value');
-  const options = select.querySelectorAll('.custom-select__option');
-  const hiddenInput = select.querySelector('input[type="hidden"]');
+  document.querySelectorAll(".custom-select").forEach((select) => {
+    const trigger = select.querySelector(".custom-select__trigger");
+    const valueEl = select.querySelector(".custom-select__value");
+    const options = select.querySelectorAll(".custom-select__option");
+    const hiddenInput = select.querySelector('input[type="hidden"]');
 
-  trigger.addEventListener('click', () => {
-    select.classList.toggle('is-open');
-  });
+    trigger.addEventListener("click", () => {
+      select.classList.toggle("is-open");
+    });
 
-  options.forEach(option => {
-    option.addEventListener('click', () => {
-      valueEl.textContent = option.textContent;
-      valueEl.classList.remove('custom-select__value--placeholder');
-      hiddenInput.value = option.dataset.value;
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        valueEl.textContent = option.textContent;
+        valueEl.classList.remove("custom-select__value--placeholder");
+        hiddenInput.value = option.dataset.value;
 
-      options.forEach(o => o.classList.remove('is-selected'));
-      option.classList.add('is-selected');
+        options.forEach((o) => o.classList.remove("is-selected"));
+        option.classList.add("is-selected");
 
-      select.classList.remove('is-open');
+        select.classList.remove("is-open");
+      });
+    });
+
+    // Закрыть при клике вне
+    document.addEventListener("click", (e) => {
+      if (!select.contains(e.target)) {
+        select.classList.remove("is-open");
+      }
     });
   });
-
-  // Закрыть при клике вне
-  document.addEventListener('click', (e) => {
-    if (!select.contains(e.target)) {
-      select.classList.remove('is-open');
-    }
-  });
-});
 
   //FAQ
   const faq = document.querySelector(".faq__list");
@@ -396,4 +396,48 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!isOpen) openItem(item);
     });
   }
+
+  //Persons and Format
+  const personsLists = document.querySelectorAll(".persons__list");
+
+  personsLists.forEach((persons) => {
+    const item = persons.querySelector(".persons__item");
+
+    if (!item) return;
+
+    const btn = item.querySelector(".persons__question");
+    const answer = item.querySelector(".persons__answer");
+
+    function openItem() {
+      item.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+
+    function closeItem() {
+      item.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      answer.style.maxHeight = null;
+    }
+
+    if (item.classList.contains("is-open")) {
+      openItem();
+    }
+
+    btn.addEventListener("click", () => {
+      const isOpen = item.classList.contains("is-open");
+
+      if (isOpen) {
+        closeItem();
+      } else {
+        openItem();
+      }
+    });
+  });
+
+  document.querySelectorAll(".format__steps-col").forEach((col) => {
+    col.querySelectorAll(".format__step").forEach((step, index) => {
+      step.style.setProperty("--i", index);
+    });
+  });
 });
