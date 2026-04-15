@@ -2909,6 +2909,180 @@ nav a::after {
   height: 200px;
 }
 
+/* TEAM BUILDING */
+/* HERO */
+.hero-gt,
+.hero-tb {
+  position: relative;
+  min-height: 100svh;          /* на весь экран */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 88px;           /* высота фиксированного хедера */
+}
+
+/* ── Фоновое изображение ── */
+.hero-gt__bg,
+.hero-tb__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-gt__bg-img,
+.hero-tb__bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Тёмный overlay поверх фото */
+.hero-gt__overlay,
+.hero-tb__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 4, 2, 0.62);
+}
+
+/* ── Контейнер ── */
+.hero-gt__container,
+.hero-tb__container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 40px;
+  padding-bottom: 100px;       /* отступ снизу до рваного края */
+  width: 100%;
+}
+
+/* ── Хлебные крошки (цвет меняем на светлый, т.к. тёмный фон) ── */
+.hero-gt__breadcrumbs,
+.hero-tb__breadcrumbs {
+  margin-bottom: clamp(28px, 4vw, 56px);
+}
+
+.hero-gt__breadcrumbs .breadcrumbs__link,
+.hero-tb__breadcrumbs .breadcrumbs__link,
+.hero-gt__breadcrumbs .breadcrumbs__item--current,
+.hero-tb__breadcrumbs .breadcrumbs__item--current {
+  color: var(--color-bg);       /* светло-кремовый */
+  opacity: 0.9;
+}
+
+.hero-gt__breadcrumbs .breadcrumbs__icon img,
+.hero-tb__breadcrumbs .breadcrumbs__icon img {
+  filter: brightness(0) invert(1);
+}
+
+/* ── Контент ── */
+.hero-gt__content,
+.hero-tb__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  gap: clamp(12px, 2vw, 24px);
+}
+
+/* ── Заголовок (h1) ── */
+.hero-gt__title,
+.hero-tb__title {
+  font-family: var(--font3);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(28px, 4.5vw, 72px);
+  line-height: 1.18;
+  letter-spacing: 0.03em;
+  color: var(--color-white);
+  text-transform: uppercase;
+  margin: 0;
+  display: block;              /* переопределяем inline-block заголовков */
+}
+
+/* Оранжевые выделения в заголовке */
+.hero-gt__accent,
+.hero-tb__accent {
+  color: var(--light-orange);
+}
+
+/* ── Tagline (только для TB: «On-site, cafe…») ── */
+.hero-tb__tagline {
+  font-family: var(--second-family);
+  font-size: clamp(14px, 1.25vw, 22px);
+  color: var(--color-white);
+  opacity: 0.85;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ── Подзаголовок ── */
+.hero-gt__subtitle,
+.hero-tb__subtitle {
+  font-family: var(--second-family);
+  font-size: clamp(14px, 1.25vw, 20px);
+  color: var(--color-white);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ── Кнопки ── */
+.hero-gt__actions,
+.hero-tb__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+/* Оранжевая кнопка */
+.btn--orange {
+  background: var(--color-orange);
+  color: var(--color-white);
+  transition: background 0.22s;
+}
+
+/* Прозрачная кнопка с белой обводкой */
+.btn--transparent {
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid var(--color-white);
+  transition: color 0.22s, border-color 0.22s;
+}
+
+/* ── Google Reviews badge ── */
+.reviews-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.reviews-badge__label {
+  font-family: var(--second-family);
+  font-size: clamp(12px, 0.9vw, 16px);
+  color: var(--color-white);
+  opacity: 0.75;
+}
+
+.reviews-badge__stars {
+  color: var(--light-orange);
+  font-size: clamp(14px, 1.1vw, 18px);
+  letter-spacing: 2px;
+}
+
+.reviews-badge__score {
+  font-family: var(--second-family);
+  font-size: clamp(12px, 0.9vw, 16px);
+  color: var(--color-white);
+  opacity: 0.75;
+}
+
 /* Adaptive */
 @media (max-width: 1440px) {
 }
