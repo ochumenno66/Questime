@@ -2959,7 +2959,7 @@ nav a::after {
 
 .subscribe-about-us__rhomb {
   display: block;
-  width: clamp(120px, 14vw, 188px);
+  width: clamp(100px, 10vw, 130px);
   height: auto;
 }
 
