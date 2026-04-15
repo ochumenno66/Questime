@@ -2909,6 +2909,71 @@ nav a::after {
   height: 200px;
 }
 
+/* Subscribe About Us */
+.subscribe-about-us {
+  background-size: cover;
+  background-position: center;
+  padding-top: clamp(100px, 12vw, 180px);
+  padding-bottom: clamp(100px, 12vw, 180px);
+}
+
+.subscribe-about-us__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 26, 24, 0.4);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Scoped z-index: keep torn edges above the overlay without touching global classes */
+.subscribe-about-us.decorated-light-stats::before,
+.subscribe-about-us.decorated-dark-stats::after {
+  z-index: 2;
+}
+
+.subscribe-about-us__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscribe-about-us__title {
+  color: var(--color-orange);
+  margin-bottom: 60px;
+}
+
+.subscribe-about-us__socials {
+  display: flex;
+  gap: 120px;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-about-us__link {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.subscribe-about-us__rhomb {
+  display: block;
+  width: clamp(100px, 10vw, 130px);
+  height: auto;
+}
+
+.subscribe-about-us__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 /* Adaptive */
 @media (max-width: 1440px) {
 }
@@ -2945,6 +3010,24 @@ nav a::after {
 }
 
 @media (max-width: 1024px) {
+  .subscribe-about-us__title {
+    text-transform: none;
+  }
+
+  .subscribe-about-us__socials {
+    gap: 40px;
+  }
+
+  .subscribe-about-us__link {
+    width: 80px;
+    height: 80px;
+  }
+
+  .subscribe-about-us__rhomb {
+    width: 100%;
+    height: 100%;
+  }
+
   .scroll-top {
     display: none !important;
   }
@@ -3913,6 +3996,10 @@ nav a::after {
   .h2 {
     font-weight: var(--font-weight-regular);
     line-height: 160%;
+  }
+
+  .subscribe-about-us__socials {
+    gap: 40px;
   }
 
   /* Quests */
