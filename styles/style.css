@@ -2914,18 +2914,25 @@ nav a::after {
 .hero-gt,
 .hero-tb {
   position: relative;
-  min-height: 100svh;          /* на весь экран */
   display: flex;
   align-items: center;
-  overflow: hidden;
-  padding-top: 88px;           /* высота фиксированного хедера */
+  padding-top: 24px;
 }
 
 /* ── Фоновое изображение ── */
-.hero-gt__bg,
+.hero-tb--img,
 .hero-tb__bg {
   position: absolute;
   inset: 0;
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(
+      180deg,
+      #191a18 0%,
+      rgba(25, 26, 24, 0) 49.04%,
+      #191a18 100%
+    ),
+    url(../assets/images/team-building/tg-hero.webp) center / cover no-repeat;
   z-index: 0;
 }
 
@@ -2938,96 +2945,52 @@ nav a::after {
   display: block;
 }
 
-/* Тёмный overlay поверх фото */
-.hero-gt__overlay,
-.hero-tb__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 4, 2, 0.62);
-}
-
 /* ── Контейнер ── */
-.hero-gt__container,
-.hero-tb__container {
+.hero-gt__wrapper,
+.hero-tb__wrapper {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 40px;
-  padding-bottom: 100px;       /* отступ снизу до рваного края */
   width: 100%;
 }
 
-/* ── Хлебные крошки (цвет меняем на светлый, т.к. тёмный фон) ── */
-.hero-gt__breadcrumbs,
-.hero-tb__breadcrumbs {
-  margin-bottom: clamp(28px, 4vw, 56px);
-}
-
-.hero-gt__breadcrumbs .breadcrumbs__link,
-.hero-tb__breadcrumbs .breadcrumbs__link,
-.hero-gt__breadcrumbs .breadcrumbs__item--current,
-.hero-tb__breadcrumbs .breadcrumbs__item--current {
-  color: var(--color-bg);       /* светло-кремовый */
-  opacity: 0.9;
-}
-
-.hero-gt__breadcrumbs .breadcrumbs__icon img,
-.hero-tb__breadcrumbs .breadcrumbs__icon img {
-  filter: brightness(0) invert(1);
-}
-
-/* ── Контент ── */
 .hero-gt__content,
 .hero-tb__content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   width: 100%;
-  gap: clamp(12px, 2vw, 24px);
+  gap: clamp(16px, 4vw, 48px);
 }
 
-/* ── Заголовок (h1) ── */
 .hero-gt__title,
 .hero-tb__title {
-  font-family: var(--font3);
-  font-weight: var(--font-weight-bold);
-  font-size: clamp(28px, 4.5vw, 72px);
+  font-size: clamp(24px, 4vw, 80px);
   line-height: 1.18;
   letter-spacing: 0.03em;
-  color: var(--color-white);
-  text-transform: uppercase;
+  line-height: 125%;
+  letter-spacing: 0.06em;
+  color: var(--color-bg);
   margin: 0;
-  display: block;              /* переопределяем inline-block заголовков */
+  display: block;
 }
 
-/* Оранжевые выделения в заголовке */
 .hero-gt__accent,
 .hero-tb__accent {
-  color: var(--light-orange);
+  color: var(--color-orange);
 }
 
-/* ── Tagline (только для TB: «On-site, cafe…») ── */
-.hero-tb__tagline {
-  font-family: var(--second-family);
-  font-size: clamp(14px, 1.25vw, 22px);
-  color: var(--color-white);
-  opacity: 0.85;
+.hero-tb__tagline,
+.hero-tb__subtitle,
+.hero-gt__subtitle {
+  font-family: var(--font-family);
+  font-size: clamp(14px, 2.5vw, 32px);
+  color: var(--color-bg);
   letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-/* ── Подзаголовок ── */
-.hero-gt__subtitle,
-.hero-tb__subtitle {
-  font-family: var(--second-family);
-  font-size: clamp(14px, 1.25vw, 20px);
-  color: var(--color-white);
-  opacity: 0.85;
-  margin: 0;
+  line-height: 150%;
 }
 
 /* ── Кнопки ── */
@@ -3052,7 +3015,9 @@ nav a::after {
   background: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
-  transition: color 0.22s, border-color 0.22s;
+  transition:
+    color 0.22s,
+    border-color 0.22s;
 }
 
 /* ── Google Reviews badge ── */
@@ -3479,7 +3444,9 @@ nav a::after {
   /* Страница Custom Games */
   /* HERO */
   .custom-games-hero__wrapper .hero__breadcrumbs,
-  .aboutus-hero__wrapper .hero__breadcrumbs {
+  .aboutus-hero__wrapper .hero__breadcrumbs,
+  .hero-tb .hero__breadcrumbs,
+  .hero-gt .hero__breadcrumbs {
     display: none;
   }
 
