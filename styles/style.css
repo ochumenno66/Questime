@@ -2982,6 +2982,11 @@ nav a::after {
   display: flex;
   align-items: center;
   padding-top: 44px;
+  padding-bottom: 0;
+}
+
+.breadcrumbs-gt {
+  top: -7px;
 }
 
 .hero-tb--img,
@@ -2994,24 +2999,14 @@ nav a::after {
 .hero-tb--img {
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(
-      180deg,
-      #191a18 0%,
-      rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%
-    ),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
     url(../assets/images/team-building/tg-hero.webp) center / cover no-repeat;
 }
 
 .hero-gt--img {
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(
-      180deg,
-      #191a18 0%,
-      rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%
-    ),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
     url(../assets/images/gamifiedTours/gt-hero.webp) center / cover no-repeat;
 }
 
@@ -3029,7 +3024,6 @@ nav a::after {
 .hero-tb__content {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .hero-tb__content {
@@ -3038,51 +3032,15 @@ nav a::after {
 
 .hero-gt__content {
   gap: clamp(16px, 4vw, 24px);
-}
-
-/*.hero-gt__wrapper,
-.hero-tb__wrapper {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   width: 100%;
-  min-height: 100%;
-  padding-top: clamp(24px, 3vw, 40px);
-  padding-bottom: clamp(24px, 3vw, 40px);
-}
-
-.hero__breadcrumbs {
-  align-self: flex-start;
-  margin-bottom: clamp(12px, 2vw, 24px);
-}
-
-.hero-gt__content,
-.hero-tb__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 0 auto;
   text-align: center;
 }
-
-.hero-tb__content {
-  gap: clamp(16px, 4vw, 48px);
-}
-
-.hero-gt__content {
-  gap: clamp(16px, 4vw, 24px);
-}*/
 
 .hero-gt__title,
 .hero-tb__title {
   font-size: clamp(24px, 4vw, 80px);
-  line-height: 1.18;
-  letter-spacing: 0.03em;
-  line-height: 125%;
-  letter-spacing: 0.06em;
   color: var(--color-bg);
-  margin: 0;
   display: block;
 }
 
@@ -3104,7 +3062,6 @@ nav a::after {
 .hero-gt__actions,
 .hero-tb__actions {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
   margin-top: 4px;
@@ -3145,7 +3102,6 @@ nav a::after {
   font-family: var(--second-family);
   font-size: clamp(12px, 0.9vw, 18px);
   color: var(--color-bg);
-  line-height: 133%;
 }
 
 .reviews-badge__stars {
@@ -3156,12 +3112,6 @@ nav a::after {
 
 .reviews-badge__score {
   font-family: var(--second-family);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 131%;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  text-align: center;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -3639,7 +3589,8 @@ nav a::after {
 
   /* TEAM BUILDING */
   /* HERO */
-  .hero-tb {
+  .hero-tb,
+  .hero-gt {
     height: 500px;
   }
 }
@@ -3900,6 +3851,10 @@ nav a::after {
     justify-content: center;
     padding-top: 36px;
     padding-bottom: 17px;
+  }
+
+  .hero-gt__title {
+    text-transform: uppercase;
   }
 
   .hero-gt__actions,
@@ -4560,6 +4515,20 @@ nav a::after {
     top: 22px;
     left: 13px;
   }
+
+  /* Страница Gamified tours */
+  /* HERO */
+  .hero-gt__title br:nth-of-type(2) {
+    display: none;
+  }
+  
+  .hero-gt {
+    height: 380px;
+  }
+
+  .hero-gt__title {
+    text-transform: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -4656,6 +4625,10 @@ nav a::after {
     padding-bottom: 24px;
   }
 
+  .hero-tb {
+    height: 357px;
+  }
+
   .hero-tb__title {
     font-size: 21px;
     line-height: 150%;
@@ -4663,14 +4636,21 @@ nav a::after {
 
   .hero-gt__actions,
   .hero-tb__actions {
-    flex-direction: column;
     align-items: center;
     width: 100%;
+  }
+
+  .hero-gt__actions {
+    margin-bottom: -15px;
   }
 
   .hero-gt__btn,
   .hero-tb__btn {
     margin-bottom: 30px;
+  }
+
+  .hero-gt__btn {
+    padding: 3px 10px;
   }
 
   .hero-tb__reviews,
