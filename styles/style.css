@@ -2803,6 +2803,51 @@ nav a::after {
   font-family: var(--font-family);
 }
 
+/* Stats */
+.stats-au__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 32px);
+}
+
+.stats-au__item {
+  flex: 1;
+  max-width: 380px;
+}
+
+.stats-au__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px);
+  text-align: center;
+  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100%
+    no-repeat;
+}
+
+.stats-au__icon {
+  width: clamp(24px, 6vw, 80px);
+  height: clamp(24px, 6vw, 80px);
+  margin-bottom: 4px;
+  opacity: 0.75;
+}
+
+.stats-au__number,
+.stats-au__text {
+  font-size: clamp(14px, 1.91vw, 24px);
+  color: var(--color-orange);
+  line-height: 160%;
+  margin: 0;
+}
+
+.stats-au__text {
+  color: var(--color-text);
+}
+
+/* Team */
 .team__list {
   display: flex;
   flex-direction: column;
@@ -3693,6 +3738,12 @@ nav a::after {
   .route__title {
     margin-bottom: 24px;
   }
+
+  /* Страница About Us */
+  /* Stats */
+  .stats-au__card {
+    padding: 20px 0;
+  }
 }
 
 @media (max-width: 680px) {
@@ -3895,6 +3946,22 @@ nav a::after {
     text-align: center;
   }
 
+  /* Stats */
+  .stats-au__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats-au__item {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .stats-au__card {
+    padding: clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px);
+  }
+
+  /* Team */
   .team__member .container {
     display: grid;
     grid-template-columns: 1fr;
