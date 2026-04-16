@@ -2925,7 +2925,6 @@ nav a::after {
   pointer-events: none;
 }
 
-/* Scoped z-index: keep torn edges above the overlay without touching global classes */
 .subscribe-about-us.decorated-light-stats::before,
 .subscribe-about-us.decorated-dark-stats::after {
   z-index: 2;
@@ -2976,7 +2975,7 @@ nav a::after {
 
 /* ===== Experience ===== */
 .experience {
-  padding-top: calc(var(--tear-height) + clamp(40px, 5.56vw, 80px));
+  padding-top: 40px;
 }
 
 .experience .container {
@@ -2991,46 +2990,50 @@ nav a::after {
   gap: clamp(14px, 1.39vw, 20px);
 }
 
+.experience__row:nth-child(1) .experience__col--text,
+.experience__row:nth-child(3) .experience__col--text {
+  flex: 0 1 920px;
+}
+
+.experience__row:nth-child(2) .experience__col--gains {
+  flex: 0 1 571px;
+}
+
 .experience__col--img {
-  flex: 0 0 clamp(200px, 38.9%, 453px);
-}
-
-.experience__col--text,
-.experience__col--gains {
-  flex: 1;
-  min-width: 0;
-}
-
-/* Image wrapper: positioning context for the orange decoration layer */
-.experience__img-wrapper {
+  flex: 0 0 453px;
   position: relative;
-  display: block;
-  transform: rotate(-6.92deg);
-  transform-origin: center center;
+  z-index: 2;
 }
 
-/* Row-2 left-column image: slight clockwise tilt for natural variety */
+.experience__img-wrapper {
+  display: inline-block;
+  width: 100%;
+  max-width: 453px;
+  /* Вращаем только здесь! Всё внутри повернется автоматически */
+  transform: rotate(-6.92deg);
+  /* Резервируем место под тень, чтобы она не наезжала на текст */
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
 .experience__row--img-first .experience__img-wrapper {
   transform: rotate(5deg);
 }
 
-/* Orange decorative rectangle shifted right + down behind the image */
-.experience__img-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-orange);
-  transform: translate(15px, 15px);
-  z-index: 0;
-}
-
 .experience__img {
-  position: relative;
-  z-index: 1;
+  /* УБИРАЕМ position: absolute (это была главная ошибка) */
+  position: static; 
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
-  border: 3px solid var(--color-orange);
+  
+  /* Тень приклеивается к картинке и поворачивается ВМЕСТЕ с ней */
+  /* Параметры: 15px вправо, 15px вниз, 0 размытия, оранжевый цвет */
+  box-shadow: 15px 15px 0 0 #D75300;
+  
+  /* Убираем любые старые рамки и повороты */
+  border: none;
+  transform: none;
 }
 
 .experience__p {
@@ -3046,7 +3049,6 @@ nav a::after {
 
 .experience__link {
   color: var(--color-orange);
-  font-style: italic;
 }
 
 .experience__gains-title {
@@ -4132,7 +4134,7 @@ nav a::after {
     order: -1;
   }
 
-  /* Remove rotation and reduce decoration offset on mobile */
+  /* Remove rotation on mobile; reduce orange offset to prevent overflow */
   .experience__img-wrapper,
   .experience__row--img-first .experience__img-wrapper {
     transform: none;
