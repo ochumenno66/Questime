@@ -2975,10 +2975,15 @@ nav a::after {
 }
 
 /* ===== Experience ===== */
+.experience {
+  padding-top: var(--tear-height);
+}
+
 .experience .container {
   display: flex;
   flex-direction: column;
   gap: clamp(16px, 2.78vw, 40px);
+  max-width: 1164px;
 }
 
 .experience__row {
@@ -2997,7 +3002,32 @@ nav a::after {
   min-width: 0;
 }
 
+/* Image wrapper: positioning context for the orange decoration layer */
+.experience__img-wrapper {
+  position: relative;
+  display: block;
+  transform: rotate(-6.92deg);
+  transform-origin: center center;
+}
+
+/* Row-2 left-column image: slight clockwise tilt for natural variety */
+.experience__row--img-first .experience__img-wrapper {
+  transform: rotate(5deg);
+}
+
+/* Orange decorative rectangle shifted right + down behind the image */
+.experience__img-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-orange);
+  transform: translate(10px, 12px);
+  z-index: 0;
+}
+
 .experience__img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: auto;
   display: block;
@@ -4085,6 +4115,16 @@ nav a::after {
   /* Row 2: on mobile gains text should appear above the image */
   .experience__row--img-first .experience__col--gains {
     order: -1;
+  }
+
+  /* Remove rotation and reduce decoration offset on mobile */
+  .experience__img-wrapper,
+  .experience__row--img-first .experience__img-wrapper {
+    transform: none;
+  }
+
+  .experience__img-wrapper::before {
+    transform: translate(6px, 8px);
   }
 
   h2,
