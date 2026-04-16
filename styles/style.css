@@ -2976,14 +2976,13 @@ nav a::after {
 
 /* ===== Experience ===== */
 .experience {
-  padding-top: var(--tear-height);
+  padding-top: calc(var(--tear-height) + clamp(40px, 5.56vw, 80px));
 }
 
 .experience .container {
   display: flex;
   flex-direction: column;
   gap: clamp(16px, 2.78vw, 40px);
-  max-width: 1164px;
 }
 
 .experience__row {
@@ -3021,7 +3020,7 @@ nav a::after {
   position: absolute;
   inset: 0;
   background: var(--color-orange);
-  transform: translate(10px, 12px);
+  transform: translate(15px, 15px);
   z-index: 0;
 }
 
@@ -4104,6 +4103,7 @@ nav a::after {
   /* Experience */
   .experience__row {
     flex-direction: column;
+    align-items: center;
   }
 
   .experience__col--img {
@@ -4112,7 +4112,22 @@ nav a::after {
     max-width: 453px;
   }
 
-  /* Row 2: on mobile gains text should appear above the image */
+  .experience__col--text,
+  .experience__col--gains {
+    width: 100%;
+    text-align: center;
+  }
+
+  .experience__p,
+  .experience__gains-title {
+    text-align: center;
+  }
+
+  .experience__item {
+    justify-content: center;
+  }
+
+  /* Row 2: on mobile, gains block appears above the image */
   .experience__row--img-first .experience__col--gains {
     order: -1;
   }
@@ -4124,7 +4139,7 @@ nav a::after {
   }
 
   .experience__img-wrapper::before {
-    transform: translate(6px, 8px);
+    transform: translate(8px, 8px);
   }
 
   h2,
