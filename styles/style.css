@@ -2974,6 +2974,85 @@ nav a::after {
   pointer-events: none;
 }
 
+/* ===== Experience ===== */
+.experience .container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2.78vw, 40px);
+}
+
+.experience__row {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 1.39vw, 20px);
+}
+
+.experience__col--img {
+  flex: 0 0 clamp(200px, 38.9%, 453px);
+}
+
+.experience__col--text,
+.experience__col--gains {
+  flex: 1;
+  min-width: 0;
+}
+
+.experience__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 3px solid var(--color-orange);
+}
+
+.experience__p {
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  line-height: 160%;
+  color: var(--color-text);
+  margin: 0 0 clamp(8px, 1.11vw, 16px);
+}
+
+.experience__p:last-child {
+  margin-bottom: 0;
+}
+
+.experience__link {
+  color: var(--color-orange);
+  font-style: italic;
+}
+
+.experience__gains-title {
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+  color: var(--color-orange);
+  margin: 0 0 clamp(10px, 1.11vw, 16px);
+}
+
+.experience__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 0.83vw, 12px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  line-height: 160%;
+  color: var(--color-text);
+}
+
+.experience__tick {
+  width: 16px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-top: 0.3em;
+}
+
 /* Adaptive */
 @media (max-width: 1440px) {
 }
@@ -3992,6 +4071,22 @@ nav a::after {
 }
 
 @media (max-width: 575px) {
+  /* Experience */
+  .experience__row {
+    flex-direction: column;
+  }
+
+  .experience__col--img {
+    flex: none;
+    width: 100%;
+    max-width: 453px;
+  }
+
+  /* Row 2: on mobile gains text should appear above the image */
+  .experience__row--img-first .experience__col--gains {
+    order: -1;
+  }
+
   h2,
   .h2 {
     font-weight: var(--font-weight-regular);
