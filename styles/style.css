@@ -2976,12 +2976,14 @@ nav a::after {
 /* ===== Experience ===== */
 .experience {
   padding-top: var(--tear-height);
+  margin-top: clamp(30px, 4.17vw, 60px);
+  margin-bottom: clamp(30px, 4.17vw, 60px);
 }
 
 .experience .container {
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 2.78vw, 40px);
+  gap: clamp(20px, 3.89vw, 56px);
   max-width: 1164px;
   padding: 0;
 }
@@ -2989,56 +2991,41 @@ nav a::after {
 .experience__row {
   display: flex;
   align-items: flex-start;
-  gap: clamp(14px, 1.39vw, 20px);
+  justify-content: space-between;
 }
 
 .experience__row:nth-child(1) .experience__col--text,
 .experience__row:nth-child(3) .experience__col--text {
-  flex: 0 1 690px;
+  flex: 0 0 691px;
 }
 
 .experience__row:nth-child(2) .experience__col--gains {
-  flex: 0 1 571px;
+  flex: 0 0 571px;
 }
 
 .experience__col--img {
-  flex: 0 0 453px;
-  position: relative;
-  z-index: 2;
+  flex: 0 0 390px;
 }
 
 .experience__img-wrapper {
-  position: relative;
   display: block;
   width: 100%;
-  max-width: 453px;
-  transform: rotate(-6.92deg);
-}
-
-.experience__img-wrapper::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--color-orange);
-  transform: translate(12px, 12px);
-  z-index: -1;
+  transform: rotate(3deg);
 }
 
 .experience__row--img-first .experience__img-wrapper {
-  transform: rotate(5deg);
-}
-
-.experience__row--img-first .experience__img-wrapper::before {
-  transform: translate(-12px, 12px);
+  transform: rotate(-3deg);
 }
 
 .experience__img {
-  position: static;
   display: block;
   width: 100%;
   height: auto;
-  border: 3px solid var(--color-orange);
-  transform: none;
+  box-shadow: 15px 15px 0 0 var(--color-orange);
+}
+
+.experience__row--img-first .experience__img {
+  box-shadow: -15px 15px 0 0 var(--color-orange);
 }
 
 .experience__p {
@@ -4145,14 +4132,10 @@ nav a::after {
     order: -1;
   }
 
-  /* Remove rotation on mobile; reduce orange offset to prevent overflow */
+  /* Remove rotation on mobile */
   .experience__img-wrapper,
   .experience__row--img-first .experience__img-wrapper {
     transform: none;
-  }
-
-  .experience__img-wrapper::before {
-    transform: translate(8px, 8px);
   }
 
   h2,
