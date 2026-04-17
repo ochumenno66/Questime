@@ -918,12 +918,15 @@ nav a::after {
 .s1 {
   background-image: url("../assets/images/main/hero.webp");
 }
+
 .s2 {
   background-image: url("../assets/images/main/hero-2.jpg");
 }
+
 .s3 {
   background-image: url("../assets/images/main/hero-3.jpg");
 }
+
 .s4 {
   background-image: url("../assets/images/main/hero-4.jpg");
 }
@@ -2347,7 +2350,8 @@ nav a::after {
 .feature-card__icon img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Это сохранит пропорции внутри 16x16 */
+  object-fit: contain;
+  /* Это сохранит пропорции внутри 16x16 */
 }
 
 .feature-card__value,
@@ -2418,6 +2422,247 @@ nav a::after {
   height: 100%;
 }
 
+/* Person */
+.persons__list {
+  position: relative;
+  padding: 0 30px;
+  border-left: 2px solid var(--color-orange);
+  border-bottom: 2px solid var(--color-orange);
+  display: flex;
+  flex-direction: column;
+}
+
+.persons__question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 0 8px 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.persons__dot + .persons__item .persons__question {
+  padding-top: 0;
+}
+
+.persons__icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.persons__question-text {
+  flex: 1;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 155%;
+  color: var(--color-orange);
+}
+
+.persons__question-text.demo-text {
+  font-size: clamp(14px, 1.667vw, 32px);
+}
+
+.persons__chevron {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.persons__item.is-open .persons__answer {
+  opacity: 1;
+}
+
+.persons__item.is-open .persons__chevron {
+  transform: rotate(180deg);
+}
+
+.persons__answer {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  padding: 0;
+}
+
+.persons__answer-inner {
+  padding-bottom: 24px;
+  font-size: 16px;
+  line-height: 155%;
+}
+
+.persons__intro {
+  padding: 0 60px;
+  line-height: 155%;
+}
+
+.persons__rows {
+  padding: 0 60px;
+  display: flex;
+  flex-direction: column;
+  line-height: 155%;
+}
+
+.persons__row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 12px;
+  padding: 32px 0;
+  border-bottom: 0.25px solid var(--color-text);
+}
+
+.persons__row:last-child {
+  border-bottom: none;
+}
+
+.persons__name {
+  color: var(--color-orange);
+}
+
+.persons__dot {
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-orange);
+  outline: 20px solid var(--color-bg);
+}
+
+/* Format */
+.format__btn {
+  display: flex;
+  justify-self: center;
+  margin: 24px 0 32px 0;
+  background-color: transparent;
+  border: 1px solid var(--color-orange);
+  color: var(--color-orange);
+}
+
+.format .persons__list {
+  padding: 0;
+}
+
+.format .persons__question {
+  padding: 0 58px 0 118px;
+}
+
+.format__content {
+  padding: 24px 58px 0 118px;
+  display: flex;
+  flex-direction: column;
+}
+
+.format__steps-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.format__step {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: center;
+  gap: 20px;
+  max-width: 690px;
+}
+
+.format__step-num {
+  display: flex;
+  justify-content: end;
+  font-family: var(--font3);
+  font-weight: 700;
+  font-size: clamp(24px, 1.823vw, 35px);
+  line-height: 129%;
+  letter-spacing: 0.05em;
+  color: var(--color-orange);
+}
+
+.format__photo-wrap {
+  position: absolute;
+  width: clamp(98px, 15.417vw, 296px);
+  height: clamp(75px, 10.729vw, 206px);
+  flex-shrink: 0;
+}
+
+.format__photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-orange);
+  z-index: 1;
+}
+
+.format__photo {
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.format__photo-wrap--right .format__photo {
+  transform: rotate(7deg);
+}
+
+.format__photo-wrap--right::before {
+  transform: translate(-10px, 10px) rotate(7deg);
+}
+
+.format__photo-wrap--right {
+  top: 4%;
+  right: 3%;
+}
+
+.format__photo-wrap--left .format__photo {
+  transform: rotate(-7deg);
+}
+
+.format__photo-wrap--left::before {
+  transform: translate(-10px, 10px) rotate(-7deg);
+}
+
+.format__photo-wrap--left {
+  top: 30%;
+  left: 3%;
+}
+
+.format__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.format__finale {
+  padding-top: 24px;
+  padding-left: 120px;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+}
+
+.format__finale-label {
+  color: var(--color-orange);
+}
+
+.format__finale-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.format__step {
+  margin-left: 0;
+}
+
 /* Gallery */
 .gallery-slider--ep {
   padding-top: 0;
@@ -2484,6 +2729,7 @@ nav a::after {
     opacity: 0;
     transform: translateY(-50%) scale(0.85);
   }
+
   to {
     opacity: 1;
     transform: translateY(-50%) scale(1);
@@ -2817,6 +3063,7 @@ nav a::after {
     opacity: 0;
     transform: scale(0.85);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -2844,6 +3091,51 @@ nav a::after {
   font-family: var(--font-family);
 }
 
+/* Stats */
+.stats-au__wrapper {
+  display: flex;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 32px);
+}
+
+.stats-au__item {
+  flex: 1;
+  max-width: 380px;
+}
+
+.stats-au__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px);
+  text-align: center;
+  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100%
+    no-repeat;
+}
+
+.stats-au__icon {
+  width: clamp(24px, 6vw, 80px);
+  height: clamp(24px, 6vw, 80px);
+  margin-bottom: 4px;
+  opacity: 0.75;
+}
+
+.stats-au__number,
+.stats-au__text {
+  font-size: clamp(14px, 1.91vw, 24px);
+  color: var(--color-orange);
+  line-height: 160%;
+  margin: 0;
+}
+
+.stats-au__text {
+  color: var(--color-text);
+}
+
+/* Team */
 .team__list {
   display: flex;
   flex-direction: column;
@@ -2943,19 +3235,19 @@ nav a::after {
   text-decoration: underline;
 }
 
-.subscribe {
-  background-image: url(../assets/images/main/stats.webp);
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
 /* Subscribe About Us */
 .subscribe-about-us {
   background-size: cover;
   background-position: center;
   padding-top: clamp(100px, 12vw, 180px);
   padding-bottom: clamp(100px, 12vw, 180px);
+}
+
+.subscribe {
+  background-image: url(../assets/images/main/stats.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
 }
 
 .subscribe-about-us__overlay {
@@ -3015,6 +3307,147 @@ nav a::after {
   pointer-events: none;
 }
 
+/* TEAM BUILDING */
+/* HERO */
+.hero-gt,
+.hero-tb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: 44px;
+  padding-bottom: 0;
+}
+
+.breadcrumbs-gt {
+  top: -7px;
+}
+
+.hero-tb--img,
+.hero-gt--img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-tb--img {
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+    url(../assets/images/team-building/tg-hero.webp) center / cover no-repeat;
+}
+
+.hero-gt--img {
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+    url(../assets/images/gamifiedTours/gt-hero.webp) center / cover no-repeat;
+}
+
+.hero-gt__wrapper,
+.hero-tb__wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.hero-gt__content,
+.hero-tb__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-tb__content {
+  gap: clamp(16px, 4vw, 48px);
+}
+
+.hero-gt__content {
+  gap: clamp(16px, 4vw, 24px);
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-gt__title,
+.hero-tb__title {
+  font-size: clamp(24px, 4vw, 80px);
+  color: var(--color-bg);
+  display: block;
+}
+
+.hero-gt__accent,
+.hero-tb__accent {
+  color: var(--color-orange);
+}
+
+.hero-tb__tagline,
+.hero-tb__subtitle,
+.hero-gt__subtitle {
+  font-family: var(--font-family);
+  font-size: clamp(14px, 2.5vw, 32px);
+  color: var(--color-bg);
+  letter-spacing: 0.05em;
+  line-height: 150%;
+}
+
+.hero-gt__actions,
+.hero-tb__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.hero-tb__btn,
+.hero-gt__btn {
+  color: var(--color-bg);
+  margin-bottom: 32px;
+}
+
+/* Прозрачная кнопка со страницы gamified tours */
+.btn--transparent {
+  font-family: var(--font-family);
+  background: transparent;
+  border: 1px solid var(--color-bg);
+  transition:
+    color 0.22s,
+    border-color 0.22s;
+}
+
+/* google reviews */
+.hero-tb__reviews,
+.hero-gt__reviews {
+  align-self: center;
+  background-color: var(--color-text);
+  border-radius: 48px;
+  padding: 16px 32px;
+}
+
+.reviews-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviews-badge__label {
+  font-family: var(--second-family);
+  font-size: clamp(12px, 0.9vw, 18px);
+  color: var(--color-bg);
+}
+
+.reviews-badge__stars {
+  color: var(--light-orange);
+  font-size: clamp(14px, 1.1vw, 18px);
+  letter-spacing: 2px;
+}
+
+.reviews-badge__score {
+  font-family: var(--second-family);
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /* Adaptive */
 @media (max-width: 1440px) {
 }
@@ -3047,6 +3480,64 @@ nav a::after {
   /* form */
   .contact-form__btn {
     grid-column: 1 / 4;
+  }
+
+  /* Person, Format */
+  .format__btn {
+    margin: 16px 0 24px 0;
+  }
+
+  .format .persons__question {
+    padding: 0 16px 8px 16px;
+  }
+
+  .format__content {
+    padding-top: 0;
+    padding-left: clamp(16px, 8.188vw, 108px);
+    padding-right: 16px;
+  }
+
+  .format__steps-col {
+    padding-bottom: 16px;
+    gap: 16px;
+  }
+
+  .format__step {
+    grid-template-columns: 16px 1fr;
+    gap: 16px;
+    max-width: 480px;
+  }
+
+  .format__step-num {
+    font-family: var(--font-family);
+    line-height: 150%;
+  }
+
+  .format__photo-wrap--right::before {
+    transform: translate(-5px, 5px) rotate(7deg);
+  }
+
+  .format__photo-wrap--left::before {
+    transform: translate(-5px, 5px) rotate(-7deg);
+  }
+
+  .format__photo-wrap--left {
+    right: 3%;
+    left: unset;
+  }
+
+  .format__finale {
+    padding-top: 16px;
+    padding-left: 0;
+    gap: 16px;
+    max-width: 480px;
+    border-top: 0.25px solid var(--color-text);
+  }
+}
+
+@media (min-width: 1319px) {
+  .format__step {
+    margin-left: calc(var(--i, 0) * 100px);
   }
 }
 
@@ -3389,6 +3880,7 @@ nav a::after {
     display: flex;
     gap: 24px;
   }
+
   .aboutus-hero__body {
     max-width: 300px;
   }
@@ -3429,7 +3921,9 @@ nav a::after {
   /* Страница Custom Games */
   /* HERO */
   .custom-games-hero__wrapper .hero__breadcrumbs,
-  .aboutus-hero__wrapper .hero__breadcrumbs {
+  .aboutus-hero__wrapper .hero__breadcrumbs,
+  .hero-tb .hero__breadcrumbs,
+  .hero-gt .hero__breadcrumbs {
     display: none;
   }
 
@@ -3483,6 +3977,17 @@ nav a::after {
   .hero-ep__text {
     margin-bottom: 16px;
     text-align: center;
+  }
+
+  /* TEAM BUILDING */
+  /* HERO */
+  .hero-tb,
+  .hero-gt {
+    height: 500px;
+  } 
+  
+  .persons__rows {
+    padding: 0;
   }
 }
 
@@ -3738,6 +4243,75 @@ nav a::after {
   .route__title {
     margin-bottom: 24px;
   }
+
+  /* Страница team-building */
+  /* HERO */
+  .hero-gt__wrapper,
+  .hero-tb__wrapper {
+    justify-content: center;
+    padding-top: 36px;
+    padding-bottom: 17px;
+  }
+
+  .hero-gt__title {
+    text-transform: uppercase;
+  }
+
+  .hero-gt__actions,
+  .hero-tb__actions {
+    gap: 12px;
+  }
+
+  .hero-tb__reviews,
+  .hero-gt__reviews {
+    padding: 4px 24px;
+  } 
+  
+  /* Страница About Us */
+  /* Stats */
+  .stats-au__card {
+    padding: 20px 0;
+  }
+  
+  /* Person */
+  .persons__list {
+    padding: 0 16px;
+    border-left: 1px solid var(--color-orange);
+    border-bottom: 1px solid var(--color-orange);
+  }
+
+  .persons__intro {
+    padding: 0 50px;
+  }
+
+  .persons__row {
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .persons__question {
+    padding: 16px 0;
+  }
+
+  .persons__question-text {
+    font-size: clamp(14px, 2.083vw, 16px);
+  }
+
+  .persons__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .persons__chevron {
+    width: 24px;
+    height: 24px;
+  }
+
+  .persons__answer-inner {
+    padding-bottom: 16px;
+    font-size: clamp(14px, 2.083vw, 16px);
+  }
 }
 
 @media (max-width: 680px) {
@@ -3928,6 +4502,7 @@ nav a::after {
   .aboutus-hero__image-wrap {
     display: none;
   }
+
   .aboutus-hero__image-wrap--mobile {
     display: block;
     aspect-ratio: 324 / 188;
@@ -3940,6 +4515,22 @@ nav a::after {
     text-align: center;
   }
 
+  /* Stats */
+  .stats-au__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats-au__item {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .stats-au__card {
+    padding: clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px);
+  }
+
+  /* Team */
   .team__member .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -4033,6 +4624,32 @@ nav a::after {
 
   .label-text-left {
     padding: 9px 39px 19px;
+  }
+
+  /* Event page */
+  /* Format */
+  .format__btn {
+    margin: 16px 0;
+  }
+
+  .format__steps-col {
+    gap: 8px;
+  }
+
+  .format__photo-wrap--right {
+    bottom: 3%;
+    top: unset;
+  }
+
+  .format__photo-wrap--left {
+    bottom: 3%;
+    top: unset;
+    left: 10%;
+    right: unset;
+  }
+
+  .format .persons__answer {
+    padding-bottom: 120px;
   }
 }
 
@@ -4405,6 +5022,55 @@ nav a::after {
     top: 22px;
     left: 13px;
   }
+
+  /* Страница Gamified tours */
+  /* HERO */
+  .hero-gt__title br:nth-of-type(2) {
+    display: none;
+  }
+  
+  .hero-gt {
+    height: 380px;
+  }
+
+  .hero-gt__title {
+    text-transform: none;
+  }
+  
+  /* Event page */
+  /* Person */
+  .format__photo-wrap {
+    display: none;
+  }
+
+  .persons__question {
+    gap: 16px;
+  }
+
+  .persons__question-text {
+    font-size: 16px;
+  }
+
+  .persons__intro,
+  .persons__rows {
+    font-size: 12px;
+  }
+
+  .persons__intro {
+    padding: 0;
+  }
+
+  .persons__row {
+    grid-template-columns: 80px 1fr;
+  }
+
+  .persons__dot {
+    outline: 10px solid var(--color-bg);
+  }
+
+  .format .persons__answer {
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -4491,6 +5157,51 @@ nav a::after {
   .hero-ep__tags {
     max-width: 324px;
     gap: 8px;
+  }
+
+  /* Страница team-building */
+  /* HERO */
+  .hero-gt__wrapper,
+  .hero-tb__wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .hero-tb {
+    height: 357px;
+  }
+
+  .hero-tb__title {
+    font-size: 21px;
+    line-height: 150%;
+  }
+
+  .hero-gt__actions,
+  .hero-tb__actions {
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-gt__actions {
+    margin-bottom: -15px;
+  }
+
+  .hero-gt__btn,
+  .hero-tb__btn {
+    margin-bottom: 30px;
+  }
+
+  .hero-gt__btn {
+    padding: 3px 10px;
+  }
+
+  .hero-tb__reviews,
+  .hero-gt__reviews {
+    padding: 2px 16px;
+  }
+
+  .hero__breadcrumbs {
+    margin-bottom: 8px;
   }
 }
 
