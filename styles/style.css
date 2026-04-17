@@ -4,7 +4,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +17,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot")
+      format("embedded-opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -28,7 +30,8 @@
     url("../assets/fonts/Overpass/Overpass-Regular.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Regular.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +43,8 @@
     url("../assets/fonts/Overpass/Overpass-Light.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Light.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Light.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Light.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Light.eot")
+      format("embedded-opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -333,7 +337,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -344,7 +349,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-stats.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-stats.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -355,7 +361,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-cta.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-cta.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -366,7 +373,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-header.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-header.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -378,7 +386,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -389,7 +398,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-stats.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-stats.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -400,7 +410,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-cta.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-cta.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -735,10 +746,12 @@ nav a::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(90deg,
-      #191a18 0%,
-      rgba(25, 26, 24, 0.5) 16%,
-      rgba(25, 26, 24, 0) 31%);
+  background: linear-gradient(
+    90deg,
+    #191a18 0%,
+    rgba(25, 26, 24, 0.5) 16%,
+    rgba(25, 26, 24, 0) 31%
+  );
 }
 
 .hero__wrapper::after {
@@ -865,9 +878,11 @@ nav a::after {
   left: 0;
   width: 180px;
   height: 100%;
-  background: linear-gradient(90deg,
-      var(--color-header-footer-bg) 0%,
-      transparent 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-header-footer-bg) 0%,
+    transparent 100%
+  );
   z-index: 5;
   pointer-events: none;
 }
@@ -1110,11 +1125,13 @@ nav a::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(179.31deg,
-      #191a18 2.33%,
-      rgba(25, 26, 24, 0) 23.3%,
-      rgba(25, 26, 24, 0) 87.64%,
-      #191a18 94.25%);
+  background: linear-gradient(
+    179.31deg,
+    #191a18 2.33%,
+    rgba(25, 26, 24, 0) 23.3%,
+    rgba(25, 26, 24, 0) 87.64%,
+    #191a18 94.25%
+  );
 }
 
 .services__inner {
@@ -1259,10 +1276,12 @@ nav a::after {
   position: relative;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(178.88deg,
+    linear-gradient(
+      178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%),
+      #191a18 99%
+    ),
     url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
@@ -1370,7 +1389,8 @@ nav a::after {
 }
 
 /* Benefits */
-.benefits {}
+.benefits {
+}
 
 .benefits__title {
   margin-bottom: clamp(24px, 2.5vw, 40px);
@@ -1859,7 +1879,8 @@ nav a::after {
   left: -1px;
   width: 50px;
   height: 100%;
-  background: url("../assets/images/Mask-contact.png") repeat-y center / 100% auto;
+  background: url("../assets/images/Mask-contact.png") repeat-y center / 100%
+    auto;
 }
 
 /* Privacy */
@@ -2053,7 +2074,7 @@ nav a::after {
   cursor: pointer;
 }
 
-.faq__dot+.faq__item .faq__question {
+.faq__dot + .faq__item .faq__question {
   padding-top: 0;
 }
 
@@ -2140,7 +2161,8 @@ nav a::after {
 
 .hero-ep {
   position: relative;
-  background: url("../assets/images/paper-EP.png") no-repeat center center / cover;
+  background: url("../assets/images/paper-EP.png") no-repeat center center /
+    cover;
   padding-bottom: 20px;
   margin-top: calc(-1 * var(--tear-height));
   min-height: auto;
@@ -2403,7 +2425,7 @@ nav a::after {
 /* Person */
 .persons__list {
   position: relative;
-  padding: 0 58px;
+  padding: 0 30px;
   border-left: 2px solid var(--color-orange);
   border-bottom: 2px solid var(--color-orange);
   display: flex;
@@ -2422,7 +2444,7 @@ nav a::after {
   cursor: pointer;
 }
 
-.persons__dot+.persons__item .persons__question {
+.persons__dot + .persons__item .persons__question {
   padding-top: 0;
 }
 
@@ -2596,7 +2618,7 @@ nav a::after {
 }
 
 .format__photo-wrap--right {
-  top: 7%;
+  top: 4%;
   right: 3%;
 }
 
@@ -2681,10 +2703,12 @@ nav a::after {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
+      #191a18 100%
+    ),
     url("../assets/images/custom-games/hero-full.jpg") center / cover no-repeat;
   z-index: 0;
 }
@@ -2954,11 +2978,14 @@ nav a::after {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
-    url("../assets/images/about-us/about-us-hero-bg.png") center / cover no-repeat;
+      #191a18 100%
+    ),
+    url("../assets/images/about-us/about-us-hero-bg.png") center / cover
+      no-repeat;
   z-index: 0;
 }
 
@@ -3129,8 +3156,74 @@ nav a::after {
   height: 200px;
 }
 
+/* Subscribe About Us */
+.subscribe-about-us {
+  background-size: cover;
+  background-position: center;
+  padding-top: clamp(100px, 12vw, 180px);
+  padding-bottom: clamp(100px, 12vw, 180px);
+}
+
+.subscribe-about-us__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 26, 24, 0.4);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Scoped z-index: keep torn edges above the overlay without touching global classes */
+.subscribe-about-us.decorated-light-stats::before,
+.subscribe-about-us.decorated-dark-stats::after {
+  z-index: 2;
+}
+
+.subscribe-about-us__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subscribe-about-us__title {
+  color: var(--color-orange);
+  margin-bottom: 60px;
+}
+
+.subscribe-about-us__socials {
+  display: flex;
+  gap: 120px;
+  align-items: center;
+  justify-content: center;
+}
+
+.subscribe-about-us__link {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.subscribe-about-us__rhomb {
+  display: block;
+  width: clamp(100px, 10vw, 130px);
+  height: auto;
+}
+
+.subscribe-about-us__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 /* Adaptive */
-@media (max-width: 1440px) {}
+@media (max-width: 1440px) {
+}
 
 @media (max-width: 1319px) {
   .header-nav {
@@ -3222,6 +3315,24 @@ nav a::after {
 }
 
 @media (max-width: 1024px) {
+  .subscribe-about-us__title {
+    text-transform: none;
+  }
+
+  .subscribe-about-us__socials {
+    gap: 40px;
+  }
+
+  .subscribe-about-us__link {
+    width: 80px;
+    height: 80px;
+  }
+
+  .subscribe-about-us__rhomb {
+    width: 100%;
+    height: 100%;
+  }
+
   .scroll-top {
     display: none !important;
   }
@@ -3638,10 +3749,13 @@ nav a::after {
     margin-bottom: 16px;
     text-align: center;
   }
+
+  .persons__rows {
+    padding: 0;
+  }
 }
 
 @media (max-width: 840px) {
-
   /* Страница Custom Games */
   /* Company */
   .label-border-right {
@@ -3656,7 +3770,6 @@ nav a::after {
 }
 
 @media (max-width: 768px) {
-
   h2,
   .h2 {
     text-transform: none;
@@ -3899,11 +4012,7 @@ nav a::after {
   }
 
   .persons__intro {
-    padding: 0 108px;
-  }
-
-  .persons__rows {
-    padding: 0 108px;
+    padding: 0 50px;
   }
 
   .persons__row {
@@ -4260,11 +4369,14 @@ nav a::after {
 }
 
 @media (max-width: 575px) {
-
   h2,
   .h2 {
     font-weight: var(--font-weight-regular);
     line-height: 160%;
+  }
+
+  .subscribe-about-us__socials {
+    gap: 40px;
   }
 
   /* Quests */
@@ -4442,7 +4554,8 @@ nav a::after {
     min-height: 150px;
   }
 
-  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta) .cta__title {
+  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta)
+    .cta__title {
     font-size: 14px;
     line-height: 1.6;
   }
@@ -4609,6 +4722,10 @@ nav a::after {
 
   /* Event page */
   /* Person */
+  .format__photo-wrap {
+    display: none;
+  }
+
   .persons__question {
     gap: 16px;
   }
@@ -4619,8 +4736,11 @@ nav a::after {
 
   .persons__intro,
   .persons__rows {
-    padding: 0;
     font-size: 12px;
+  }
+
+  .persons__intro {
+    padding: 0;
   }
 
   .persons__row {
@@ -4629,6 +4749,10 @@ nav a::after {
 
   .persons__dot {
     outline: 10px solid var(--color-bg);
+  }
+
+  .format .persons__answer {
+    padding-bottom: 0;
   }
 }
 
