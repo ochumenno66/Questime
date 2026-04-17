@@ -3194,19 +3194,19 @@ nav a::after {
   text-decoration: underline;
 }
 
-.subscribe {
-  background-image: url(../assets/images/main/stats.webp);
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
 /* Subscribe About Us */
 .subscribe-about-us {
   background-size: cover;
   background-position: center;
   padding-top: clamp(100px, 12vw, 180px);
   padding-bottom: clamp(100px, 12vw, 180px);
+}
+
+.subscribe {
+  background-image: url(../assets/images/main/stats.webp);
+  background-size: cover;
+  background-position: center;
+  height: 200px;
 }
 
 .subscribe-about-us__overlay {
@@ -3264,6 +3264,147 @@ nav a::after {
   height: auto;
   object-fit: contain;
   pointer-events: none;
+}
+
+/* TEAM BUILDING */
+/* HERO */
+.hero-gt,
+.hero-tb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-top: 44px;
+  padding-bottom: 0;
+}
+
+.breadcrumbs-gt {
+  top: -7px;
+}
+
+.hero-tb--img,
+.hero-gt--img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-tb--img {
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+    url(../assets/images/team-building/tg-hero.webp) center / cover no-repeat;
+}
+
+.hero-gt--img {
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+    url(../assets/images/gamifiedTours/gt-hero.webp) center / cover no-repeat;
+}
+
+.hero-gt__wrapper,
+.hero-tb__wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  width: 100%;
+}
+
+.hero-gt__content,
+.hero-tb__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-tb__content {
+  gap: clamp(16px, 4vw, 48px);
+}
+
+.hero-gt__content {
+  gap: clamp(16px, 4vw, 24px);
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-gt__title,
+.hero-tb__title {
+  font-size: clamp(24px, 4vw, 80px);
+  color: var(--color-bg);
+  display: block;
+}
+
+.hero-gt__accent,
+.hero-tb__accent {
+  color: var(--color-orange);
+}
+
+.hero-tb__tagline,
+.hero-tb__subtitle,
+.hero-gt__subtitle {
+  font-family: var(--font-family);
+  font-size: clamp(14px, 2.5vw, 32px);
+  color: var(--color-bg);
+  letter-spacing: 0.05em;
+  line-height: 150%;
+}
+
+.hero-gt__actions,
+.hero-tb__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.hero-tb__btn,
+.hero-gt__btn {
+  color: var(--color-bg);
+  margin-bottom: 32px;
+}
+
+/* Прозрачная кнопка со страницы gamified tours */
+.btn--transparent {
+  font-family: var(--font-family);
+  background: transparent;
+  border: 1px solid var(--color-bg);
+  transition:
+    color 0.22s,
+    border-color 0.22s;
+}
+
+/* google reviews */
+.hero-tb__reviews,
+.hero-gt__reviews {
+  align-self: center;
+  background-color: var(--color-text);
+  border-radius: 48px;
+  padding: 16px 32px;
+}
+
+.reviews-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviews-badge__label {
+  font-family: var(--second-family);
+  font-size: clamp(12px, 0.9vw, 18px);
+  color: var(--color-bg);
+}
+
+.reviews-badge__stars {
+  color: var(--light-orange);
+  font-size: clamp(14px, 1.1vw, 18px);
+  letter-spacing: 2px;
+}
+
+.reviews-badge__score {
+  font-family: var(--second-family);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Adaptive */
@@ -3739,7 +3880,9 @@ nav a::after {
   /* Страница Custom Games */
   /* HERO */
   .custom-games-hero__wrapper .hero__breadcrumbs,
-  .aboutus-hero__wrapper .hero__breadcrumbs {
+  .aboutus-hero__wrapper .hero__breadcrumbs,
+  .hero-tb .hero__breadcrumbs,
+  .hero-gt .hero__breadcrumbs {
     display: none;
   }
 
@@ -3795,6 +3938,13 @@ nav a::after {
     text-align: center;
   }
 
+  /* TEAM BUILDING */
+  /* HERO */
+  .hero-tb,
+  .hero-gt {
+    height: 500px;
+  } 
+  
   .persons__rows {
     padding: 0;
   }
@@ -4049,6 +4199,29 @@ nav a::after {
     margin-bottom: 24px;
   }
 
+  /* Страница team-building */
+  /* HERO */
+  .hero-gt__wrapper,
+  .hero-tb__wrapper {
+    justify-content: center;
+    padding-top: 36px;
+    padding-bottom: 17px;
+  }
+
+  .hero-gt__title {
+    text-transform: uppercase;
+  }
+
+  .hero-gt__actions,
+  .hero-tb__actions {
+    gap: 12px;
+  }
+
+  .hero-tb__reviews,
+  .hero-gt__reviews {
+    padding: 4px 24px;
+  } 
+  
   /* Страница About Us */
   /* Stats */
   .stats-au__card {
@@ -4787,6 +4960,20 @@ nav a::after {
     left: 13px;
   }
 
+  /* Страница Gamified tours */
+  /* HERO */
+  .hero-gt__title br:nth-of-type(2) {
+    display: none;
+  }
+  
+  .hero-gt {
+    height: 380px;
+  }
+
+  .hero-gt__title {
+    text-transform: none;
+  }
+  
   /* Event page */
   /* Person */
   .format__photo-wrap {
@@ -4907,6 +5094,51 @@ nav a::after {
   .hero-ep__tags {
     max-width: 324px;
     gap: 8px;
+  }
+
+  /* Страница team-building */
+  /* HERO */
+  .hero-gt__wrapper,
+  .hero-tb__wrapper {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .hero-tb {
+    height: 357px;
+  }
+
+  .hero-tb__title {
+    font-size: 21px;
+    line-height: 150%;
+  }
+
+  .hero-gt__actions,
+  .hero-tb__actions {
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-gt__actions {
+    margin-bottom: -15px;
+  }
+
+  .hero-gt__btn,
+  .hero-tb__btn {
+    margin-bottom: 30px;
+  }
+
+  .hero-gt__btn {
+    padding: 3px 10px;
+  }
+
+  .hero-tb__reviews,
+  .hero-gt__reviews {
+    padding: 2px 16px;
+  }
+
+  .hero__breadcrumbs {
+    margin-bottom: 8px;
   }
 }
 
