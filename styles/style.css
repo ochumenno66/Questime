@@ -3317,51 +3317,54 @@ nav a::after {
 /* ===== Experience ===== */
 .experience {
   padding-top: var(--tear-height);
+  padding-bottom: 20px;
   margin-top: clamp(30px, 4.17vw, 60px);
   margin-bottom: clamp(30px, 4.17vw, 60px);
+  overflow-x: clip;
 }
 
 .experience .container {
   display: flex;
   flex-direction: column;
-  gap: clamp(20px, 3.89vw, 56px);
+  gap: clamp(30px, 3.89vw, 56px);
   max-width: 1164px;
-  padding: 0;
+  padding: 0 24px;
 }
 
 .experience__row {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  gap: clamp(16px, 2.78vw, 40px);
 }
 
-.experience__row:nth-child(1) .experience__col--text,
-.experience__row:nth-child(3) .experience__col--text {
-  flex: 0 0 691px;
-}
-
-.experience__row:nth-child(2) .experience__col--gains {
-  flex: 0 0 571px;
+.experience__col--text,
+.experience__col--gains {
+  flex: 3 1 0%;
+  min-width: 0;
 }
 
 .experience__col--img {
-  flex: 0 0 390px;
+  flex: 2 1 0%;
+  min-width: 0;
+  max-width: 453px;
 }
 
 .experience__img-wrapper {
   display: block;
   width: 100%;
-  transform: rotate(3deg);
+  transform: rotate(5deg);
 }
 
 .experience__row--img-first .experience__img-wrapper {
-  transform: rotate(-3deg);
+  transform: rotate(-5deg);
 }
 
 .experience__img {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: contain;
   box-shadow: 15px 15px 0 0 var(--color-orange);
 }
 
@@ -3416,14 +3419,6 @@ nav a::after {
   height: 12px;
   flex-shrink: 0;
   margin-top: 0.3em;
-}
-
-.experience__row--img-first .experience__col--text {
-  flex: 0 0 691px;
-}
-
-.experience__row:nth-child(3) .experience__col--gains {
-  flex: 0 0 571px;
 }
 
 .experience__actions {
@@ -4139,36 +4134,10 @@ nav a::after {
     text-align: center;
   }
 
-  /* Experience – fluid columns, prevent overflow */
+  /* Experience */
   .experience__row {
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 20px;
-  }
-
-  .experience__row:nth-child(1) .experience__col--text,
-  .experience__row:nth-child(3) .experience__col--text {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .experience__row:nth-child(2) .experience__col--gains {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .experience__row--img-first .experience__col--text {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .experience__row:nth-child(3) .experience__col--gains {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .experience__col--img {
-    flex: 0 0 38%;
-    max-width: 453px;
   }
 
   /* TEAM BUILDING */
@@ -4205,24 +4174,28 @@ nav a::after {
   /* Experience – stack columns */
   .experience .container {
     padding: 0 24px;
-    gap: 30px;
+    gap: 40px;
   }
 
   .experience__row {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
   }
 
   .experience__col--img {
     flex: none;
     width: 100%;
     max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
   }
 
   .experience__col--text,
   .experience__col--gains {
     width: 100%;
+    max-width: none;
   }
 
   .experience__p,
@@ -4240,24 +4213,24 @@ nav a::after {
   }
 
   .experience__img-wrapper {
-    transform: rotate(3deg);
+    transform: rotate(5deg);
   }
 
   .experience__row--img-first .experience__img-wrapper {
-    transform: rotate(-3deg);
+    transform: rotate(-5deg);
   }
 
   .experience__img {
-    box-shadow: 10px 10px 0 0 var(--color-orange);
+    box-shadow: 0 10px 0 0 var(--color-orange);
   }
 
   .experience__row--img-first .experience__img {
-    box-shadow: -10px 10px 0 0 var(--color-orange);
+    box-shadow: 0 10px 0 0 var(--color-orange);
   }
 
   .experience__actions {
     align-items: flex-end;
-    gap: 20px;
+    gap: 30px;
   }
 
   .experience__btns {
@@ -4918,16 +4891,12 @@ nav a::after {
     margin-bottom: 20px;
   }
 
-  .experience .container {
-    gap: 20px;
-  }
-
   .experience__img {
-    box-shadow: 8px 8px 0 0 var(--color-orange);
+    box-shadow: 0 8px 0 0 var(--color-orange);
   }
 
   .experience__row--img-first .experience__img {
-    box-shadow: -8px 8px 0 0 var(--color-orange);
+    box-shadow: 0 8px 0 0 var(--color-orange);
   }
 
   /* 404 PAGE */
