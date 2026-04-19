@@ -2683,12 +2683,6 @@ nav a::after {
   display: none;
 }
 
-.btn--orange {
-  font-family: var(--font-family);
-  background: var(--color-orange);
-  color: var(--color-white);
-  transition: background 0.3s ease;
-}
 
 .btn--transparent {
   transition: all 0.3s ease;
@@ -3323,6 +3317,10 @@ nav a::after {
   overflow-x: clip;
 }
 
+.experience--flat {
+  padding-top: clamp(30px, 4.17vw, 60px);
+}
+
 .experience .container {
   display: flex;
   flex-direction: column;
@@ -3381,10 +3379,6 @@ nav a::after {
 
 .experience__p:last-child {
   margin-bottom: 0;
-}
-
-.experience__link {
-  color: var(--color-orange);
 }
 
 .experience__gains-title {
@@ -3454,6 +3448,10 @@ nav a::after {
 
 .experience__btns .btn {
   font-family: var(--font-family);
+}
+
+.experience--flat .experience__p {
+  font-size: 16px;
 }
 
 /* TEAM BUILDING */
