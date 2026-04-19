@@ -269,6 +269,13 @@ a {
   color: inherit;
 }
 
+.text-orange {
+  color: var(--color-orange);
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
+}
+
 button {
   cursor: pointer;
 }
@@ -2679,6 +2686,7 @@ nav a::after {
 .btn--orange {
   font-family: var(--font-family);
   background: var(--color-orange);
+  color: var(--color-white);
   transition: background 0.3s ease;
 }
 
@@ -3410,6 +3418,49 @@ nav a::after {
   margin-top: 0.3em;
 }
 
+.experience__row--img-first .experience__col--text {
+  flex: 0 0 691px;
+}
+
+.experience__row:nth-child(3) .experience__col--gains {
+  flex: 0 0 571px;
+}
+
+.experience__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.experience__badge {
+  display: inline-block;
+  padding: 10px 10px;
+  border: 1px solid var(--color-orange);
+  border-radius: 48px;
+  color: var(--color-orange);
+  font-family: var(--font-family);
+  font-size: clamp(0.75rem, 0.7vw + 0.45rem, 1rem);
+}
+
+.experience__btns {
+  display: flex;
+  gap: clamp(12px, 1.67vw, 24px);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.experience__book {
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+.experience__btns .btn {
+  font-family: var(--font-family);
+}
+
 /* TEAM BUILDING */
 /* HERO */
 .hero-gt,
@@ -4105,6 +4156,16 @@ nav a::after {
     min-width: 0;
   }
 
+  .experience__row--img-first .experience__col--text {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .experience__row:nth-child(3) .experience__col--gains {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
   .experience__col--img {
     flex: 0 0 38%;
     max-width: 453px;
@@ -4192,6 +4253,19 @@ nav a::after {
 
   .experience__row--img-first .experience__img {
     box-shadow: -10px 10px 0 0 var(--color-orange);
+  }
+
+  .experience__actions {
+    align-items: flex-end;
+    gap: 20px;
+  }
+
+  .experience__btns {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
   }
 
   h2,
