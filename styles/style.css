@@ -4738,6 +4738,13 @@ nav a::after {
     width: 156px;
   }
 
+  .quest-card__image::before,
+  .quest-card__image::after,
+  .quest-card__image-corner::before,
+  .quest-card__image-corner::after {
+    background: rgba(229, 131, 69, 0.15);
+  }
+
   .quest-card__top-text {
     flex-direction: column-reverse;
     justify-content: flex-end;
