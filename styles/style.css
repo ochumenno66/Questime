@@ -1488,11 +1488,27 @@ nav a::after {
 
 /* Cta */
 .cta {
-  background-image: url(../assets/images/main/cta.webp);
+  position: relative;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding-top: clamp(60px, 7vw, 140px);
   padding-bottom: clamp(60px, 7vw, 140px);
+}
+
+.cta__overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
+    linear-gradient(178.88deg, #191a18 0.92%, rgba(25, 26, 24, 0) 49.96%, #191a18 99%);
+  z-index: 0; 
+  pointer-events: none;
+}
+
+.cta .container {
+  position: relative;
+  z-index: 1;
 }
 
 .cta__inner {
