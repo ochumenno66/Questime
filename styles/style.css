@@ -4,7 +4,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +17,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot")
+      format("embedded-opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -28,7 +30,8 @@
     url("../assets/fonts/Overpass/Overpass-Regular.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Regular.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +43,8 @@
     url("../assets/fonts/Overpass/Overpass-Light.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Light.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Light.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Light.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Light.eot")
+      format("embedded-opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -340,7 +344,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -351,7 +356,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-stats.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-stats.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -362,7 +368,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-cta.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-cta.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -373,7 +380,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-header.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-header.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -385,7 +393,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -396,7 +405,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-stats.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-stats.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -407,7 +417,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-cta.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-cta.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -742,10 +753,12 @@ nav a::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(90deg,
-      #191a18 0%,
-      rgba(25, 26, 24, 0.5) 16%,
-      rgba(25, 26, 24, 0) 31%);
+  background: linear-gradient(
+    90deg,
+    #191a18 0%,
+    rgba(25, 26, 24, 0.5) 16%,
+    rgba(25, 26, 24, 0) 31%
+  );
 }
 
 .hero__wrapper::after {
@@ -872,9 +885,11 @@ nav a::after {
   left: 0;
   width: 180px;
   height: 100%;
-  background: linear-gradient(90deg,
-      var(--color-header-footer-bg) 0%,
-      transparent 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-header-footer-bg) 0%,
+    transparent 100%
+  );
   z-index: 5;
   pointer-events: none;
 }
@@ -1183,11 +1198,13 @@ nav a::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(179.31deg,
-      #191a18 2.33%,
-      rgba(25, 26, 24, 0) 23.3%,
-      rgba(25, 26, 24, 0) 87.64%,
-      #191a18 94.25%);
+  background: linear-gradient(
+    179.31deg,
+    #191a18 2.33%,
+    rgba(25, 26, 24, 0) 23.3%,
+    rgba(25, 26, 24, 0) 87.64%,
+    #191a18 94.25%
+  );
 }
 
 .services__inner {
@@ -1332,10 +1349,12 @@ nav a::after {
   position: relative;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(178.88deg,
+    linear-gradient(
+      178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%),
+      #191a18 99%
+    ),
     url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
@@ -1443,7 +1462,8 @@ nav a::after {
 }
 
 /* Benefits */
-.benefits {}
+.benefits {
+}
 
 .benefits__title {
   margin-bottom: clamp(24px, 2.5vw, 40px);
@@ -1506,10 +1526,15 @@ nav a::after {
 .cta__overlay {
   position: absolute;
   inset: 0;
-  background-image: 
+  background-image:
     linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
-    linear-gradient(178.88deg, #191a18 0.92%, rgba(25, 26, 24, 0) 49.96%, #191a18 99%);
-  z-index: 0; 
+    linear-gradient(
+      178.88deg,
+      #191a18 0.92%,
+      rgba(25, 26, 24, 0) 49.96%,
+      #191a18 99%
+    );
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -1948,7 +1973,8 @@ nav a::after {
   left: -1px;
   width: 50px;
   height: 100%;
-  background: url("../assets/images/Mask-contact.png") repeat-y center / 100% auto;
+  background: url("../assets/images/Mask-contact.png") repeat-y center / 100%
+    auto;
 }
 
 /* Privacy */
@@ -2135,7 +2161,7 @@ nav a::after {
   cursor: pointer;
 }
 
-.faq__dot+.faq__item .faq__question {
+.faq__dot + .faq__item .faq__question {
   padding-top: 0;
 }
 
@@ -2221,7 +2247,8 @@ nav a::after {
 
 .hero-ep {
   position: relative;
-  background: url("../assets/images/paper-EP.png") no-repeat center center / cover;
+  background: url("../assets/images/paper-EP.png") no-repeat center center /
+    cover;
   padding-bottom: 20px;
   margin-top: calc(-1 * var(--tear-height));
   min-height: auto;
@@ -2539,11 +2566,10 @@ nav a::after {
 
 .experience__badge {
   display: inline-block;
-  padding: 10px 10px;
+  padding: 0 10px;
   border: 1px solid var(--color-orange);
   border-radius: 48px;
   color: var(--color-orange);
-  font-family: var(--font-family);
   font-size: clamp(0.75rem, 0.7vw + 0.45rem, 1rem);
 }
 
@@ -2567,6 +2593,9 @@ nav a::after {
 
 .btn-experience {
   color: var(--color-bg);
+  font-family: var(--font-family);
+  background: var(--color-orange);
+  transition: background 0.3s ease;
 }
 
 .experience--flat .experience__p {
@@ -2652,7 +2681,7 @@ nav a::after {
   cursor: pointer;
 }
 
-.persons__dot+.persons__item .persons__question {
+.persons__dot + .persons__item .persons__question {
   padding-top: 0;
 }
 
@@ -2910,7 +2939,10 @@ nav a::after {
   font-size: clamp(14px, 1.042vw, 20px);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .schedule__month-btn.is-active {
@@ -3100,7 +3132,9 @@ nav a::after {
   font-family: var(--second-family);
   font-size: clamp(14px, 0.83vw, 18px);
   color: var(--color-orange);
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .schedule__event--orange .schedule__buy-btn {
@@ -3141,10 +3175,12 @@ nav a::after {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
+      #191a18 100%
+    ),
     url("../assets/images/custom-games/hero-full.jpg") center / cover no-repeat;
   z-index: 0;
 }
@@ -3455,11 +3491,14 @@ nav a::after {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
-    url("../assets/images/about-us/about-us-hero-bg.png") center / cover no-repeat;
+      #191a18 100%
+    ),
+    url("../assets/images/about-us/about-us-hero-bg.png") center / cover
+      no-repeat;
   z-index: 0;
 }
 
@@ -3545,7 +3584,8 @@ nav a::after {
   gap: 8px;
   padding: clamp(24px, 4vw, 48px) clamp(20px, 3vw, 40px);
   text-align: center;
-  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100% no-repeat;
+  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100%
+    no-repeat;
 }
 
 .stats-au__icon {
@@ -3880,7 +3920,8 @@ nav a::after {
 }
 
 /* Adaptive */
-@media (max-width: 1440px) {}
+@media (max-width: 1440px) {
+}
 
 @media (max-width: 1319px) {
   .header-nav {
@@ -4476,7 +4517,6 @@ nav a::after {
 }
 
 @media (max-width: 840px) {
-
   /* Страница Custom Games */
   /* Company */
   .label-border-right {
@@ -4661,7 +4701,7 @@ nav a::after {
     font-size: clamp(14px, 2.083vw, 16px);
   }
 
-   .page-404__overlay {
+  .page-404__overlay {
     gap: clamp(12px, 2vw, 20px);
   }
 
@@ -4702,6 +4742,10 @@ nav a::after {
     justify-content: flex-start;
   }
 
+  .experience-reverse--ep {
+    flex-direction: column-reverse;
+  }
+
   .experience__row--img-first .experience__col--gains {
     order: -1;
   }
@@ -4723,16 +4767,13 @@ nav a::after {
   }
 
   .experience__actions {
-    align-items: flex-end;
     gap: 30px;
   }
 
   .experience__btns {
-    flex-direction: column;
     align-items: stretch;
     justify-content: flex-end;
     gap: 12px;
-    width: 100%;
   }
 
   /* Страница Custom Games */
@@ -5259,7 +5300,7 @@ nav a::after {
     gap: 40px;
   }
 
-   /* 404 PAGE */
+  /* 404 PAGE */
   .page-404 {
     height: auto;
   }
@@ -5473,7 +5514,8 @@ nav a::after {
     min-height: 150px;
   }
 
-  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta) .cta__title {
+  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta)
+    .cta__title {
     font-size: 14px;
     line-height: 1.6;
   }
@@ -5774,11 +5816,6 @@ nav a::after {
     gap: 8px;
   }
 
-  /* Experience */
-  .experience__img {
-    width: 80%;
-  }
-
   /* Страница team-building */
   /* HERO */
   .hero-gt__wrapper,
@@ -5822,6 +5859,11 @@ nav a::after {
 
   .hero__breadcrumbs {
     margin-bottom: 8px;
+  }
+
+  /* Experience */
+  .experience__btns {
+    flex-direction: column;
   }
 
   /* SCHEDULE */
