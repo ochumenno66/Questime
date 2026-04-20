@@ -324,7 +324,9 @@ button {
 .decorated-light-stats,
 .decorated-dark-cta,
 .decorated-light-cta,
-.decorated-dark-header {
+.decorated-dark-header,
+.projects-border-1::before,
+.projects-border-2::after {
   position: relative;
   width: 100%;
 }
@@ -378,6 +380,18 @@ button {
   pointer-events: none;
 }
 
+.projects-border-1::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--tear-height) + 1px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/projects-border-1.svg") center bottom /
+    cover no-repeat;
+  pointer-events: none;
+}
+
 /* Верх оборванного края */
 .section-decorated-light::before {
   content: "";
@@ -411,6 +425,18 @@ button {
   width: 100%;
   height: var(--tear-height);
   background: url("../assets/images/border-light-cta.png") center top / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+.projects-border-2::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--tear-height) + 2px);
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/projects-border-1.svg") center top / cover
     no-repeat;
   pointer-events: none;
 }
@@ -2959,6 +2985,370 @@ nav a::after {
   left: 13px;
 }
 
+/* Projects */
+.projects {
+  position: relative;
+  background-image: url("../assets/images/custom-games/projects.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+@media (max-width: 680px) {
+  .projects {
+    background-image: url("../assets/images/custom-games/projects-mobile.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects {
+    background-image: url("../assets/images/custom-games/projects-tablet.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.projects__scene {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /*position: relative;*/
+  width: 100%;
+  min-height: 2400px;
+  margin: 0 auto;
+}
+
+.projects-card {
+  /*position: absolute;*/
+  position: relative;
+}
+
+/* Позиции карточек на десктопе */
+.projects-card--1 {
+}
+
+.projects-card--2 {
+  transform: translateY(22%);
+  left: 19%;
+}
+
+.projects-card--3 {
+  /*top: -461px;*/
+  transform: translateY(-32%);
+}
+
+.projects-card--4 {
+  /*top: 252px;*/
+  transform: translateY(17%);
+  left: 129px;
+}
+
+/* Полароид */
+.projects-card__polaroid {
+  position: relative;
+  width: 100%;
+  width: 560px;
+  height: 380px;
+}
+
+.projects-card__frame--1,
+.projects-card__frame--2,
+.projects-card__frame--3,
+.projects-card__frame--4 {
+  /*position: absolute;*/
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.projects-card__frame--2 {
+}
+
+/* Фото на поларойде */
+.projects-card__photo--1,
+.projects-card__photo--2,
+.projects-card__photo--3,
+.projects-card__photo--4 {
+  position: absolute;
+  width: 432px;
+  height: 240px;
+  object-fit: cover;
+}
+
+.projects-card__photo--1 {
+  top: 63px;
+  left: 65px;
+  transform: rotate(5deg);
+}
+
+.projects-card__photo--2 {
+  top: 76px;
+  left: 63px;
+  transform: rotate(-5deg);
+}
+
+.projects-card__photo--3 {
+  top: 76px;
+  left: 65px;
+  transform: rotate(5deg);
+}
+
+.projects-card__photo--4 {
+  top: 76px;
+  left: 63px;
+  transform: rotate(-5deg);
+}
+
+/* Текст под фото */
+.projects-card__caption--1,
+.projects-card__caption--2,
+.projects-card__caption--3,
+.projects-card__caption--4 {
+  position: absolute;
+  width: 78%;
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: 24px;
+  line-height: 160%;
+  text-align: center;
+  color: var(--color-orange);
+}
+
+.projects-card__caption--1 {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-51%) rotate(5deg);
+}
+
+.projects-card__caption--2 {
+  bottom: 17px;
+  left: 50%;
+  transform: translateX(-47%) rotate(-5deg);
+}
+
+.projects-card__caption--3 {
+  bottom: 13px;
+  left: 49%;
+  transform: translateX(-51%) rotate(5deg);
+}
+
+.projects-card__caption--4 {
+  bottom: 17px;
+  left: 50%;
+  transform: translateX(-47%) rotate(-5deg);
+}
+
+/* Текст под поларойдом */
+.projects-card__paper {
+  position: relative;
+  margin-top: 55px;
+  border: 3px solid var(--sandy);
+  padding: 40px 0 8px;
+  width: 520px;
+  background-color: var(--color-bg);
+}
+
+/* === список === */
+.projects-card__list {
+  margin: 0;
+  padding: 0 48px;
+  list-style: none;
+}
+
+/* элементы списка */
+.projects-card__list li {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: 24px;
+  line-height: 160%;
+  color: var(--color-text);
+}
+
+/* скрытые элементы (управляются JS) */
+.projects-card__list li.hidden {
+  display: none;
+}
+
+/* === режим раскрытия (overlay) === */
+.projects-card.open .projects-card__list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+
+  background: var(--color-bg);
+  border: 3px solid var(--sandy);
+  border-top: none;
+
+  padding: 12px 48px;
+
+  justify-content: flex-start;
+}
+
+/* === кнопка === */
+.projects-card__toggle {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 12px;
+  margin-left: 48px;
+  padding: 0;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font: inherit;
+  color: var(--sandy);
+  text-align: left;
+}
+
+/* текст кнопки */
+.projects-card__toggle-text {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* иконка */
+.projects-card__toggle svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+/* поворот при открытии */
+.projects-card.open .projects-card__toggle svg {
+  transform: rotate(180deg);
+}
+
+.projects__btn {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.projects__btn-card {
+  position: relative;
+  width: 320px; 
+}
+
+.projects__btn-border {
+  width: 100%;
+  display: block;
+}
+
+.projects__btn-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 80%;
+  text-align: center;
+}
+
+.projects__btn-text {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.btn-projects {
+}
+
+/* Планшет */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .projects__scene {
+    min-height: 980px;
+    max-width: 900px;
+  }
+
+  .projects-card {
+    width: 220px;
+  }
+
+  .projects-card--1 {
+    top: 40px;
+    left: 10px;
+  }
+
+  .projects-card--2 {
+    top: 90px;
+    right: 20px;
+  }
+
+  .projects-card--3 {
+    top: 470px;
+    left: 60px;
+  }
+
+  .projects-card--4 {
+    top: 520px;
+    right: 60px;
+  }
+
+  .projects__cta {
+    bottom: 10px;
+  }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+  .projects__scene {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .projects-card {
+    position: static;
+    width: min(100%, 280px);
+  }
+
+  .projects-card__photo {
+    top: 14px;
+    left: 14px;
+    width: calc(100% - 28px);
+    height: 180px;
+  }
+
+  .projects-card__caption {
+    bottom: 16px;
+    width: 76%;
+    font-size: 14px;
+  }
+
+  .projects-card__paper {
+    margin-top: 8px;
+  }
+
+  .projects__cta {
+    position: static;
+    transform: none;
+    margin: 24px auto 0;
+    text-align: center;
+  }
+
+  .projects__cta-btn {
+    width: 200px;
+  }
+
+  .projects__cta-text {
+    font-size: 16px;
+  }
+}
+
 /* Benefits */
 .space-between-b {
   margin-top: clamp(3.75rem, 3.636vw + 2.932rem, 6.25rem);
@@ -3984,8 +4374,8 @@ nav a::after {
   .hero-tb,
   .hero-gt {
     height: 500px;
-  } 
-  
+  }
+
   .persons__rows {
     padding: 0;
   }
@@ -4265,14 +4655,14 @@ nav a::after {
   .hero-tb__reviews,
   .hero-gt__reviews {
     padding: 4px 24px;
-  } 
-  
+  }
+
   /* Страница About Us */
   /* Stats */
   .stats-au__card {
     padding: 20px 0;
   }
-  
+
   /* Person */
   .persons__list {
     padding: 0 16px;
@@ -5028,7 +5418,7 @@ nav a::after {
   .hero-gt__title br:nth-of-type(2) {
     display: none;
   }
-  
+
   .hero-gt {
     height: 380px;
   }
@@ -5036,7 +5426,7 @@ nav a::after {
   .hero-gt__title {
     text-transform: none;
   }
-  
+
   /* Event page */
   /* Person */
   .format__photo-wrap {
