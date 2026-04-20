@@ -3154,7 +3154,7 @@ nav a::after {
   background-color: var(--color-bg);
 }
 
-/* === список === */
+/* список */
 .projects-card__list {
   margin: 0;
   padding: 0 48px;
@@ -3170,12 +3170,10 @@ nav a::after {
   color: var(--color-text);
 }
 
-/* скрытые элементы (управляются JS) */
 .projects-card__list li.hidden {
   display: none;
 }
 
-/* === режим раскрытия (overlay) === */
 .projects-card.open .projects-card__list {
   position: absolute;
   top: 100%;
@@ -3192,7 +3190,7 @@ nav a::after {
   justify-content: flex-start;
 }
 
-/* === кнопка === */
+/* кнопка */
 .projects-card__toggle {
   display: inline-flex;
   flex-direction: row-reverse;
@@ -3224,7 +3222,6 @@ nav a::after {
   transition: transform 0.3s ease;
 }
 
-/* поворот при открытии */
 .projects-card.open .projects-card__toggle svg {
   transform: rotate(180deg);
 }
