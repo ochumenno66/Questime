@@ -1257,8 +1257,6 @@ nav a::after {
 
 .services__btn {
   align-self: start;
-  background: var(--color-orange);
-  font-family: var(--font-family);
   color: var(--color-white);
 }
 
@@ -1504,9 +1502,7 @@ nav a::after {
 }
 
 .benefits__btn {
-  font-family: var(--font-family);
   color: var(--color-white);
-  background-color: var(--color-orange);
   font-size: clamp(14px, 1.4vw, 20px);
   padding: 10px 32px;
   margin: clamp(24px, 2.5vw, 40px) 0 clamp(24px, 2.5vw, 40px);
@@ -1906,9 +1902,7 @@ nav a::after {
 
 .contact-form__btn,
 .contact-form__btn-gt {
-  background-color: var(--color-orange);
   color: var(--color-white);
-  font-family: var(--font-family);
   border: none;
   cursor: pointer;
   align-self: flex-start;
@@ -2016,11 +2010,58 @@ nav a::after {
 }
 
 /* GAMIFIED-TOURS */
-.cta-gt {
-  background-image: url(../assets/images/gamifiedTours/cta-GT.webp);
-  background-size: cover;
-  background-position: center;
-  height: 200px;
+/* Cta-guide */
+.cta-guide {
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+    url(../assets/images/gamifiedTours/cta-GT.webp) center / cover no-repeat;
+  padding: clamp(3.75rem, 12.727vw + 0.886rem, 12.5rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-guide__wrapper {
+  align-items: center;
+  width: 100%;
+}
+
+.cta-guide__content {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  right: 10%;
+  width: 84%;
+}
+
+.cta-guide__text {
+  line-height: 129%;
+  color: var(--color-bg);
+  font-size: clamp(14px, 2.5vw, 35px);
+}
+
+.text-orange--guide {
+  color: var(--color-orange);
+}
+
+.cta-guide__btn {
+  width: fit-content;
+  color: var(--color-bg);
+}
+
+.cta-guide__img {
+  position: absolute;
+  right: clamp(12px, 4vw, 60px);
+  top: 50%;
+  transform: translateY(-50%) rotate(10deg);
+  width: clamp(62px, 16vw, 239px);
+  height: clamp(88px, 22vw, 339px);
+  max-width: 100%;
+  z-index: 1;
 }
 
 /* Form */
@@ -4908,6 +4949,28 @@ nav a::after {
     padding-bottom: 16px;
     font-size: clamp(14px, 2.083vw, 16px);
   }
+
+  /* Страница Gamified Tours */
+  /* Cta-guide */
+  .cta-guide__wrapper {
+    align-items: center;
+    width: 100%;
+  }
+
+  .cta-guide__content {
+    align-items: flex-start;
+    text-align: left;
+    right: 8%;
+  }
+
+  .cta-guide__text {
+    line-height: 140%;
+  }
+
+  .cta-guide__btn {
+    align-self: center;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 680px) {
@@ -5880,6 +5943,12 @@ nav a::after {
   .schedule__desc-col {
     order: 1;
   }
+
+  /* Страница Gamified Tours */
+  /* Cta-guide */
+  .cta-guide__img {
+    transform: translateY(-70%) rotate(10deg);
+  }
 }
 
 /* Hover only for desktop  */
@@ -5909,7 +5978,9 @@ nav a::after {
     background: var(--light-orange);
   }
 
-  .btn--transparent:hover {
+  .btn--transparent:hover,
+  .quest-card__btn-learn:hover,
+  .experience__book:hover {
     color: var(--light-orange);
     border-color: var(--light-orange);
   }
