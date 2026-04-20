@@ -265,6 +265,13 @@ a {
   color: inherit;
 }
 
+.text-orange {
+  color: var(--color-orange);
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
+}
+
 button {
   cursor: pointer;
 }
@@ -2101,13 +2108,6 @@ nav a::after {
 }
 
 /* TEAM BUILDING */
-.quote-tb {
-  background-image: url(../assets/images/team-building/quote-TB.webp);
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
 /* FAQ */
 .faq__list {
   position: relative;
@@ -2215,7 +2215,6 @@ nav a::after {
 
 /* EVENTS PAGE */
 /* HERO */
-/* Hero-event-page */
 .hero-ep.section-common {
   margin-bottom: 0;
 }
@@ -2411,7 +2410,6 @@ nav a::after {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* Это сохранит пропорции внутри 16x16 */
 }
 
 .feature-card__value,
@@ -2423,6 +2421,156 @@ nav a::after {
 
 .feature-card__value {
   color: var(--color-orange);
+}
+
+/* ===== Experience ===== */
+.experience {
+  padding-top: var(--tear-height);
+  padding-bottom: 20px;
+  margin-top: clamp(30px, 4.17vw, 60px);
+  margin-bottom: clamp(30px, 4.17vw, 60px);
+  overflow-x: clip;
+}
+
+.experience--flat {
+  padding-top: clamp(30px, 4.17vw, 60px);
+}
+
+.experience .container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 3.89vw, 56px);
+  max-width: 1164px;
+  padding: 0 24px;
+}
+
+.experience__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(16px, 2.78vw, 40px);
+}
+
+.experience__col--text,
+.experience__col--gains {
+  flex: 3 1 0%;
+  min-width: 0;
+}
+
+.experience__col--img {
+  flex: 2 1 0%;
+  min-width: 0;
+  max-width: 453px;
+}
+
+.experience__img-wrapper {
+  display: block;
+  width: 100%;
+  transform: rotate(5deg);
+}
+
+.experience__row--img-first .experience__img-wrapper {
+  transform: rotate(-5deg);
+}
+
+.experience__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 15px 15px 0 0 var(--color-orange);
+}
+
+.experience__row--img-first .experience__img {
+  box-shadow: -15px 15px 0 0 var(--color-orange);
+}
+
+.experience__p {
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  line-height: 160%;
+  color: var(--color-text);
+  margin: 0 0 clamp(8px, 1.11vw, 16px);
+}
+
+.experience__p:last-child {
+  margin-bottom: 0;
+}
+
+.experience__gains-title {
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+  color: var(--color-orange);
+  margin: 0 0 clamp(10px, 1.11vw, 16px);
+  text-transform: uppercase;
+}
+
+.experience__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 0.83vw, 12px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  line-height: 160%;
+  color: var(--color-text);
+}
+
+.experience__tick {
+  width: 16px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-top: 0.3em;
+}
+
+.experience__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.experience__badge {
+  display: inline-block;
+  padding: 10px 10px;
+  border: 1px solid var(--color-orange);
+  border-radius: 48px;
+  color: var(--color-orange);
+  font-family: var(--font-family);
+  font-size: clamp(0.75rem, 0.7vw + 0.45rem, 1rem);
+}
+
+.experience__btns {
+  display: flex;
+  gap: clamp(12px, 1.67vw, 24px);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.experience__book {
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+.experience__btns .btn {
+  font-family: var(--font-family);
+}
+
+.btn-experience {
+  color: var(--color-bg);
+}
+
+.experience--flat .experience__p {
+  font-size: 16px;
 }
 
 /* ROUTE */
@@ -3301,7 +3449,7 @@ nav a::after {
 }
 
 /* ABOUT US */
-/* HERO страницы About Us */
+/* HERO */
 .aboutus-hero__bg {
   position: absolute;
   inset: 0;
@@ -3519,7 +3667,7 @@ nav a::after {
   text-decoration: underline;
 }
 
-/* Subscribe About Us */
+/* Subscribe */
 .subscribe-about-us {
   background-size: cover;
   background-position: center;
@@ -3542,7 +3690,6 @@ nav a::after {
   pointer-events: none;
 }
 
-/* Scoped z-index: keep torn edges above the overlay without touching global classes */
 .subscribe-about-us.decorated-light-stats::before,
 .subscribe-about-us.decorated-dark-stats::after {
   z-index: 2;
@@ -3763,6 +3910,12 @@ nav a::after {
   /* form */
   .contact-form__btn {
     grid-column: 1 / 4;
+  }
+
+  /* Experience */
+  .experience .container {
+    max-width: 100%;
+    padding: 0 40px;
   }
 
   /* Person, Format */
@@ -4262,6 +4415,12 @@ nav a::after {
     text-align: center;
   }
 
+  /* Experience */
+  .experience__row {
+    justify-content: space-between;
+    gap: 20px;
+  }
+
   /* TEAM BUILDING */
   /* HERO */
   .hero-tb,
@@ -4332,10 +4491,6 @@ nav a::after {
 }
 
 @media (max-width: 768px) {
-  .page-404__overlay {
-    gap: clamp(12px, 2vw, 20px);
-  }
-
   h2,
   .h2 {
     text-transform: none;
@@ -4504,6 +4659,80 @@ nav a::after {
   .faq__answer-inner {
     padding-bottom: 16px;
     font-size: clamp(14px, 2.083vw, 16px);
+  }
+
+   .page-404__overlay {
+    gap: clamp(12px, 2vw, 20px);
+  }
+
+  /* Experience – stack columns */
+  .experience .container {
+    padding: 0 24px;
+    gap: 40px;
+  }
+
+  .experience__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .experience__col--img {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+  }
+
+  .experience__col--text,
+  .experience__col--gains {
+    width: 100%;
+    max-width: none;
+  }
+
+  .experience__p,
+  .experience__gains-title {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .experience__item {
+    justify-content: flex-start;
+  }
+
+  .experience__row--img-first .experience__col--gains {
+    order: -1;
+  }
+
+  .experience__img-wrapper {
+    transform: rotate(5deg);
+  }
+
+  .experience__row--img-first .experience__img-wrapper {
+    transform: rotate(-5deg);
+  }
+
+  .experience__img {
+    box-shadow: 0 10px 0 0 var(--color-orange);
+  }
+
+  .experience__row--img-first .experience__img {
+    box-shadow: 0 10px 0 0 var(--color-orange);
+  }
+
+  .experience__actions {
+    align-items: flex-end;
+    gap: 30px;
+  }
+
+  .experience__btns {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 12px;
+    width: 100%;
   }
 
   /* Страница Custom Games */
@@ -5020,8 +5249,17 @@ nav a::after {
 }
 
 @media (max-width: 575px) {
+  h2,
+  .h2 {
+    font-weight: var(--font-weight-regular);
+    line-height: 160%;
+  }
 
-  /* 404 PAGE */
+  .subscribe-about-us__socials {
+    gap: 40px;
+  }
+
+   /* 404 PAGE */
   .page-404 {
     height: auto;
   }
@@ -5039,14 +5277,18 @@ nav a::after {
     font-size: 16px;
   }
 
-  h2,
-  .h2 {
-    font-weight: var(--font-weight-regular);
-    line-height: 160%;
+  /* Experience – compact spacing and reduced shadow for small phones */
+  .experience {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
-  .subscribe-about-us__socials {
-    gap: 40px;
+  .experience__img {
+    box-shadow: 0 8px 0 0 var(--color-orange);
+  }
+
+  .experience__row--img-first .experience__img {
+    box-shadow: 0 8px 0 0 var(--color-orange);
   }
 
   /* Quests */
@@ -5530,6 +5772,11 @@ nav a::after {
   .hero-ep__tags {
     max-width: 324px;
     gap: 8px;
+  }
+
+  /* Experience */
+  .experience__img {
+    width: 80%;
   }
 
   /* Страница team-building */
