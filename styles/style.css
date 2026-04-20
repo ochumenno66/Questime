@@ -2713,6 +2713,236 @@ nav a::after {
 }
 
 /* SCHEDULE */
+.schedule {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: clamp(40px, 2.604vw, 50px);
+}
+
+.schedule__year {
+  margin-bottom: 16px;
+  display: block;
+  font-family: var(--font3);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(24px, 1.823vw, 35px);
+  line-height: 129%;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.schedule__months {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: clamp(20px, 2.083vw, 40px);
+}
+
+.schedule__month-btn {
+  border: 1px solid var(--color-text);
+  padding: 16px 32px;
+  background: transparent;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(14px, 1.042vw, 20px);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.schedule__month-btn.is-active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+.schedule__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule__event-wrapper {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.schedule__event-wrapper:first-child {
+  padding-top: 0;
+}
+
+.schedule__event-wrapper:last-child {
+  border-bottom: none;
+}
+
+.schedule__event {
+  padding: 16px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.schedule__event--orange {
+  background: var(--light-orange);
+}
+
+.schedule__date-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.schedule__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.schedule__date-num {
+  font-size: clamp(18px, 1.667vw, 32px);
+  line-height: 150%;
+}
+
+.schedule__event--orange .schedule__date-num {
+  color: var(--color-white);
+}
+
+.schedule__date-day {
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 160%;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.schedule__event--orange .schedule__date-day {
+  color: var(--color-white);
+}
+
+.schedule__time {
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 160%;
+  text-align: center;
+}
+
+.schedule__event--orange .schedule__time {
+  color: var(--color-white);
+}
+
+.schedule__photo-wrap {
+  width: 100%;
+  height: 226px;
+}
+
+.schedule__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.schedule__event--orange .schedule__desc-col {
+  order: 1;
+}
+
+.schedule__title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.schedule__quest-title {
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 140%;
+}
+
+.schedule__event--orange .schedule__quest-title {
+  color: var(--color-white);
+}
+
+.schedule__quest-subtitle {
+  font-size: clamp(14px, 0.73vw, 16px);
+  line-height: 155%;
+}
+
+.schedule__event--orange .schedule__quest-subtitle {
+  color: var(--color-white);
+}
+
+.schedule__desc-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.schedule__desc-text {
+  font-size: clamp(14px, 0.73vw, 16px);
+  line-height: 155%;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.schedule__event--orange .schedule__desc-text {
+  color: var(--color-white);
+}
+
+.schedule__price-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.schedule__badge {
+  padding: 2px 16px;
+  width: fit-content;
+  border-radius: 48px;
+  font-size: clamp(16px, 0.7vw, 14px);
+  line-height: 155%;
+  color: var(--color-white);
+}
+
+.schedule__badge--early {
+  background: var(--success);
+}
+
+.schedule__badge--few {
+  background: var(--color-orange);
+}
+
+.schedule__badge--sold {
+  background: var(--error);
+}
+
+.schedule__price-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.schedule__price {
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 140%;
+}
+
+.schedule__event--orange .schedule__price {
+  color: var(--color-white);
+}
+
+.schedule__buy-btn {
+  background: transparent;
+  border: 1px solid var(--color-orange);
+  padding: 5px 20px;
+  font-family: var(--second-family);
+  font-size: clamp(14px, 0.83vw, 18px);
+  color: var(--color-orange);
+  transition: background 0.2s, color 0.2s;
+}
+
+.schedule__event--orange .schedule__buy-btn {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
 
 /* CUSTOM GAMES */
 /* HERO */
@@ -4026,6 +4256,48 @@ nav a::after {
   .persons__rows {
     padding: 0;
   }
+
+  /* SCHEDULE */
+  .schedule__year {
+    margin-bottom: 8px;
+  }
+
+  .schedule__month-btn {
+    padding: 8px 24px;
+    font-weight: var(--font-weight-regular);
+  }
+
+  .schedule__event-wrapper {
+    padding: 16px 0;
+  }
+
+  .schedule__event {
+    grid-template-columns: 1fr 1fr 2fr 2fr;
+    gap: 16px;
+  }
+
+  .schedule__date-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .schedule__photo-wrap {
+    height: 156px;
+  }
+
+  .schedule__title-col {
+    gap: 8px;
+  }
+
+  .schedule__badge {
+    padding: 0 8px;
+  }
+
+  .schedule__buy-btn {
+    padding: 4px 16px;
+    text-transform: uppercase;
+  }
 }
 
 @media (max-width: 840px) {
@@ -4689,6 +4961,46 @@ nav a::after {
   .format .persons__answer {
     padding-bottom: 120px;
   }
+
+  /* SCHEDULE */
+  .schedule__year {
+    margin: 16px 0;
+  }
+
+  .schedule__months {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .schedule__month-btn {
+    padding: 2px 16px;
+  }
+
+  .schedule__event-wrapper {
+    padding: 24px 0;
+  }
+
+  .schedule__event {
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 12px;
+  }
+
+  .schedule__photo-wrap {
+    grid-column: 3;
+  }
+
+  .schedule__event--orange .schedule__desc-col,
+  .schedule__desc-col {
+    order: unset;
+  }
+
+  .schedule__date-wrapper {
+    gap: 16px;
+  }
+
+  .schedule__buy-btn {
+    padding: 5px 8px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -5248,6 +5560,21 @@ nav a::after {
   .hero__breadcrumbs {
     margin-bottom: 8px;
   }
+
+  /* SCHEDULE */
+  .schedule__event {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .schedule__desc-col,
+  .schedule__photo-wrap {
+    grid-column: 2;
+  }
+
+  .schedule__event--orange .schedule__desc-col,
+  .schedule__desc-col {
+    order: 1;
+  }
 }
 
 /* Hover only for desktop  */
@@ -5302,6 +5629,22 @@ nav a::after {
   .route__point:hover,
   .route__point.active {
     background: rgba(229, 131, 69, 0.08);
+  }
+
+  /* SCHEDULE */
+  .schedule__month-btn:hover {
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+  }
+
+  .schedule__buy-btn:hover {
+    background: var(--color-text);
+    color: var(--color-white);
+  }
+
+  .schedule__event--orange .schedule__buy-btn:hover {
+    background: var(--color-white);
+    color: var(--color-orange);
   }
 }
 
