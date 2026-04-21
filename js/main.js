@@ -435,9 +435,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll(".format__steps-col").forEach((col) => {
-    col.querySelectorAll(".format__step").forEach((step, index) => {
-      step.style.setProperty("--i", index);
+  /* Выпадающий список в блоке projects на странице Custom Games */
+  const cards = document.querySelectorAll(".projects-card");
+  cards.forEach((card) => {
+    const items = card.querySelectorAll(".projects-card__list li");
+    const button = card.querySelector(".projects-card__toggle");
+    const buttonText = card.querySelector(".projects-card__toggle-text");
+    if (!button) return;
+    if (items.length > 3) {
+      items.forEach((item, index) => {
+        if (index >= 3) {
+          item.classList.add("hidden");
+        }
+      });
+
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isOpen = card.classList.toggle("open");
+      items.forEach((item, index) => {
+        if (index >= 3) {
+          item.classList.toggle("hidden", !isOpen);
+        }
+      });
+
+      buttonText.textContent = isOpen ? "Show less" : "Expand the list";
+      button.setAttribute("aria-expanded", isOpen);
     });
-  });
+        } else {
+          button.style.display = "none";
+        }
+      });
 });

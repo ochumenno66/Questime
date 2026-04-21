@@ -292,6 +292,7 @@ button {
   user-select: none;
   border: none;
   border-radius: 48px;
+  transition: all 0.3s ease;
 }
 
 /* Кнопка для секции Quests и Header */
@@ -331,7 +332,9 @@ button {
 .decorated-light-stats,
 .decorated-dark-cta,
 .decorated-light-cta,
-.decorated-dark-header {
+.decorated-dark-header,
+.projects-border-1::before,
+.projects-border-2::after {
   position: relative;
   width: 100%;
 }
@@ -385,6 +388,18 @@ button {
   pointer-events: none;
 }
 
+.projects-border-2::after {
+  content: "";
+  position: absolute;
+  bottom: calc(-1 * var(--tear-height));
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/projects-border-2.svg") center bottom /
+    cover no-repeat;
+  pointer-events: none;
+}
+
 /* Верх оборванного края */
 .section-decorated-light::before {
   content: "";
@@ -418,6 +433,18 @@ button {
   width: 100%;
   height: var(--tear-height);
   background: url("../assets/images/border-light-cta.png") center top / cover
+    no-repeat;
+  pointer-events: none;
+}
+
+.projects-border-1::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--tear-height));
+  left: 0;
+  width: 100%;
+  height: var(--tear-height);
+  background: url("../assets/images/projects-border-1.svg") center top / cover
     no-repeat;
   pointer-events: none;
 }
@@ -1760,7 +1787,6 @@ nav a::after {
   background: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
-  transition: all 0.3s ease;
   font-family: var(--font-family);
 }
 
@@ -1830,6 +1856,7 @@ nav a::after {
 /* Form */
 .contact-form {
   margin-bottom: 11.111vw;
+  margin-top: 11.111vw;
 }
 
 .contact-form__title {
@@ -3195,10 +3222,6 @@ nav a::after {
   transition: background 0.3s ease;
 }
 
-.btn--transparent {
-  transition: all 0.3s ease;
-}
-
 .custom-games-hero {
   position: relative;
   padding-bottom: 0 !important;
@@ -3470,6 +3493,221 @@ nav a::after {
   padding: 36px 86px;
   top: 22px;
   left: 13px;
+}
+
+/* Projects */
+.projects {
+  position: relative;
+  background-image: url("../assets/images/custom-games/projects.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.projects__scene {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  min-height: clamp(1200px, 172vw, 2400px);
+}
+
+.projects-card {
+  position: relative;
+  max-width: clamp(232px, 32vw, 510px);
+  width: 100%;
+}
+
+.projects-card:nth-child(2) {
+  transform: translate(33%, 22%);
+}
+
+.projects-card:nth-child(3) {
+  transform: translateY(-29%);
+}
+
+.projects-card:nth-child(4) {
+  transform: translate(33%, 17%);
+}
+
+.projects-card__polaroid {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 500 / 380;
+}
+
+.projects-card__frame {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.projects-card__photo {
+  position: absolute;
+  width: 76%;
+  height: 52%;
+  object-fit: cover;
+}
+
+.projects-card:nth-child(1) .projects-card__photo {
+  top: 16.5%;
+  left: 12.8%;
+  transform: rotate(5deg);
+}
+
+.projects-card:nth-child(2) .projects-card__photo,
+.projects-card:nth-child(4) .projects-card__photo {
+  top: 20%;
+  left: 12.6%;
+  transform: rotate(-5deg);
+}
+
+.projects-card:nth-child(3) .projects-card__photo {
+  top: 20%;
+  left: 13%;
+  transform: rotate(5deg);
+}
+
+.projects-card__caption {
+  position: absolute;
+  width: 78%;
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(1rem, 0.727vw + 0.836rem, 1.5rem);
+  line-height: 160%;
+  text-align: center;
+  color: var(--color-orange);
+}
+
+.projects-card:nth-child(1) .projects-card__caption {
+  bottom: 9.2%;
+  left: 50%;
+  transform: translateX(-51%) rotate(5deg);
+}
+
+.projects-card:nth-child(2) .projects-card__caption,
+.projects-card:nth-child(4) .projects-card__caption {
+  bottom: 6.6%;
+  left: 50%;
+  transform: translateX(-47%) rotate(-5deg);
+}
+
+.projects-card:nth-child(4) .projects-card__caption {
+  bottom: 16%;
+}
+
+.projects-card:nth-child(3) .projects-card__caption {
+  bottom: 14.8%;
+  left: 49%;
+  transform: translateX(-51%) rotate(5deg);
+}
+
+.projects-card__paper {
+  position: relative;
+  border: 2px solid var(--sandy);
+  padding: 20px 0 0;
+  margin: 0 20px 0 0;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-card:nth-child(2) .projects-card__paper,
+.projects-card:nth-child(4) .projects-card__paper {
+  margin: 0 0 0 33px;
+}
+
+.projects-card__list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0 30px 20px;
+  gap: 12px;
+  list-style: none;
+}
+
+.projects-card__list li {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
+  font-size: clamp(1rem, 0.727vw + 0.836rem, 1.5rem);
+  line-height: 160%;
+  color: var(--color-text);
+}
+
+.projects-card__list li.hidden {
+  display: none;
+}
+
+.projects-card__toggle {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--sandy);
+  margin-top: auto;
+  align-self: flex-end;
+  margin-right: 36px;
+}
+
+.projects-card__toggle-text {
+  font-family: var(--second-family);
+  font-size: 18px;
+  line-height: 133%;
+}
+
+.projects-card__toggle svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.projects-card.open .projects-card__toggle svg {
+  transform: rotate(180deg);
+}
+
+.projects__btn {
+  position: absolute;
+  bottom: 84px;
+  left: 27%;
+  transform: translateX(-39%);
+}
+
+.projects__btn-card {
+  position: relative;
+  width: 100%;
+}
+
+.projects__btn-border {
+  max-width: 80%;
+  display: block;
+}
+
+.projects__btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-60%, -50%);
+  width: 80%;
+  text-align: center;
+}
+
+.projects__btn-text {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(0.875rem, 0.909vw + 0.67rem, 1.5rem);
+  line-height: 140%;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.btn-projects {
+  color: var(--color-bg);
+  width: fit-content;
+  align-self: center;
 }
 
 /* Benefits */
@@ -3923,9 +4161,6 @@ nav a::after {
   font-family: var(--font-family);
   background: transparent;
   border: 1px solid var(--color-bg);
-  transition:
-    color 0.22s,
-    border-color 0.22s;
 }
 
 /* google reviews */
@@ -4051,11 +4286,26 @@ nav a::after {
     max-width: 480px;
     border-top: 0.25px solid var(--color-text);
   }
+
+  /* Страница Custom Games */
+  /* PROJECTS */
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 6.8%;
+  }
 }
 
 @media (min-width: 1319px) {
   .format__step {
     margin-left: calc(var(--i, 0) * 100px);
+  }
+}
+
+@media (max-width: 1055px) {
+  /* CUSTOM GAMES */
+  /* Projects */
+  .projects__btn {
+    bottom: 42px;
+    transform: translateX(-34%);
   }
 }
 
@@ -4481,6 +4731,42 @@ nav a::after {
     left: 6px;
   }
 
+  /* Projects */
+  .projects-card__caption {
+    font-size: 14px;
+  }
+
+  .projects-card:nth-child(1) .projects-card__caption {
+    bottom: 12.2%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 14.6%;
+  }
+
+  .projects-card:nth-child(4) .projects-card__caption {
+    bottom: 16%;
+  }
+
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 14.8%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__paper,
+  .projects-card:nth-child(4) .projects-card__paper {
+    margin: 0 0 0 22px;
+  }
+
+  .projects-card__list {
+    padding: 0 10px 12px;
+  }
+
+  .projects__btn {
+    bottom: 38px;
+    left: 30%;
+    transform: translateX(-40%);
+  }
+
   /* EVENT PAGE */
   /* HERO */
   .hero-ep {
@@ -4568,6 +4854,11 @@ nav a::after {
   .label-text-right {
     top: -2px;
     padding: 25px 36px;
+  }
+
+  /* Projects */
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 7.6%;
   }
 }
 
@@ -4742,6 +5033,7 @@ nav a::after {
     font-size: clamp(14px, 2.083vw, 16px);
   }
 
+  /* 404 */
   .page-404__overlay {
     gap: clamp(12px, 2vw, 20px);
   }
@@ -4849,6 +5141,78 @@ nav a::after {
     padding: 13px 40px 21px;
     top: 28px;
     left: 29px;
+  }
+
+  /* Projects */
+  .projects-card {
+    max-width: 246px;
+    height: 242px;
+  }
+
+  .projects-card:nth-child(1) {
+    transform: translate(15%, 11%);
+  }
+
+  .projects-card:nth-child(2) {
+    transform: translate(28%, 43%);
+  }
+
+  .projects-card:nth-child(3) {
+    transform: translate(17%, -73%);
+  }
+
+  .projects-card:nth-child(4) {
+    transform: translate(27%, 44%);
+  }
+
+  .projects-card__caption {
+    font-size: 14px;
+  }
+
+  .projects-card:nth-child(1) .projects-card__caption {
+    bottom: 8.2%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 5.6%;
+  }
+
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 5.6%;
+  }
+
+  .projects-card__paper {
+    padding: 9px 0 0;
+  }
+
+  .projects-card:nth-child(2) .projects-card__paper,
+  .projects-card:nth-child(4) .projects-card__paper {
+    margin: 0 0 0 12px;
+  }
+
+  .projects-card__list {
+    padding: 0 9px 15px;
+  }
+
+  .projects-card__list li {
+    font-size: 16px;
+  }
+
+  .projects-card__toggle {
+    margin-right: 6px;
+  }
+
+  .projects-card__toggle-text {
+    font-size: 14px;
+  }
+
+  .projects__btn {
+    bottom: 23px;
+    transform: translateX(-29%);
+  }
+
+  .projects__btn-content {
+    gap: 15px;
   }
 
   /* Страница Event Page */
@@ -5144,6 +5508,11 @@ nav a::after {
     align-self: stretch;
   }
 
+  .contact-form__image-wrapper::before,
+  .contact-form__image-wrapper-gt::before {
+    width: 20px;
+  }
+
   .contact-form__actions-gt {
     gap: 10px;
   }
@@ -5285,6 +5654,36 @@ nav a::after {
     padding: 9px 39px 19px;
   }
 
+  /* Projects */
+  .projects-card:nth-child(1) {
+    transform: translate(0, 6%);
+  }
+
+  .projects-card:nth-child(2) {
+    transform: translate(19%, 32%);
+  }
+
+  .projects-card:nth-child(3) {
+    transform: translate(8%, -75%);
+  }
+
+  .projects-card:nth-child(4) {
+    transform: translate(15%, 43%);
+  }
+
+  .projects-card__list {
+    gap: 7px;
+  }
+
+  .projects-card__list li {
+    font-size: 14px;
+  }
+
+  .projects__btn {
+    bottom: 21px;
+    transform: translateX(-36%);
+  }
+
   /* Event page */
   /* Format */
   .format__btn {
@@ -5349,6 +5748,31 @@ nav a::after {
 
   .schedule__buy-btn {
     padding: 5px 8px;
+  }
+}
+
+@media (max-width: 585px) {
+  /* Страница Custom Games */
+  /* Projects */
+  .projects-card:nth-child(2) {
+    transform: translate(8%, 99%);
+  }
+
+  .projects-card:nth-child(3) {
+    transform: translate(0%, -46%);
+  }
+
+  .projects-card:nth-child(4) {
+    transform: translate(4%, 46%);
+  }
+
+  .projects__btn {
+    bottom: 21px;
+    transform: translateX(-36%);
+  }
+
+  .projects__btn-content {
+    gap: 9px;
   }
 }
 
@@ -5743,6 +6167,102 @@ nav a::after {
     left: 13px;
   }
 
+  /* Projects */
+  .projects {
+    margin: 56px 0;
+  }
+
+  .projects__scene {
+    grid-template-columns: 1fr;
+    min-height: 1500px;
+    justify-items: center;
+    align-items: start;
+    width: 100%;
+  }
+
+  .projects-card {
+    max-width: 280px;
+    width: 100%;
+    position: relative;
+  }
+
+  .projects-card:nth-child(1),
+  .projects-card:nth-child(2),
+  .projects-card:nth-child(3),
+  .projects-card:nth-child(4) {
+    transform: none;
+  }
+
+  .projects-card__caption {
+    font-size: 13px;
+  }
+
+  .projects-card__paper {
+    padding: 14px 0 0;
+    max-width: 280px;
+  }
+
+  .projects-card:nth-child(2) .projects-card__paper,
+  .projects-card:nth-child(4) .projects-card__paper {
+    margin: 0 0 0 14px;
+  }
+
+  .projects-card:nth-child(1) .projects-card__caption {
+    bottom: 10.2%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 7.6%;
+  }
+
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 15.6%;
+  }
+
+  .projects-card__list {
+    padding: 0 14px 12px;
+    gap: 7px;
+  }
+
+  .projects-card__list li {
+    font-size: 13px;
+    line-height: 145%;
+  }
+
+  .projects-card__toggle {
+    margin-right: 14px;
+    gap: 6px;
+  }
+
+  .projects-card__toggle-text {
+    font-size: 12px;
+  }
+
+  .projects-card__toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .projects__btn {
+    position: relative;
+    transform: translateX(-40px);
+    width: 70%;
+  }
+
+  .projects__btn-content {
+    gap: 12px;
+  }
+
+  .projects__btn-border {
+    max-width: 100%;
+    display: block;
+    transform: translate(-25px, 0px);
+  }
+
+  .projects__btn-text {
+    font-size: 12px;
+  }
+
   /* Страница Gamified tours */
   /* HERO */
   .hero-gt__title br:nth-of-type(2) {
@@ -5810,11 +6330,6 @@ nav a::after {
     text-transform: none;
   }
 
-  /* Form */
-  .contact-form__image-wrapper::before {
-    width: 15px;
-  }
-
   .checkbox {
     gap: 4px;
   }
@@ -5871,6 +6386,11 @@ nav a::after {
     padding: 7px 15px;
     top: 14px;
     left: 12px;
+  }
+
+  /* Projects */
+  .projects__btn {
+    width: 80%;
   }
 
   /* Hero-event-page */
@@ -5973,6 +6493,14 @@ nav a::after {
     background: var(--color-orange);
     border-color: var(--color-orange);
   }
+
+  .about__btn:hover,
+  .partners__btn:hover {
+    background: var(--light-orange);
+    color: var(--color-bg);
+    border: 1px solid var(--light-orange);
+  }
+
 
   .btn--orange:hover {
     background: var(--light-orange);
