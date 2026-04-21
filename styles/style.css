@@ -269,6 +269,13 @@ a {
   color: inherit;
 }
 
+.text-orange {
+  color: var(--color-orange);
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
+}
+
 button {
   cursor: pointer;
 }
@@ -285,6 +292,7 @@ button {
   user-select: none;
   border: none;
   border-radius: 48px;
+  transition: all 0.3s ease;
 }
 
 /* Кнопка для секции Quests и Header */
@@ -380,14 +388,14 @@ button {
   pointer-events: none;
 }
 
-.projects-border-1::after {
+.projects-border-2::after {
   content: "";
   position: absolute;
-  bottom: calc(-1 * var(--tear-height) + 1px);
+  bottom: calc(-1 * var(--tear-height));
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/projects-border-1.svg") center bottom /
+  background: url("../assets/images/projects-border-2.svg") center bottom /
     cover no-repeat;
   pointer-events: none;
 }
@@ -429,10 +437,10 @@ button {
   pointer-events: none;
 }
 
-.projects-border-2::before {
+.projects-border-1::before {
   content: "";
   position: absolute;
-  top: calc(-1 * var(--tear-height) + 2px);
+  top: calc(-1 * var(--tear-height));
   left: 0;
   width: 100%;
   height: var(--tear-height);
@@ -1002,6 +1010,27 @@ nav a::after {
   gap: 24px;
 }
 
+.quest-card__image-wrap {
+  position: relative;
+}
+
+.quest-card__image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/images/frame.svg") no-repeat center / contain;
+  pointer-events: none;
+}
+
+.quest-card__image-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  z-index: 2;
+  background: url("../assets/images/frame.svg") no-repeat center / contain;
+  pointer-events: none;
+}
+
 .quest-card__image {
   position: relative;
   width: 100%;
@@ -1009,20 +1038,65 @@ nav a::after {
   overflow: hidden;
 }
 
+.quest-card__image::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 2;
+  background: var(--color-bg);
+  pointer-events: none;
+}
+
+.quest-card__image::after {
+  content: "";
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 2;
+  background: var(--color-bg);
+  pointer-events: none;
+}
+
 .quest-card__image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: sepia(0.7) contrast(1.1) brightness(0.9);
 }
 
-/* .quest-card__image::after {
+.quest-card__image-corner::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: rgba(120, 40, 0, 0.35);
-  mix-blend-mode: multiply;
-} */
+  bottom: -18px;
+  left: -18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 2;
+  background: var(--color-bg);
+  pointer-events: none;
+}
+
+.quest-card__image-corner::after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  right: -18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 2;
+  background: var(--color-bg);
+  pointer-events: none;
+}
 
 .quest-card__top-text {
   display: flex;
@@ -1210,8 +1284,6 @@ nav a::after {
 
 .services__btn {
   align-self: start;
-  background: var(--color-orange);
-  font-family: var(--font-family);
   color: var(--color-white);
 }
 
@@ -1457,9 +1529,7 @@ nav a::after {
 }
 
 .benefits__btn {
-  font-family: var(--font-family);
   color: var(--color-white);
-  background-color: var(--color-orange);
   font-size: clamp(14px, 1.4vw, 20px);
   padding: 10px 32px;
   margin: clamp(24px, 2.5vw, 40px) 0 clamp(24px, 2.5vw, 40px);
@@ -1468,11 +1538,32 @@ nav a::after {
 
 /* Cta */
 .cta {
-  background-image: url(../assets/images/main/cta.webp);
+  position: relative;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   padding-top: clamp(60px, 7vw, 140px);
   padding-bottom: clamp(60px, 7vw, 140px);
+}
+
+.cta__overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
+    linear-gradient(
+      178.88deg,
+      #191a18 0.92%,
+      rgba(25, 26, 24, 0) 49.96%,
+      #191a18 99%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta .container {
+  position: relative;
+  z-index: 1;
 }
 
 .cta__inner {
@@ -1696,7 +1787,6 @@ nav a::after {
   background: transparent;
   color: var(--color-white);
   border: 1px solid var(--color-white);
-  transition: all 0.3s ease;
   font-family: var(--font-family);
 }
 
@@ -1766,6 +1856,7 @@ nav a::after {
 /* Form */
 .contact-form {
   margin-bottom: 11.111vw;
+  margin-top: 11.111vw;
 }
 
 .contact-form__title {
@@ -1838,9 +1929,7 @@ nav a::after {
 
 .contact-form__btn,
 .contact-form__btn-gt {
-  background-color: var(--color-orange);
   color: var(--color-white);
-  font-family: var(--font-family);
   border: none;
   cursor: pointer;
   align-self: flex-start;
@@ -1948,11 +2037,58 @@ nav a::after {
 }
 
 /* GAMIFIED-TOURS */
-.cta-gt {
-  background-image: url(../assets/images/gamifiedTours/cta-GT.webp);
-  background-size: cover;
-  background-position: center;
-  height: 200px;
+/* Cta-guide */
+.cta-guide {
+  background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+    url(../assets/images/gamifiedTours/cta-GT.webp) center / cover no-repeat;
+  padding: clamp(3.75rem, 12.727vw + 0.886rem, 12.5rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-guide__wrapper {
+  align-items: center;
+  width: 100%;
+}
+
+.cta-guide__content {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  right: 10%;
+  width: 84%;
+}
+
+.cta-guide__text {
+  line-height: 129%;
+  color: var(--color-bg);
+  font-size: clamp(14px, 2.5vw, 35px);
+}
+
+.text-orange--guide {
+  color: var(--color-orange);
+}
+
+.cta-guide__btn {
+  width: fit-content;
+  color: var(--color-bg);
+}
+
+.cta-guide__img {
+  position: absolute;
+  right: clamp(12px, 4vw, 60px);
+  top: 50%;
+  transform: translateY(-50%) rotate(10deg);
+  width: clamp(62px, 16vw, 239px);
+  height: clamp(88px, 22vw, 339px);
+  max-width: 100%;
+  z-index: 1;
 }
 
 /* Form */
@@ -2066,13 +2202,6 @@ nav a::after {
 }
 
 /* TEAM BUILDING */
-.quote-tb {
-  background-image: url(../assets/images/team-building/quote-TB.webp);
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
 /* FAQ */
 .faq__list {
   position: relative;
@@ -2180,7 +2309,6 @@ nav a::after {
 
 /* EVENTS PAGE */
 /* HERO */
-/* Hero-event-page */
 .hero-ep.section-common {
   margin-bottom: 0;
 }
@@ -2377,7 +2505,6 @@ nav a::after {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* Это сохранит пропорции внутри 16x16 */
 }
 
 .feature-card__value,
@@ -2389,6 +2516,158 @@ nav a::after {
 
 .feature-card__value {
   color: var(--color-orange);
+}
+
+/* ===== Experience ===== */
+.experience {
+  padding-top: var(--tear-height);
+  padding-bottom: 20px;
+  margin-top: clamp(30px, 4.17vw, 60px);
+  margin-bottom: clamp(30px, 4.17vw, 60px);
+  overflow-x: clip;
+}
+
+.experience--flat {
+  padding-top: clamp(30px, 4.17vw, 60px);
+}
+
+.experience .container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(30px, 3.89vw, 56px);
+  max-width: 1164px;
+  padding: 0 24px;
+}
+
+.experience__row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(16px, 2.78vw, 40px);
+}
+
+.experience__col--text,
+.experience__col--gains {
+  flex: 3 1 0%;
+  min-width: 0;
+}
+
+.experience__col--img {
+  flex: 2 1 0%;
+  min-width: 0;
+  max-width: 453px;
+}
+
+.experience__img-wrapper {
+  display: block;
+  width: 100%;
+  transform: rotate(5deg);
+}
+
+.experience__row--img-first .experience__img-wrapper {
+  transform: rotate(-5deg);
+}
+
+.experience__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 15px 15px 0 0 var(--color-orange);
+}
+
+.experience__row--img-first .experience__img {
+  box-shadow: -15px 15px 0 0 var(--color-orange);
+}
+
+.experience__p {
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  line-height: 160%;
+  color: var(--color-text);
+  margin: 0 0 clamp(8px, 1.11vw, 16px);
+}
+
+.experience__p:last-child {
+  margin-bottom: 0;
+}
+
+.experience__gains-title {
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 140%;
+  color: var(--color-orange);
+  margin: 0 0 clamp(10px, 1.11vw, 16px);
+  text-transform: uppercase;
+}
+
+.experience__list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 0.83vw, 12px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experience__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  line-height: 160%;
+  color: var(--color-text);
+}
+
+.experience__tick {
+  width: 16px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-top: 0.3em;
+}
+
+.experience__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.experience__badge {
+  display: inline-block;
+  padding: 0 10px;
+  border: 1px solid var(--color-orange);
+  border-radius: 48px;
+  color: var(--color-orange);
+  font-size: clamp(0.75rem, 0.7vw + 0.45rem, 1rem);
+}
+
+.experience__btns {
+  display: flex;
+  gap: clamp(12px, 1.67vw, 24px);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.experience__book {
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+.experience__btns .btn {
+  font-family: var(--font-family);
+}
+
+.btn-experience {
+  color: var(--color-bg);
+  font-family: var(--font-family);
+  background: var(--color-orange);
+  transition: background 0.3s ease;
+}
+
+.experience--flat .experience__p {
+  font-size: 16px;
 }
 
 /* ROUTE */
@@ -2695,6 +2974,241 @@ nav a::after {
 }
 
 /* SCHEDULE */
+.schedule {
+  position: relative;
+  padding-top: 40px;
+  padding-bottom: clamp(40px, 2.604vw, 50px);
+}
+
+.schedule__year {
+  margin-bottom: 16px;
+  display: block;
+  font-family: var(--font3);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(24px, 1.823vw, 35px);
+  line-height: 129%;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.schedule__months {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: clamp(20px, 2.083vw, 40px);
+}
+
+.schedule__month-btn {
+  border: 1px solid var(--color-text);
+  padding: 16px 32px;
+  background: transparent;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(14px, 1.042vw, 20px);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.schedule__month-btn.is-active {
+  background: var(--color-orange);
+  border-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+.schedule__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule__event-wrapper {
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.schedule__event-wrapper:first-child {
+  padding-top: 0;
+}
+
+.schedule__event-wrapper:last-child {
+  border-bottom: none;
+}
+
+.schedule__event {
+  padding: 16px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.schedule__event--orange {
+  background: var(--light-orange);
+}
+
+.schedule__date-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.schedule__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.schedule__date-num {
+  font-size: clamp(18px, 1.667vw, 32px);
+  line-height: 150%;
+}
+
+.schedule__event--orange .schedule__date-num {
+  color: var(--color-white);
+}
+
+.schedule__date-day {
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 160%;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.schedule__event--orange .schedule__date-day {
+  color: var(--color-white);
+}
+
+.schedule__time {
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 160%;
+  text-align: center;
+}
+
+.schedule__event--orange .schedule__time {
+  color: var(--color-white);
+}
+
+.schedule__photo-wrap {
+  width: 100%;
+  height: 226px;
+}
+
+.schedule__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.schedule__event--orange .schedule__desc-col {
+  order: 1;
+}
+
+.schedule__title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.schedule__quest-title {
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 140%;
+}
+
+.schedule__event--orange .schedule__quest-title {
+  color: var(--color-white);
+}
+
+.schedule__quest-subtitle {
+  font-size: clamp(14px, 0.73vw, 16px);
+  line-height: 155%;
+}
+
+.schedule__event--orange .schedule__quest-subtitle {
+  color: var(--color-white);
+}
+
+.schedule__desc-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.schedule__desc-text {
+  font-size: clamp(14px, 0.73vw, 16px);
+  line-height: 155%;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.schedule__event--orange .schedule__desc-text {
+  color: var(--color-white);
+}
+
+.schedule__price-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.schedule__badge {
+  padding: 2px 16px;
+  width: fit-content;
+  border-radius: 48px;
+  font-size: clamp(16px, 0.7vw, 14px);
+  line-height: 155%;
+  color: var(--color-white);
+}
+
+.schedule__badge--early {
+  background: var(--success);
+}
+
+.schedule__badge--few {
+  background: var(--color-orange);
+}
+
+.schedule__badge--sold {
+  background: var(--error);
+}
+
+.schedule__price-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.schedule__price {
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(16px, 1.25vw, 24px);
+  line-height: 140%;
+}
+
+.schedule__event--orange .schedule__price {
+  color: var(--color-white);
+}
+
+.schedule__buy-btn {
+  background: transparent;
+  border: 1px solid var(--color-orange);
+  padding: 5px 20px;
+  font-family: var(--second-family);
+  font-size: clamp(14px, 0.83vw, 18px);
+  color: var(--color-orange);
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+
+.schedule__event--orange .schedule__buy-btn {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
 
 /* CUSTOM GAMES */
 /* HERO */
@@ -2706,10 +3220,6 @@ nav a::after {
   font-family: var(--font-family);
   background: var(--color-orange);
   transition: background 0.3s ease;
-}
-
-.btn--transparent {
-  transition: all 0.3s ease;
 }
 
 .custom-games-hero {
@@ -2992,180 +3502,134 @@ nav a::after {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  overflow: hidden;
-}
-
-@media (max-width: 680px) {
-  .projects {
-    background-image: url("../assets/images/custom-games/projects-mobile.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .projects {
-    background-image: url("../assets/images/custom-games/projects-tablet.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
 }
 
 .projects__scene {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  /*position: relative;*/
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: 100%;
-  min-height: 2400px;
-  margin: 0 auto;
+  min-height: clamp(1200px, 172vw, 2400px);
 }
 
 .projects-card {
-  /*position: absolute;*/
   position: relative;
+  max-width: clamp(232px, 32vw, 510px);
+  width: 100%;
 }
 
-/* Позиции карточек на десктопе */
-.projects-card--1 {
+.projects-card:nth-child(2) {
+  transform: translate(33%, 22%);
 }
 
-.projects-card--2 {
-  transform: translateY(22%);
-  left: 19%;
+.projects-card:nth-child(3) {
+  transform: translateY(-29%);
 }
 
-.projects-card--3 {
-  /*top: -461px;*/
-  transform: translateY(-32%);
+.projects-card:nth-child(4) {
+  transform: translate(33%, 17%);
 }
 
-.projects-card--4 {
-  /*top: 252px;*/
-  transform: translateY(17%);
-  left: 129px;
-}
-
-/* Полароид */
 .projects-card__polaroid {
   position: relative;
   width: 100%;
-  width: 560px;
-  height: 380px;
+  aspect-ratio: 500 / 380;
 }
 
-.projects-card__frame--1,
-.projects-card__frame--2,
-.projects-card__frame--3,
-.projects-card__frame--4 {
-  /*position: absolute;*/
+.projects-card__frame {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.projects-card__frame--2 {
-}
-
-/* Фото на поларойде */
-.projects-card__photo--1,
-.projects-card__photo--2,
-.projects-card__photo--3,
-.projects-card__photo--4 {
+.projects-card__photo {
   position: absolute;
-  width: 432px;
-  height: 240px;
+  width: 76%;
+  height: 52%;
   object-fit: cover;
 }
 
-.projects-card__photo--1 {
-  top: 63px;
-  left: 65px;
+.projects-card:nth-child(1) .projects-card__photo {
+  top: 16.5%;
+  left: 12.8%;
   transform: rotate(5deg);
 }
 
-.projects-card__photo--2 {
-  top: 76px;
-  left: 63px;
+.projects-card:nth-child(2) .projects-card__photo,
+.projects-card:nth-child(4) .projects-card__photo {
+  top: 20%;
+  left: 12.6%;
   transform: rotate(-5deg);
 }
 
-.projects-card__photo--3 {
-  top: 76px;
-  left: 65px;
+.projects-card:nth-child(3) .projects-card__photo {
+  top: 20%;
+  left: 13%;
   transform: rotate(5deg);
 }
 
-.projects-card__photo--4 {
-  top: 76px;
-  left: 63px;
-  transform: rotate(-5deg);
-}
-
-/* Текст под фото */
-.projects-card__caption--1,
-.projects-card__caption--2,
-.projects-card__caption--3,
-.projects-card__caption--4 {
+.projects-card__caption {
   position: absolute;
   width: 78%;
   margin: 0;
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
-  font-size: 24px;
+  font-size: clamp(1rem, 0.727vw + 0.836rem, 1.5rem);
   line-height: 160%;
   text-align: center;
   color: var(--color-orange);
 }
 
-.projects-card__caption--1 {
-  bottom: -5px;
+.projects-card:nth-child(1) .projects-card__caption {
+  bottom: 9.2%;
   left: 50%;
   transform: translateX(-51%) rotate(5deg);
 }
 
-.projects-card__caption--2 {
-  bottom: 17px;
+.projects-card:nth-child(2) .projects-card__caption,
+.projects-card:nth-child(4) .projects-card__caption {
+  bottom: 6.6%;
   left: 50%;
   transform: translateX(-47%) rotate(-5deg);
 }
 
-.projects-card__caption--3 {
-  bottom: 13px;
+.projects-card:nth-child(4) .projects-card__caption {
+  bottom: 16%;
+}
+
+.projects-card:nth-child(3) .projects-card__caption {
+  bottom: 14.8%;
   left: 49%;
   transform: translateX(-51%) rotate(5deg);
 }
 
-.projects-card__caption--4 {
-  bottom: 17px;
-  left: 50%;
-  transform: translateX(-47%) rotate(-5deg);
-}
-
-/* Текст под поларойдом */
 .projects-card__paper {
   position: relative;
-  margin-top: 55px;
-  border: 3px solid var(--sandy);
-  padding: 40px 0 8px;
-  width: 520px;
+  border: 2px solid var(--sandy);
+  padding: 20px 0 0;
+  margin: 0 20px 0 0;
   background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
 }
 
-/* список */
+.projects-card:nth-child(2) .projects-card__paper,
+.projects-card:nth-child(4) .projects-card__paper {
+  margin: 0 0 0 33px;
+}
+
 .projects-card__list {
+  display: flex;
+  flex-direction: column;
   margin: 0;
-  padding: 0 48px;
+  padding: 0 30px 20px;
+  gap: 12px;
   list-style: none;
 }
 
-/* элементы списка */
 .projects-card__list li {
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
-  font-size: 24px;
+  font-size: clamp(1rem, 0.727vw + 0.836rem, 1.5rem);
   line-height: 160%;
   color: var(--color-text);
 }
@@ -3174,49 +3638,25 @@ nav a::after {
   display: none;
 }
 
-.projects-card.open .projects-card__list {
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  width: 100%;
-
-  background: var(--color-bg);
-  border: 3px solid var(--sandy);
-  border-top: none;
-
-  padding: 12px 48px;
-
-  justify-content: flex-start;
-}
-
-/* кнопка */
 .projects-card__toggle {
   display: inline-flex;
   flex-direction: row-reverse;
   align-items: center;
   gap: 8px;
-
-  margin-top: 12px;
-  margin-left: 48px;
-  padding: 0;
-
   background: none;
   border: none;
-  cursor: pointer;
-
-  font: inherit;
   color: var(--sandy);
-  text-align: left;
+  margin-top: auto;
+  align-self: flex-end;
+  margin-right: 36px;
 }
 
-/* текст кнопки */
 .projects-card__toggle-text {
-  font-size: 14px;
-  line-height: 1.2;
+  font-family: var(--second-family);
+  font-size: 18px;
+  line-height: 133%;
 }
 
-/* иконка */
 .projects-card__toggle svg {
   flex-shrink: 0;
   transition: transform 0.3s ease;
@@ -3228,122 +3668,46 @@ nav a::after {
 
 .projects__btn {
   position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 84px;
+  left: 27%;
+  transform: translateX(-39%);
 }
 
 .projects__btn-card {
   position: relative;
-  width: 320px; 
+  width: 100%;
 }
 
 .projects__btn-border {
-  width: 100%;
+  max-width: 80%;
   display: block;
 }
 
 .projects__btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  transform: translate(-60%, -50%);
   width: 80%;
   text-align: center;
 }
 
 .projects__btn-text {
-  margin-bottom: 12px;
-  font-size: 14px;
-  line-height: 1.4;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+  font-size: clamp(0.875rem, 0.909vw + 0.67rem, 1.5rem);
+  line-height: 140%;
+  text-align: center;
+  color: var(--color-text);
 }
 
 .btn-projects {
-}
-
-/* Планшет */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .projects__scene {
-    min-height: 980px;
-    max-width: 900px;
-  }
-
-  .projects-card {
-    width: 220px;
-  }
-
-  .projects-card--1 {
-    top: 40px;
-    left: 10px;
-  }
-
-  .projects-card--2 {
-    top: 90px;
-    right: 20px;
-  }
-
-  .projects-card--3 {
-    top: 470px;
-    left: 60px;
-  }
-
-  .projects-card--4 {
-    top: 520px;
-    right: 60px;
-  }
-
-  .projects__cta {
-    bottom: 10px;
-  }
-}
-
-/* Мобильная версия */
-@media (max-width: 768px) {
-  .projects__scene {
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-  }
-
-  .projects-card {
-    position: static;
-    width: min(100%, 280px);
-  }
-
-  .projects-card__photo {
-    top: 14px;
-    left: 14px;
-    width: calc(100% - 28px);
-    height: 180px;
-  }
-
-  .projects-card__caption {
-    bottom: 16px;
-    width: 76%;
-    font-size: 14px;
-  }
-
-  .projects-card__paper {
-    margin-top: 8px;
-  }
-
-  .projects__cta {
-    position: static;
-    transform: none;
-    margin: 24px auto 0;
-    text-align: center;
-  }
-
-  .projects__cta-btn {
-    width: 200px;
-  }
-
-  .projects__cta-text {
-    font-size: 16px;
-  }
+  color: var(--color-bg);
+  width: fit-content;
+  align-self: center;
 }
 
 /* Benefits */
@@ -3400,7 +3764,7 @@ nav a::after {
 }
 
 /* ABOUT US */
-/* HERO страницы About Us */
+/* HERO */
 .aboutus-hero__bg {
   position: absolute;
   inset: 0;
@@ -3622,7 +3986,7 @@ nav a::after {
   text-decoration: underline;
 }
 
-/* Subscribe About Us */
+/* Subscribe */
 .subscribe-about-us {
   background-size: cover;
   background-position: center;
@@ -3645,7 +4009,6 @@ nav a::after {
   pointer-events: none;
 }
 
-/* Scoped z-index: keep torn edges above the overlay without touching global classes */
 .subscribe-about-us.decorated-light-stats::before,
 .subscribe-about-us.decorated-dark-stats::after {
   z-index: 2;
@@ -3798,9 +4161,6 @@ nav a::after {
   font-family: var(--font-family);
   background: transparent;
   border: 1px solid var(--color-bg);
-  transition:
-    color 0.22s,
-    border-color 0.22s;
 }
 
 /* google reviews */
@@ -3869,6 +4229,12 @@ nav a::after {
     grid-column: 1 / 4;
   }
 
+  /* Experience */
+  .experience .container {
+    max-width: 100%;
+    padding: 0 40px;
+  }
+
   /* Person, Format */
   .format__btn {
     margin: 16px 0 24px 0;
@@ -3920,11 +4286,26 @@ nav a::after {
     max-width: 480px;
     border-top: 0.25px solid var(--color-text);
   }
+
+  /* Страница Custom Games */
+  /* PROJECTS */
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 6.8%;
+  }
 }
 
 @media (min-width: 1319px) {
   .format__step {
     margin-left: calc(var(--i, 0) * 100px);
+  }
+}
+
+@media (max-width: 1055px) {
+  /* CUSTOM GAMES */
+  /* Projects */
+  .projects__btn {
+    bottom: 42px;
+    transform: translateX(-34%);
   }
 }
 
@@ -4350,6 +4731,42 @@ nav a::after {
     left: 6px;
   }
 
+  /* Projects */
+  .projects-card__caption {
+    font-size: 14px;
+  }
+
+  .projects-card:nth-child(1) .projects-card__caption {
+    bottom: 12.2%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 14.6%;
+  }
+
+  .projects-card:nth-child(4) .projects-card__caption {
+    bottom: 16%;
+  }
+
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 14.8%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__paper,
+  .projects-card:nth-child(4) .projects-card__paper {
+    margin: 0 0 0 22px;
+  }
+
+  .projects-card__list {
+    padding: 0 10px 12px;
+  }
+
+  .projects__btn {
+    bottom: 38px;
+    left: 30%;
+    transform: translateX(-40%);
+  }
+
   /* EVENT PAGE */
   /* HERO */
   .hero-ep {
@@ -4366,6 +4783,12 @@ nav a::after {
     text-align: center;
   }
 
+  /* Experience */
+  .experience__row {
+    justify-content: space-between;
+    gap: 20px;
+  }
+
   /* TEAM BUILDING */
   /* HERO */
   .hero-tb,
@@ -4375,6 +4798,48 @@ nav a::after {
 
   .persons__rows {
     padding: 0;
+  }
+
+  /* SCHEDULE */
+  .schedule__year {
+    margin-bottom: 8px;
+  }
+
+  .schedule__month-btn {
+    padding: 8px 24px;
+    font-weight: var(--font-weight-regular);
+  }
+
+  .schedule__event-wrapper {
+    padding: 16px 0;
+  }
+
+  .schedule__event {
+    grid-template-columns: 1fr 1fr 2fr 2fr;
+    gap: 16px;
+  }
+
+  .schedule__date-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .schedule__photo-wrap {
+    height: 156px;
+  }
+
+  .schedule__title-col {
+    gap: 8px;
+  }
+
+  .schedule__badge {
+    padding: 0 8px;
+  }
+
+  .schedule__buy-btn {
+    padding: 4px 16px;
+    text-transform: uppercase;
   }
 }
 
@@ -4390,13 +4855,14 @@ nav a::after {
     top: -2px;
     padding: 25px 36px;
   }
+
+  /* Projects */
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 7.6%;
+  }
 }
 
 @media (max-width: 768px) {
-  .page-404__overlay {
-    gap: clamp(12px, 2vw, 20px);
-  }
-
   h2,
   .h2 {
     text-transform: none;
@@ -4567,6 +5033,82 @@ nav a::after {
     font-size: clamp(14px, 2.083vw, 16px);
   }
 
+  /* 404 */
+  .page-404__overlay {
+    gap: clamp(12px, 2vw, 20px);
+  }
+
+  /* Experience – stack columns */
+  .experience .container {
+    padding: 0 24px;
+    gap: 40px;
+  }
+
+  .experience__row {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .experience__col--img {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+  }
+
+  .experience__col--text,
+  .experience__col--gains {
+    width: 100%;
+    max-width: none;
+  }
+
+  .experience__p,
+  .experience__gains-title {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .experience__item {
+    justify-content: flex-start;
+  }
+
+  .experience-reverse--ep {
+    flex-direction: column-reverse;
+  }
+
+  .experience__row--img-first .experience__col--gains {
+    order: -1;
+  }
+
+  .experience__img-wrapper {
+    transform: rotate(5deg);
+  }
+
+  .experience__row--img-first .experience__img-wrapper {
+    transform: rotate(-5deg);
+  }
+
+  .experience__img {
+    box-shadow: 0 10px 0 0 var(--color-orange);
+  }
+
+  .experience__row--img-first .experience__img {
+    box-shadow: 0 10px 0 0 var(--color-orange);
+  }
+
+  .experience__actions {
+    gap: 30px;
+  }
+
+  .experience__btns {
+    align-items: stretch;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
   /* Страница Custom Games */
   /* Company */
   .company__scroll--team .company__scroll-label {
@@ -4599,6 +5141,78 @@ nav a::after {
     padding: 13px 40px 21px;
     top: 28px;
     left: 29px;
+  }
+
+  /* Projects */
+  .projects-card {
+    max-width: 246px;
+    height: 242px;
+  }
+
+  .projects-card:nth-child(1) {
+    transform: translate(15%, 11%);
+  }
+
+  .projects-card:nth-child(2) {
+    transform: translate(28%, 43%);
+  }
+
+  .projects-card:nth-child(3) {
+    transform: translate(17%, -73%);
+  }
+
+  .projects-card:nth-child(4) {
+    transform: translate(27%, 44%);
+  }
+
+  .projects-card__caption {
+    font-size: 14px;
+  }
+
+  .projects-card:nth-child(1) .projects-card__caption {
+    bottom: 8.2%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 5.6%;
+  }
+
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 5.6%;
+  }
+
+  .projects-card__paper {
+    padding: 9px 0 0;
+  }
+
+  .projects-card:nth-child(2) .projects-card__paper,
+  .projects-card:nth-child(4) .projects-card__paper {
+    margin: 0 0 0 12px;
+  }
+
+  .projects-card__list {
+    padding: 0 9px 15px;
+  }
+
+  .projects-card__list li {
+    font-size: 16px;
+  }
+
+  .projects-card__toggle {
+    margin-right: 6px;
+  }
+
+  .projects-card__toggle-text {
+    font-size: 14px;
+  }
+
+  .projects__btn {
+    bottom: 23px;
+    transform: translateX(-29%);
+  }
+
+  .projects__btn-content {
+    gap: 15px;
   }
 
   /* Страница Event Page */
@@ -4698,6 +5312,28 @@ nav a::after {
   .persons__answer-inner {
     padding-bottom: 16px;
     font-size: clamp(14px, 2.083vw, 16px);
+  }
+
+  /* Страница Gamified Tours */
+  /* Cta-guide */
+  .cta-guide__wrapper {
+    align-items: center;
+    width: 100%;
+  }
+
+  .cta-guide__content {
+    align-items: flex-start;
+    text-align: left;
+    right: 8%;
+  }
+
+  .cta-guide__text {
+    line-height: 140%;
+  }
+
+  .cta-guide__btn {
+    align-self: center;
+    margin: 0 auto;
   }
 }
 
@@ -4872,6 +5508,11 @@ nav a::after {
     align-self: stretch;
   }
 
+  .contact-form__image-wrapper::before,
+  .contact-form__image-wrapper-gt::before {
+    width: 20px;
+  }
+
   .contact-form__actions-gt {
     gap: 10px;
   }
@@ -5013,6 +5654,36 @@ nav a::after {
     padding: 9px 39px 19px;
   }
 
+  /* Projects */
+  .projects-card:nth-child(1) {
+    transform: translate(0, 6%);
+  }
+
+  .projects-card:nth-child(2) {
+    transform: translate(19%, 32%);
+  }
+
+  .projects-card:nth-child(3) {
+    transform: translate(8%, -75%);
+  }
+
+  .projects-card:nth-child(4) {
+    transform: translate(15%, 43%);
+  }
+
+  .projects-card__list {
+    gap: 7px;
+  }
+
+  .projects-card__list li {
+    font-size: 14px;
+  }
+
+  .projects__btn {
+    bottom: 21px;
+    transform: translateX(-36%);
+  }
+
   /* Event page */
   /* Format */
   .format__btn {
@@ -5038,9 +5709,84 @@ nav a::after {
   .format .persons__answer {
     padding-bottom: 120px;
   }
+
+  /* SCHEDULE */
+  .schedule__year {
+    margin: 16px 0;
+  }
+
+  .schedule__months {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .schedule__month-btn {
+    padding: 2px 16px;
+  }
+
+  .schedule__event-wrapper {
+    padding: 24px 0;
+  }
+
+  .schedule__event {
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 12px;
+  }
+
+  .schedule__photo-wrap {
+    grid-column: 3;
+  }
+
+  .schedule__event--orange .schedule__desc-col,
+  .schedule__desc-col {
+    order: unset;
+  }
+
+  .schedule__date-wrapper {
+    gap: 16px;
+  }
+
+  .schedule__buy-btn {
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 585px) {
+  /* Страница Custom Games */
+  /* Projects */
+  .projects-card:nth-child(2) {
+    transform: translate(8%, 99%);
+  }
+
+  .projects-card:nth-child(3) {
+    transform: translate(0%, -46%);
+  }
+
+  .projects-card:nth-child(4) {
+    transform: translate(4%, 46%);
+  }
+
+  .projects__btn {
+    bottom: 21px;
+    transform: translateX(-36%);
+  }
+
+  .projects__btn-content {
+    gap: 9px;
+  }
 }
 
 @media (max-width: 575px) {
+  h2,
+  .h2 {
+    font-weight: var(--font-weight-regular);
+    line-height: 160%;
+  }
+
+  .subscribe-about-us__socials {
+    gap: 40px;
+  }
+
   /* 404 PAGE */
   .page-404 {
     height: auto;
@@ -5059,14 +5805,18 @@ nav a::after {
     font-size: 16px;
   }
 
-  h2,
-  .h2 {
-    font-weight: var(--font-weight-regular);
-    line-height: 160%;
+  /* Experience – compact spacing and reduced shadow for small phones */
+  .experience {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
-  .subscribe-about-us__socials {
-    gap: 40px;
+  .experience__img {
+    box-shadow: 0 8px 0 0 var(--color-orange);
+  }
+
+  .experience__row--img-first .experience__img {
+    box-shadow: 0 8px 0 0 var(--color-orange);
   }
 
   /* Quests */
@@ -5084,6 +5834,13 @@ nav a::after {
 
   .quest-card__image {
     width: 156px;
+  }
+
+  .quest-card__image::before,
+  .quest-card__image::after,
+  .quest-card__image-corner::before,
+  .quest-card__image-corner::after {
+    background: rgba(229, 131, 69, 0.15);
   }
 
   .quest-card__top-text {
@@ -5410,6 +6167,102 @@ nav a::after {
     left: 13px;
   }
 
+  /* Projects */
+  .projects {
+    margin: 56px 0;
+  }
+
+  .projects__scene {
+    grid-template-columns: 1fr;
+    min-height: 1500px;
+    justify-items: center;
+    align-items: start;
+    width: 100%;
+  }
+
+  .projects-card {
+    max-width: 280px;
+    width: 100%;
+    position: relative;
+  }
+
+  .projects-card:nth-child(1),
+  .projects-card:nth-child(2),
+  .projects-card:nth-child(3),
+  .projects-card:nth-child(4) {
+    transform: none;
+  }
+
+  .projects-card__caption {
+    font-size: 13px;
+  }
+
+  .projects-card__paper {
+    padding: 14px 0 0;
+    max-width: 280px;
+  }
+
+  .projects-card:nth-child(2) .projects-card__paper,
+  .projects-card:nth-child(4) .projects-card__paper {
+    margin: 0 0 0 14px;
+  }
+
+  .projects-card:nth-child(1) .projects-card__caption {
+    bottom: 10.2%;
+  }
+
+  .projects-card:nth-child(2) .projects-card__caption {
+    bottom: 7.6%;
+  }
+
+  .projects-card:nth-child(3) .projects-card__caption {
+    bottom: 15.6%;
+  }
+
+  .projects-card__list {
+    padding: 0 14px 12px;
+    gap: 7px;
+  }
+
+  .projects-card__list li {
+    font-size: 13px;
+    line-height: 145%;
+  }
+
+  .projects-card__toggle {
+    margin-right: 14px;
+    gap: 6px;
+  }
+
+  .projects-card__toggle-text {
+    font-size: 12px;
+  }
+
+  .projects-card__toggle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .projects__btn {
+    position: relative;
+    transform: translateX(-40px);
+    width: 70%;
+  }
+
+  .projects__btn-content {
+    gap: 12px;
+  }
+
+  .projects__btn-border {
+    max-width: 100%;
+    display: block;
+    transform: translate(-25px, 0px);
+  }
+
+  .projects__btn-text {
+    font-size: 12px;
+  }
+
   /* Страница Gamified tours */
   /* HERO */
   .hero-gt__title br:nth-of-type(2) {
@@ -5477,11 +6330,6 @@ nav a::after {
     text-transform: none;
   }
 
-  /* Form */
-  .contact-form__image-wrapper::before {
-    width: 15px;
-  }
-
   .checkbox {
     gap: 4px;
   }
@@ -5540,6 +6388,11 @@ nav a::after {
     left: 12px;
   }
 
+  /* Projects */
+  .projects__btn {
+    width: 80%;
+  }
+
   /* Hero-event-page */
   .hero-ep__tags {
     max-width: 324px;
@@ -5590,6 +6443,32 @@ nav a::after {
   .hero__breadcrumbs {
     margin-bottom: 8px;
   }
+
+  /* Experience */
+  .experience__btns {
+    flex-direction: column;
+  }
+
+  /* SCHEDULE */
+  .schedule__event {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .schedule__desc-col,
+  .schedule__photo-wrap {
+    grid-column: 2;
+  }
+
+  .schedule__event--orange .schedule__desc-col,
+  .schedule__desc-col {
+    order: 1;
+  }
+
+  /* Страница Gamified Tours */
+  /* Cta-guide */
+  .cta-guide__img {
+    transform: translateY(-70%) rotate(10deg);
+  }
 }
 
 /* Hover only for desktop  */
@@ -5615,11 +6494,21 @@ nav a::after {
     border-color: var(--color-orange);
   }
 
+  .about__btn:hover,
+  .partners__btn:hover {
+    background: var(--light-orange);
+    color: var(--color-bg);
+    border: 1px solid var(--light-orange);
+  }
+
+
   .btn--orange:hover {
     background: var(--light-orange);
   }
 
-  .btn--transparent:hover {
+  .btn--transparent:hover,
+  .quest-card__btn-learn:hover,
+  .experience__book:hover {
     color: var(--light-orange);
     border-color: var(--light-orange);
   }
@@ -5644,6 +6533,22 @@ nav a::after {
   .route__point:hover,
   .route__point.active {
     background: rgba(229, 131, 69, 0.08);
+  }
+
+  /* SCHEDULE */
+  .schedule__month-btn:hover {
+    border-color: var(--color-orange);
+    color: var(--color-orange);
+  }
+
+  .schedule__buy-btn:hover {
+    background: var(--color-text);
+    color: var(--color-white);
+  }
+
+  .schedule__event--orange .schedule__buy-btn:hover {
+    background: var(--color-white);
+    color: var(--color-orange);
   }
 }
 

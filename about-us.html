@@ -168,9 +168,53 @@
         </div>
       </div>
     </section>
-    <!-- Секция Story -->
-    <section class="story section-common" id="story">
-      <h2 class="text-align">Our Story</h2>
+    <!-- Секция Experience -->
+    <section class="experience experience--flat section-common" id="experience">
+      <h2 class="team__title text-align">Our Story</h2>
+      <div class="container">
+        <!-- Row 1: text left, image right -->
+        <div class="experience__row">
+          <div class="experience__col--text">
+            <p class="experience__p"><span class="text-orange">The golden age of cinema</span> is just beginning — glittering premieres, rising stars and powerful directors shaping the future of film. But behind the glamour of the studio lights, something has gone terribly wrong.<span class="text-orange"> A shocking crime</span> has been committed on set.</p>
+            <p class="experience__p">As a team of detectives, you must uncover what really happened. The director, the movie star, the cameraman, the makeup artist, the maid — everyone seems to know something, but no one is telling the whole story.</p>
+          </div>
+          <div class="experience__col--img">
+            <div class="experience__img-wrapper">
+              <img src="./assets/images/team-building/expirience-TB-1.webp" alt="Questime team experience" class="experience__img" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+        <!-- Row 2: image left, text right -->
+        <div class="experience__row experience__row--img-first">
+          <div class="experience__col--img">
+            <div class="experience__img-wrapper">
+              <img src="./assets/images/team-building/expirience-TB-2.webp" alt="Questime in action" class="experience__img" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="experience__col--gains">
+            <p class="experience__p"><span class="text-orange">Piece together the clues, unravel the secrets</span> of the studio, and <span class="text-orange">decide</span> for yourselves: who is guilty of the crime in the world of the Great Silent Cinema?</p>
+            <p class="experience__p">All events are led by experienced and charismatic Game Masters who guide the story and keep the energy high.</p>
+            <p class="experience__p">We bring all materials, props and music.</p>
+          </div>
+        </div>
+        <!-- Row 3: text left, image right -->
+        <div class="experience__row">
+          <div class="experience__col--text">
+            <p class="experience__p"><span class="text-orange">Piece together the clues, unravel the secrets</span> of the studio, and <span class="text-orange">decide</span> for yourselves: who is guilty of the crime in the world of the Great Silent Cinema?</p>
+            <p class="experience__p">All events are led by experienced and charismatic Game Masters who guide the story and keep the energy high.</p>
+            <p class="experience__p">We bring all materials, props and music.</p>
+          </div>
+          <div class="experience__col--img">
+            <div class="experience__img-wrapper">
+              <img src="./assets/images/team-building/expirience-TB-3.webp" alt="Questime event" class="experience__img" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+        <!-- Actions -->
+        <div class="experience__actions">
+          <a href="blog.html" class="btn btn-secondary about__btn">Go to our blog</a>
+        </div>
+      </div>
     </section>
     <!-- Секция Team -->
     <section class="team section-common" id="team">
@@ -361,13 +405,14 @@
             </p>
           </div>
         </div>
-        <button class="benefits__btn btn btn-secondary">
+        <button class="benefits__btn btn btn-secondary btn--orange">
           Learn More About Us
         </button>
       </div>
     </section>
     <!-- Секция CTA -->
-    <section class="cta about-cta decorated-dark-cta decorated-light-cta" id="cta">
+    <section class="cta about-cta decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('./assets/images/main/cta.webp');">
+      <div class="cta__overlay"></div>
       <div class="container">
         <div class="cta__inner">
           <h2 class="cta__title">
@@ -375,7 +420,7 @@
               into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
             <span class="cta__title-white">!</span>
           </h2>
-          <a href="./assets/presentation.pdf" class="btn btn-secondary cta__btn"
+          <a href="./assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
             download="Questime_Presentation">Download PDF</a>
         </div>
       </div>
@@ -400,7 +445,7 @@
             </div>
             <textarea class="contact-form__textarea" name="message" placeholder="Text of your request" required></textarea>
             <div class="contact-form__actions">
-              <button class="btn btn-secondary contact-form__btn" type="submit">Answer me!</button>
+              <button class="btn btn-secondary contact-form__btn btn--orange" type="submit">Answer me!</button>
               <div class="checkbox">
                 <input type="checkbox" id="agree" required>
                 <label for="agree">By subscribing, you agree to our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></label>
