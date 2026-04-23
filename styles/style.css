@@ -84,6 +84,11 @@
   --font-weight-regular: 400;
   --font-weight-bold: 700;
 
+  /* Шрифты */
+  --font-secondary: clamp(16px, 1.71vw, 24px);
+  --font-accent: clamp(14px, 1.67vw, 32px);
+  --font-display: clamp();
+
   /* Цвета */
   --color-bg: #f9f9ef;
   --color-text: #191a18;
@@ -98,7 +103,7 @@
   --error: #c72426;
 
   /* Адаптивная высота обрезанного края блоков */
-  --tear-height: clamp(20px, 4.9vw, 100px);
+  --tear-height: clamp(20px, 5.2vw, 100px);
 }
 
 input,
@@ -133,6 +138,8 @@ body {
   flex-direction: column;
   height: 100%;
   margin: 0;
+  font-size: clamp(14px, 1.09vw, 16px);
+  line-height: 155%;
   font-family: var(--font-family);
   color: var(--color-text);
   font-weight: 400;
@@ -220,7 +227,7 @@ h1,
 h1,
 .h1,
 .stat-number {
-  font-size: clamp(32px, 4.2vw, 80px);
+  font-size: clamp(32px, 5.47vw, 80px);
   line-height: 1.25;
   letter-spacing: 5px;
 }
@@ -228,8 +235,8 @@ h1,
 /* Заголовки всех секций */
 h2,
 .h2 {
-  font-size: clamp(24px, 2.43vw, 35px);
-  margin-bottom: clamp(30px, 2.9vw, 56px);
+  font-size: clamp(24px, 2.39vw, 35px);
+  margin-bottom: clamp(24px, 2.19vw, 32px);
   text-transform: uppercase;
   line-height: 1.125;
   letter-spacing: 5%;
@@ -238,13 +245,13 @@ h2,
 /* Подзаголовки блоков Benefits, CTA, Testimonials */
 h3,
 .h3 {
-  font-size: clamp(16px, 1.67vw, 24px);
+  font-size: clamp(16px, 1.25vw, 24px);
 }
 
 /* Заголовки карточек в Quests*/
 h4,
 .h4 {
-  font-size: clamp(16px, 1.67vw, 24px);
+  font-size: clamp(16px, 1.25vw, 24px);
 }
 
 /* Для заголовков, чтобы центрировать */
@@ -282,6 +289,9 @@ button {
 
 /* BTN */
 .btn {
+  font-size: clamp(14px, 1.23vw, 18px);
+  color: var(--color-bg);
+  font-family: var(--font-family);
   display: inline-block;
   text-align: center;
   text-decoration: none;
@@ -298,31 +308,30 @@ button {
 /* Кнопка для секции Quests и Header */
 .btn-card {
   padding: 5px 20px;
-  font-size: 18px;
   font-weight: var(--font-weight-regular);
-  font-family: var(--font-family);
   line-height: 133%;
+  transition: background 0.3s ease;
 }
 
 /* Кнопка для всех блоков кроме Hero и Quests */
 .btn-secondary {
   padding: 10px 32px;
-  font-size: 20px;
   font-weight: var(--font-weight-bold);
   font-family: var(--second-family);
   letter-spacing: 0.15em;
+  transition: background 0.3s ease;
 }
 
 /* Обычная секция */
 .section-common {
-  margin-top: clamp(40px, 5.56vw, 80px);
-  margin-bottom: clamp(40px, 5.56vw, 80px);
+  margin-top: clamp(40px, 4.17vw, 80px);
+  margin-bottom: clamp(40px, 4.17vw, 80px);
 }
 
 /* Секция quests */
 .section-special {
-  margin-top: calc(var(--tear-height) + clamp(20px, 1.6vw, 25px));
-  margin-bottom: clamp(40px, 5.56vw, 80px);
+  margin-top: calc(var(--tear-height) + clamp(20px, 1.3vw, 25px));
+  margin-bottom: clamp(40px, 4.16vw, 80px);
 }
 
 /* Секции с рваными краями */
@@ -440,7 +449,7 @@ button {
 .projects-border-1::before {
   content: "";
   position: absolute;
-  top: calc(-1 * var(--tear-height));
+  top: calc(-1 * var(--tear-height) + 1px);
   left: 0;
   width: 100%;
   height: var(--tear-height);
@@ -1114,8 +1123,7 @@ nav a::after {
   padding: 0px 10px;
   border: 1px solid var(--color-text);
   border-radius: 48px;
-  font-size: clamp(12px, 0.729vw, 14px);
-  line-height: 160%;
+  font-size: clamp(12px, 0.95vw, 14px);
 }
 
 .quest-card__tag:first-child {
@@ -1130,8 +1138,6 @@ nav a::after {
 .quest-card__desc {
   flex: 1;
   margin-bottom: 16px;
-  font-size: clamp(14px, 0.833vw, 16px);
-  line-height: 155%;
   display: -webkit-box;
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
@@ -1146,13 +1152,12 @@ nav a::after {
 }
 
 .quest-card__btn-contact {
-  background: var(--color-orange);
-  color: var(--color-white);
   flex: 1;
   white-space: nowrap;
 }
 
 .quest-card__btn-learn {
+  color: var(--color-text);
   border: 1px solid var(--color-text);
   flex: 1;
   white-space: nowrap;
@@ -1268,8 +1273,7 @@ nav a::after {
 }
 
 .services__item {
-  font-size: clamp(0.875rem, 0.545vw + 0.752rem, 1.25rem);
-  line-height: 155%;
+  font-size: var(--font-secondary);
   color: var(--color-white);
   display: flex;
   align-items: center;
@@ -1344,8 +1348,6 @@ nav a::after {
 
 .about__fact {
   padding-left: 10px;
-  font-size: clamp(14px, 1.696vw, 16px);
-  line-height: 155%;
 }
 
 .about__btn {
@@ -1454,8 +1456,7 @@ nav a::after {
 }
 
 .stat-text {
-  font-size: 32px;
-  line-height: 150%;
+  font-size: var(--font-accent);
   max-width: 385px;
   margin: 0 auto;
   align-self: start;
@@ -1481,19 +1482,10 @@ nav a::after {
 }
 
 .btn-download {
-  color: var(--color-white);
   border: 1px solid var(--color-white);
-  font-family: var(--font-family);
 }
 
 /* Benefits */
-.benefits {
-}
-
-.benefits__title {
-  margin-bottom: clamp(24px, 2.5vw, 40px);
-}
-
 .benefits__wrapper {
   display: flex;
   justify-content: center;
@@ -1515,25 +1507,11 @@ nav a::after {
 
 .benefits__card-title {
   font-family: var(--font-family);
-  font-weight: var(--font-weight-bold);
-  line-height: 140%;
   padding: 24px 0;
 }
 
-.benefits__card-text {
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-regular);
-  font-size: clamp(16px, 1.5vw, 20px);
-  line-height: 155%;
-  color: var(--color-text);
-}
-
 .benefits__btn {
-  color: var(--color-white);
-  font-size: clamp(14px, 1.4vw, 20px);
-  padding: 10px 32px;
   margin: clamp(24px, 2.5vw, 40px) 0 clamp(24px, 2.5vw, 40px);
-  line-height: 150%;
 }
 
 /* Cta */
@@ -1575,8 +1553,6 @@ nav a::after {
 }
 
 .cta__title {
-  line-height: 1.28;
-  letter-spacing: 0.05em;
   margin-bottom: 0;
 }
 
@@ -1590,18 +1566,12 @@ nav a::after {
 
 .cta__desc {
   color: var(--color-white);
-  font-size: clamp(18px, 2.2vw, 32px);
-  line-height: 1.5;
+  font-size: var(--font-accent);
   text-align: center;
 }
 
 .cta__btn {
-  color: var(--color-white);
-  background: transparent;
-  border: 1px solid var(--color-white);
-  margin-top: 40px;
-  font-family: var(--font-family);
-  line-height: 1;
+  margin-top: clamp(8px, 1.36vw, 20px);
   padding: 12px 40px;
 }
 
@@ -1629,13 +1599,14 @@ nav a::after {
 /* Gallery */
 .gallery-slider {
   overflow: hidden;
-  /*padding: clamp(40px, 8vw, 120px) 0 0;*/
+  padding: clamp(40px, 6.25vw, 120px) 0;
+  margin: 0;
 }
 
 .gallery-slider__wrapper {
   display: flex;
   flex-direction: column;
-  gap: clamp(9px, 1.1vw, 15px);
+  gap: clamp(9px, 0.78vw, 15px);
 }
 
 .slider-track__horizontal,
@@ -1652,15 +1623,15 @@ nav a::after {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  margin-right: clamp(9px, 1.1vw, 15px);
+  margin-right: clamp(9px, 0.78vw, 15px);
 }
 
 .slide-top {
-  height: clamp(7.5rem, 14vw + 3rem, 15rem);
+  height: clamp(116px, 17.18vw, 330px);
 }
 
 .slide-bottom {
-  height: clamp(10rem, 22vw + 4rem, 24rem);
+  height: clamp(150px, 28.64vw, 550px);
 }
 
 .slide-top img,
@@ -1674,21 +1645,19 @@ nav a::after {
 /* Testimonials */
 .testimonials {
   background-color: var(--color-text);
-  padding-top: clamp(32px, 2.8vw, 40px);
-  padding-bottom: clamp(32px, 2.8vw, 40px);
+  padding-top: clamp(32px, 2.08vw, 40px);
+  padding-bottom: clamp(32px, 2.08vw, 40px);
 }
 
 .testimonials__header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(16px, 1.5vw, 24px);
-  margin-bottom: clamp(24px, 3.8vw, 56px);
+  margin-bottom: clamp(24px, 2.9vw, 56px);
 }
 
 .testimonials__title {
   color: var(--color-white);
-  margin-bottom: 10px;
 }
 
 .testimonials__subtitle {
@@ -1744,9 +1713,7 @@ nav a::after {
 }
 
 .testimonials__quote-text {
-  font-size: 16px;
   color: var(--color-white);
-  line-height: 1.6;
 }
 
 .testimonials__photo {
@@ -1772,7 +1739,7 @@ nav a::after {
 }
 
 .testimonials__name {
-  font-size: clamp(16px, 1.1vw, 20px);
+  font-size: clamp(16px, 1.04vw, 20px);
   font-weight: var(--font-weight-bold);
   color: var(--color-white);
 }
@@ -1781,13 +1748,6 @@ nav a::after {
   display: flex;
   justify-content: center;
   margin-top: clamp(24px, 4vw, 80px);
-}
-
-.testimonials__btn {
-  background: transparent;
-  color: var(--color-white);
-  border: 1px solid var(--color-white);
-  font-family: var(--font-family);
 }
 
 /* Partners */
@@ -1849,18 +1809,19 @@ nav a::after {
   font-family: var(--font-family);
 }
 
-.partners__title {
-  margin-bottom: 20px;
-}
-
 /* Form */
 .contact-form {
+  margin-top: 4.111vw;
   margin-bottom: 11.111vw;
-  margin-top: 11.111vw;
+}
+
+.contact-form-cg {
+  margin-top: 8.1111vh;
+  margin-bottom: 8.1111vh;
 }
 
 .contact-form__title {
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 1.64vw, 24px);
 }
 
 .contact-form__wrapper {
@@ -1882,7 +1843,7 @@ nav a::after {
 
 .contact-form__text,
 .contact-form__text-gt {
-  font-size: clamp(0.875rem, 0.909vw + 0.67rem, 1.5rem);
+  font-size: var(--font-secondary);
   line-height: 1.6;
   max-width: 45.087vw;
 }
@@ -1929,9 +1890,6 @@ nav a::after {
 
 .contact-form__btn,
 .contact-form__btn-gt {
-  color: var(--color-white);
-  border: none;
-  cursor: pointer;
   align-self: flex-start;
 }
 
@@ -2066,9 +2024,7 @@ nav a::after {
 }
 
 .cta-guide__text {
-  line-height: 129%;
   color: var(--color-bg);
-  font-size: clamp(14px, 2.5vw, 35px);
 }
 
 .text-orange--guide {
@@ -2077,7 +2033,6 @@ nav a::after {
 
 .cta-guide__btn {
   width: fit-content;
-  color: var(--color-bg);
 }
 
 .cta-guide__img {
@@ -2242,9 +2197,8 @@ nav a::after {
 .faq__question-text {
   flex: 1;
   font-family: var(--font-family);
-  font-size: 16px;
-  line-height: 155%;
   color: var(--color-orange);
+  font-size: clamp(14px, 1.09vw, 16px);
 }
 
 .faq__chevron {
@@ -2266,8 +2220,6 @@ nav a::after {
 
 .faq__answer-inner {
   padding-bottom: 24px;
-  font-size: 16px;
-  line-height: 155%;
 }
 
 .faq__answer {
@@ -2420,9 +2372,6 @@ nav a::after {
 }
 
 .hero-ep__tag {
-  font-family: var(--font-family);
-  font-size: 14px;
-  line-height: 1.6;
   padding: 0px 10px;
   border: 1px solid var(--sandy);
   border-radius: 48px;
@@ -2440,9 +2389,7 @@ nav a::after {
 
 .hero-ep__subtitle,
 .hero-ep__description {
-  font-family: var(--font-family);
-  font-size: clamp(18px, 2.2vw, 32px);
-  line-height: 1.5;
+  font-size: var(--font-accent);
 }
 
 .hero-ep__loupe {
@@ -2509,8 +2456,7 @@ nav a::after {
 
 .feature-card__value,
 .feature-card__label {
-  font-family: var(--font-family);
-  font-size: clamp(12px, 2vw, 32px);
+  font-size: var(--font-accent);
   line-height: 1.2;
 }
 
@@ -2518,12 +2464,12 @@ nav a::after {
   color: var(--color-orange);
 }
 
-/* ===== Experience ===== */
+/* Experience */
 .experience {
   padding-top: var(--tear-height);
   padding-bottom: 20px;
-  margin-top: clamp(30px, 4.17vw, 60px);
-  margin-bottom: clamp(30px, 4.17vw, 60px);
+  margin-top: clamp(30px, 4.1vw, 60px);
+  margin-bottom: clamp(30px, 4.1vw, 60px);
   overflow-x: clip;
 }
 
@@ -2534,7 +2480,7 @@ nav a::after {
 .experience .container {
   display: flex;
   flex-direction: column;
-  gap: clamp(30px, 3.89vw, 56px);
+  gap: clamp(30px, 3.83vw, 56px);
   max-width: 1164px;
   padding: 0 24px;
 }
@@ -2581,9 +2527,6 @@ nav a::after {
 }
 
 .experience__p {
-  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
-  line-height: 160%;
-  color: var(--color-text);
   margin: 0 0 clamp(8px, 1.11vw, 16px);
 }
 
@@ -2592,10 +2535,7 @@ nav a::after {
 }
 
 .experience__gains-title {
-  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
-  font-weight: var(--font-weight-bold);
-  line-height: 140%;
-  color: var(--color-orange);
+  font-size: var(--font-secondary);
   margin: 0 0 clamp(10px, 1.11vw, 16px);
   text-transform: uppercase;
 }
@@ -2613,8 +2553,6 @@ nav a::after {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
-  line-height: 160%;
   color: var(--color-text);
 }
 
@@ -2666,10 +2604,6 @@ nav a::after {
   transition: background 0.3s ease;
 }
 
-.experience--flat .experience__p {
-  font-size: 16px;
-}
-
 /* ROUTE */
 .route__title {
   margin-bottom: 32px;
@@ -2706,8 +2640,6 @@ nav a::after {
 
 .route__point-label {
   font-family: var(--second-family);
-  font-size: 16px;
-  color: var(--color-text);
   transition: color 0.2s;
 }
 
@@ -2761,15 +2693,13 @@ nav a::after {
 
 .persons__question-text {
   flex: 1;
-  font-family: var(--font-family);
   font-size: 16px;
-  font-weight: 400;
-  line-height: 155%;
-  color: var(--color-orange);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-regular);
 }
 
 .persons__question-text.demo-text {
-  font-size: clamp(14px, 1.667vw, 32px);
+  font-size: var(--font-accent);
 }
 
 .persons__chevron {
@@ -2806,7 +2736,6 @@ nav a::after {
 
 .persons__intro {
   padding: 0 60px;
-  line-height: 155%;
 }
 
 .persons__rows {
@@ -3000,11 +2929,10 @@ nav a::after {
 
 .schedule__month-btn {
   border: 1px solid var(--color-text);
+  color: var(--color-text);
   padding: 16px 32px;
   background: transparent;
-  font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
-  font-size: clamp(14px, 1.042vw, 20px);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   transition:
@@ -3061,8 +2989,7 @@ nav a::after {
 }
 
 .schedule__date-num {
-  font-size: clamp(18px, 1.667vw, 32px);
-  line-height: 150%;
+  font-size: var(--font-accent);
 }
 
 .schedule__event--orange .schedule__date-num {
@@ -3070,10 +2997,9 @@ nav a::after {
 }
 
 .schedule__date-day {
-  font-size: clamp(16px, 1.25vw, 24px);
-  line-height: 160%;
+  font-size: var(--font-secondary);
   text-transform: uppercase;
-  color: var(--color-text);
+  line-height: 160%;
 }
 
 .schedule__event--orange .schedule__date-day {
@@ -3081,7 +3007,7 @@ nav a::after {
 }
 
 .schedule__time {
-  font-size: clamp(16px, 1.25vw, 24px);
+  font-size: var(--font-secondary);
   line-height: 160%;
   text-align: center;
 }
@@ -3114,17 +3040,12 @@ nav a::after {
 
 .schedule__quest-title {
   font-weight: var(--font-weight-bold);
-  font-size: clamp(16px, 1.25vw, 24px);
+  font-size: var(--font-secondary);
   line-height: 140%;
 }
 
 .schedule__event--orange .schedule__quest-title {
   color: var(--color-white);
-}
-
-.schedule__quest-subtitle {
-  font-size: clamp(14px, 0.73vw, 16px);
-  line-height: 155%;
 }
 
 .schedule__event--orange .schedule__quest-subtitle {
@@ -3138,8 +3059,6 @@ nav a::after {
 }
 
 .schedule__desc-text {
-  font-size: clamp(14px, 0.73vw, 16px);
-  line-height: 155%;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
@@ -3185,8 +3104,7 @@ nav a::after {
 
 .schedule__price {
   font-weight: var(--font-weight-bold);
-  font-size: clamp(16px, 1.25vw, 24px);
-  line-height: 140%;
+  font-size: var(--font-secondary);
 }
 
 .schedule__event--orange .schedule__price {
@@ -3198,7 +3116,6 @@ nav a::after {
   border: 1px solid var(--color-orange);
   padding: 5px 20px;
   font-family: var(--second-family);
-  font-size: clamp(14px, 0.83vw, 18px);
   color: var(--color-orange);
   transition:
     background 0.2s,
@@ -3293,8 +3210,9 @@ nav a::after {
 .custom-games-hero__body {
   width: 60%;
   max-width: 790px;
-  font-family: var(--font-family);
-  font-size: clamp(16px, 6.857px + 1.1905vw, 24px);
+  font-size: var(--font-secondary);
+  line-height: 140%;
+  font-weight: var(--font-weight-bold);
 }
 
 .custom-games-hero__body p:not(:last-child) {
@@ -3384,9 +3302,8 @@ nav a::after {
 }
 
 .company__text {
-  font-size: clamp(0.75rem, 1.091vw + 0.505rem, 1.5rem);
+  font-size: var(--font-secondary);
   line-height: 160%;
-  color: var(--color-text);
 }
 
 .company__polaroid {
@@ -3476,11 +3393,8 @@ nav a::after {
 .company__scroll-label-text {
   position: relative;
   z-index: 1;
-  letter-spacing: -0.04em;
   text-transform: uppercase;
-  color: var(--color-text);
   font-family: var(--second-family);
-  font-size: 16px;
 }
 
 .label-text-right {
@@ -3573,7 +3487,7 @@ nav a::after {
   margin: 0;
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
-  font-size: clamp(1rem, 0.727vw + 0.836rem, 1.5rem);
+  font-size: var(--font-secondary);
   line-height: 160%;
   text-align: center;
   color: var(--color-orange);
@@ -3627,11 +3541,8 @@ nav a::after {
 }
 
 .projects-card__list li {
-  font-family: var(--font-family);
-  font-weight: var(--font-weight-regular);
-  font-size: clamp(1rem, 0.727vw + 0.836rem, 1.5rem);
+  font-size: var(--font-secondary);
   line-height: 160%;
-  color: var(--color-text);
 }
 
 .projects-card__list li.hidden {
@@ -3696,16 +3607,12 @@ nav a::after {
 }
 
 .projects__btn-text {
-  font-family: var(--font-family);
   font-weight: var(--font-weight-bold);
-  font-size: clamp(0.875rem, 0.909vw + 0.67rem, 1.5rem);
-  line-height: 140%;
+  font-size: var(--font-secondary);
   text-align: center;
-  color: var(--color-text);
 }
 
 .btn-projects {
-  color: var(--color-bg);
   width: fit-content;
   align-self: center;
 }
@@ -3876,9 +3783,8 @@ nav a::after {
 
 .stats-au__number,
 .stats-au__text {
-  font-size: clamp(14px, 1.91vw, 24px);
+  font-size: var(--font-secondary);
   color: var(--color-orange);
-  line-height: 160%;
   margin: 0;
 }
 
@@ -3942,7 +3848,7 @@ nav a::after {
 .team__name {
   margin-bottom: 8px;
   font-family: var(--font-family);
-  font-size: clamp(16px, 1.667vw, 32px);
+  font-size: var(--font-accent);
   line-height: 150%;
 }
 
@@ -3951,10 +3857,6 @@ nav a::after {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.team__bio {
-  line-height: 155%;
 }
 
 .team__stats {
@@ -3970,16 +3872,14 @@ nav a::after {
 }
 
 .team__stat-value {
-  font-weight: 700;
-  font-size: 24px;
-  font-size: clamp(14px, 1.25vw, 24px);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-secondary);
   line-height: 140%;
   color: var(--color-orange);
 }
 
 .team__stat-label {
-  font-size: clamp(14px, 1.25vw, 24px);
-  line-height: 160%;
+  font-size: var(--font-secondary);
 }
 
 .team__link {
@@ -4022,11 +3922,6 @@ nav a::after {
   align-items: center;
 }
 
-.subscribe-about-us__title {
-  color: var(--color-orange);
-  margin-bottom: 60px;
-}
-
 .subscribe-about-us__socials {
   display: flex;
   gap: 120px;
@@ -4066,10 +3961,6 @@ nav a::after {
   align-items: center;
   padding-top: 44px;
   padding-bottom: 0;
-}
-
-.breadcrumbs-gt {
-  top: -7px;
 }
 
 .hero-tb--img,
@@ -4122,7 +4013,6 @@ nav a::after {
 
 .hero-gt__title,
 .hero-tb__title {
-  font-size: clamp(24px, 4vw, 80px);
   color: var(--color-bg);
   display: block;
 }
@@ -4135,11 +4025,8 @@ nav a::after {
 .hero-tb__tagline,
 .hero-tb__subtitle,
 .hero-gt__subtitle {
-  font-family: var(--font-family);
-  font-size: clamp(14px, 2.5vw, 32px);
+  font-size: var(--font-accent);
   color: var(--color-bg);
-  letter-spacing: 0.05em;
-  line-height: 150%;
 }
 
 .hero-gt__actions,
@@ -4152,7 +4039,6 @@ nav a::after {
 
 .hero-tb__btn,
 .hero-gt__btn {
-  color: var(--color-bg);
   margin-bottom: 32px;
 }
 
@@ -4295,6 +4181,23 @@ nav a::after {
 }
 
 @media (min-width: 1319px) {
+  .format__step:nth-child(1) {
+    --i: 0;
+  }
+  .format__step:nth-child(2) {
+    --i: 1;
+  }
+  .format__step:nth-child(3) {
+    --i: 2;
+  }
+  .format__step:nth-child(4) {
+    --i: 3;
+  }
+
+  .format__step:nth-child(5) {
+    --i: 4;
+  }
+
   .format__step {
     margin-left: calc(var(--i, 0) * 100px);
   }
@@ -4513,11 +4416,6 @@ nav a::after {
     padding: 0 0 50px;
   }
 
-  .benefits__title {
-    line-height: 140%;
-    margin-bottom: 24px;
-  }
-
   .benefits__wrapper {
     gap: 24px;
   }
@@ -4535,11 +4433,6 @@ nav a::after {
     gap: 16px;
   }
 
-  .cta__title {
-    font-size: 24px;
-    line-height: 1.4;
-  }
-
   .cta--gamified .cta__line {
     display: block;
     width: 100%;
@@ -4548,14 +4441,6 @@ nav a::after {
 
   .cta--gamified .cta__line:last-child {
     margin-bottom: 0;
-  }
-
-  .cta__btn {
-    font-size: 16px;
-    font-weight: 400;
-    padding: 6px 16px;
-    letter-spacing: 0;
-    line-height: 1.55;
   }
 
   /* Testimonials */
@@ -4583,29 +4468,15 @@ nav a::after {
     padding: 24px;
   }
 
-  .testimonials__quote-text {
-    font-size: clamp(14px, 1.8vw, 22px);
-  }
-
   .testimonials__author {
     justify-content: center;
     margin-top: 14px;
   }
 
-  .testimonials__btn {
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 0;
-    padding: 6px 20px;
-  }
-
   /* Form */
   .contact-form {
+    margin-top: 8.111vw;
     margin-bottom: 8.111vw;
-  }
-
-  .contact-form__title {
-    margin-bottom: 22px;
   }
 
   .contact-form__wrapper {
@@ -4620,8 +4491,8 @@ nav a::after {
     margin-bottom: 0;
   }
 
-  .contact-form__text {
-    font-size: 2.344vw;
+  .text-bottom {
+    margin-bottom: 20px;
   }
 
   .contact-form__btn {
@@ -4670,16 +4541,8 @@ nav a::after {
     height: 230px;
   }
 
-  .team__name {
-    line-height: 160%;
-  }
-
   .team__bio-wrapper {
     margin-bottom: 16px;
-  }
-
-  .team__stat-value {
-    line-height: 160%;
   }
 
   .team__stat-label {
@@ -4688,12 +4551,12 @@ nav a::after {
 
   /* Страница Custom Games */
   /* HERO */
-  .custom-games-hero__wrapper .hero__breadcrumbs,
+  /*.custom-games-hero__wrapper .hero__breadcrumbs,
   .aboutus-hero__wrapper .hero__breadcrumbs,
   .hero-tb .hero__breadcrumbs,
   .hero-gt .hero__breadcrumbs {
     display: none;
-  }
+  }*/
 
   /* Company */
   .company__pair--right-photo {
@@ -4775,7 +4638,7 @@ nav a::after {
   }
 
   .hero-ep__breadcrumbs {
-    display: none;
+    /*display: none;*/
   }
 
   .hero-ep__text {
@@ -4793,7 +4656,7 @@ nav a::after {
   /* HERO */
   .hero-tb,
   .hero-gt {
-    height: 500px;
+    height: 600px;
   }
 
   .persons__rows {
@@ -4859,6 +4722,12 @@ nav a::after {
   /* Projects */
   .projects-card:nth-child(2) .projects-card__caption {
     bottom: 7.6%;
+  }
+
+  /*  */
+  .stats-au__number,
+  .stats-au__text {
+    font-size: 14px;
   }
 }
 
@@ -4935,11 +4804,6 @@ nav a::after {
     line-height: 140%;
   }
 
-  .stat-text {
-    font-size: 16px;
-    line-height: 160%;
-  }
-
   /* Benefits */
   .benefits {
     margin-bottom: 60px;
@@ -4960,24 +4824,7 @@ nav a::after {
     padding: 6px 16px;
   }
 
-  /* CTA */
-  .cta__btn {
-    margin-top: 0;
-  }
-
   /* Form */
-  .contact-form__title {
-    margin-bottom: 16px;
-  }
-
-  .contact-form__text {
-    font-size: 16px;
-  }
-
-  .text-bottom {
-    margin-bottom: 20px;
-  }
-
   .contact-form__input,
   .contact-form__textarea {
     padding: 4px 0 4px 16px;
@@ -5014,10 +4861,6 @@ nav a::after {
     padding: 16px 0;
   }
 
-  .faq__question-text {
-    font-size: clamp(14px, 2.083vw, 16px);
-  }
-
   .faq__icon {
     width: 24px;
     height: 24px;
@@ -5030,7 +4873,6 @@ nav a::after {
 
   .faq__answer-inner {
     padding-bottom: 16px;
-    font-size: clamp(14px, 2.083vw, 16px);
   }
 
   /* 404 */
@@ -5067,7 +4909,6 @@ nav a::after {
 
   .experience__p,
   .experience__gains-title {
-    font-size: 14px;
     text-align: left;
   }
 
@@ -5165,10 +5006,6 @@ nav a::after {
     transform: translate(27%, 44%);
   }
 
-  .projects-card__caption {
-    font-size: 14px;
-  }
-
   .projects-card:nth-child(1) .projects-card__caption {
     bottom: 8.2%;
   }
@@ -5194,10 +5031,6 @@ nav a::after {
     padding: 0 9px 15px;
   }
 
-  .projects-card__list li {
-    font-size: 16px;
-  }
-
   .projects-card__toggle {
     margin-right: 6px;
   }
@@ -5219,8 +5052,6 @@ nav a::after {
   /* HERO */
   .hero-ep__title {
     font-size: 24px;
-    line-height: 1.6;
-    margin-top: 0;
     margin-bottom: 8px;
     text-transform: uppercase;
   }
@@ -5295,10 +5126,6 @@ nav a::after {
     padding: 16px 0;
   }
 
-  .persons__question-text {
-    font-size: clamp(14px, 2.083vw, 16px);
-  }
-
   .persons__icon {
     width: 24px;
     height: 24px;
@@ -5329,6 +5156,7 @@ nav a::after {
 
   .cta-guide__text {
     line-height: 140%;
+    font-size: 14px;
   }
 
   .cta-guide__btn {
@@ -5476,11 +5304,6 @@ nav a::after {
     grid-template-columns: 1fr 123px 1fr;
   }
 
-  .stat-text {
-    font-size: 14px;
-    line-height: 160%;
-  }
-
   /* GAMIFIED TOURS */
   /* Form */
   .contact-form__wrapper-gt {
@@ -5520,10 +5343,6 @@ nav a::after {
   .contact-form__btn-gt,
   .checkbox-gt {
     align-self: center;
-  }
-
-  .contact-form-cg {
-    margin-bottom: 8.1111vh;
   }
 
   /* ABOUT US */
@@ -5580,21 +5399,20 @@ nav a::after {
   }
 
   .team__name {
-    line-height: 140%;
+    font-size: 16px;
   }
 
   .team__bio-wrapper {
     margin-bottom: 16px;
   }
 
-  .team__bio {
+  .team__stat-label {
     font-size: 14px;
-    line-height: 160%;
   }
 
   .team__stat-value {
-    font-weight: 400;
-    line-height: 160%;
+    font-weight: var(--font-weight-regular);
+    font-size: 14px;
   }
 
   /* Страница Custom Games */
@@ -5643,7 +5461,6 @@ nav a::after {
   /* Company */
   .company__text {
     line-height: 140%;
-    font-size: 14px;
   }
 
   .label-text-right {
@@ -5675,10 +5492,6 @@ nav a::after {
     gap: 7px;
   }
 
-  .projects-card__list li {
-    font-size: 14px;
-  }
-
   .projects__btn {
     bottom: 21px;
     transform: translateX(-36%);
@@ -5708,6 +5521,12 @@ nav a::after {
 
   .format .persons__answer {
     padding-bottom: 120px;
+  }
+
+  /* Страница gamified tours */
+  /* HERO */
+  .hero-gt__title {
+    font-size: 24px;
   }
 
   /* SCHEDULE */
@@ -5961,7 +5780,6 @@ nav a::after {
 
   .about__fact {
     padding-left: 0px;
-    line-height: 160%;
   }
 
   .about__btn {
@@ -5972,11 +5790,6 @@ nav a::after {
   /* Stats */
   .stats__wrapper {
     grid-template-columns: 1fr 123px 1fr;
-  }
-
-  .stat-text {
-    font-size: 14px;
-    line-height: 160%;
   }
 
   /* Benefits */
@@ -5991,7 +5804,6 @@ nav a::after {
 
   .benefits__btn {
     padding: 4px 14px;
-    font-size: 14px;
   }
 
   /* CTA */
@@ -6004,11 +5816,11 @@ nav a::after {
   :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta)
     .cta__title {
     font-size: 14px;
-    line-height: 1.6;
   }
 
   .cta__main-title {
     text-transform: uppercase;
+    font-size: 16px;
   }
 
   /* Testimonials */
@@ -6044,10 +5856,6 @@ nav a::after {
   }
 
   /* Form */
-  .contact-form__title {
-    margin-bottom: 16px;
-  }
-
   .contact-form__wrapper {
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
@@ -6063,7 +5871,6 @@ nav a::after {
 
   .contact-form__text {
     max-width: 100%;
-    font-size: 14px;
   }
 
   .contact-form__fields {
@@ -6151,7 +5958,6 @@ nav a::after {
   .company__scroll-label-text {
     text-transform: none;
     font-family: var(--font-family);
-    font-size: 14px;
     line-height: 160%;
   }
 
@@ -6174,7 +5980,7 @@ nav a::after {
 
   .projects__scene {
     grid-template-columns: 1fr;
-    min-height: 1500px;
+    min-height: 1700px;
     justify-items: center;
     align-items: start;
     width: 100%;
@@ -6191,10 +5997,6 @@ nav a::after {
   .projects-card:nth-child(3),
   .projects-card:nth-child(4) {
     transform: none;
-  }
-
-  .projects-card__caption {
-    font-size: 13px;
   }
 
   .projects-card__paper {
@@ -6216,17 +6018,12 @@ nav a::after {
   }
 
   .projects-card:nth-child(3) .projects-card__caption {
-    bottom: 15.6%;
+    bottom: 7.6%;
   }
 
   .projects-card__list {
     padding: 0 14px 12px;
     gap: 7px;
-  }
-
-  .projects-card__list li {
-    font-size: 13px;
-    line-height: 145%;
   }
 
   .projects-card__toggle {
@@ -6287,10 +6084,6 @@ nav a::after {
     gap: 16px;
   }
 
-  .persons__question-text {
-    font-size: 16px;
-  }
-
   .persons__intro,
   .persons__rows {
     font-size: 12px;
@@ -6311,6 +6104,11 @@ nav a::after {
   .format .persons__answer {
     padding-bottom: 0;
   }
+
+  /* SCHEDULE */
+  .schedule__date-num {
+  font-size: 18px;
+}
 }
 
 @media (max-width: 480px) {
@@ -6500,7 +6298,6 @@ nav a::after {
     color: var(--color-bg);
     border: 1px solid var(--light-orange);
   }
-
 
   .btn--orange:hover {
     background: var(--light-orange);
