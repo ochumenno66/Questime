@@ -1112,7 +1112,7 @@ nav a::after {
   padding: 0px 10px;
   border: 1px solid var(--color-text);
   border-radius: 48px;
-  font-size: clamp(12px, 0.95vw, 14px);
+  font-size: clamp(12px, 0.729vw, 14px);
 }
 
 .quest-card__tag:first-child {
@@ -1127,6 +1127,7 @@ nav a::after {
 .quest-card__desc {
   flex: 1;
   margin-bottom: 16px;
+  font-size: clamp(14px, 0.833vw, 16px);
   display: -webkit-box;
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
@@ -3182,7 +3183,55 @@ nav a::after {
 }
 
 /* Хлебные крошки */
-.hero__breadcrumbs {
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--second-family);
+  font-size: 18px;
+  line-height: 1.333;
+}
+
+.breadcrumbs__link {
+  color: var(--light-orange);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumbs__link:hover {
+  color: var(--light-orange);
+  opacity: 0.8;
+}
+
+.breadcrumbs__sep {
+  display: flex;
+  align-items: center;
+  color: var(--light-orange);
+}
+
+.breadcrumbs__sep svg {
+  width: 15px;
+  height: 13px;
+  color: var(--light-orange);
+}
+
+.breadcrumbs__current {
+  color: var(--light-orange);
+}
+
+/* Модификаторы для специфических позиций */
+.breadcrumbs--hero {
+  position: absolute;
+  top: 24px;
+  z-index: 3;
+}
+
+.breadcrumbs--episode {
+  margin-top: calc(var(--tear-height) + 56px);
+  margin-bottom: 40px;
+  align-self: flex-start;
+}
+/*.hero__breadcrumbs {
   position: absolute;
   top: 24px;
   z-index: 3;
@@ -3208,7 +3257,7 @@ nav a::after {
 
 .breadcrumb__link:hover {
   color: var(--light-orange);
-}
+}*/
 
 /* Company */
 .company {
@@ -5574,7 +5623,7 @@ nav a::after {
   .quest-card__top {
     margin-bottom: 8px;
     flex-direction: row;
-    gap: 12px;
+    gap: 10px;
   }
 
   .quest-card__image {
@@ -5591,6 +5640,7 @@ nav a::after {
   .quest-card__top-text {
     flex-direction: column-reverse;
     justify-content: flex-end;
+    gap: 6px;
   }
 
   .quest-card__title {
@@ -5599,10 +5649,6 @@ nav a::after {
 
   .quest-card__tags {
     gap: 4px;
-  }
-
-  .quest-card__tag {
-    padding: 0px 8px;
   }
 
   .quest-card__desc {
