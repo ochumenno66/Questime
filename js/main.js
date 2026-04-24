@@ -408,6 +408,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = item.querySelector(".persons__question");
     const answer = item.querySelector(".persons__answer");
 
+    if (!btn || !answer) return;
+
     function openItem() {
       item.classList.add("is-open");
       btn.setAttribute("aria-expanded", "true");
@@ -449,20 +451,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isOpen = card.classList.toggle("open");
-      items.forEach((item, index) => {
-        if (index >= 3) {
-          item.classList.toggle("hidden", !isOpen);
-        }
-      });
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const isOpen = card.classList.toggle("open");
+        items.forEach((item, index) => {
+          if (index >= 3) {
+            item.classList.toggle("hidden", !isOpen);
+          }
+        });
 
-      buttonText.textContent = isOpen ? "Show less" : "Expand the list";
-      button.setAttribute("aria-expanded", isOpen);
-    });
-        } else {
-          button.style.display = "none";
-        }
+        buttonText.textContent = isOpen ? "Show less" : "Expand the list";
+        button.setAttribute("aria-expanded", isOpen);
       });
+    } else {
+      button.style.display = "none";
+    }
+  });
 });
