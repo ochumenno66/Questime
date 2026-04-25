@@ -471,7 +471,6 @@ header {
   left: 0;
   right: 0;
   z-index: 500;
-  /*height: 88px;*/
   height: calc(88px + env(safe-area-inset-top));
   padding-top: env(safe-area-inset-top);
   background: var(--color-header-footer-bg);
