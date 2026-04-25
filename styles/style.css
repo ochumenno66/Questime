@@ -104,6 +104,10 @@
 
   /* Адаптивная высота обрезанного края блоков */
   --tear-height: clamp(20px, 6.8vw, 100px);
+
+  /* Отступы для header и hero */
+  --header-height: clamp(72px, 8.76vw, 128px);
+  --breadcrumbs-offset: clamp(12px, 1.64vw, 24px);
 }
 
 input,
@@ -202,6 +206,19 @@ main {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+.hero,
+.schedule,
+.hero-ep,
+.hero-gt,
+.hero-tb,
+.custom-games-hero {
+  padding-top: var(--header-height);
+}
+
+.hero__breadcrumbs {
+  top: var(--breadcrumbs-offset);
 }
 
 h6,
@@ -1499,7 +1516,7 @@ nav a::after {
 }
 
 .benefits__btn {
-  margin: clamp(24px, 2.73vw, 40px) 0 ;
+  margin: clamp(24px, 2.73vw, 40px) 0;
 }
 
 /* Cta */
@@ -1571,7 +1588,7 @@ nav a::after {
 .cta--gamified,
 .cta--event-page,
 .cta--team-building {
-  min-height: clamp(318px, 42.12vw, 615px);
+  min-height: clamp(318px, 34.24vw, 500px);
   align-content: center;
 }
 
@@ -1975,7 +1992,7 @@ nav a::after {
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
     linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
     url(../assets/images/gamifiedTours/cta-GT.webp) center / cover no-repeat;
-  padding: clamp(51px, 16.57vw , 242px) 0;
+  padding: clamp(51px, 16.57vw, 242px) 0;
   position: relative;
   overflow: hidden;
 }
@@ -2235,8 +2252,15 @@ nav a::after {
 
 /* EVENTS PAGE */
 /* HERO */
-.hero-ep.section-common {
+.hero-ep {
   margin-bottom: 0;
+}
+
+/* Хлебные крошки */
+.hero-ep .hero__breadcrumbs {
+  position: relative;
+  align-self: flex-start;
+  margin-bottom: 24px;
 }
 
 .hero-ep {
@@ -2244,7 +2268,7 @@ nav a::after {
   background: url("../assets/images/paper-EP.png") no-repeat center center /
     cover;
   padding-bottom: 80px;
-  margin-top: calc(-1 * var(--tear-height));
+  padding-top: 70px;
   min-height: auto;
   overflow-x: hidden;
 }
@@ -2265,53 +2289,6 @@ nav a::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.hero-ep__breadcrumbs {
-  margin-top: calc(var(--tear-height) + 56px);
-  margin-bottom: 40px;
-  align-self: flex-start;
-}
-
-.breadcrumbs__list {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--second-family);
-  line-height: 1;
-}
-
-.breadcrumbs__link {
-  color: var(--color-orange);
-  transition: opacity 0.3s;
-}
-
-.breadcrumbs__link:hover {
-  opacity: 0.7;
-}
-
-.breadcrumbs__icon {
-  display: flex;
-  align-items: center;
-  width: 18px;
-  height: 18px;
-}
-
-.breadcrumbs__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.breadcrumbs .breadcrumbs__link,
-.breadcrumbs .breadcrumbs__item--current {
-  text-transform: none;
-  font-size: 18px;
-}
-
-.breadcrumbs__item--current {
-  color: var(--color-orange);
-  font-weight: var(--font-weight-regular);
 }
 
 .hero-ep__content {
@@ -2398,7 +2375,6 @@ nav a::after {
   position: relative;
   background-color: rgba(243, 241, 232, 0.64);
   backdrop-filter: blur(4px);
-  padding: 12px 15px 24px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
@@ -2861,7 +2837,11 @@ nav a::after {
 /* SCHEDULE */
 .schedule {
   position: relative;
-  padding-top: 40px;
+}
+
+.schedule .hero__breadcrumbs {
+  position: relative;
+  margin-bottom: 24px;
 }
 
 .schedule__year {
@@ -3183,68 +3163,21 @@ nav a::after {
 }
 
 /* Хлебные крошки */
-.breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--second-family);
-  font-size: 18px;
-  line-height: 1.333;
-}
-
-.breadcrumbs__link {
-  color: var(--light-orange);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.breadcrumbs__link:hover {
-  color: var(--light-orange);
-  opacity: 0.8;
-}
-
-.breadcrumbs__sep {
-  display: flex;
-  align-items: center;
-  color: var(--light-orange);
-}
-
-.breadcrumbs__sep svg {
-  width: 15px;
-  height: 13px;
-  color: var(--light-orange);
-}
-
-.breadcrumbs__current {
-  color: var(--light-orange);
-}
-
-/* Модификаторы для специфических позиций */
-.breadcrumbs--hero {
+.hero__breadcrumbs {
   position: absolute;
-  top: 24px;
-  z-index: 3;
-}
-
-.breadcrumbs--episode {
-  margin-top: calc(var(--tear-height) + 56px);
-  margin-bottom: 40px;
-  align-self: flex-start;
-}
-/*.hero__breadcrumbs {
-  position: absolute;
-  top: 24px;
+  top: var(--breadcrumbs-offset);
   z-index: 3;
   display: flex;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
 }
 
 .hero__breadcrumbs a,
 .hero__breadcrumbs span {
   font-family: var(--second-family);
   color: var(--light-orange);
-  font-size: 18px;
+  font-size: clamp(12px, 1.23vw,18px);
   line-height: 1.333;
 }
 
@@ -3257,7 +3190,7 @@ nav a::after {
 
 .breadcrumb__link:hover {
   color: var(--light-orange);
-}*/
+}
 
 /* Company */
 .company {
@@ -3957,7 +3890,6 @@ nav a::after {
   display: flex;
   align-items: center;
   max-height: 800px;
-  padding-top: 128px;
 }
 
 .hero-tb--img,
@@ -4046,7 +3978,7 @@ nav a::after {
   border: 1px solid var(--color-bg);
 }
 
-/* google reviews */
+/* Google reviews */
 .hero-tb__reviews,
 .hero-gt__reviews {
   align-self: center;
@@ -4079,9 +4011,6 @@ nav a::after {
 }
 
 /* Adaptive */
-@media (max-width: 1440px) {
-}
-
 @media (max-width: 1319px) {
   .header-nav {
     display: none;
@@ -4507,6 +4436,10 @@ nav a::after {
   }
 
   /* ABOUT US */
+  .aboutus-hero__wrapper {
+    padding-top: 52px;
+  }
+
   .aboutus-hero__actions {
     display: flex;
     gap: 24px;
@@ -4542,14 +4475,6 @@ nav a::after {
   }
 
   /* Страница Custom Games */
-  /* HERO */
-  /*.custom-games-hero__wrapper .hero__breadcrumbs,
-  .aboutus-hero__wrapper .hero__breadcrumbs,
-  .hero-tb .hero__breadcrumbs,
-  .hero-gt .hero__breadcrumbs {
-    display: none;
-  }*/
-
   /* Company */
   .company__pair--right-photo {
     grid-template-columns: 64% 34%;
@@ -4625,12 +4550,7 @@ nav a::after {
   /* EVENT PAGE */
   /* HERO */
   .hero-ep {
-    padding-top: calc(var(--tear-height) + clamp(30px, 4.1vw, 60px));
-    padding-bottom: 20px;
-  }
-
-  .hero-ep__breadcrumbs {
-    /*display: none;*/
+    padding-bottom: 40px;
   }
 
   .hero-ep__text {
@@ -4717,6 +4637,27 @@ nav a::after {
 }
 
 @media (max-width: 768px) {
+  /* Хлебные крошки */
+  .hero__breadcrumbs {
+    flex-wrap: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 6px;
+  }
+
+  .hero__breadcrumbs a,
+  .hero__breadcrumbs span {
+    flex-shrink: 0;
+  }
+
+  .breadcrumb__current {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
   h2,
   .h2 {
     text-transform: none;
@@ -4860,7 +4801,7 @@ nav a::after {
     padding-bottom: 16px;
   }
 
-  /* Experience – stack columns */
+  /* Experience */
   .experience .container {
     padding: 0 24px;
     gap: 40px;
@@ -5061,8 +5002,15 @@ nav a::after {
   .hero-gt__wrapper,
   .hero-tb__wrapper {
     justify-content: center;
-    padding-top: 36px;
     padding-bottom: 17px;
+  }
+
+  .hero-gt__wrapper,
+  .hero-tb__wrapper,
+  .custom-games-hero__wrapper,
+  .hero-ep,
+  .aboutus-hero__wrapper {
+    padding-top: 52px;
   }
 
   .hero-gt__title {
@@ -5599,7 +5547,7 @@ nav a::after {
     font-size: 16px;
   }
 
-  /* Experience – compact spacing and reduced shadow for small phones */
+  /* Experience */
   .experience {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -6169,7 +6117,6 @@ nav a::after {
   /* HERO */
   .hero-gt__wrapper,
   .hero-tb__wrapper {
-    padding-top: 24px;
     padding-bottom: 24px;
   }
 

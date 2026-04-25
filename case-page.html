@@ -16,10 +16,168 @@
 </head>
 
 <body>
-  <header id="header" class="header"></header>
+  <header id="header" class="header decorated-dark-header">
+    <div class="header__wrapper container">
+      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
+      <nav class="header-nav">
+        <ul class="header-menu">
+          <li><a href="gamified-tours.html">Gamified Tours</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+          <li><a href="custom-games.html">Custom Games</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-socials__wrapper--mobile">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+      <a class="btn-book btn-book--mobile" href="schedule.html">
+        <img src="./assets/icons/chat.svg" alt="">
+        <span>Contact us</span>
+      </a>
+      <div class="header__right">
+        <div class="header-socials__wrapper">
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg"
+              alt="linkedin"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+              alt="instagram"></a>
+        </div>
+        <a class="btn-book btn-book--notmobile" href="schedule.html">
+          <img src="./assets/icons/chat.svg" alt="">
+          <span>Contact us</span>
+        </a>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+          <span class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="burger-dropdown" id="burgerDropdown">
+      <div class="container">
+        <ul class="burger-dropdown__menu">
+          <li><a href="gamified-tours.html">Gamified Tours</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+          <li><a href="custom-games.html">Custom Games</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__nav">
+      <ul>
+        <li><a href="gamified-tours.html">Gamified Tours</a></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+        <li><a href="custom-games.html">Custom Games</a></li>
+        <li><a href="about-us.html">About</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-menu__footer">
+      <div class="mobile-menu__socials">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+      <a class="btn-book" href="schedule.html">
+        <img src="./assets/icons/chat.svg" alt="">
+        <span>Contact us</span>
+      </a>
+    </div>
+  </div>
   <main>
     <!-- Секция Hero -->
-    <section class="hero-ep section-special" id="hero"></section>
+    <section class="hero-ep" id="hero">
+      <div class="container hero-ep__container">
+        <!-- Хлебные крошки -->
+        <nav class="hero__breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html" class="breadcrumb__link">Main</a>
+          <span class="breadcrumb__sep">
+            <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
+              <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
+            </svg>
+          </span>
+          <span><a href="gamified-tours.html" class="breadcrumb__link">Gamified tours</a></span>
+          <span class="breadcrumb__sep">
+            <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
+              <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
+            </svg>
+          </span>
+          <span class="breadcrumb__current">The Great Silent Era</span>
+        </nav>
+        <div class="hero-ep__compass">
+          <img src="./assets/icons/event-page/compass-EP.svg" alt="Compass" />
+        </div>
+        <div class="hero-ep__content">
+          <div class="hero-ep__tags">
+            <span class="hero-ep__tag">Immersive Theatre</span>
+            <span class="hero-ep__tag">Team building</span>
+            <span class="hero-ep__tag">Murder Mystery</span>
+          </div>
+
+          <div class="hero-ep__text">
+            <h1 class="hero-ep__title">The Great Silent Era</h1>
+            <p class="hero-ep__subtitle">Roaring 1920s.</p>
+            <p class="hero-ep__description">
+              Hollywood is booming, the parties are legendary — and a shocking crime has just been committed at a film
+              studio. Your team is called in as a group of detectives.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-ep__features">
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <img src="./assets/icons/person-black-EP-AU.svg" alt="players" />
+            </div>
+            <p class="feature-card__value">10-150</p>
+            <p class="feature-card__label">players</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <img src="./assets/icons/date-EP-AU.svg" alt="duration" />
+            </div>
+            <p class="feature-card__value">120min</p>
+            <p class="feature-card__label">Duration</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <img src="./assets/icons/event-page/language-black.svg" alt="language" />
+            </div>
+            <p class="feature-card__value">English</p>
+            <p class="feature-card__label">Language</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon">
+              <img src="./assets/icons/format-black-EP-AU.svg" alt="format" />
+            </div>
+            <p class="feature-card__value">Online</p>
+            <p class="feature-card__label">Format</p>
+
+            <div class="hero-ep__loupe">
+              <img src="./assets/icons/event-page/loupe.svg" alt="loupe" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
     <!-- Секция Gallery -->
     <section class="gallery-slider section-special" id="gallery-slider">
       <div class="gallery-slider__wrapper">
@@ -42,9 +200,139 @@
       </div>
     </section>
     <!-- Секция Experiences -->
-    <section class="experience section-special" id="experience"></section>
+    <section class="experience section-special" id="experience">
+      <h2 class="team__title text-align">The name of case</h2>
+      <div class="container">
+        <div class="experience__row">
+          <div class="experience__col--text">
+            <p class="experience__p"><span class="text-orange">The golden age of cinema</span> is just beginning — glittering premieres, rising stars and powerful directors shaping the future of film. But behind the glamour of the studio lights, something has gone terribly wrong.<span class="text-orange"> A shocking crime</span> has been committed on set.</p>
+            <p class="experience__p">As a team of detectives, you must uncover what really happened. The director, the movie star, the cameraman, the makeup artist, the maid — everyone seems to know something, but no one is telling the whole story.</p>
+          </div>
+          <div class="experience__col--img">
+            <div class="experience__img-wrapper">
+              <img src="./assets/images/team-building/expirience-TB-1.webp" alt="Questime team experience" class="experience__img" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+        <div class="experience__row experience__row--img-first">
+          <div class="experience__col--img">
+            <div class="experience__img-wrapper">
+              <img src="./assets/images/team-building/expirience-TB-2.webp" alt="Questime in action" class="experience__img" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="experience__col--gains">
+            <p class="experience__p"><span class="text-orange">Piece together the clues, unravel the secrets</span> of the studio, and <span class="text-orange">decide</span> for yourselves: who is guilty of the crime in the world of the Great Silent Cinema?</p>
+            <p class="experience__p">All events are led by experienced and charismatic Game Masters who guide the story and keep the energy high.</p>
+            <p class="experience__p">We bring all materials, props and music.</p>
+          </div>
+        </div>
+        <div class="experience__row">
+          <div class="experience__col--gains">
+            <h3 class="experience__gains-title">What your team gains:</h3>
+            <ul class="experience__list">
+              <li class="experience__item">
+                <img src="./assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
+                Memorable emotions and shared experiences
+              </li>
+              <li class="experience__item">
+                <img src="./assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
+                A boost to problem-solving skills and emotional intelligence
+              </li>
+              <li class="experience__item">
+                <img src="./assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
+                Real interaction, not passive entertainment
+              </li>
+            </ul>
+          </div>
+          <div class="experience__col--img">
+            <div class="experience__img-wrapper">
+              <img src="./assets/images/team-building/expirience-TB-3.webp" alt="Questime event" class="experience__img" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <div class="experience__actions">
+          <a href="blog.html" class="btn btn-secondary btn-experience btn--orange">Contact us</a>
+        </div>
+      </div>
+    </section>
     <!-- Секция Testimonials -->
     <section class="testimonials section-special section-decorated-light section-decorated-dark" id="testimonials">
+      <div class="container">
+        <div class="testimonials__header">
+          <h2 class="testimonials__title text-align">Stories you don't just hear — you live</h2>
+          <h3 class="testimonials__subtitle h3">For <span class="testimonials__accent">over 13 years</span>, we've
+            created and led <span class="testimonials__accent">500+ gamified tours</span> around the world.</h3>
+        </div>
+      </div>
+
+      <div class="testimonials__carousel swiper">
+        <div class="testimonials__track swiper-wrapper">
+
+          <div class="testimonials__card testimonials__card--text swiper-slide">
+            <div class="testimonials__card-top">
+              <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+              <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
+                did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
+            </div>
+            <div class="testimonials__author">
+              <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+              <span class="testimonials__name">Alex Frerkel</span>
+            </div>
+          </div>
+
+          <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
+            <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+            <div class="testimonials__author">
+              <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+              <span class="testimonials__name">Anna Caplan</span>
+            </div>
+          </div>
+
+          <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
+            <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+            <div class="testimonials__author">
+              <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+              <span class="testimonials__name">Metro Company</span>
+            </div>
+          </div>
+
+          <div class="testimonials__card testimonials__card--text swiper-slide">
+            <div class="testimonials__card-top">
+              <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+              <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
+                did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
+            </div>
+            <div class="testimonials__author">
+              <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+              <span class="testimonials__name">Alex Frerkel</span>
+            </div>
+          </div>
+
+          <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
+            <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+            <div class="testimonials__author">
+              <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+              <span class="testimonials__name">Anna Caplan</span>
+            </div>
+          </div>
+
+          <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
+            <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+            <div class="testimonials__author">
+              <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+              <span class="testimonials__name">Metro Company</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="testimonials__footer">
+          <a href="#" class="btn btn-card testimonials__btn btn--transparent" target="_blank">Read More Reviews</a>
+        </div>
+      </div>
     </section>
     <!-- Секция Format -->
     <section class="persons format section-special" id="format">
@@ -116,8 +404,20 @@
       </div>
     </section>
     <!-- Секция CTA -->
-    <section class="cta cta--event-page section-special decorated-dark-cta decorated-light-cta" id="cta"
-      style="background-image: url('./assets/images/main/cta.webp');"></section>
+    <section class="cta cta--event-page section-special decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('./assets/images/main/cta.webp');">
+      <div class="cta__overlay"></div>
+      <div class="container">
+        <div class="cta__inner">
+          <h2 class="cta__title">
+            <span class="cta__title-orange">Turn</span><span class="cta__title-white"> your team building and outings
+              into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
+            <span class="cta__title-white">!</span>
+          </h2>
+          <a href="../assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
+            download="Questime_Presentation">Download PDF</a>
+        </div>
+      </div>
+    </section>
     <!-- Секция Form -->
     <section class="contact-form section-special" id="contact-form">
       <div class="container">
@@ -155,8 +455,32 @@
       </div>
     </section>
   </main>
-  <footer class="footer section-common section-decorated-light"></footer>
+  <footer class="footer section-common section-decorated-light">
+    <div class="footer__wrapper container">
+      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
+      <nav class="footer-nav">
+        <ul class="footer-menu">
+          <li><a href="gamified-tours.html">Gamified Tours</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
+          <li><a href="custom-games.html">Custom Games</a></li>
+          <li><a href="about-us.html">About</a></li>
+        </ul>
+      </nav>
 
+      <div class="footer-socials__wrapper">
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
+        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
+            alt="instagram"></a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop">
+    ↑
+  </button>
   <script type="module" src="./js/main.js"></script>
 </body>
 
