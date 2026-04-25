@@ -777,7 +777,7 @@ nav a::after {
 .hero {
   height: 100vh;
   max-height: 800px;
-  padding-top: 128px;
+  padding-top: calc(128px + env(safe-area-inset-top));
   padding-bottom: 40px;
   background: var(--color-header-footer-bg);
 }
@@ -3178,7 +3178,7 @@ nav a::after {
 .hero__breadcrumbs span {
   font-family: var(--second-family);
   color: var(--light-orange);
-  font-size: clamp(12px, 1.23vw,18px);
+  font-size: clamp(12px, 1.23vw, 18px);
   line-height: 1.333;
 }
 
@@ -3890,7 +3890,14 @@ nav a::after {
   position: relative;
   display: flex;
   align-items: center;
-  max-height: 800px;
+}
+
+.hero-gt {
+  height: clamp(400px, 69.79vw, 800px) !important;
+}
+
+.hero-tb {
+  height: clamp(450px, 64.79vw, 800px) !important;
 }
 
 .hero-tb--img,
