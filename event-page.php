@@ -1,103 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+/*
+Template Name: Event page
+*/
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Event Page</title>
-  <!-- Фавиконки -->
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+get_header(); ?>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./styles/style.css">
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
-</head>
-
-<body>
-  <header id="header" class="header decorated-dark-header">
-    <div class="header__wrapper container">
-      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-      <nav class="header-nav">
-        <ul class="header-menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </nav>
-      <div class="header-socials__wrapper--mobile">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-      <a class="btn-book btn-book--mobile" href="schedule.html">
-        <img src="./assets/icons/chat.svg" alt="">
-        <span>Contact us</span>
-      </a>
-      <div class="header__right">
-        <div class="header-socials__wrapper">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg"
-              alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-              alt="instagram"></a>
-        </div>
-        <a class="btn-book btn-book--notmobile" href="schedule.html">
-          <img src="./assets/icons/chat.svg" alt="">
-          <span>Contact us</span>
-        </a>
-        <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
-          <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-      </div>
-    </div>
-    <div class="burger-dropdown" id="burgerDropdown">
-      <div class="container">
-        <ul class="burger-dropdown__menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-menu__nav">
-      <ul>
-        <li><a href="gamified-tours.html">Gamified Tours</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-        <li><a href="custom-games.html">Custom Games</a></li>
-        <li><a href="about-us.html">About</a></li>
-      </ul>
-    </nav>
-    <div class="mobile-menu__footer">
-      <div class="mobile-menu__socials">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-      <a class="btn-book" href="schedule.html">
-        <img src="./assets/icons/chat.svg" alt="">
-        <span>Contact us</span>
-      </a>
-    </div>
-  </div>
   <main>
     <!-- Секция Hero -->
     <section class="hero-ep" id="hero">
@@ -119,7 +26,7 @@
           <span class="breadcrumb__current">The Great Silent Era</span>
         </nav>
         <div class="hero-ep__compass">
-          <img src="./assets/icons/event-page/compass-EP.svg" alt="Compass" />
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/compass-EP.svg" alt="Compass" />
         </div>
         <div class="hero-ep__content">
           <div class="hero-ep__tags">
@@ -141,7 +48,7 @@
         <div class="hero-ep__features">
           <div class="feature-card">
             <div class="feature-card__icon">
-              <img src="./assets/icons/person-black-EP-AU.svg" alt="players" />
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/person-black-EP-AU.svg" alt="players" />
             </div>
             <p class="feature-card__value">10-150</p>
             <p class="feature-card__label">players</p>
@@ -149,7 +56,7 @@
 
           <div class="feature-card">
             <div class="feature-card__icon">
-              <img src="./assets/icons/date-EP-AU.svg" alt="duration" />
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/date-EP-AU.svg" alt="duration" />
             </div>
             <p class="feature-card__value">120min</p>
             <p class="feature-card__label">Duration</p>
@@ -157,7 +64,7 @@
 
           <div class="feature-card">
             <div class="feature-card__icon">
-              <img src="./assets/icons/event-page/language-black.svg" alt="language" />
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/language-black.svg" alt="language" />
             </div>
             <p class="feature-card__value">English</p>
             <p class="feature-card__label">Language</p>
@@ -165,13 +72,13 @@
 
           <div class="feature-card">
             <div class="feature-card__icon">
-              <img src="./assets/icons/format-black-EP-AU.svg" alt="format" />
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/format-black-EP-AU.svg" alt="format" />
             </div>
             <p class="feature-card__value">Online</p>
             <p class="feature-card__label">Format</p>
 
             <div class="hero-ep__loupe">
-              <img src="./assets/icons/event-page/loupe.svg" alt="loupe" />
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/loupe.svg" alt="loupe" />
             </div>
           </div>
 
@@ -179,26 +86,7 @@
       </div>
     </section>
     <!-- Секция Gallery -->
-    <section class="gallery-slider section-special" id="gallery-slider">
-      <div class="gallery-slider__wrapper">
-        <div class="slider-track__horizontal" id="slider-track__horizontal">
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-        </div>
-        <div class="slider-track__vertical" id="slider-track__vertical">
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-        </div>
-      </div>
-    </section>
+    <?php get_template_part('templates/gallery'); ?>
     <!-- Секция Experience -->
     <section class="experience section-special" id="experience">
       <div class="container">
@@ -209,7 +97,7 @@
           </div>
           <div class="experience__col--img">
             <div class="experience__img-wrapper">
-              <img src="./assets/images/team-building/expirience-TB-1.webp" alt="Team building experience" class="experience__img" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-1.webp" alt="Team building experience" class="experience__img" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -217,7 +105,7 @@
         <div class="experience__row experience__row--img-first experience-reverse--ep">
           <div class="experience__col--img">
             <div class="experience__img-wrapper">
-              <img src="./assets/images/team-building/expirience-TB-2.webp" alt="Team building activity" class="experience__img" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-2.webp" alt="Team building activity" class="experience__img" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="experience__col--text">
@@ -232,22 +120,22 @@
             <h3 class="experience__gains-title">What your team gains:</h3>
             <ul class="experience__list">
               <li class="experience__item">
-                <img src="./assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
                 Memorable emotions and shared experiences
               </li>
               <li class="experience__item">
-                <img src="./assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
                 A boost to problem-solving skills and emotional intelligence
               </li>
               <li class="experience__item">
-                <img src="./assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
                 Real interaction, not passive entertainment
               </li>
             </ul>
           </div>
           <div class="experience__col--img">
             <div class="experience__img-wrapper">
-              <img src="./assets/images/team-building/expirience-TB-3.webp" alt="Team event" class="experience__img" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-3.webp" alt="Team event" class="experience__img" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -278,7 +166,7 @@
           <div class="persons__dot"></div>
           <div class="persons__item is-open">
             <button class="persons__question" aria-expanded="true">
-              <img class="persons__icon" src="./assets/icons/event-page/person-orange.svg" alt="person" loading="lazy"
+              <img class="persons__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/person-orange.svg" alt="person" loading="lazy"
                 decoding="async">
               <h4 class="persons__question-text">Persons</h4>
               <span class="persons__chevron">
@@ -338,56 +226,56 @@
 
           <div class="testimonials__card testimonials__card--text swiper-slide">
             <div class="testimonials__card-top">
-              <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
               <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
                 did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
             </div>
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
               <span class="testimonials__name">Alex Frerkel</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-            <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
               <span class="testimonials__name">Anna Caplan</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-            <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
               <span class="testimonials__name">Metro Company</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--text swiper-slide">
             <div class="testimonials__card-top">
-              <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
               <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
                 did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
             </div>
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
               <span class="testimonials__name">Alex Frerkel</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-            <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
               <span class="testimonials__name">Anna Caplan</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-            <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
               <span class="testimonials__name">Metro Company</span>
             </div>
           </div>
@@ -408,7 +296,7 @@
           <div class="persons__dot"></div>
           <div class="persons__item is-open">
             <button class="persons__question" aria-expanded="true">
-              <img class="persons__icon" src="./assets/icons/event-page/language-orange.svg" alt="cube" loading="lazy"
+              <img class="persons__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/language-orange.svg" alt="cube" loading="lazy"
                 decoding="async">
               <h4 class="persons__question-text">Online format — how it works?</h4>
               <span class="persons__chevron">
@@ -457,12 +345,12 @@
               </div>
               <button class="btn btn-secondary format__btn">Request ONLINE</button>
               <div class="format__photo-wrap format__photo-wrap--left">
-                <img class="format__photo" src="./assets/images/event-page/format-1.webp" alt="Online format photo 1"
+                <img class="format__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/event-page/format-1.webp" alt="Online format photo 1"
                   loading="lazy" />
               </div>
 
               <div class="format__photo-wrap format__photo-wrap--right">
-                <img class="format__photo" src="./assets/images/event-page/format-2.webp" alt="Online format photo 2"
+                <img class="format__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/event-page/format-2.webp" alt="Online format photo 2"
                   loading="lazy" />
               </div>
             </div>
@@ -477,7 +365,7 @@
           <div class="persons__dot"></div>
           <div class="persons__item is-open">
             <button class="persons__question" aria-expanded="true">
-              <img class="persons__icon" src="./assets/icons/event-page/format-orange.svg" alt="cube" loading="lazy"
+              <img class="persons__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/format-orange.svg" alt="cube" loading="lazy"
                 decoding="async">
               <h4 class="persons__question-text demo-text">Demo format — how it works?</h4>
               <span class="persons__chevron">
@@ -504,13 +392,13 @@
         <h2 class="benefits__title ">Why us?</h2>
         <div class="benefits__wrapper">
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/loupe.svg" alt="Loupe">
             <h3 class="benefits__card-title">Deep Historical Research</h3>
             <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
               historically accurate</p>
           </div>
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/lamp.svg" alt="Lamp">
             <h3 class="benefits__card-title">Smart Gamification</h3>
             <p class="benefits__card-text">
               We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
@@ -518,7 +406,7 @@
             </p>
           </div>
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/dart.svg" alt="Dart">
             <h3 class="benefits__card-title">Cinematic Storytelling</h3>
             <p class="benefits__card-text">
               Our experiences are built like films — with tension, characters, and powerful narrative arcs
@@ -531,7 +419,7 @@
       </div>
     </section>
     <!-- Секция CTA -->
-    <section class="cta cta--event-page section-special decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('./assets/images/main/cta.webp');">
+    <section class="cta cta--event-page section-special decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
       <div class="cta__overlay"></div>
       <div class="container">
         <div class="cta__inner">
@@ -540,7 +428,7 @@
               into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
             <span class="cta__title-white">!</span>
           </h2>
-          <a href="../assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
+          <a href="<?php echo get_template_directory_uri(); ?>/assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
             download="Questime_Presentation">Download PDF</a>
         </div>
       </div>
@@ -556,7 +444,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -582,7 +470,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -610,7 +498,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -639,7 +527,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -665,7 +553,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -693,7 +581,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -760,44 +648,14 @@
             </div>
           </div>
           <div class="contact-form__image-wrapper">
-            <img class="contact-form__image" src="./assets/images/main/contact.jpg" alt="Nataly and Mark">
+            <img class="contact-form__image" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/contact.jpg" alt="Nataly and Mark">
           </div>
         </form>
       </div>
     </section>
   </main>
-  <footer class="footer section-common section-decorated-light">
-    <div class="footer__wrapper container">
-      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-      <nav class="footer-nav">
-        <ul class="footer-menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </nav>
 
-      <div class="footer-socials__wrapper">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-    </div>
-  </footer>
-
-  <button class="scroll-top" id="scrollTop">
-    ↑
-  </button>
-
-  <script src="./js/event.js"></script>
-  <script type="module" src="./js/main.js"></script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2J-azecgmc3g6fPNXfMJL4tam2k89J5o&callback=initRouteMap&loading=async"
-    async defer></script>
+  <?php get_footer(); ?>
 </body>
 
 </html>

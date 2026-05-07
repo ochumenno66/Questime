@@ -1,103 +1,11 @@
-<!doctype html>
-<html lang="en">
+<?php
+/*
+Template Name: About Us
+*/
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>About Us</title>
-  <!-- Фавиконки -->
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
+get_header();
+?>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./styles/style.css" />
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
-</head>
-
-<body>
-  <header id="header" class="header">
-    <div class="header__wrapper container">
-      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-      <nav class="header-nav">
-        <ul class="header-menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </nav>
-      <div class="header-socials__wrapper--mobile">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-      <a class="btn-book btn-book--mobile" href="schedule.html">
-        <img src="./assets/icons/chat.svg" alt="">
-        <span>Contact us</span>
-      </a>
-      <div class="header__right">
-        <div class="header-socials__wrapper">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg"
-              alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-              alt="instagram"></a>
-        </div>
-        <a class="btn-book btn-book--notmobile" href="schedule.html">
-          <img src="./assets/icons/chat.svg" alt="Booking Button">
-          <span>Contact us</span>
-        </a>
-        <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
-          <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-      </div>
-    </div>
-    <div class="burger-dropdown" id="burgerDropdown">
-      <div class="container">
-        <ul class="burger-dropdown__menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </div>
-    </div>
-  </header>
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-menu__nav">
-      <ul>
-        <li><a href="gamified-tours.html">Gamified Tours</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-        <li><a href="custom-games.html">Custom Games</a></li>
-        <li><a href="about-us.html">About</a></li>
-      </ul>
-    </nav>
-    <div class="mobile-menu__footer">
-      <div class="mobile-menu__socials">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-      <a class="btn-book" href="schedule.html">
-        <img src="./assets/icons/chat.svg" alt="Booking Button">
-        <span>Contact us</span>
-      </a>
-    </div>
-  </div>
   <main>
     <!-- Секция Hero -->
     <section class="aboutus-hero hero section-special section-decorated-dark" id="hero">
@@ -118,7 +26,7 @@
           <h1 class="custom-games-hero__title">About our team</h1>
           <div class="aboutus-hero__image-wrap--mobile">
             <img
-              src="./assets/images/about-us/about-us-hero.png"
+              src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/about-us-hero.png"
               alt="People playing a custom game"
               class="aboutus-hero__image"
             />
@@ -136,7 +44,7 @@
 
         <div class="aboutus-hero__image-wrap">
           <img
-            src="./assets/images/about-us/about-us-hero.png"
+            src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/about-us-hero.png"
             alt="People playing a custom game"
             class="aboutus-hero__image"
           />
@@ -148,21 +56,21 @@
       <div class="stats-au__wrapper container">
         <div class="stats-au__item">
           <div class="stats-au__card">
-            <img class="stats-au__icon" src="./assets/icons/person-black-EP-AU.svg" alt="Person">
+            <img class="stats-au__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/person-black-EP-AU.svg" alt="Person">
             <p class="stats-au__number">400 000 people</p>
             <p class="stats-au__text">played with us</p>
           </div>
         </div>
         <div class="stats-au__item">
           <div class="stats-au__card">
-            <img class="stats-au__icon" src="./assets/icons/date-EP-AU.svg" alt="Date">
+            <img class="stats-au__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/date-EP-AU.svg" alt="Date">
             <p class="stats-au__number">13 years</p>
             <p class="stats-au__text">experience</p>
           </div>
         </div>
         <div class="stats-au__item">
           <div class="stats-au__card">
-            <img class="stats-au__icon" src="./assets/icons/format-black-EP-AU.svg" alt="Format">
+            <img class="stats-au__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/format-black-EP-AU.svg" alt="Format">
             <p class="stats-au__number">10 000 events</p>
             <p class="stats-au__text">for groups 6 – 800 people</p>
           </div>
@@ -181,7 +89,7 @@
           </div>
           <div class="experience__col--img">
             <div class="experience__img-wrapper">
-              <img src="./assets/images/team-building/expirience-TB-1.webp" alt="Questime team experience" class="experience__img" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-1.webp" alt="Questime team experience" class="experience__img" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -189,7 +97,7 @@
         <div class="experience__row experience__row--img-first">
           <div class="experience__col--img">
             <div class="experience__img-wrapper">
-              <img src="./assets/images/team-building/expirience-TB-2.webp" alt="Questime in action" class="experience__img" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-2.webp" alt="Questime in action" class="experience__img" loading="lazy" decoding="async">
             </div>
           </div>
           <div class="experience__col--gains">
@@ -207,7 +115,7 @@
           </div>
           <div class="experience__col--img">
             <div class="experience__img-wrapper">
-              <img src="./assets/images/team-building/expirience-TB-3.webp" alt="Questime event" class="experience__img" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-3.webp" alt="Questime event" class="experience__img" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -224,7 +132,7 @@
         <div class="team__member">
           <div class="container">
             <div class="team__photo-wrap">
-              <img class="team__photo" src="./assets/images/about-us/mark.webp" alt="Mark Minskii" />
+              <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/mark.webp" alt="Mark Minskii" />
             </div>
             <div class="team__info">
               <h3 class="team__name">Mark Minskii</h3>
@@ -257,7 +165,7 @@
         <div class="team__member team__member--reverse">
           <div class="container">
             <div class="team__photo-wrap">
-              <img class="team__photo" src="./assets/images/about-us/natalia.webp" alt="Natalia Minskaia" />
+              <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/natalia.webp" alt="Natalia Minskaia" />
             </div>
             <div class="team__info">
               <h3 class="h3 team__name">Natalia Minskaia</h3>
@@ -287,7 +195,7 @@
         <div class="team__member">
           <div class="container">
             <div class="team__photo-wrap">
-              <img class="team__photo" src="./assets/images/about-us/maria.webp" alt="Maria Boriskina" />
+              <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Maria Boriskina" />
             </div>
             <div class="team__info">
               <h3 class="h3 team__name">Maria Boriskina</h3>
@@ -320,7 +228,7 @@
         <div class="team__member team__member--reverse">
           <div class="container">
             <div class="team__photo-wrap">
-              <img class="team__photo" src="./assets/images/about-us/jan.webp" alt="Jan" />
+              <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Jan" />
             </div>
             <div class="team__info">
               <h3 class="h3 team__name">Jan</h3>
@@ -352,25 +260,25 @@
       </div>
     </section>
     <!-- Секция Subscribe -->
-    <section class="subscribe-about-us section-special decorated-light-stats decorated-dark-stats" id="subscribe-about-us" style="background-image: url('./assets/images/main/stats.webp');">
+    <section class="subscribe-about-us section-special decorated-light-stats decorated-dark-stats" id="subscribe-about-us" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/stats.webp');">
       <div class="subscribe-about-us__overlay"></div>
       <div class="container subscribe-about-us__container">
         <h2 class="subscribe-about-us__title">Join Us</h2>
 
         <div class="subscribe-about-us__socials">
           <a href="#" class="subscribe-about-us__link" target="_blank">
-            <img src="./assets/icons/about-us/instagram-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-            <img src="./assets/icons/logo_instagram.svg" alt="Instagram" class="subscribe-about-us__icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/instagram-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_instagram.svg" alt="Instagram" class="subscribe-about-us__icon">
           </a>
 
           <a href="#" class="subscribe-about-us__link" target="_blank">
-            <img src="./assets/icons/about-us/threads-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-            <img src="./assets/icons/logo_threads.svg" alt="Threads" class="subscribe-about-us__icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/threads-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_threads.svg" alt="Threads" class="subscribe-about-us__icon">
           </a>
 
           <a href="#" class="subscribe-about-us__link" target="_blank">
-            <img src="./assets/icons/about-us/linkedin-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-            <img src="./assets/icons/logo_linkedin.svg" alt="LinkedIn" class="subscribe-about-us__icon">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/linkedin-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_linkedin.svg" alt="LinkedIn" class="subscribe-about-us__icon">
           </a>
         </div>
       </div>
@@ -381,13 +289,13 @@
         <h2 class="benefits__title ">Why us?</h2>
         <div class="benefits__wrapper">
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/loupe.svg" alt="Loupe">
             <h3 class="benefits__card-title">Deep Historical Research</h3>
             <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
               historically accurate</p>
           </div>
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/lamp.svg" alt="Lamp">
             <h3 class="benefits__card-title">Smart Gamification</h3>
             <p class="benefits__card-text">
               We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
@@ -395,7 +303,7 @@
             </p>
           </div>
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/dart.svg" alt="Dart">
             <h3 class="benefits__card-title">Cinematic Storytelling</h3>
             <p class="benefits__card-text">
               Our experiences are built like films — with tension, characters, and powerful narrative arcs
@@ -408,7 +316,7 @@
       </div>
     </section>
     <!-- Секция CTA -->
-    <section class="cta about-cta section-special decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('./assets/images/main/cta.webp');">
+    <section class="cta about-cta section-special decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
       <div class="cta__overlay"></div>
       <div class="container">
         <div class="cta__inner">
@@ -417,72 +325,46 @@
               into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
             <span class="cta__title-white">!</span>
           </h2>
-          <a href="./assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
+          <a href="<?php echo get_template_directory_uri(); ?>/assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
             download="Questime_Presentation">Download PDF</a>
         </div>
       </div>
     </section>
     <!-- Секция Form -->
     <section class="contact-form section-special" id="contact-form">
-        <div class="container">
-          <h2 class="contact-form__title">Let's talk!</h2>
-          <form class="contact-form__wrapper" action="#" method="post">
-            <div class="contact-form__content">
-              <div class="contact-form__info">
-                <p class="contact-form__text text-bottom">Feel free to ask your question or make a request directly. Nataly or Mark will contact you within one business day.</p>
-                <p class="contact-form__text">Prefer to call? Please do!</p>
-                <p class="contact-form__text">Our number is <a class="contact-form__phone" href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a></p>
-              </div>
+      <div class="container">
+        <h2 class="contact-form__title">Let's talk!</h2>
+        <form class="contact-form__wrapper" action="#" method="post">
+          <div class="contact-form__content">
+            <div class="contact-form__info">
+              <p class="contact-form__text text-bottom">Feel free to ask your question or make a request directly. Nataly or Mark will contact you within one business day.</p>
+              <p class="contact-form__text">Prefer to call? Please do!</p>
+              <p class="contact-form__text">Our number is <a class="contact-form__phone" href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a></p>
             </div>
-            <div class="contact-form__fields">
-              <input class="contact-form__input" type="text" name="name" placeholder="Name" required>
-              <input class="contact-form__input" type="tel" name="phone" placeholder="Phone number" required>
-              <input class="contact-form__input" type="text" name="company" placeholder="Company" required>
-              <input class="contact-form__input" type="email" name="email" placeholder="Email" required>
+          </div>
+          <div class="contact-form__fields">
+            <input class="contact-form__input" type="text" name="name" placeholder="Name" required>
+            <input class="contact-form__input" type="tel" name="phone" placeholder="Phone number" required>
+            <input class="contact-form__input" type="text" name="company" placeholder="Company" required>
+            <input class="contact-form__input" type="email" name="email" placeholder="Email" required>
+          </div>
+          <textarea class="contact-form__textarea" name="message" placeholder="Text of your request" required></textarea>
+          <div class="contact-form__actions">
+            <button class="btn btn-secondary contact-form__btn btn--orange" type="submit">Answer me!</button>
+            <div class="checkbox">
+              <input type="checkbox" id="agree" required>
+              <label for="agree">By subscribing, you agree to our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></label>
             </div>
-            <textarea class="contact-form__textarea" name="message" placeholder="Text of your request" required></textarea>
-            <div class="contact-form__actions">
-              <button class="btn btn-secondary contact-form__btn btn--orange" type="submit">Answer me!</button>
-              <div class="checkbox">
-                <input type="checkbox" id="agree" required>
-                <label for="agree">By subscribing, you agree to our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></label>
-              </div>
-            </div>
-            <div class="contact-form__image-wrapper">
-            <img class="contact-form__image" src="./assets/images/main/contact.jpg" alt="Nataly and Mark">
-            </div>
-          </form>
-        </div>
-      </section>
-  </main>
-  <footer class="footer section-decorated-light">
-    <div class="footer__wrapper container">
-      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-      <nav class="footer-nav">
-        <ul class="footer-menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </nav>
-
-      <div class="footer-socials__wrapper">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
+          </div>
+          <div class="contact-form__image-wrapper">
+            <img class="contact-form__image" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/contact.jpg" alt="Nataly and Mark">
+          </div>
+        </form>
       </div>
-    </div>
-  </footer>
+    </section>
+  </main>
 
-  <button class="scroll-top" id="scrollTop">
-    ↑
-  </button>
-
-  <script type="module" src="./js/main.js"></script>
+  <?php get_footer(); ?>
 </body>
 
 </html>

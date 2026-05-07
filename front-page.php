@@ -1,104 +1,6 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Questime</title>
-  <!-- Фавиконки -->
-  <link rel="icon" type="image/svg+xml" href="./assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="./assets/favicon/favicon.ico" />
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./styles/style.css" />
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
-</head>
-
-<body>
-  <header id="header" class="header">
-    <div class="header__wrapper container">
-      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-      <nav class="header-nav">
-        <ul class="header-menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </nav>
-      <div class="header-socials__wrapper--mobile">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-      <a class="btn-book btn-book--mobile" href="schedule.html">
-        <img src="./assets/icons/chat.svg" alt="">
-        <span>Contact us</span>
-      </a>
-      <div class="header__right">
-        <div class="header-socials__wrapper">
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg"
-              alt="linkedin"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-          <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-              alt="instagram"></a>
-        </div>
-        <a class="btn-book btn-book--notmobile" href="schedule.html">
-          <img src="./assets/icons/chat.svg" alt="">
-          <span>Contact us</span>
-        </a>
-        <button class="burger-btn" id="burgerBtn" aria-label="Menu" aria-expanded="false">
-          <span class="burger-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-        </button>
-      </div>
-    </div>
-    <div class="burger-dropdown" id="burgerDropdown">
-      <div class="container">
-        <ul class="burger-dropdown__menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </div>
-    </div>
-
-  </header>
-  <div class="mobile-overlay" id="mobileOverlay"></div>
-  <div class="mobile-menu" id="mobileMenu">
-    <nav class="mobile-menu__nav">
-      <ul>
-        <li><a href="gamified-tours.html">Gamified Tours</a></li>
-        <li><a href="schedule.html">Schedule</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-        <li><a href="custom-games.html">Custom Games</a></li>
-        <li><a href="about-us.html">About</a></li>
-      </ul>
-    </nav>
-    <div class="mobile-menu__footer">
-      <div class="mobile-menu__socials">
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" target="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-      <a class="btn-book" href="schedule.html">
-        <img src="./assets/icons/chat.svg" alt="Booking Button">
-        <span>Contact us</span>
-      </a>
-    </div>
-  </div>
+<?php
+get_header();
+?>
   <main>
     <!-- Секция Hero -->
     <section class="hero section-special section-decorated-dark" id="hero">
@@ -179,7 +81,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -205,7 +107,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -233,7 +135,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -262,7 +164,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-1.webp" alt="The Black Cat Cabaret" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -288,7 +190,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-2.webp" alt="The Great Silent Era" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -316,7 +218,7 @@
                 <div class="quest-card__top">
                   <div class="quest-card__image-wrap">
                     <div class="quest-card__image">
-                      <img src="./assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
+                      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quests/quests-3.webp" alt="Doublbottom house" loading="lazy" />
                       <span class="quest-card__image-corner"></span>
                     </div>
                   </div>
@@ -356,8 +258,8 @@
     <section class="services section-special section-decorated-light section-decorated-dark" id="services">
       <div class="services__bg">
         <picture class="services__bg-img">
-          <source media="(max-width: 575px)" srcset="./assets/images/main/services-mobile.webp">
-          <img src="./assets/images/main/services.webp" alt="Natalia and Mark" loading="lazy" decoding="async">
+          <source media="(max-width: 575px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/images/main/services-mobile.webp">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/services.webp" alt="Natalia and Mark" loading="lazy" decoding="async">
         </picture>
       </div>
       <div class="container">
@@ -365,31 +267,31 @@
           <h2 class="services__heading">What we can offer</h2>
           <div class="services__list">
             <div class="services__item">
-              <img src="./assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
               City Games &amp; Quests
             </div>
             <div class="services__item">
-              <img src="./assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
               Immersive Theme Performances
             </div>
             <div class="services__item">
-              <img src="./assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
               Teambuilding Activities
             </div>
             <div class="services__item">
-              <img src="./assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
               Event Gamification
             </div>
             <div class="services__item">
-              <img src="./assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
               Online Quests &amp; Quizzies
             </div>
             <div class="services__item">
-              <img src="./assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
               Family Days
             </div>
             <div class="services__item">
-              <img src="./assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="tick" class="services__check" loading="lazy" decoding="async">
               Edutainment
             </div>
           </div>
@@ -407,13 +309,13 @@
             <div class="about__team">
               <div class="about__person">
                 <div class="about__person-photo">
-                  <img src="./assets/images/main/Natalia.webp" alt="Natalia Minskaia" loading="lazy" decoding="async" />
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Natalia.webp" alt="Natalia Minskaia" loading="lazy" decoding="async" />
                 </div>
                 <div class="about__person-name">Natalia<br>Minskaia</div>
               </div>
               <div class="about__person">
                 <div class="about__person-photo">
-                  <img src="./assets/images/main/Mark.webp" alt="Mark Minskii" loading="lazy" decoding="async" />
+                  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Mark Minskii" loading="lazy" decoding="async" />
                 </div>
                 <div class="about__person-name">Mark<br>Minskii</div>
               </div>
@@ -456,13 +358,13 @@
         <h2 class="benefits__title ">Why us?</h2>
         <div class="benefits__wrapper">
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/loupe.svg" alt="Loupe">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/loupe.svg" alt="Loupe">
             <h3 class="benefits__card-title">Deep Historical Research</h3>
             <p class="benefits__card-text">We dig deeper than guidebooks — every story is carefully researched and
               historically accurate</p>
           </div>
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/lamp.svg" alt="Lamp">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/lamp.svg" alt="Lamp">
             <h3 class="benefits__card-title">Smart Gamification</h3>
             <p class="benefits__card-text">
               We use elements from board games, RPGs, video games, and escape rooms to create experiences that are
@@ -470,7 +372,7 @@
             </p>
           </div>
           <div class="benefits__card">
-            <img class="benefits__icon" src="./assets/icons/benefits/dart.svg" alt="Dart">
+            <img class="benefits__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/benefits/dart.svg" alt="Dart">
             <h3 class="benefits__card-title">Cinematic Storytelling</h3>
             <p class="benefits__card-text">
               Our experiences are built like films — with tension, characters, and powerful narrative arcs
@@ -483,7 +385,7 @@
       </div>
     </section>
     <!-- Секция CTA -->
-    <section class="cta section-special decorated-light-cta decorated-dark-cta" id="cta" style="background-image: url('./assets/images/main/cta.webp');">
+    <section class="cta section-special decorated-light-cta decorated-dark-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
       <div class="cta__overlay"></div>
       <div class="container">
         <div class="cta__inner">
@@ -498,26 +400,7 @@
       </div>
     </section>
     <!-- Секция Gallery -->
-    <section class="gallery-slider section-special" id="gallery-slider">
-      <div class="gallery-slider__wrapper">
-        <div class="slider-track__horizontal" id="slider-track__horizontal">
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-2.webp" alt="Gallery image" /></div>
-          <div class="slide-top"><img src="./assets/images/gallery/gallery-3.webp" alt="Gallery image" /></div>
-        </div>
-        <div class="slider-track__vertical" id="slider-track__vertical">
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-1.webp" alt="Gallery image" /></div>
-          <div class="slide-bottom"><img src="./assets/images/gallery/gallery-4.webp" alt="Gallery image" /></div>
-        </div>
-      </div>
-    </section>
+    <?php get_template_part('templates/gallery'); ?>
     <!-- Секция Testimonials -->
     <section class="testimonials section-special section-decorated-light section-decorated-dark" id="testimonials">
       <div class="container">
@@ -532,56 +415,56 @@
         <div class="testimonials__track swiper-wrapper">
           <div class="testimonials__card testimonials__card--text swiper-slide">
             <div class="testimonials__card-top">
-              <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
               <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
                 did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
             </div>
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
               <span class="testimonials__name">Alex Frerkel</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-            <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
               <span class="testimonials__name">Anna Caplan</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-            <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
               <span class="testimonials__name">Metro Company</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--text swiper-slide">
             <div class="testimonials__card-top">
-              <img src="./assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
               <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
                 did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
             </div>
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
               <span class="testimonials__name">Alex Frerkel</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-            <img src="./assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
               <span class="testimonials__name">Anna Caplan</span>
             </div>
           </div>
 
           <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-            <img src="./assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
             <div class="testimonials__author">
-              <img src="./assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
               <span class="testimonials__name">Metro Company</span>
             </div>
           </div>
@@ -601,26 +484,26 @@
           <h2 class="text-align partners__title">They have played with us<br>and want more</h2>
 
           <div class="partners__grid">
-            <div class="partners__item"><img src="./assets/icons/partners/dell.svg" alt="Dell"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/pfizer.svg" alt="Pfizer"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/nestle.svg" alt="Nestle"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/reuters.svg" alt="Reuters"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/colgate.svg" alt="Colgate"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/metro.svg" alt="Metro"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/microsoft.svg" alt="Microsoft"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/visa.svg" alt="Visa"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/BKing.svg" alt="Burger King"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/bayer.svg" alt="Bayer"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/kaspersky.svg" alt="Kaspersky"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/avon.svg" alt="Avon"></div>
-            <div class="partners__item"><img src="./assets/icons/partners/britishcouncil.svg" alt="British Council">
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/dell.svg" alt="Dell"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/pfizer.svg" alt="Pfizer"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/nestle.svg" alt="Nestle"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/reuters.svg" alt="Reuters"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/colgate.svg" alt="Colgate"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/metro.svg" alt="Metro"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/microsoft.svg" alt="Microsoft"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/visa.svg" alt="Visa"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/BKing.svg" alt="Burger King"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/bayer.svg" alt="Bayer"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/kaspersky.svg" alt="Kaspersky"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/avon.svg" alt="Avon"></div>
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/britishcouncil.svg" alt="British Council">
             </div>
-            <div class="partners__item"><img src="./assets/icons/partners/BATobacco.svg" alt="British American Tobacco">
+            <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/BATobacco.svg" alt="British American Tobacco">
             </div>
           </div>
 
           <div class="partners__footer">
-            <a href="#!" class="btn btn-secondary partners__btn">Go to Corporate Events</a>
+            <a href="<?php echo home_url('/team-building/'); ?>" class="btn btn-secondary partners__btn">Go to Corporate Events</a>
           </div>
         </div>
       </div>
@@ -632,11 +515,9 @@
         <form class="contact-form__wrapper" action="#" method="post">
           <div class="contact-form__content">
             <div class="contact-form__info">
-              <p class="contact-form__text text-bottom">Feel free to ask your question or make a request directly.
-                Nataly or Mark will contact you within one business day.</p>
+              <p class="contact-form__text text-bottom">Feel free to ask your question or make a request directly. Nataly or Mark will contact you within one business day.</p>
               <p class="contact-form__text">Prefer to call? Please do!</p>
-              <p class="contact-form__text">Our number is <a class="contact-form__phone"
-                  href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a></p>
+              <p class="contact-form__text">Our number is <a class="contact-form__phone" href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a></p>
             </div>
           </div>
           <div class="contact-form__fields">
@@ -645,51 +526,23 @@
             <input class="contact-form__input" type="text" name="company" placeholder="Company" required>
             <input class="contact-form__input" type="email" name="email" placeholder="Email" required>
           </div>
-          <textarea class="contact-form__textarea" name="message" placeholder="Text of your request"
-            required></textarea>
+          <textarea class="contact-form__textarea" name="message" placeholder="Text of your request" required></textarea>
           <div class="contact-form__actions">
             <button class="btn btn-secondary contact-form__btn btn--orange" type="submit">Answer me!</button>
             <div class="checkbox">
               <input type="checkbox" id="agree" required>
-              <label for="agree">By subscribing, you agree to our <a href="/privacy-policy.html" target="_blank">Privacy
-                  Policy</a></label>
+              <label for="agree">By subscribing, you agree to our <a href="<?php echo home_url('/privacy-policy'); ?>" target="_blank">Privacy Policy</a></label>
             </div>
           </div>
           <div class="contact-form__image-wrapper">
-            <img class="contact-form__image" src="./assets/images/main/contact.jpg" alt="Nataly and Mark">
+            <img class="contact-form__image" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/contact.jpg" alt="Nataly and Mark">
           </div>
         </form>
       </div>
     </section>
   </main>
-  <footer class="footer section-decorated-light">
-    <div class="footer__wrapper container">
-      <a href="index.html" class="logo"><img src="./assets/icons/logo.svg" alt="logo" /></a>
-      <nav class="footer-nav">
-        <ul class="footer-menu">
-          <li><a href="gamified-tours.html">Gamified Tours</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a target="_blank" href="https://questime.shop/">Home Mysteries</a></li>
-          <li><a href="custom-games.html">Custom Games</a></li>
-          <li><a href="about-us.html">About</a></li>
-        </ul>
-      </nav>
 
-      <div class="footer-socials__wrapper">
-        <a class="social-icon" href="#" targer="_blank"><img src="./assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-        <a class="social-icon" href="#" targer="_blank"><img src="./assets/icons/logo_threads.svg" alt="threads"></a>
-        <a class="social-icon" href="#" targer="_blank"><img src="./assets/icons/logo_instagram.svg"
-            alt="instagram"></a>
-      </div>
-    </div>
-  </footer>
-
-  <button class="scroll-top" id="scrollTop">
-    ↑
-  </button>
-
-  <script type="module" src="./js/main.js"></script>
+<?php get_footer(); ?>
 
 </body>
 
