@@ -531,7 +531,7 @@ get_header();
             <button class="btn btn-secondary contact-form__btn btn--orange" type="submit">Answer me!</button>
             <div class="checkbox">
               <input type="checkbox" id="agree" required>
-              <label for="agree">By subscribing, you agree to our <a href="<?php echo home_url('/privacy-policy'); ?>" target="_blank">Privacy Policy</a></label>
+              <label for="agree">By subscribing, you agree to our <a href="<?php echo get_permalink(get_page_by_path('privacy-policy')); ?>" target="_blank">Privacy Policy</a></label>
             </div>
           </div>
           <div class="contact-form__image-wrapper">
