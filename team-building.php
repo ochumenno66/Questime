@@ -94,27 +94,7 @@ get_header(); ?>
       </div>
     </section>
     <!-- Секция Stats -->
-    <section class="stats section-special decorated-dark-stats decorated-light-stats" id="stats">
-      <div class="stats__inner container">
-        <div class="stats__wrapper">
-          <div class="stat__wrapper">
-            <span class="stat-number">7</span>
-            <span class="stat-text">stories</span>
-          </div>
-          <div class="stat__wrapper">
-            <span class="stat-number">400 000</span>
-            <span class="stat-text">people have played our games</span>
-          </div>
-          <div class="stat__wrapper">
-            <span class="stat-number">13</span>
-            <span class="stat-text">years of experience</span>
-          </div>
-        </div>
-        <a href="<?php echo get_template_directory_uri(); ?>/assets/presentation.pdf" download class="btn btn-secondary btn-download btn--transparent">
-          <span>Download Our Presentation</span>
-        </a>
-      </div>
-    </section>
+    <?php get_template_part('templates/stats'); ?>
     <!-- Секция Quests -->
     <section class="quests section-special" id="quests">
       <div class="container">

@@ -367,22 +367,7 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
       </div>
     </section>
     <!-- Секция Stats -->
-    <section class="stats section-special decorated-dark-stats decorated-light-stats" id="stats">
-      <div class="stats__wrapper container">
-        <div class="stat__wrapper">
-          <span class="stat-number">7</span>
-          <span class="stat-text">stories</span>
-        </div>
-        <div class="stat__wrapper">
-          <span class="stat-number">400 000</span>
-          <span class="stat-text">people have played our games</span>
-        </div>
-        <div class="stat__wrapper">
-          <span class="stat-number">13</span>
-          <span class="stat-text">years of experience</span>
-        </div>
-      </div>
-    </section>
+    <?php get_template_part('templates/stats'); ?>
     <!-- Секция Benefits -->
     <section class="benefits text-align section-special" id="benefits">
       <div class="container">
