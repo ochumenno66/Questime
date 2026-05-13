@@ -4,48 +4,79 @@ Template Name: Custom games
 */
 
 get_header();
+
+// Hero — данные из ACF
+$cg_title      = get_field('cg_hero_title')     ?: 'Custom Games';
+$cg_text_1     = get_field('cg_hero_text_1')    ?: 'If you\'re facing an unusual challenge involving gamification, blending education and entertainment, team buildings and corporate events, or escape games for cities, museums and cultural institutions — you\'re in the right place.';
+$cg_text_2     = get_field('cg_hero_text_2')    ?: 'We can create almost any custom project. Just tell us your goal.';
+$cg_image      = get_field('cg_hero_image')     ?: get_template_directory_uri() . '/assets/images/custom-games/hero-full.jpg';
+$cg_image_alt  = get_field('cg_hero_image_alt') ?: 'People playing a custom game';
+$cg_btn1_text  = get_field('cg_hero_btn_1_text') ?: 'Request';
+$cg_btn2_text  = get_field('cg_hero_btn_2_text') ?: 'Download the presentation';
+$cg_pdf        = get_field('cg_hero_pdf')        ?: '';
+$cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/images/custom-games/hero-full.jpg';
 ?>
 
     <main>
       <!-- Секция Hero -->
       <section class="hero section-special section-decorated-dark custom-games-hero" id="hero">
-        <div class="custom-games-hero__bg"></div>
+        <div class="custom-games-hero__bg" style="background:
+          linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+          linear-gradient(180deg, #191a18 0%, rgba(25, 26, 24, 0) 49.04%, #191a18 100%),
+          url('<?php echo esc_url($cg_bg); ?>') center / cover no-repeat;">
+        </div>
         <div class="custom-games-hero__wrapper container">
-          <!-- Хлебные крошки -->
-          <nav class="hero__breadcrumbs" aria-label="Breadcrumb">
-            <a href="index.html" class="breadcrumb__link">Main</a>
-            <span class="breadcrumb__sep">
-              <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
-                <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
-              </svg>
-            </span>
-            <span class="breadcrumb__current">Custom games</span>
-          </nav>
+          <!-- Хлебные крошки — автоматические -->
+          <?php questime_breadcrumbs(); ?>
           <div class="custom-games-hero__content">
-            <h1 class="custom-games-hero__title">Custom Games</h1>
+            <h1 class="custom-games-hero__title"><?php echo esc_html($cg_title); ?></h1>
+
             <div class="custom-games-hero__image-wrap--mobile">
               <img
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/hero-full.jpg"
-                alt="People playing a custom game"
+                src="<?php echo esc_url($cg_image); ?>"
+                alt="<?php echo esc_attr($cg_image_alt); ?>"
                 class="custom-games-hero__image"
               />
             </div>
+
             <div class="custom-games-hero__body">
-              
-              <p>If you’re facing an unusual challenge involving gamification, blending education and entertainment, team buildings and corporate events, or escape games for cities, museums and cultural institutions — you’re in the right place.</p>
-              <p><strong>We can create almost any custom project. Just tell us your goal.</strong></p>
+              <?php if ($cg_text_1) : ?>
+                <p><?php echo wp_kses_post($cg_text_1); ?></p>
+              <?php endif; ?>
+              <?php if ($cg_text_2) : ?>
+                <p><strong><?php echo wp_kses_post($cg_text_2); ?></strong></p>
+              <?php endif; ?>
             </div>
 
             <div class="custom-games-hero__actions">
-              <a href="#" class="btn btn-secondary btn--orange">Request</a>
-              <a href="#" class="btn btn-secondary btn-download btn--transparent">Download the presentation</a>
+
+              <!-- Кнопка 1 — открывает модалку -->
+              <button
+                type="button"
+                class="btn btn-secondary btn--orange"
+                data-modal="request"
+              >
+                <?php echo esc_html($cg_btn1_text); ?>
+              </button>
+
+              <!-- Кнопка 2 — скачивание PDF, только если файл загружен -->
+              <?php if ($cg_pdf) : ?>
+              <a
+                href="<?php echo esc_url($cg_pdf); ?>"
+                download
+                class="btn btn-secondary btn-download btn--transparent"
+              >
+                <?php echo esc_html($cg_btn2_text); ?>
+              </a>
+              <?php endif; ?>
+
             </div>
           </div>
 
           <div class="custom-games-hero__image-wrap">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/hero-full.jpg"
-              alt="People playing a custom game"
+              src="<?php echo esc_url($cg_image); ?>"
+              alt="<?php echo esc_attr($cg_image_alt); ?>"
               class="custom-games-hero__image"
             />
           </div>

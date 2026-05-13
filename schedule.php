@@ -8,16 +8,8 @@ get_header(); ?>
 <main>
   <section class="schedule section-special">
     <div class="container">
-      <!-- Хлебные крошки -->
-      <nav class="hero__breadcrumbs" aria-label="Breadcrumb">
-        <a href="index.html" class="breadcrumb__link">Main</a>
-        <span class="breadcrumb__sep">
-          <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
-            <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
-          </svg>
-        </span>
-        <span class="breadcrumb__current">Schedule</span>
-      </nav>
+      <!-- Хлебные крошки — автоматические -->
+      <?php questime_breadcrumbs(); ?>
       <span class="schedule__year">2026</span>
       <div class="schedule__months" role="tablist" aria-label="Month selector">
         <button class="btn schedule__month-btn" role="tab" aria-selected="false" data-month="january">January</button>

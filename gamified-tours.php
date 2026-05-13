@@ -10,16 +10,8 @@ get_header(); ?>
     <section class="hero hero-gt section-special section-decorated-dark" id="hero">
       <div class="hero-gt--img"></div>
       <div class="hero-gt__wrapper container">
-        <!-- Хлебные крошки -->
-        <nav class="hero__breadcrumbs" aria-label="Breadcrumb">
-          <a href="<?php echo home_url('/'); ?>" class="breadcrumb__link">Main</a>
-          <span class="breadcrumb__sep">
-            <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
-              <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
-            </svg>
-          </span>
-          <span class="breadcrumb__current">Gamified Tours</span>
-        </nav>
+        <!-- Хлебные крошки — автоматические -->
+        <?php questime_breadcrumbs(); ?>
         <div class="hero-gt__content text-align">
           <h1 class="hero-gt__title">What if
             <span class="hero-gt__accent">HISTORY</span> and

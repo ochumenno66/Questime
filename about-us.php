@@ -12,16 +12,8 @@ get_header();
       <div class="aboutus-hero__bg"></div>
 
       <div class="aboutus-hero__wrapper container">
-        <!-- Хлебные крошки -->
-        <nav class="hero__breadcrumbs" aria-label="Breadcrumb">
-          <a href="index.html" class="breadcrumb__link">Main</a>
-          <span class="breadcrumb__sep">
-            <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
-              <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
-            </svg>
-          </span>
-          <span class="breadcrumb__current">About our team</span>
-        </nav>
+        <!-- Хлебные крошки — автоматические -->
+        <?php questime_breadcrumbs(); ?>
         <div class="custom-games-hero__content">
           <h1 class="custom-games-hero__title">About our team</h1>
           <div class="aboutus-hero__image-wrap--mobile">

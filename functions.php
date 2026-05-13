@@ -100,3 +100,66 @@ function questime_social_icons(): void {
         );
     }
 }
+
+// ХЛЕБНЫЕ КРОШКИ — автоматические для любой страницы
+// Вызов: questime_breadcrumbs();
+function questime_breadcrumbs(): void {
+    // На главной не показываем
+    if (is_front_page()) {
+        return;
+    }
+
+    $sep = '<span class="breadcrumb__sep">
+        <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
+            <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
+        </svg>
+    </span>';
+
+    echo '<nav class="hero__breadcrumbs" aria-label="Breadcrumb">';
+    echo '<a href="' . esc_url(home_url('/')) . '" class="breadcrumb__link">Main</a>';
+
+    // Страница с родителем
+    if (is_page()) {
+        $page    = get_queried_object();
+        $parents = array_reverse(get_post_ancestors($page));
+
+        foreach ($parents as $parent_id) {
+            echo $sep;
+            echo '<a href="' . esc_url(get_permalink($parent_id)) . '" class="breadcrumb__link">';
+            echo esc_html(get_the_title($parent_id));
+            echo '</a>';
+        }
+
+        echo $sep;
+        echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
+
+    // Запись (post)
+    } elseif (is_single()) {
+        $categories = get_the_category();
+        if (!empty($categories)) {
+            echo $sep;
+            echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" class="breadcrumb__link">';
+            echo esc_html($categories[0]->name);
+            echo '</a>';
+        }
+        echo $sep;
+        echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
+
+    // Архив / категория
+    } elseif (is_archive()) {
+        echo $sep;
+        echo '<span class="breadcrumb__current">' . esc_html(get_the_archive_title()) . '</span>';
+
+    // Поиск
+    } elseif (is_search()) {
+        echo $sep;
+        echo '<span class="breadcrumb__current">Search: ' . esc_html(get_search_query()) . '</span>';
+
+    // 404
+    } elseif (is_404()) {
+        echo $sep;
+        echo '<span class="breadcrumb__current">404</span>';
+    }
+
+    echo '</nav>';
+}
