@@ -150,11 +150,6 @@ function questime_breadcrumbs(): void {
         echo $sep;
         echo '<span class="breadcrumb__current">' . esc_html(get_the_archive_title()) . '</span>';
 
-    // Поиск
-    } elseif (is_search()) {
-        echo $sep;
-        echo '<span class="breadcrumb__current">Search: ' . esc_html(get_search_query()) . '</span>';
-
     // 404
     } elseif (is_404()) {
         echo $sep;
