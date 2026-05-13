@@ -9,15 +9,19 @@
 
 <header id="header" class="header">
   <div class="header__wrapper container">
-    <a href="<?php echo home_url('/'); ?>" class="logo">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo.svg" alt="logo" />
-    </a>
+    <?php if (has_custom_logo()) : ?>
+      <?php the_custom_logo(); ?>
+    <?php else : ?>
+      <a href="<?php echo home_url('/'); ?>" class="logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo.svg" alt="logo" />
+      </a>
+    <?php endif; ?>
 
     <nav class="header-nav">
       <ul class="header-menu">
         <li><a href="<?php echo home_url('/gamified-tours/'); ?>">Gamified Tours</a></li>
         <li><a href="<?php echo home_url('/schedule/'); ?>">Schedule</a></li>
-        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="<?php echo home_url('/#reviews'); ?>">Reviews</a></li>
         <li><a href="https://questime.shop/" target="_blank">Home Mysteries</a></li>
         <li><a href="<?php echo home_url('/custom-games/'); ?>">Custom Games</a></li>
         <li><a href="<?php echo home_url('/about-us/'); ?>">About</a></li>
@@ -25,15 +29,7 @@
     </nav>
 
     <div class="header-socials__wrapper--mobile">
-      <a class="social-icon" href="#" target="_blank">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_linkedin.svg" alt="linkedin">
-      </a>
-      <a class="social-icon" href="#" target="_blank">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_threads.svg" alt="threads">
-      </a>
-      <a class="social-icon" href="#" target="_blank">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_instagram.svg" alt="instagram">
-      </a>
+      <?php questime_social_icons(); ?>
     </div>
 
     <a class="btn-book btn-book--mobile" href="<?php echo home_url('/schedule/'); ?>">
@@ -43,15 +39,7 @@
 
     <div class="header__right">
       <div class="header-socials__wrapper">
-        <a class="social-icon" href="#" target="_blank">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_linkedin.svg" alt="linkedin">
-        </a>
-        <a class="social-icon" href="#" target="_blank">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_threads.svg" alt="threads">
-        </a>
-        <a class="social-icon" href="#" target="_blank">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_instagram.svg" alt="instagram">
-        </a>
+        <?php questime_social_icons(); ?>
       </div>
 
       <a class="btn-book btn-book--notmobile" href="<?php echo home_url('/schedule/'); ?>">
@@ -74,7 +62,7 @@
       <ul class="burger-dropdown__menu">
         <li><a href="<?php echo home_url('/gamified-tours/'); ?>">Gamified Tours</a></li>
         <li><a href="<?php echo home_url('/schedule/'); ?>">Schedule</a></li>
-        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="<?php echo home_url('/#reviews'); ?>">Reviews</a></li>
         <li><a href="https://questime.shop/" target="_blank">Home Mysteries</a></li>
         <li><a href="<?php echo home_url('/custom-games/'); ?>">Custom Games</a></li>
         <li><a href="<?php echo home_url('/about-us/'); ?>">About</a></li>
@@ -89,7 +77,7 @@
     <ul>
       <li><a href="<?php echo home_url('/gamified-tours/'); ?>">Gamified Tours</a></li>
       <li><a href="<?php echo home_url('/schedule/'); ?>">Schedule</a></li>
-        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="<?php echo home_url('/#reviews'); ?>">Reviews</a></li>
         <li><a href="https://questime.shop/" target="_blank">Home Mysteries</a></li>
         <li><a href="<?php echo home_url('/custom-games/'); ?>">Custom Games</a></li>
         <li><a href="<?php echo home_url('/about-us/'); ?>">About</a></li>
@@ -97,9 +85,7 @@
   </nav>
   <div class="mobile-menu__footer">
     <div class="mobile-menu__socials">
-      <a class="social-icon" href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_linkedin.svg" alt="linkedin"></a>
-      <a class="social-icon" href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_threads.svg" alt="threads"></a>
-      <a class="social-icon" href="#" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_instagram.svg" alt="instagram"></a>
+      <?php questime_social_icons(); ?>
     </div>
     <a class="btn-book" href="<?php echo home_url('/schedule/'); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/chat.svg" alt="">

@@ -30,3 +30,73 @@ add_action('wp_head', function () {
     echo '<link rel="icon" type="image/svg+xml" href="' . $uri . '/assets/favicon/favicon.svg">' . "\n";
     echo '<link rel="shortcut icon" href="' . $uri . '/assets/favicon/favicon.ico">' . "\n";
 });
+
+// КАСТОМАЙЗЕР — социальные сети (иконка + ссылка, до 4 штук)
+add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
+
+    $wp_customize->add_panel('questime_socials_panel', [
+        'title'    => 'Социальные сети',
+        'priority' => 30,
+    ]);
+
+    for ($i = 1; $i <= 4; $i++) {
+        $wp_customize->add_section("questime_social_{$i}", [
+            'title'    => "Соцсеть #{$i}",
+            'panel'    => 'questime_socials_panel',
+            'priority' => $i * 10,
+        ]);
+
+        $wp_customize->add_setting("social_{$i}_url", [
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+            'transport'         => 'refresh',
+        ]);
+        $wp_customize->add_control("social_{$i}_url", [
+            'label'   => 'Ссылка',
+            'section' => "questime_social_{$i}",
+            'type'    => 'url',
+        ]);
+
+        $wp_customize->add_setting("social_{$i}_icon", [
+            'default'           => '',
+            'sanitize_callback' => 'esc_url_raw',
+            'transport'         => 'refresh',
+        ]);
+        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "social_{$i}_icon", [
+            'label'   => 'Иконка (SVG / PNG)',
+            'section' => "questime_social_{$i}",
+        ]));
+
+        $wp_customize->add_setting("social_{$i}_alt", [
+            'default'           => '',
+            'sanitize_callback' => 'sanitize_text_field',
+            'transport'         => 'refresh',
+        ]);
+        $wp_customize->add_control("social_{$i}_alt", [
+            'label'   => 'Alt / название сети',
+            'section' => "questime_social_{$i}",
+            'type'    => 'text',
+        ]);
+    }
+});
+
+
+// ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
+function questime_social_icons(): void {
+    for ($i = 1; $i <= 4; $i++) {
+        $url  = get_theme_mod("social_{$i}_url",  '');
+        $icon = get_theme_mod("social_{$i}_icon", '');
+        $alt  = get_theme_mod("social_{$i}_alt",  'social');
+
+        if (empty($url) || empty($icon)) {
+            continue;
+        }
+
+        printf(
+            '<a class="social-icon" href="%s" target="_blank" rel="noopener noreferrer"><img src="%s" alt="%s"></a>' . "\n",
+            esc_url($url),
+            esc_url($icon),
+            esc_attr($alt)
+        );
+    }
+}

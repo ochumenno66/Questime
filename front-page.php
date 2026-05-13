@@ -1,5 +1,48 @@
 <?php
 get_header();
+
+// Hero — данные из ACF 
+$hero_title1 = get_field('hero_title_line1')    ?: 'Welcome ';
+$hero_title2 = get_field('hero_title_line2')    ?: 'to&nbsp;Questime';
+$hero_tagline_acc = get_field('hero_tagline_accent') ?: 'Crack';
+$hero_tagline_rest = get_field('hero_tagline_rest')   ?: 'The Case';
+
+// Слайды
+$slides_raw = [
+    get_field('hero_slide_1'),
+    get_field('hero_slide_2'),
+    get_field('hero_slide_3'),
+    get_field('hero_slide_4'),
+];
+$slides = array_filter($slides_raw);
+
+// Карточки-кнопки
+$cards = [
+    [
+        'bold' => get_field('hero_card_1_bold') ?: 'City',
+        'rest' => get_field('hero_card_1_rest') ?: 'Games',
+        'url'  => get_field('hero_card_1_url')  ?: home_url('/gamified-tours/'),
+    ],
+    [
+        'bold' => get_field('hero_card_2_bold') ?: 'Corporate',
+        'rest' => get_field('hero_card_2_rest') ?: 'Events',
+        'url'  => get_field('hero_card_2_url')  ?: home_url('/team-building/'),
+    ],
+    [
+        'bold' => get_field('hero_card_3_bold') ?: 'Custom',
+        'rest' => get_field('hero_card_3_rest') ?: 'Games',
+        'url'  => get_field('hero_card_3_url')  ?: home_url('/custom-games/'),
+    ],
+    [
+        'bold' => get_field('hero_card_4_bold') ?: 'Home',
+        'rest' => get_field('hero_card_4_rest') ?: 'Mysteries',
+        'url'  => get_field('hero_card_4_url')  ?: 'https://questime.shop/',
+    ],
+];
+
+$arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 7.5H15.3125L8.75 0.9375L9.575 0L17.7 8.125L9.575 16.25L8.75 15.3125L15.3125 8.75H0V7.5Z" fill="currentColor"/>
+</svg>';
 ?>
   <main>
     <!-- Секция Hero -->
@@ -8,63 +51,51 @@ get_header();
         <div class="hero-left">
           <div class="hero-top__wrapper">
             <h1 class="hero-title">
-              <span>Welcome </span>
-              <span>to&nbsp;Questime</span>
+              <span><?php echo esc_html($hero_title1); ?></span>
+              <span><?php echo wp_kses_post($hero_title2); ?></span>
             </h1>
             <div class="hero-tagline">
-              <span class="tagline-crack">Crack</span>
-              <span class="tagline-rest">The Case</span>
+              <span class="tagline-crack"><?php echo esc_html($hero_tagline_acc); ?></span>
+              <span class="tagline-rest"><?php echo esc_html($hero_tagline_rest); ?></span>
             </div>
           </div>
           <div class="hero-grid">
-            <a target="_blank" class="hero-card" href="gamified-tours.html">
-              <span><strong>City</strong> Games</span>
-              <svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 18 17" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 7.5H15.3125L8.75 0.9375L9.575 0L17.7 8.125L9.575 16.25L8.75 15.3125L15.3125 8.75H0V7.5Z"
-                  fill="currentColor" />
-              </svg>
+            <?php foreach ($cards as $card) :
+              $is_ext = !str_starts_with($card['url'], home_url()) && !str_starts_with($card['url'], '#');
+              $target = $is_ext ? ' target="_blank" rel="noopener noreferrer"' : '';
+            ?>
+            <a class="hero-card" href="<?php echo esc_url($card['url']); ?>"<?php echo $target; ?>>
+              <span><strong><?php echo esc_html($card['bold']); ?></strong> <?php echo esc_html($card['rest']); ?></span>
+              <?php echo $arrow_svg; ?>
             </a>
-            <a target="_blank" class="hero-card" href="team-building.html">
-              <span><strong>Corporate</strong> Events</span>
-              <svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 18 17" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 7.5H15.3125L8.75 0.9375L9.575 0L17.7 8.125L9.575 16.25L8.75 15.3125L15.3125 8.75H0V7.5Z"
-                  fill="currentColor" />
-              </svg>
-            </a>
-            <a target="_blank" class="hero-card" href="custom-games.html">
-              <span><strong>Custom</strong> Games</span>
-              <svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 18 17" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 7.5H15.3125L8.75 0.9375L9.575 0L17.7 8.125L9.575 16.25L8.75 15.3125L15.3125 8.75H0V7.5Z"
-                  fill="currentColor" />
-              </svg>
-            </a>
-            <a target="_blank" class="hero-card" href="https://questime.shop/">
-              <span><strong>Home</strong> Mysteries</span>
-              <svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 18 17" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 7.5H15.3125L8.75 0.9375L9.575 0L17.7 8.125L9.575 16.25L8.75 15.3125L15.3125 8.75H0V7.5Z"
-                  fill="currentColor" />
-              </svg>
-            </a>
+            <?php endforeach; ?>
           </div>
         </div>
 
         <div class="hero-right">
           <div class="hero-slider__wrapper">
-            <div class="hero-slide s1 active"></div>
-            <div class="hero-slide s2"></div>
-            <div class="hero-slide s3"></div>
-            <div class="hero-slide s4"></div>
+            <?php if (!empty($slides)) :
+              $first = true;
+              foreach ($slides as $img_url) : ?>
+              <div class="hero-slide<?php echo $first ? ' active' : ''; ?>"
+                  style="background-image: url('<?php echo esc_url($img_url); ?>');">
+              </div>
+              <?php $first = false;
+              endforeach;
+            else : ?>
+              <!-- Фоллбэк — s1–s4 пока изображения не добавлены в ACF -->
+              <div class="hero-slide s1 active"></div>
+              <div class="hero-slide s2"></div>
+              <div class="hero-slide s3"></div>
+              <div class="hero-slide s4"></div>
+            <?php endif; ?>
           </div>
 
           <div class="hero-slider-dots" id="dots">
-            <div class="hero-dot active" data-i="0"></div>
-            <div class="hero-dot" data-i="1"></div>
-            <div class="hero-dot" data-i="2"></div>
-            <div class="hero-dot" data-i="3"></div>
+            <?php $dots_count = !empty($slides) ? count($slides) : 4;
+            for ($d = 0; $d < $dots_count; $d++) : ?>
+            <div class="hero-dot<?php echo $d === 0 ? ' active' : ''; ?>" data-i="<?php echo $d; ?>"></div>
+            <?php endfor; ?>
           </div>
         </div>
       </div>
@@ -402,7 +433,7 @@ get_header();
     <!-- Секция Gallery -->
     <?php get_template_part('templates/gallery'); ?>
     <!-- Секция Testimonials -->
-    <section class="testimonials section-special section-decorated-light section-decorated-dark" id="testimonials">
+    <section class="testimonials section-special section-decorated-light section-decorated-dark" id="reviews">
       <div class="container">
         <div class="testimonials__header">
           <h2 class="testimonials__title text-align">Stories you don't just hear — you live</h2>
