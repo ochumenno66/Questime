@@ -4,40 +4,68 @@ Template Name: About Us
 */
 
 get_header();
+
+// Hero — данные из ACF
+$au_bg         = get_field('au_hero_bg')        ?: '';
+$au_title      = get_field('au_hero_title')     ?: 'About our team';
+$au_text       = get_field('au_hero_text')      ?: 'We believe that the greatest happiness is the happiness of communication and smart entertainment.';
+$au_image      = get_field('au_hero_image')     ?: get_template_directory_uri() . '/assets/images/about-us/about-us-hero.png';
+$au_image_alt  = get_field('au_hero_image_alt') ?: 'About us hero';
+$au_btn1_text  = get_field('au_hero_btn_1_text') ?: 'Request';
+$au_btn2_text  = get_field('au_hero_btn_2_text') ?: 'Download the presentation';
+$au_pdf        = get_field('au_hero_pdf')        ?: '';
+
+$au_bg_style = $au_bg
+    ? ' style="background: linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)), linear-gradient(180deg, #191a18 0%, rgba(25, 26, 24, 0) 49.04%, #191a18 100%), url(\'' . esc_url($au_bg) . '\') center / cover no-repeat;"'
+    : '';
 ?>
 
   <main>
     <!-- Секция Hero -->
     <section class="aboutus-hero hero section-special section-decorated-dark" id="hero">
-      <div class="aboutus-hero__bg"></div>
+      <div class="aboutus-hero__bg"<?php echo $au_bg_style; ?>></div>
 
       <div class="aboutus-hero__wrapper container">
         <!-- Хлебные крошки — автоматические -->
         <?php questime_breadcrumbs(); ?>
         <div class="custom-games-hero__content">
-          <h1 class="custom-games-hero__title">About our team</h1>
+          <h1 class="custom-games-hero__title"><?php echo esc_html($au_title); ?></h1>
           <div class="aboutus-hero__image-wrap--mobile">
             <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/about-us-hero.png"
-              alt="People playing a custom game"
+              src="<?php echo esc_url($au_image); ?>"
+              alt="<?php echo esc_attr($au_image_alt); ?>"
               class="aboutus-hero__image"
             />
           </div>
           <div class="aboutus-hero__body">
             
-            <p>We believe that the greatest happiness is the happiness of communication and smart entertainment.</p>
+            <p><?php echo wp_kses_post($au_text); ?></p>
           </div>
 
           <div class="aboutus-hero__actions">
-            <a href="#" class="btn btn-secondary btn--orange">Request</a>
-            <a href="./assets/presentation.pdf" download="presentation.pdf" class="btn btn-secondary btn-download btn--transparent">Download the presentation</a>
+            <button
+              type="button"
+              class="btn btn-secondary btn--orange"
+              data-modal="request"
+            >
+              <?php echo esc_html($au_btn1_text); ?>
+            </button>
+            <?php if ($au_pdf) : ?>
+            <a
+              href="<?php echo esc_url($au_pdf); ?>"
+              download
+              class="btn btn-secondary btn-download btn--transparent"
+            >
+              <?php echo esc_html($au_btn2_text); ?>
+            </a>
+            <?php endif; ?>
           </div>
         </div>
 
         <div class="aboutus-hero__image-wrap">
           <img
-            src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/about-us-hero.png"
-            alt="People playing a custom game"
+            src="<?php echo esc_url($au_image); ?>"
+            alt="<?php echo esc_attr($au_image_alt); ?>"
             class="aboutus-hero__image"
           />
         </div>
@@ -357,6 +385,3 @@ get_header();
   </main>
 
   <?php get_footer(); ?>
-</body>
-
-</html>

@@ -3142,6 +3142,7 @@ nav a::after {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  z-index: 4;
 }
 
 .custom-games-hero__body {

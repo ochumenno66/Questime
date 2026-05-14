@@ -560,6 +560,3 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
 
 <?php get_footer(); ?>
 
-</body>
-
-</html>

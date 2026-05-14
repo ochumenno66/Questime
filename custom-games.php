@@ -344,5 +344,3 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
 <?php 
 get_footer();
 ?>
-  </body>
-</html>
