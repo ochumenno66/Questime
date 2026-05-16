@@ -18,6 +18,22 @@ $au_pdf        = get_field('au_hero_pdf')        ?: '';
 $au_bg_style = $au_bg
     ? ' style="background: linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)), linear-gradient(180deg, #191a18 0%, rgba(25, 26, 24, 0) 49.04%, #191a18 100%), url(\'' . esc_url($au_bg) . '\') center / cover no-repeat;"'
     : '';
+
+// Stats — данные из ACF
+// Карточка 1
+$s1_icon   = get_field('au_stats_1_icon') ?: get_template_directory_uri() . '/assets/icons/person-black-EP-AU.svg';
+$s1_number = get_field('au_stats_1_number') ?: '400 000 people';
+$s1_text   = get_field('au_stats_1_text') ?: 'played with us';
+
+// Карточка 2
+$s2_icon   = get_field('au_stats_2_icon') ?: get_template_directory_uri() . '/assets/icons/date-EP-AU.svg';
+$s2_number = get_field('au_stats_2_number') ?: '13 years';
+$s2_text   = get_field('au_stats_2_text') ?: 'experience';
+
+// Карточка 3
+$s3_icon   = get_field('au_stats_3_icon') ?: get_template_directory_uri() . '/assets/icons/format-black-EP-AU.svg';
+$s3_number = get_field('au_stats_3_number') ?: '10 000 events';
+$s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
 ?>
 
   <main>
@@ -76,23 +92,35 @@ $au_bg_style = $au_bg
       <div class="stats-au__wrapper container">
         <div class="stats-au__item">
           <div class="stats-au__card">
-            <img class="stats-au__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/person-black-EP-AU.svg" alt="Person">
-            <p class="stats-au__number">400 000 people</p>
-            <p class="stats-au__text">played with us</p>
+            <img class="stats-au__icon" src="<?php echo esc_url($s1_icon); ?>" alt="<?php echo esc_attr($s1_number); ?>">
+            <p class="stats-au__number">
+              <?php echo esc_html($s1_number); ?>
+            </p>
+            <p class="stats-au__text">
+              <?php echo esc_html($s1_text); ?>
+            </p>
           </div>
         </div>
         <div class="stats-au__item">
           <div class="stats-au__card">
-            <img class="stats-au__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/date-EP-AU.svg" alt="Date">
-            <p class="stats-au__number">13 years</p>
-            <p class="stats-au__text">experience</p>
+            <img class="stats-au__icon" src="<?php echo esc_url($s2_icon); ?>" alt="<?php echo esc_attr($s2_number); ?>">
+            <p class="stats-au__number">
+              <?php echo esc_html($s2_number); ?>
+            </p>
+            <p class="stats-au__text">
+              <?php echo esc_html($s2_text); ?>
+            </p>
           </div>
         </div>
         <div class="stats-au__item">
           <div class="stats-au__card">
-            <img class="stats-au__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/format-black-EP-AU.svg" alt="Format">
-            <p class="stats-au__number">10 000 events</p>
-            <p class="stats-au__text">for groups 6 – 800 people</p>
+            <img class="stats-au__icon" src="<?php echo esc_url($s3_icon); ?>" alt="<?php echo esc_attr($s3_number); ?>">
+            <p class="stats-au__number">
+              <?php echo esc_html($s3_number); ?>
+            </p>
+            <p class="stats-au__text">
+              <?php echo esc_html($s3_text); ?>
+            </p>
           </div>
         </div>
       </div>

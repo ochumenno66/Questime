@@ -3730,6 +3730,7 @@ nav a::after {
   text-align: center;
   background: url("../assets/images/roll-CG-AU.webp") center / 100% 100%
     no-repeat;
+  height: 280px;
 }
 
 .stats-au__icon {
@@ -4503,6 +4504,11 @@ nav a::after {
 
   .team__stat-label {
     line-height: 155%;
+  }
+
+  /* Stats */
+  .stats-au__card {
+    height: 180px;
   }
 
   /* Страница Custom Games */

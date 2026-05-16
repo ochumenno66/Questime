@@ -5,19 +5,19 @@
 $benefits_title = get_field('benefits_title') ?: 'Why us?';
 
 // Карточка 1
-$b1_icon = get_field('benefits_1_icon') ?: get_template_directory_uri() . '/assets/icons/benefits/loupe.svg';
+$b1_icon  = get_field('benefits_1_icon') ?: get_template_directory_uri() . '/assets/icons/benefits/loupe.svg';
 $b1_title = get_field('benefits_1_title') ?: 'Deep Historical Research';
-$b1_text = get_field('benefits_1_text') ?: 'We dig deeper than guidebooks — every story is carefully researched and historically accurate';
+$b1_text  = get_field('benefits_1_text') ?: 'We dig deeper than guidebooks — every story is carefully researched and historically accurate';
 
 // Карточка 2
-$b2_icon = get_field('benefits_2_icon') ?: get_template_directory_uri() . '/assets/icons/benefits/lamp.svg';
+$b2_icon  = get_field('benefits_2_icon') ?: get_template_directory_uri() . '/assets/icons/benefits/lamp.svg';
 $b2_title = get_field('benefits_2_title') ?: 'Smart Gamification';
-$b2_text = get_field('benefits_2_text') ?: 'We use elements from board games, RPGs, video games, and escape rooms to create experiences that are strategic, immersive, and fun';
+$b2_text  = get_field('benefits_2_text') ?: 'We use elements from board games, RPGs, video games, and escape rooms to create experiences that are strategic, immersive, and fun';
 
 // Карточка 3
-$b3_icon = get_field('benefits_3_icon') ?: get_template_directory_uri() . '/assets/icons/benefits/dart.svg';
+$b3_icon  = get_field('benefits_3_icon') ?: get_template_directory_uri() . '/assets/icons/benefits/dart.svg';
 $b3_title = get_field('benefits_3_title') ?: 'Cinematic Storytelling';
-$b3_text = get_field('benefits_3_text') ?: 'Our experiences are built like films — with tension, characters, and powerful narrative arcs';
+$b3_text  = get_field('benefits_3_text') ?: 'Our experiences are built like films — with tension, characters, and powerful narrative arcs';
 
 // Кнопка
 $benefits_btn_text = get_field('benefits_btn_text') ?: 'Learn More About Us';
