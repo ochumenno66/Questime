@@ -2302,6 +2302,7 @@ nav a::after {
   opacity: 0.4;
   z-index: 1;
   pointer-events: none;
+  mix-blend-mode: normal;
 }
 
 .hero-ep__container {
@@ -2403,6 +2404,7 @@ nav a::after {
   align-items: center;
   justify-content: center;
   min-height: clamp(72px, 15vw, 335px);
+  padding: clamp(16px, 2.5vw, 36px);
   box-shadow:
     inset 0 0 15px 6px rgba(181, 153, 90, 0.3),
     6px 11px 7px rgba(0, 0, 0, 0.25);
@@ -4890,11 +4892,11 @@ nav a::after {
   }
 
   .experience__img {
-    box-shadow: 0 10px 0 0 var(--color-orange);
+    box-shadow: -12px 10px 0 0 var(--color-orange);
   }
 
   .experience__row--img-first .experience__img {
-    box-shadow: 0 10px 0 0 var(--color-orange);
+    box-shadow: 12px 10px 0 0 var(--color-orange);
   }
 
   .experience__actions {
@@ -5592,11 +5594,11 @@ nav a::after {
   }
 
   .experience__img {
-    box-shadow: 0 8px 0 0 var(--color-orange);
+    box-shadow: -12px 8px 0 0 var(--color-orange);
   }
 
   .experience__row--img-first .experience__img {
-    box-shadow: 0 8px 0 0 var(--color-orange);
+    box-shadow: 12px 8px 0 0 var(--color-orange);
   }
 
   /* Quests */
