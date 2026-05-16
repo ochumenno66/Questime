@@ -509,6 +509,8 @@ nav a {
   position: relative;
 }
 
+
+
 nav a::after {
   content: "";
   position: absolute;
@@ -3369,15 +3371,15 @@ nav a::after {
   width: 100%;
 }
 
-.projects-card:nth-child(2) {
+.projects-card--2 {
   transform: translate(33%, 22%);
 }
 
-.projects-card:nth-child(3) {
+.projects-card--3 {
   transform: translateY(-29%);
 }
 
-.projects-card:nth-child(4) {
+.projects-card--4 {
   transform: translate(33%, 17%);
 }
 
@@ -3400,20 +3402,20 @@ nav a::after {
   object-fit: cover;
 }
 
-.projects-card:nth-child(1) .projects-card__photo {
+.projects-card--1 .projects-card__photo {
   top: 16.5%;
   left: 12.8%;
   transform: rotate(5deg);
 }
 
-.projects-card:nth-child(2) .projects-card__photo,
-.projects-card:nth-child(4) .projects-card__photo {
+.projects-card--2 .projects-card__photo,
+.projects-card--4 .projects-card__photo {
   top: 20%;
   left: 12.6%;
   transform: rotate(-5deg);
 }
 
-.projects-card:nth-child(3) .projects-card__photo {
+.projects-card--3 .projects-card__photo {
   top: 20%;
   left: 13%;
   transform: rotate(5deg);
@@ -3431,24 +3433,24 @@ nav a::after {
   color: var(--color-orange);
 }
 
-.projects-card:nth-child(1) .projects-card__caption {
+.projects-card--1 .projects-card__caption {
   bottom: 9.2%;
   left: 50%;
   transform: translateX(-51%) rotate(5deg);
 }
 
-.projects-card:nth-child(2) .projects-card__caption,
-.projects-card:nth-child(4) .projects-card__caption {
+.projects-card--2 .projects-card__caption,
+.projects-card--4 .projects-card__caption {
   bottom: 6.6%;
   left: 50%;
   transform: translateX(-47%) rotate(-5deg);
 }
 
-.projects-card:nth-child(4) .projects-card__caption {
+.projects-card--4 .projects-card__caption {
   bottom: 16%;
 }
 
-.projects-card:nth-child(3) .projects-card__caption {
+.projects-card--3 .projects-card__caption {
   bottom: 14.8%;
   left: 49%;
   transform: translateX(-51%) rotate(5deg);
@@ -3464,8 +3466,8 @@ nav a::after {
   flex-direction: column;
 }
 
-.projects-card:nth-child(2) .projects-card__paper,
-.projects-card:nth-child(4) .projects-card__paper {
+.projects-card--2 .projects-card__paper,
+.projects-card--4 .projects-card__paper {
   margin: 0 0 0 33px;
 }
 
@@ -3481,6 +3483,11 @@ nav a::after {
 .projects-card__list li {
   font-size: var(--font-secondary);
   line-height: 160%;
+}
+.projects-card__list a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.22s;
 }
 
 .projects-card__list li.hidden {
@@ -4111,7 +4118,7 @@ nav a::after {
 
   /* Страница Custom Games */
   /* PROJECTS */
-  .projects-card:nth-child(3) .projects-card__caption {
+  .projects-card--3 .projects-card__caption {
     bottom: 6.8%;
   }
 }
@@ -4526,24 +4533,24 @@ nav a::after {
     font-size: 14px;
   }
 
-  .projects-card:nth-child(1) .projects-card__caption {
+  .projects-card--1 .projects-card__caption {
     bottom: 12.2%;
   }
 
-  .projects-card:nth-child(2) .projects-card__caption {
+  .projects-card--2 .projects-card__caption {
     bottom: 14.6%;
   }
 
-  .projects-card:nth-child(4) .projects-card__caption {
+  .projects-card--4 .projects-card__caption {
     bottom: 16%;
   }
 
-  .projects-card:nth-child(3) .projects-card__caption {
+  .projects-card--3 .projects-card__caption {
     bottom: 14.8%;
   }
 
-  .projects-card:nth-child(2) .projects-card__paper,
-  .projects-card:nth-child(4) .projects-card__paper {
+  .projects-card--2 .projects-card__paper,
+  .projects-card--4 .projects-card__paper {
     margin: 0 0 0 22px;
   }
 
@@ -4635,7 +4642,7 @@ nav a::after {
   }
 
   /* Projects */
-  .projects-card:nth-child(2) .projects-card__caption {
+  .projects-card--2 .projects-card__caption {
     bottom: 7.6%;
   }
 
@@ -4923,31 +4930,31 @@ nav a::after {
     height: 242px;
   }
 
-  .projects-card:nth-child(1) {
+  .projects-card--1 {
     transform: translate(15%, 11%);
   }
 
-  .projects-card:nth-child(2) {
+  .projects-card--2 {
     transform: translate(28%, 43%);
   }
 
-  .projects-card:nth-child(3) {
+  .projects-card--3 {
     transform: translate(17%, -73%);
   }
 
-  .projects-card:nth-child(4) {
+  .projects-card--4 {
     transform: translate(27%, 44%);
   }
 
-  .projects-card:nth-child(1) .projects-card__caption {
+  .projects-card--1 .projects-card__caption {
     bottom: 8.2%;
   }
 
-  .projects-card:nth-child(2) .projects-card__caption {
+  .projects-card--2 .projects-card__caption {
     bottom: 5.6%;
   }
 
-  .projects-card:nth-child(3) .projects-card__caption {
+  .projects-card--3 .projects-card__caption {
     bottom: 5.6%;
   }
 
@@ -4955,8 +4962,8 @@ nav a::after {
     padding: 9px 0 0;
   }
 
-  .projects-card:nth-child(2) .projects-card__paper,
-  .projects-card:nth-child(4) .projects-card__paper {
+  .projects-card--2 .projects-card__paper,
+  .projects-card--4 .projects-card__paper {
     margin: 0 0 0 12px;
   }
 
@@ -5409,19 +5416,19 @@ nav a::after {
   }
 
   /* Projects */
-  .projects-card:nth-child(1) {
+  .projects-card--1 {
     transform: translate(0, 6%);
   }
 
-  .projects-card:nth-child(2) {
+  .projects-card--2 {
     transform: translate(19%, 32%);
   }
 
-  .projects-card:nth-child(3) {
+  .projects-card--3 {
     transform: translate(8%, -75%);
   }
 
-  .projects-card:nth-child(4) {
+  .projects-card--4 {
     transform: translate(15%, 43%);
   }
 
@@ -5510,15 +5517,15 @@ nav a::after {
 @media (max-width: 585px) {
   /* Страница Custom Games */
   /* Projects */
-  .projects-card:nth-child(2) {
+  .projects-card--2 {
     transform: translate(8%, 99%);
   }
 
-  .projects-card:nth-child(3) {
+  .projects-card--3 {
     transform: translate(0%, -46%);
   }
 
-  .projects-card:nth-child(4) {
+  .projects-card--4 {
     transform: translate(4%, 46%);
   }
 
@@ -5926,10 +5933,10 @@ nav a::after {
     position: relative;
   }
 
-  .projects-card:nth-child(1),
-  .projects-card:nth-child(2),
-  .projects-card:nth-child(3),
-  .projects-card:nth-child(4) {
+  .projects-card--1,
+  .projects-card--2,
+  .projects-card--3,
+  .projects-card--4 {
     transform: none;
   }
 
@@ -5938,20 +5945,20 @@ nav a::after {
     max-width: 280px;
   }
 
-  .projects-card:nth-child(2) .projects-card__paper,
-  .projects-card:nth-child(4) .projects-card__paper {
+  .projects-card--2 .projects-card__paper,
+  .projects-card--4 .projects-card__paper {
     margin: 0 0 0 14px;
   }
 
-  .projects-card:nth-child(1) .projects-card__caption {
+  .projects-card--1 .projects-card__caption {
     bottom: 10.2%;
   }
 
-  .projects-card:nth-child(2) .projects-card__caption {
+  .projects-card--2 .projects-card__caption {
     bottom: 7.6%;
   }
 
-  .projects-card:nth-child(3) .projects-card__caption {
+  .projects-card--3 .projects-card__caption {
     bottom: 7.6%;
   }
 
@@ -6270,6 +6277,10 @@ nav a::after {
 
   .schedule__event--orange .schedule__buy-btn:hover {
     background: var(--color-white);
+    color: var(--color-orange);
+  }
+
+  .projects-card__list a:hover {
     color: var(--color-orange);
   }
 }

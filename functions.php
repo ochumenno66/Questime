@@ -12,7 +12,7 @@ add_action('wp_enqueue_scripts', function () {
     ]);
 
     // Скрипты только для страницы event-page
-    if (is_page('event-page')) {
+    if (is_product()) {
         wp_enqueue_script('questime-event', get_template_directory_uri() . '/js/event.js', ['questime-main'], null, true);
         wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC2J-azecgmc3g6fPNXfMJL4tam2k89J5o&callback=initRouteMap&loading=async', [], null, true);
         }
@@ -118,8 +118,24 @@ function questime_breadcrumbs(): void {
     echo '<nav class="hero__breadcrumbs" aria-label="Breadcrumb">';
     echo '<a href="' . esc_url(home_url('/')) . '" class="breadcrumb__link">Main</a>';
 
-    // Страница с родителем
-    if (is_page()) {
+    // WooCommerce: страница товара
+    // Main → Gamified Tours → Название товара
+    if (function_exists('is_product') && is_product()) {
+        echo $sep;
+        echo '<a href="' . esc_url(home_url('/gamified-tours/')) . '" class="breadcrumb__link">Gamified Tours</a>';
+        echo $sep;
+        echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
+    
+    // CPT: Кейсы
+    // Main → Custom Games → Название кейса
+    } elseif (is_singular('quest_case')) {
+        echo $sep;
+        echo '<a href="' . esc_url(home_url('/custom-games/')) . '" class="breadcrumb__link">Custom Games</a>';
+        echo $sep;
+        echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
+
+    // Обычные страницы с родителем
+    } elseif (is_page()) {
         $page    = get_queried_object();
         $parents = array_reverse(get_post_ancestors($page));
 
@@ -158,3 +174,62 @@ function questime_breadcrumbs(): void {
 
     echo '</nav>';
 }
+
+
+// Убираем стандартные стили WooCommerce — используем свои
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+
+// Подключаем свой шаблон single-product вместо стандартного WooCommerce
+add_filter('woocommerce_locate_template', function ($template, $template_name) {
+    if ($template_name === 'single-product.php') {
+        $custom = get_template_directory() . '/single-product.php';
+        if (file_exists($custom)) {
+            return $custom;
+        }
+    }
+    return $template;
+}, 10, 2);
+
+// Поддержка WooCommerce в теме
+add_action('after_setup_theme', function () {
+    add_theme_support('woocommerce');
+});
+
+
+// Регистрация CPT: quest_case
+add_action('init', function () {
+    register_post_type('quest_case', [
+        'labels' => [
+            'name'               => 'Cases',
+            'singular_name'      => 'Case',
+            'add_new'            => 'Add Case',
+            'add_new_item'       => 'Add New Case',
+            'edit_item'          => 'Edit Case',
+            'view_item'          => 'View Case',
+            'search_items'       => 'Search Cases',
+            'not_found'          => 'No cases found',
+            'not_found_in_trash' => 'No cases in trash',
+        ],
+        'public'       => true,
+        'show_in_menu' => true,
+        'menu_icon'    => 'dashicons-portfolio',
+        'supports'     => ['title', 'thumbnail'],
+        'has_archive'  => false,
+        'rewrite'      => ['slug' => 'cases'],
+        'show_in_rest' => true,
+    ]);
+
+    // Таксономия категорий кейсов
+    register_taxonomy('case_category', 'quest_case', [
+        'labels' => [
+            'name'          => 'Case Categories',
+            'singular_name' => 'Case Category',
+            'add_new_item'  => 'Add New Category',
+            'edit_item'     => 'Edit Category',
+        ],
+        'public'       => true,
+        'hierarchical' => true,
+        'rewrite'      => ['slug' => 'case-category'],
+        'show_in_rest' => true,
+    ]);
+});

@@ -9,22 +9,8 @@ get_header(); ?>
     <!-- Секция Hero -->
     <section class="hero-ep" id="hero">
       <div class="container hero-ep__container">
-        <!-- Хлебные крошки -->
-        <nav class="hero__breadcrumbs" aria-label="Breadcrumb">
-          <a href="index.html" class="breadcrumb__link">Main</a>
-          <span class="breadcrumb__sep">
-            <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
-              <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
-            </svg>
-          </span>
-          <span><a href="gamified-tours.html" class="breadcrumb__link">Gamified tours</a></span>
-          <span class="breadcrumb__sep">
-            <svg width="15" height="13" viewBox="0 0 15 13" fill="none">
-              <path d="M0 6H12.25L7 0.75L7.66 0L14.16 6.5L7.66 13L7 12.25L12.25 7H0V6Z" fill="#E68345"/>
-            </svg>
-          </span>
-          <span class="breadcrumb__current">The Great Silent Era</span>
-        </nav>
+        <!-- Хлебные крошки — автоматические -->
+        <?php questime_breadcrumbs(); ?>
         <div class="hero-ep__compass">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/compass-EP.svg" alt="Compass" />
         </div>

@@ -18,7 +18,6 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
 ?>
 
     <main>
-      <!-- Секция Hero -->
       <section class="hero section-special section-decorated-dark custom-games-hero" id="hero">
         <div class="custom-games-hero__bg" style="background:
           linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
@@ -26,7 +25,6 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
           url('<?php echo esc_url($cg_bg); ?>') center / cover no-repeat;">
         </div>
         <div class="custom-games-hero__wrapper container">
-          <!-- Хлебные крошки — автоматические -->
           <?php questime_breadcrumbs(); ?>
           <div class="custom-games-hero__content">
             <h1 class="custom-games-hero__title"><?php echo esc_html($cg_title); ?></h1>
@@ -50,7 +48,6 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
 
             <div class="custom-games-hero__actions">
 
-              <!-- Кнопка 1 — открывает модалку -->
               <button
                 type="button"
                 class="btn btn-secondary btn--orange"
@@ -59,7 +56,6 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
                 <?php echo esc_html($cg_btn1_text); ?>
               </button>
 
-              <!-- Кнопка 2 — скачивание PDF, только если файл загружен -->
               <?php if ($cg_pdf) : ?>
               <a
                 href="<?php echo esc_url($cg_pdf); ?>"
@@ -121,23 +117,63 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
       </section>
       <!-- Секция Gallery -->
       <?php get_template_part('templates/gallery'); ?>
-      <!-- Секция Projects -->
+      <!-- Секция Projects (Cases) -->
       <section class="projects section-special projects-border-1 projects-border-2" id="projects">
         <div class="projects__scene container">
 
-          <div class="projects-card">
+          <?php
+          $categories = get_terms([
+              'taxonomy'   => 'case_category',
+              'hide_empty' => true,
+              'orderby'    => 'term_order',
+          ]);
+
+          if (!empty($categories) && !is_wp_error($categories)) :
+            $card_index = 1;
+            foreach ($categories as $cat) :
+
+              $cat_image = get_field('case_cat_image', 'case_category_' . $cat->term_id)
+                          ?: get_template_directory_uri() . '/assets/images/main/hero-2.jpg';
+
+              $frame_num = (($card_index - 1) % 4) + 1;
+
+              $cases = new WP_Query([
+                  'post_type'      => 'quest_case',
+                  'post_status'    => 'publish',
+                  'posts_per_page' => -1,
+                  'tax_query'      => [[
+                      'taxonomy' => 'case_category',
+                      'field'    => 'term_id',
+                      'terms'    => $cat->term_id,
+                  ]],
+                  'orderby' => 'menu_order',
+                  'order'   => 'ASC',
+              ]);
+          ?>
+
+          <div class="projects-card projects-card--<?php echo $card_index; ?>">
             <div class="projects-card__polaroid">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/project-card-1.png" alt="" class="projects-card__frame">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-2.jpg" alt="" class="projects-card__photo">
-              <p class="projects-card__caption">Escape games for cities, museums and cultural events</p>
+              <img
+                src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/project-card-<?php echo $frame_num; ?>.png"
+                alt=""
+                class="projects-card__frame"
+              >
+              <img
+                src="<?php echo esc_url($cat_image); ?>"
+                alt="<?php echo esc_attr($cat->name); ?>"
+                class="projects-card__photo"
+              >
+              <p class="projects-card__caption"><?php echo esc_html($cat->name); ?></p>
             </div>
+
+            <?php if ($cases->have_posts()) : ?>
             <div class="projects-card__paper">
               <ul class="projects-card__list">
-                <li>Montreal</li>
-                <li>Visible at the exhibition</li>
-                <li>Rijksmuseum</li>
-                <li>Museophily</li>
-                <li>Sports Museum</li>
+                <?php while ($cases->have_posts()) : $cases->the_post(); ?>
+                <li>
+                  <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                </li>
+                <?php endwhile; wp_reset_postdata(); ?>
               </ul>
               <button class="projects-card__toggle" aria-expanded="false">
                 <span class="projects-card__toggle-text">Expand the list</span>
@@ -146,70 +182,18 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
                 </svg>
               </button>
             </div>
+            <?php endif; ?>
           </div>
 
-          <div class="projects-card">
-            <div class="projects-card__polaroid">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/project-card-2.png" alt="" class="projects-card__frame">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-3.jpg" alt="" class="projects-card__photo">
-              <p class="projects-card__caption">Team buildings and corporate events</p>
-            </div>
-            <div class="projects-card__paper">
-              <ul class="projects-card__list">
-                <li>A visit for a shop</li>
-                <li>Chain Reaction for an IT company</li>
-                <li>Christmas Express for a transportation company</li>
-              </ul>
-              <button class="projects-card__toggle" aria-expanded="false">
-                <span class="projects-card__toggle-text">Expand the list</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 4V16.25L17.25 11L18 11.66L11.5 18.16L5 11.66L5.75 11L11 16.25V4H12Z" fill="#DEC884" />
-                </svg>
-              </button>
-            </div>
-          </div>
+          <?php
+              $card_index++;
+            endforeach;
+          else : ?>
+            <p>Cases coming soon!</p>
+          <?php endif; ?>
 
-          <div class="projects-card">
-            <div class="projects-card__polaroid">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/project-card-3.png" alt="" class="projects-card__frame">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-4.jpg" alt="" class="projects-card__photo">
-              <p class="projects-card__caption">Games and escapes for Marketing</p>
-            </div>
-            <div class="projects-card__paper">
-              <ul class="projects-card__list">
-                <li>Goals: employee education</li>
-                <li>Zombies</li>
-                <li>For a run</li>
-              </ul>
-              <button class="projects-card__toggle" aria-expanded="false">
-                <span class="projects-card__toggle-text">Expand the list</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 4V16.25L17.25 11L18 11.66L11.5 18.16L5 11.66L5.75 11L11 16.25V4H12Z" fill="#DEC884" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="projects-card">
-            <div class="projects-card__polaroid">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/project-card-4.png" alt="" class="projects-card__frame">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-3.jpg" alt="" class="projects-card__photo">
-              <p class="projects-card__caption">Serious games</p>
-            </div>
-            <div class="projects-card__paper">
-              <ul class="projects-card__list">
-                <li>Detective Lucas and Boo</li>
-                <li>Hardware store about recycling and ecology</li>
-              </ul>
-              <button class="projects-card__toggle" aria-expanded="false">
-                <span class="projects-card__toggle-text">Expand the list</span>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 4V16.25L17.25 11L18 11.66L11.5 18.16L5 11.66L5.75 11L11 16.25V4H12Z" fill="#DEC884" />
-                </svg>
-              </button>
-            </div>
-          </div>
         </div>
+
         <div class="projects__btn">
           <div class="projects__btn-card">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-portfolio-CG.svg" alt="" class="projects__btn-border">
@@ -220,6 +204,8 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
           </div>
         </div>
       </section>
+
+
       <!-- Секция Form -->
       <section class="contact-form contact-form-cg section-special" id="contact-form">
         <div class="container">

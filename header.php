@@ -7,7 +7,7 @@
 </head>
 <body <?php body_class(); ?>>
 
-<header id="header" class="header">
+<header id="header" class="header <?php echo (is_product() || is_singular('quest_case') || is_404()) ? 'decorated-dark-header' : ''; ?>">
   <div class="header__wrapper container">
     <?php if (has_custom_logo()) : ?>
       <?php the_custom_logo(); ?>
