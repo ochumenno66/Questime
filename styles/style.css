@@ -509,8 +509,6 @@ nav a {
   position: relative;
 }
 
-
-
 nav a::after {
   content: "";
   position: absolute;
@@ -1647,6 +1645,25 @@ nav a::after {
   width: auto;
   display: block;
   object-fit: cover;
+}
+
+.gallery-single {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Отступ сверху когда стоит только одно фото */
+.section-top--offset {
+  margin-top: clamp(40px, 5.47vw, 80px);
+}
+
+.gallery-single img {
+  width: 100%;
+  max-width: 1400px;
+  height: clamp(300px, 41vw, 600px);
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* Testimonials */

@@ -72,7 +72,7 @@ get_header();
         </div>
         </section>
         <!-- Секция Gallery -->
-        <?php get_template_part('templates/gallery'); ?>
+        <?php get_template_part('templates/gallery');?>
         <!-- Секция Experiences -->
         <section class="experience section-special" id="experience">
         <h2 class="team__title text-align">The name of case</h2>
