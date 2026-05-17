@@ -1,33 +1,65 @@
-<?php 
+<?php
 /*
 Template Name: Team Building
 */
 
-get_header(); ?>
+get_header();
+
+$whatsapp = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
+
+$tb_hero_bg  = get_field('tb_hero_bg')         ?: get_template_directory_uri() . '/assets/images/team-building/tb-hero.webp';
+$tb_tagline  = get_field('tb_hero_tagline')    ?: 'On-site, cafe, outdoor and online';
+$tb_accent_1 = get_field('tb_hero_accent_1')   ?: 'UNFORGETTABLE';
+$tb_text_1   = get_field('tb_hero_text_1')     ?: 'mysteries';
+$tb_accent_2 = get_field('tb_hero_accent_2')   ?: 'YOUR TEAM';
+$tb_text_2   = get_field('tb_hero_text_2')     ?: 'solves';
+$tb_accent_3 = get_field('tb_hero_accent_3')   ?: 'TOGETHER!';
+$tb_subtitle = get_field('tb_hero_subtitle')   ?: 'for groups of 6–120 people';
+$tb_btn_text = get_field('tb_hero_btn_text')   ?: 'Contact us';
+?>
 
   <main>
     <!-- Секция Hero -->
     <section class="hero hero-tb section-special section-decorated-dark" id="hero">
-      <div class="hero-tb--img"></div>
+      <div class="hero-tb--img" style="background-image: url('<?php echo esc_url($tb_hero_bg); ?>');"></div>
       <div class="hero-tb__wrapper container">
-        <!-- Хлебные крошки — автоматические -->
         <?php questime_breadcrumbs(); ?>
         <div class="hero-tb__content text-align">
-          <p class="hero-tb__tagline">On-site, cafe, outdoor and online</p>
+          <p class="hero-tb__tagline">
+            <?php echo esc_html($tb_tagline); ?>
+          </p>
           <h1 class="hero-tb__title">
-            <span class="hero-tb__accent">UNFORGETTABLE</span> mysteries<br />
-            <span class="hero-tb__accent">YOUR TEAM</span> solves
-            <span class="hero-tb__accent">TOGETHER!</span>
+            <span class="hero-tb__accent">
+              <?php echo esc_html($tb_accent_1); ?>
+            </span>
+            <?php echo esc_html($tb_text_1); ?><br>
+            <span class="hero-tb__accent">
+              <?php echo esc_html($tb_accent_2); ?>
+            </span>
+            <?php echo esc_html($tb_text_2); ?>
+            <span class="hero-tb__accent">
+              <?php echo esc_html($tb_accent_3); ?>
+            </span>
           </h1>
-          <p class="hero-tb__subtitle">for groups of 6–120 people</p>
+          <p class="hero-tb__subtitle">
+            <?php echo esc_html($tb_subtitle); ?>
+          </p>
           <div class="hero-tb__actions">
-            <a class="btn btn-secondary btn--orange hero-tb__btn" href="#contact">Contact us</a>
+            <a class="btn btn-secondary btn--orange hero-tb__btn" href="<?php echo esc_url($whatsapp); ?>" target="_blank">
+              <?php echo esc_html($tb_btn_text); ?>
+            </a>
           </div>
         </div>
         <a class="hero-tb__reviews reviews-badge" href="#reviews">
-          <span class="reviews-badge__label">Google Reviews</span>
-          <span class="reviews-badge__stars" aria-label="4.9 out of 5 stars">★★★★★</span>
-          <span class="reviews-badge__score">4.9 (500+)</span>
+          <span class="reviews-badge__label">
+            Google Reviews
+          </span>
+          <span class="reviews-badge__stars" aria-label="4.9 out of 5 stars">
+            ★★★★★
+          </span>
+          <span class="reviews-badge__score">
+            4.9 (500+)
+          </span>
         </a>
       </div>
     </section>
