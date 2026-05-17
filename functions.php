@@ -14,8 +14,11 @@ add_action('wp_enqueue_scripts', function () {
     // Скрипты только для страницы event-page
     if (is_product()) {
         wp_enqueue_script('questime-event', get_template_directory_uri() . '/js/event.js', ['questime-main'], null, true);
-        wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC2J-azecgmc3g6fPNXfMJL4tam2k89J5o&callback=initRouteMap&loading=async', [], null, true);
+        $maps_key = get_theme_mod('google_maps_api_key', '');
+        if ($maps_key) {
+            wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $maps_key . '&callback=initRouteMap&loading=async', [], null, true);
         }
+    }
 });
 
 add_action('after_setup_theme', function () {
@@ -31,7 +34,7 @@ add_action('wp_head', function () {
     echo '<link rel="shortcut icon" href="' . $uri . '/assets/favicon/favicon.ico">' . "\n";
 });
 
-// КАСТОМАЙЗЕР — социальные сети (иконка + ссылка, до 4 штук)
+// КАСТОМАЙЗЕР — социальные сети (иконка + ссылка, до 4 штук) + Google maps api ключ
 add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 
     $wp_customize->add_panel('questime_socials_panel', [
@@ -78,6 +81,23 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
             'type'    => 'text',
         ]);
     }
+
+    $wp_customize->add_section('questime_api_section', [
+        'title'    => 'API ключи',
+        'priority' => 31,
+    ]);
+
+    $wp_customize->add_setting('google_maps_api_key', [
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control('google_maps_api_key', [
+        'label'   => 'Google Maps API ключ',
+        'section' => 'questime_api_section',
+        'type'    => 'text',
+    ]);
 });
 
 

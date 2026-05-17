@@ -3,6 +3,36 @@
 Template Name: Event page
 */
 
+$route_enabled     = get_field('route_enabled');
+$route_text_before = get_field('route_text_before') ?: '';
+$route_text_after  = get_field('route_text_after')  ?: '';
+
+$route_points = [];
+for ($i = 1; $i <= 10; $i++) {
+    $label = get_field("route_point_{$i}_label") ?: '';
+    $lat   = get_field("route_point_{$i}_lat")   ?: '';
+    $lng   = get_field("route_point_{$i}_lng")   ?: '';
+    $desc  = get_field("route_point_{$i}_desc")  ?: '';
+
+    if (empty($lat) || empty($lng)) {
+        continue;
+    }
+
+    $route_points[] = [
+        'label' => $label ?: "Point {$i}",
+        'lat'   => (float) $lat,
+        'lng'   => (float) $lng,
+        'desc'  => $desc,
+    ];
+}
+
+// Передаём данные каты в JS
+add_action('wp_footer', function() use ($route_points) {
+    if (!empty($route_points)) {
+        echo '<script>window.routePointsData = ' . wp_json_encode($route_points) . ';</script>';
+    }
+}, 1);
+
 get_header(); ?>
 
   <main>
@@ -136,15 +166,33 @@ get_header(); ?>
       </div>
     </section>
     <!-- Секция Route -->
+    <?php if ($route_enabled && !empty($route_points)) : ?>
     <section class="route section-special" id="route">
       <h2 class="route__title text-align">Route</h2>
       <div class="route__body container">
-        <div class="route__points" id="routePointList"></div>
+
+        <div class="route__points-wrap">
+          <?php if ($route_text_before) : ?>
+          <p class="route__text route__text--before">
+            <?php echo wp_kses_post($route_text_before); ?>
+          </p>
+          <?php endif; ?>
+
+          <div class="route__points" id="routePointList"></div>
+
+          <?php if ($route_text_after) : ?>
+          <p class="route__text route__text--after">
+            <?php echo wp_kses_post($route_text_after); ?>
+          </p>
+          <?php endif; ?>
+        </div>
+
         <div class="route__map">
           <div id="map"></div>
         </div>
       </div>
     </section>
+    <?php endif; ?>
     <!-- Секция Persons -->
     <section class="persons section-special" id="persons">
       <div class="container">

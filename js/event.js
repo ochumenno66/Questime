@@ -1,16 +1,16 @@
-const routePoints = [
-  { label: "Point 1", lat: 52.3740, lng: 4.9090, info: "Anne Frank House" },
-  { label: "Point 2", lat: 52.3731, lng: 4.8978, info: "Royal Palace Amsterdam" },
-  { label: "Point 3", lat: 52.3667, lng: 4.9040, info: "Rijksmuseum" },
-  { label: "Point 4", lat: 52.3600, lng: 4.9150, info: "Rembrandt House Museum" },
-  { label: "Point 5", lat: 52.3663, lng: 4.9455, info: "NEMO Science Museum" },
-];
+// Данные точек передаются из PHP через window.routePointsData
+// Фоллбэк на пустой массив если данных нет
+const routePoints = window.routePointsData || [];
 
 let routeMap, routeMarkers = [], routeInfoWindows = [], routeActiveIdx = null;
 
 function initRouteMap() {
+  if (!routePoints.length) return;
+
+  const center = { lat: routePoints[0].lat, lng: routePoints[0].lng };
+
   routeMap = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 52.370, lng: 4.920 },
+    center,
     zoom: 13,
     mapTypeControl: false,
     streetViewControl: false,
@@ -31,7 +31,7 @@ function initRouteMap() {
     });
 
     const iw = new google.maps.InfoWindow({
-      content: `<div style="font-family:sans-serif;font-size:13px;padding:2px 4px">${p.info}</div>`
+      content: `<div style="font-family:sans-serif;font-size:13px;padding:2px 4px">${p.label}</div>`
     });
 
     routeInfoWindows.push(iw);
@@ -41,13 +41,22 @@ function initRouteMap() {
     const row = document.createElement("div");
     row.className = "route__point";
     row.dataset.idx = i;
+
+    const descHtml = p.desc
+      ? `<div class="route__point-desc">${p.desc}</div>`
+      : '';
+
     row.innerHTML = `
-      <svg class="route__point-icon" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#e58345" stroke-width="1.5"/>
-        <circle cx="12" cy="9" r="2.5" stroke="#e58345" stroke-width="1.5"/>
-      </svg>
-      <span class="route__point-label">${p.label}</span>
+      <div class="route__point-header">
+        <svg class="route__point-icon" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#e58345" stroke-width="1.5"/>
+          <circle cx="12" cy="9" r="2.5" stroke="#e58345" stroke-width="1.5"/>
+        </svg>
+        <span class="route__point-label">${p.label}</span>
+      </div>
+      ${descHtml}
     `;
+
     row.addEventListener("click", () => activateRoutePoint(i));
     list.appendChild(row);
   });

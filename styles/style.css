@@ -2589,8 +2589,8 @@ nav a::after {
 
 .route__point {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
+  
   cursor: pointer;
   padding: 8px 12px;
   border-radius: 8px;
@@ -2606,6 +2606,8 @@ nav a::after {
 .route__point-label {
   font-family: var(--second-family);
   transition: color 0.2s;
+  line-height: 155%;
+  font-size: 18px;
 }
 
 .route__point.active .route__point-label {
@@ -2623,6 +2625,29 @@ nav a::after {
   width: 100%;
   height: 100%;
 }
+
+.route__text {
+  color: grey;
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.route__text--after {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.route__point-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* .route__point-desc {
+  padding: 8px 0 0 32px;
+  font-size: var(--font-secondary);
+} */
 
 /* Person */
 .persons__list {
