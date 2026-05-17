@@ -300,20 +300,7 @@ get_header(); ?>
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
   <!-- Секция CTA -->
-  <section class="cta cta--event-page section-special decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
-    <div class="cta__overlay"></div>
-    <div class="container">
-      <div class="cta__inner">
-        <h2 class="cta__title">
-          <span class="cta__title-orange">Turn</span><span class="cta__title-white"> your team building and outings
-            into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
-          <span class="cta__title-white">!</span>
-        </h2>
-        <a href="<?php echo get_template_directory_uri(); ?>/assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
-          download="Questime_Presentation">Download PDF</a>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/cta'); ?>
   <!-- Секция Quests -->
   <section class="quests section-special" id="quests">
     <div class="container">
