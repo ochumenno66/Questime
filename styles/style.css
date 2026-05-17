@@ -834,6 +834,10 @@ nav a::after {
   color: var(--color-white);
 }
 
+.hero-title span:last-child {
+  white-space: nowrap;
+}
+
 .hero-tagline {
   display: flex;
   align-items: baseline;
