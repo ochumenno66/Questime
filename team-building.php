@@ -32,59 +32,7 @@ get_header(); ?>
     </div>
   </section>
   <!-- Секция Experience -->
-  <section class="experience section-special" id="experience">
-    <div class="container">
-      <div class="experience__row">
-        <div class="experience__col--text">
-          <p class="experience__p">We design <span class="text-orange">immersive game experiences</span> that go far beyond standard team events.<br>
-            Our formats include detective games, quizzes, story-driven costume parties, city games, and escape-room mechanics — and sometimes all of them combined in one event.</p>
-          <p class="experience__p">We organise games <span class="text-orange">anywhere in the Netherlands</span>.</p>
-        </div>
-        <div class="experience__col--img">
-          <div class="experience__img-wrapper">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-1.webp" alt="Team building experience" class="experience__img" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-
-      <div class="experience__row experience__row--img-first">
-        <div class="experience__col--img">
-          <div class="experience__img-wrapper">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-2.webp" alt="Team building activity" class="experience__img" loading="lazy" decoding="async">
-          </div>
-        </div>
-        <div class="experience__col--gains">
-          <h3 class="experience__gains-title">What your team gains:</h3>
-          <ul class="experience__list">
-            <li class="experience__item">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
-              Memorable emotions and shared experiences
-            </li>
-            <li class="experience__item">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
-              A boost to problem-solving skills and emotional intelligence
-            </li>
-            <li class="experience__item">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
-              Real interaction, not passive entertainment
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="experience__row">
-        <div class="experience__col--text">
-          <p class="experience__p">All events are led by experienced and charismatic Game Masters who guide the story and keep the energy high.</p>
-          <p class="experience__p">We bring all materials, props and music.</p>
-        </div>
-        <div class="experience__col--img">
-          <div class="experience__img-wrapper">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-3.webp" alt="Team event" class="experience__img" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/experience-case-product'); ?>
   <!-- Секция Stats -->
   <?php get_template_part('templates/stats'); ?>
   <!-- Секция Quests -->
