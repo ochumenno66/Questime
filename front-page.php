@@ -301,20 +301,7 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
   <!-- Секция CTA -->
-  <section class="cta section-special decorated-light-cta decorated-dark-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
-    <div class="cta__overlay"></div>
-    <div class="container">
-      <div class="cta__inner">
-        <h2 class="cta__title cta__main-title">
-          <span class="cta__title-orange">City turns</span><span class="cta__title-white"> into a </span><span
-            class="cta__title-orange">gameboard.</span><br>
-          <span class="cta__title-white">Are you ready to play?</span>
-        </h2>
-        <h3 class="cta__desc">Gamified adventures in the heart of the Netherlands</h3>
-        <a class="btn btn-secondary cta__btn btn--transparent">Download Our Presentation</a>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/cta'); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Testimonials -->
