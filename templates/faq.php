@@ -4,7 +4,7 @@
     Template Part: faq
 */
 
-    $faq_title = get_field('faq_title');
+    $faq_title = get_field('faq_title') ?: 'FAQ';
     ?>
 
   <section class="faq section-special" id="faq">
