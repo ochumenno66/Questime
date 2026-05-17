@@ -82,6 +82,24 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         ]);
     }
 
+    // Контакты
+    $wp_customize->add_section('questime_contacts_section', [
+        'title'    => 'Контакты',
+        'priority' => 31,
+    ]);
+
+    $wp_customize->add_setting('whatsapp_url', [
+        'default'           => 'https://wa.me/31635640923',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control('whatsapp_url', [
+        'label'   => 'WhatsApp ссылка',
+        'section' => 'questime_contacts_section',
+        'type'    => 'url',
+    ]);
+
     $wp_customize->add_section('questime_api_section', [
         'title'    => 'API ключи',
         'priority' => 31,

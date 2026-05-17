@@ -3,6 +3,8 @@
 Template Name: Gamified Tours
 */
 
+$whatsapp = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
+
 get_header(); ?>
 
   <main>
@@ -140,7 +142,7 @@ get_header(); ?>
                   // ACF поля
                   $btn1_text    = get_field('quest_btn_schedule_text') ?: 'View Schedule';
                   $btn2_text    = get_field('quest_btn_private_text')  ?: 'Book a Private Tour';
-                  $whatsapp_url = get_field('quest_btn_whatsapp_url') ?: 'https://wa.me/31635640923';
+                  $whatsapp_url = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
                   
                   // Теги из атрибутов WooCommerce
                   $tags = [];
