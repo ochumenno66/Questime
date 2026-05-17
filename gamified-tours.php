@@ -289,28 +289,7 @@ get_header(); ?>
     </div>
   </section>
   <!-- Секция CTA -->
-  <section class="cta section-special cta--gamified decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
-    <div class="cta__overlay"></div>
-    <div class="container">
-      <div class="cta__inner">
-        <h2 class="cta__title">
-          <span class="cta__line">
-            <span class="cta__title-orange">Say goodbye</span>
-            <span class="cta__title-white">to boring sightseeing.</span>
-          </span>
-          <span class="cta__line">
-            <span class="cta__title-orange">Connect</span>
-            <span class="cta__title-white">with the city.</span>
-          </span>
-          <span class="cta__line">
-            <span class="cta__title-orange">Connect</span>
-            <span class="cta__title-white">with </span>
-            <span class="cta__title-orange">each other!</span>
-          </span>
-        </h2>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/cta'); ?>
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
   <!-- Секция Form -->
