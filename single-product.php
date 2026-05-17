@@ -37,70 +37,7 @@ get_header(); ?>
 
 <main>
   <!-- Секция Hero -->
-  <section class="hero-ep" id="hero">
-    <div class="container hero-ep__container">
-      <!-- Хлебные крошки — автоматические -->
-      <?php questime_breadcrumbs(); ?>
-      <div class="hero-ep__compass">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/compass-EP.svg" alt="Compass" />
-      </div>
-      <div class="hero-ep__content">
-        <div class="hero-ep__tags">
-          <span class="hero-ep__tag">Immersive Theatre</span>
-          <span class="hero-ep__tag">Team building</span>
-          <span class="hero-ep__tag">Murder Mystery</span>
-        </div>
-
-        <div class="hero-ep__text">
-          <h1 class="hero-ep__title">The Great Silent Era</h1>
-          <p class="hero-ep__subtitle">Roaring 1920s.</p>
-          <p class="hero-ep__description">
-            Hollywood is booming, the parties are legendary — and a shocking crime has just been committed at a film
-            studio. Your team is called in as a group of detectives.
-          </p>
-        </div>
-      </div>
-
-      <div class="hero-ep__features">
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/person-black-EP-AU.svg" alt="players" />
-          </div>
-          <p class="feature-card__value">10-150</p>
-          <p class="feature-card__label">players</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/date-EP-AU.svg" alt="duration" />
-          </div>
-          <p class="feature-card__value">120min</p>
-          <p class="feature-card__label">Duration</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/language-black.svg" alt="language" />
-          </div>
-          <p class="feature-card__value">English</p>
-          <p class="feature-card__label">Language</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-card__icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/format-black-EP-AU.svg" alt="format" />
-          </div>
-          <p class="feature-card__value">Online</p>
-          <p class="feature-card__label">Format</p>
-
-          <div class="hero-ep__loupe">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/loupe.svg" alt="loupe" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/hero-case-product'); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Experience -->
