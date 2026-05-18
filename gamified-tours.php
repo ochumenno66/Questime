@@ -74,9 +74,9 @@ get_header(); ?>
           <a class="btn btn-secondary btn--orange hero-gt__btn" href="<?php echo esc_url(home_url('/schedule/')); ?>">
             <?php echo esc_html($gt_btn_1_text); ?>
           </a>
-          <a class="btn btn-secondary btn--transparent hero-gt__btn" href="<?php echo esc_url($whatsapp); ?>" target="_blank">
+          <button class="btn btn-secondary btn--transparent hero-gt__btn open-modal" type="button" data-modal-open>
             <?php echo esc_html($gt_btn_2_text); ?>
-          </a>
+          </button>
         </div>
       </div>
       <?php

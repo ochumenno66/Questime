@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTestimonialsSwiper();
   window.addEventListener("resize", initTestimonialsSwiper);
 
-  // Form
+  // Form выпадающий список
   document.querySelectorAll(".custom-select").forEach((select) => {
     const trigger = select.querySelector(".custom-select__trigger");
     const valueEl = select.querySelector(".custom-select__value");
@@ -355,6 +355,52 @@ document.addEventListener("DOMContentLoaded", () => {
         select.classList.remove("is-open");
       }
     });
+  });
+
+  // Модальное окно
+  const modal = document.getElementById('requestModal');
+  const modalOverlay = document.getElementById('requestModalOverlay');
+  const modalClose = document.getElementById('requestModalClose');
+
+  const openModalButtons = document.querySelectorAll('.open-modal');
+
+  function openModal() {
+    if (!modal) return;
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal() {
+    if (!modal) return;
+
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+
+    document.body.classList.remove('modal-open');
+  }
+
+  openModalButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener('click', closeModal);
+  }
+
+  if (modalClose) {
+    modalClose.addEventListener('click', closeModal);
+  }
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      closeModal();
+    }
   });
 
   //FAQ
