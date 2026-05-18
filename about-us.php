@@ -125,136 +125,73 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
   <?php get_template_part('templates/experience-case-product'); ?>
   <!-- Секция Team -->
   <section class="team section-special" id="team">
-    <h2 class="team__title text-align">Our Team</h2>
+    <?php if (get_field('team_heading')) : ?>
+      <h2 class="team__title text-align">
+        <?php the_field('team_heading'); ?>
+      </h2>
+    <?php endif; ?>
     <div class="team__list">
-      <div class="team__member">
-        <div class="container">
-          <div class="team__photo-wrap">
-            <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/mark.webp" alt="Mark Minskii" />
-          </div>
-          <div class="team__info">
-            <h3 class="team__name">Mark Minskii</h3>
-            <div class="team__bio-wrapper">
-              <p class="team__bio">Questime isn't just a business for me: it's an opportunity to make the people who
-                play our quests a little happier, more fun, and smarter. Hosting games is a great pleasure for me. I'm
-                also a versatile presenter :)) I work with a variety of audiences, from corporate clients to children.
-              </p>
-              <p class="team__bio">About me: I graduated from Moscow State University and the Plekhanov Russian
-                University of Economics, and previously headed marketing departments at several large companies. I've
-                also developed training courses on presentations and public speaking.</p>
+
+      <?php for ($i = 1; $i <= 4; $i++) :
+        $photo = get_field("team_member_{$i}_photo");
+        $name = get_field("team_member_{$i}_name");
+        $bio = get_field("team_member_{$i}_bio");
+        $years = get_field("team_member_{$i}_years");
+        $plays = get_field("team_member_{$i}_plays");
+        $projects = get_field("team_member_{$i}_projects");
+        if (!$name) {
+          continue;
+        }
+        $reverse_class = ($i % 2 === 0) ? 'team__member--reverse' : '';
+      ?>
+
+        <div class="team__member <?php echo $reverse_class; ?>">
+          <div class="container">
+            <div class="team__photo-wrap">
+              <?php if ($photo) : ?>
+                <img
+                  class="team__photo"
+                  src="<?php echo esc_url($photo['url']); ?>"
+                  alt="<?php echo esc_attr($name); ?>">
+              <?php endif; ?>
             </div>
-            <div class="team__stats">
-              <div class="team__stat">
-                <span class="team__stat-value">10</span>
-                <span class="team__stat-label">years</span>
+            <div class="team__info">
+              <h3 class="team__name">
+                <?php echo esc_html($name); ?>
+              </h3>
+              <div class="team__bio-wrapper">
+                <?php echo wp_kses_post($bio); ?>
               </div>
-              <div class="team__stat">
-                <span class="team__stat-value">500</span>
-                <span class="team__stat-label">plays</span>
-              </div>
-              <div class="team__stat">
-                <span class="team__stat-value">50</span>
-                <span class="team__stat-label">projects</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="team__member team__member--reverse">
-        <div class="container">
-          <div class="team__photo-wrap">
-            <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/natalia.webp" alt="Natalia Minskaia" />
-          </div>
-          <div class="team__info">
-            <h3 class="h3 team__name">Natalia Minskaia</h3>
-            <div class="team__bio-wrapper">
-              <p class="team__bio">A quest author, she graduated from the Gerasimov Institute of Cinematography (VGIK)
-                and the USC School of Screenwriting. She writes screenplays, plays, and short stories. Natasha's
-                personal blog about games, quests, and creativity is <a class="team__link"
-                  href="http://www.rubikam.ru" target="_blank">www.rubikam.ru</a>.</p>
-            </div>
-            <div class="team__stats">
-              <div class="team__stat">
-                <span class="team__stat-value">10</span>
-                <span class="team__stat-label">years</span>
-              </div>
-              <div class="team__stat">
-                <span class="team__stat-value">500</span>
-                <span class="team__stat-label">plays</span>
-              </div>
-              <div class="team__stat">
-                <span class="team__stat-value">50</span>
-                <span class="team__stat-label">projects</span>
+              <div class="team__stats">
+                <?php if ($years) : ?>
+                  <div class="team__stat">
+                    <span class="team__stat-value">
+                      <?php echo esc_html($years); ?>
+                    </span>
+                    <span class="team__stat-label">years</span>
+                  </div>
+                <?php endif; ?>
+                <?php if ($plays) : ?>
+                  <div class="team__stat">
+                    <span class="team__stat-value">
+                      <?php echo esc_html($plays); ?>
+                    </span>
+                    <span class="team__stat-label">plays</span>
+                  </div>
+                <?php endif; ?>
+                <?php if ($projects) : ?>
+                  <div class="team__stat">
+                    <span class="team__stat-value">
+                      <?php echo esc_html($projects); ?>
+                    </span>
+                    <span class="team__stat-label">projects</span>
+                  </div>
+                <?php endif; ?>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="team__member">
-        <div class="container">
-          <div class="team__photo-wrap">
-            <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Maria Boriskina" />
-          </div>
-          <div class="team__info">
-            <h3 class="h3 team__name">Maria Boriskina</h3>
-            <div class="team__bio-wrapper">
-              <p class="team__bio">It was like an electric shock, like love at first sight. I was hooked on quests
-                from
-                the very first game, and I knew they were 100% my thing. For me, every game is a stunning performance
-                with brilliant actors. Everyone can discover qualities within themselves they might not have
-                previously
-                suspected. My goal is to help you with this. They offer something so desperately lacking in everyday
-                life—a thrill, new experiences. In our saturated age, that's especially relevant, don't you think?</p>
-            </div>
-            <div class="team__stats">
-              <div class="team__stat">
-                <span class="team__stat-value">10</span>
-                <span class="team__stat-label">years</span>
-              </div>
-              <div class="team__stat">
-                <span class="team__stat-value">500</span>
-                <span class="team__stat-label">plays</span>
-              </div>
-              <div class="team__stat">
-                <span class="team__stat-value">50</span>
-                <span class="team__stat-label">projects</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="team__member team__member--reverse">
-        <div class="container">
-          <div class="team__photo-wrap">
-            <img class="team__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Jan" />
-          </div>
-          <div class="team__info">
-            <h3 class="h3 team__name">Jan</h3>
-            <div class="team__bio-wrapper">
-              <p class="team__bio">A few words about myself: a financier by profession, a prankster by vocation. A
-                versatile host, co-host, and drinking buddy, depending on the situation.</p>
-              <p class="team__bio">A showman, toastmaster, "foe, chatterbox, and laugher" all rolled into one. If
-                you're
-                planning a corporate event, a birthday party, a wedding, or the funeral of an unkissed neighbor, and
-                you'd like to make the day unforgettable and unique, then don't hesitate to give us a call.</p>
-            </div>
-            <div class="team__stats">
-              <div class="team__stat">
-                <span class="team__stat-value">10</span>
-                <span class="team__stat-label">years</span>
-              </div>
-              <div class="team__stat">
-                <span class="team__stat-value">500</span>
-                <span class="team__stat-label">plays</span>
-              </div>
-              <div class="team__stat">
-                <span class="team__stat-value">50</span>
-                <span class="team__stat-label">projects</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php endfor; ?>
     </div>
   </section>
   <!-- Секция Subscribe -->
