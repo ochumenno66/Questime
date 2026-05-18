@@ -4,35 +4,88 @@ Template Name: Gamified Tours
 */
 
 $whatsapp = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
+$reviews_rating = get_theme_mod('reviews_rating', '4.9');
+$reviews_count  = get_theme_mod('reviews_count', '500+');
+$reviews_label  = get_theme_mod('reviews_label', 'Google Reviews');
+$reviews_url    = get_theme_mod('reviews_url', '');
+
+$gt_hero_bg       = get_field('gt_hero_bg')         ?: get_template_directory_uri() . '/assets/images/gamifiedTours/gt-hero.webp';
+$gt_text_1        = get_field('gt_hero_text_1')     ?: 'What if';
+$gt_accent_text_1 = get_field('gt_hero_accent_1')   ?: 'HISTORY';
+$gt_text_2        = get_field('gt_hero_text_2')     ?: 'and';
+$gt_accent_text_2 = get_field('gt_hero_accent_2')   ?: 'CULTURE';
+$gt_text_3        = get_field('gt_hero_text_3')     ?: 'were as';
+$gt_accent_text_3 = get_field('gt_hero_accent_3')   ?: 'THRILLING';
+$gt_text_4        = get_field('gt_hero_text_4')     ?: 'as Netflix —';
+$gt_text_5        = get_field('gt_hero_text_5')     ?: 'and as immersive as a video';
+$gt_text_6        = get_field('gt_hero_text_6')     ?: 'game?';
+$gt_subtitle      = get_field('gt_hero_subtitle')   ?: 'for families, teens & adults';
+$gt_btn_1_text    = get_field('gt_hero_btn_1_text') ?: 'Small group schedule';
+$gt_btn_2_text    = get_field('gt_hero_btn_2_text') ?: 'Order private tour';
 
 get_header(); ?>
 
 <main>
   <!-- Секция Hero -->
   <section class="hero hero-gt section-special section-decorated-dark" id="hero">
-    <div class="hero-gt--img"></div>
+    <div class="hero-gt--img" style="
+      background:
+      linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+      linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+      url('<?php echo esc_url($gt_hero_bg); ?>') center / cover no-repeat;">
+    </div>
     <div class="hero-gt__wrapper container">
-      <!-- Хлебные крошки — автоматические -->
       <?php questime_breadcrumbs(); ?>
       <div class="hero-gt__content text-align">
-        <h1 class="hero-gt__title">What if
-          <span class="hero-gt__accent">HISTORY</span> and
-          <span class="hero-gt__accent">CULTURE</span> were as
-          <span class="hero-gt__accent">THRILLING</span> as Netflix — <br>and as immersive as a video <br> game?
+        <h1 class="hero-gt__title">
+          <?php echo esc_html($gt_text_1); ?>
+          <span class="hero-gt__accent">
+            <?php echo esc_html($gt_accent_text_1); ?>
+          </span>
+          <?php echo esc_html($gt_text_2); ?>
+          <span class="hero-gt__accent">
+            <?php echo esc_html($gt_accent_text_2); ?>
+          </span>
+          <?php echo esc_html($gt_text_3); ?>
+          <span class="hero-gt__accent">
+            <?php echo esc_html($gt_accent_text_3); ?>
+          </span>
+          <?php echo esc_html($gt_text_4); ?><br>
+          <?php echo esc_html($gt_text_5); ?><br>
+          <?php echo esc_html($gt_text_6); ?>
         </h1>
-        <p class="hero-gt__subtitle">for families, teens &amp; adults</p>
+        <p class="hero-gt__subtitle">
+          <?php echo esc_html($gt_subtitle); ?>
+        </p>
         <div class="hero-gt__actions">
-          <a class="btn btn-secondary btn--orange hero-gt__btn" href="<a href=" <?php echo home_url('/schedule/'); ?>">Small group schedule</a>
-          <a class="btn btn-secondary btn--transparent hero-gt__btn" href="#contact">Order private tour</a>
+          <a class="btn btn-secondary btn--orange hero-gt__btn" href="<?php echo esc_url(home_url('/schedule/')); ?>">
+            <?php echo esc_html($gt_btn_1_text); ?>
+          </a>
+          <a class="btn btn-secondary btn--transparent hero-gt__btn" href="<?php echo esc_url($whatsapp); ?>" target="_blank">
+            <?php echo esc_html($gt_btn_2_text); ?>
+          </a>
         </div>
       </div>
-      <a class="hero-gt__reviews reviews-badge" href="#reviews">
-        <span class="reviews-badge__label">Google Reviews</span>
-        <span class="reviews-badge__stars" aria-label="4.9 out of 5 stars">
+      <?php
+        $reviews_tag = $reviews_url ? 'a' : 'div';
+      ?>
+      <<?php echo $reviews_tag; ?>
+        class="hero-gt__reviews reviews-badge"
+        <?php if ($reviews_url) : ?>
+          href="<?php echo esc_url($reviews_url); ?>"
+          target="_blank"
+        <?php endif; ?>>
+        <span class="reviews-badge__label">
+          <?php echo esc_html($reviews_label); ?>
+        </span>
+        <span class="reviews-badge__stars">
           ★★★★★
         </span>
-        <span class="reviews-badge__score">4.9 (500+)</span>
-      </a>
+        <span class="reviews-badge__score">
+          <?php echo esc_html($reviews_rating); ?>
+          (<?php echo esc_html($reviews_count); ?>)
+        </span>
+        </<?php echo $reviews_tag; ?>>
     </div>
   </section>
   <!-- Секция Experience -->
