@@ -116,6 +116,60 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'section' => 'questime_api_section',
         'type'    => 'text',
     ]);
+
+    // Рейтинг со страницы Gamified tous и Team building
+    $wp_customize->add_section('questime_reviews_section', [
+        'title'    => 'Отзывы',
+        'priority' => 32,
+    ]);
+
+    $wp_customize->add_setting('reviews_rating', [
+        'default'           => '4.9',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control('reviews_rating', [
+        'label'   => 'Рейтинг',
+        'section' => 'questime_reviews_section',
+        'type'    => 'text',
+    ]);
+
+    $wp_customize->add_setting('reviews_count', [
+        'default'           => '500+',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control('reviews_count', [
+        'label'   => 'Количество отзывов',
+        'section' => 'questime_reviews_section',
+        'type'    => 'text',
+    ]);
+
+    $wp_customize->add_setting('reviews_label', [
+        'default'           => 'Google Reviews',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control('reviews_label', [
+        'label'   => 'Название сервиса',
+        'section' => 'questime_reviews_section',
+        'type'    => 'text',
+    ]);
+
+    $wp_customize->add_setting('reviews_url', [
+        'default'           => '#reviews',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport'         => 'refresh',
+    ]);
+
+    $wp_customize->add_control('reviews_url', [
+        'label'   => 'Ссылка на отзывы',
+        'section' => 'questime_reviews_section',
+        'type'    => 'url',
+    ]);
 });
 
 
