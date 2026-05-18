@@ -41,67 +41,7 @@ get_header(); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Experience -->
-  <section class="experience section-special" id="experience">
-    <div class="container">
-      <div class="experience__row">
-        <div class="experience__col--text">
-          <p class="experience__p"><span class="text-orange">The golden age of cinema</span> is just beginning — glittering premieres, rising stars and powerful directors shaping the future of film. But behind the glamour of the studio lights, something has gone terribly wrong. <span class="text-orange">A shocking crime</span> has been committed on set.</p>
-          <p class="experience__p">As a team of detectives, you must uncover what really happened. The director, the movie star, the cameraman, the makeup artist, the maid — everyone seems to know something, but no one is telling the whole story.</p>
-        </div>
-        <div class="experience__col--img">
-          <div class="experience__img-wrapper">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-1.webp" alt="Team building experience" class="experience__img" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-
-      <div class="experience__row experience__row--img-first experience-reverse--ep">
-        <div class="experience__col--img">
-          <div class="experience__img-wrapper">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-2.webp" alt="Team building activity" class="experience__img" loading="lazy" decoding="async">
-          </div>
-        </div>
-        <div class="experience__col--text">
-          <p class="experience__p"><span class="text-orange">Piece together the clues, unravel the secrets</span> of the studio, and <span class="text-orange">decide</span> for yourselves: who is guilty of the crime in the world of the Great Silent Cinema?</p>
-          <p class="experience__p">All events are led by experienced and charismatic Game Masters who guide the story and keep the energy high.</p>
-          <p class="experience__p">We bring all materials, props and music.</p>
-        </div>
-      </div>
-
-      <div class="experience__row">
-        <div class="experience__col--gains">
-          <h3 class="experience__gains-title">What your team gains:</h3>
-          <ul class="experience__list">
-            <li class="experience__item">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
-              Memorable emotions and shared experiences
-            </li>
-            <li class="experience__item">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
-              A boost to problem-solving skills and emotional intelligence
-            </li>
-            <li class="experience__item">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
-              Real interaction, not passive entertainment
-            </li>
-          </ul>
-        </div>
-        <div class="experience__col--img">
-          <div class="experience__img-wrapper">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-3.webp" alt="Team event" class="experience__img" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-
-      <div class="experience__actions">
-        <span class="experience__badge">The next event is March 29 at 7:00 PM</span>
-        <div class="experience__btns">
-          <a href="schedule.html" class="btn btn-secondary btn-experience btn--orange">Buy ticket</a>
-          <a href="https://wa.me/" class="btn btn-secondary experience__book">Book a Private Tour</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/experience-case-product'); ?>
   <!-- Секция Route -->
   <?php if ($route_enabled && !empty($route_points)) : ?>
     <section class="route section-special" id="route">
@@ -360,20 +300,7 @@ get_header(); ?>
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
   <!-- Секция CTA -->
-  <section class="cta cta--event-page section-special decorated-dark-cta decorated-light-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
-    <div class="cta__overlay"></div>
-    <div class="container">
-      <div class="cta__inner">
-        <h2 class="cta__title">
-          <span class="cta__title-orange">Turn</span><span class="cta__title-white"> your team building and outings
-            into a bold, </span><br><span class="cta__title-orange">unforgettable adventure</span>
-          <span class="cta__title-white">!</span>
-        </h2>
-        <a href="<?php echo get_template_directory_uri(); ?>/assets/presentation.pdf" class="btn btn-secondary cta__btn btn--transparent"
-          download="Questime_Presentation">Download PDF</a>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/cta'); ?>
   <!-- Секция Quests -->
   <section class="quests section-special" id="quests">
     <div class="container">
