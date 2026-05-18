@@ -263,36 +263,105 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
   <!-- Секция About -->
   <section class="about section-special" id="about">
     <div class="container">
-      <h2 class="text-align">Who we are</h2>
+
+      <?php if (get_field('about_heading')) : ?>
+        <h2 class="text-align">
+          <?php the_field('about_heading'); ?>
+        </h2>
+      <?php endif; ?>
+
       <div class="about__content">
+
         <div class="about__dot"></div>
+
         <div class="about__inner">
+
           <div class="about__team">
-            <div class="about__person">
-              <div class="about__person-photo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Natalia.webp" alt="Natalia Minskaia" loading="lazy" decoding="async" />
+
+            <?php for ($i = 1; $i <= 10; $i++) :
+
+              $photo = get_field("about_person_{$i}_photo");
+              $name  = get_field("about_person_{$i}_name");
+
+              if (!$photo && !$name) {
+                continue;
+              }
+            ?>
+
+              <div class="about__person">
+
+                <?php if ($photo) : ?>
+                  <div class="about__person-photo">
+                    <img
+                      src="<?php echo esc_url($photo['url']); ?>"
+                      alt="<?php echo esc_attr($name); ?>"
+                      loading="lazy"
+                      decoding="async">
+                  </div>
+                <?php endif; ?>
+
+                <?php if ($name) : ?>
+                  <div class="about__person-name">
+                    <?php echo nl2br(esc_html($name)); ?>
+                  </div>
+                <?php endif; ?>
+
               </div>
-              <div class="about__person-name">Natalia<br>Minskaia</div>
-            </div>
-            <div class="about__person">
-              <div class="about__person-photo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Mark Minskii" loading="lazy" decoding="async" />
-              </div>
-              <div class="about__person-name">Mark<br>Minskii</div>
-            </div>
+
+            <?php endfor; ?>
+
           </div>
-          <ul class="about__facts">
-            <li class="about__fact">We have been in quests and games for 12 years</li>
-            <li class="about__fact">Natalia has a degree of the Gerasimov Cinema University and has completed
-              training
-              with the California Institute of the Arts as well as 8 writing courses</li>
-            <li class="about__fact">Authors of 135 quests and game scenarios</li>
-            <li class="about__fact">Over 400,000 people worldwide have participated in our quests</li>
-            <li class="about__fact">Got Visa 0 in the US and conducted quests &amp; games in Boston &amp; NYC</li>
-            <li class="about__fact">Founders of TravelTech start-up called WhatIfTour. It's an end-to-end</li>
-          </ul>
+
+
+          <?php
+          $facts = get_field('about_facts');
+
+          if ($facts) :
+
+            $facts_array = explode("\n", $facts);
+          ?>
+
+            <ul class="about__facts">
+
+              <?php foreach ($facts_array as $fact) :
+
+                $fact = trim($fact);
+
+                if ($fact) :
+              ?>
+
+                  <li class="about__fact">
+                    <?php echo esc_html($fact); ?>
+                  </li>
+
+              <?php
+                endif;
+              endforeach;
+              ?>
+
+            </ul>
+
+          <?php endif; ?>
+
         </div>
-        <a href="#" class="btn btn-secondary about__btn">Know more about us</a>
+
+        <?php
+        $button_text = get_field('about_button_text');
+        $button_url  = get_field('about_button_url');
+
+        if ($button_text && $button_url) :
+        ?>
+
+          <a
+            href="<?php echo esc_url($button_url); ?>"
+            class="btn btn-secondary about__btn">
+
+            <?php echo esc_html($button_text); ?>
+
+          </a>
+
+        <?php endif; ?>
+
       </div>
     </div>
   </section>
