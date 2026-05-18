@@ -3,6 +3,7 @@
 Template Name: Gamified Tours
 */
 
+// Блок - Hero
 $whatsapp = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
 $reviews_rating = get_theme_mod('reviews_rating', '4.9');
 $reviews_count  = get_theme_mod('reviews_count', '500+');
@@ -22,6 +23,18 @@ $gt_text_6        = get_field('gt_hero_text_6')     ?: 'game?';
 $gt_subtitle      = get_field('gt_hero_subtitle')   ?: 'for families, teens & adults';
 $gt_btn_1_text    = get_field('gt_hero_btn_1_text') ?: 'Small group schedule';
 $gt_btn_2_text    = get_field('gt_hero_btn_2_text') ?: 'Order private tour';
+
+// Блок - CTA_GUIDE
+$gt_guide_bg       = get_field('gt_guide_bg')       ?: get_template_directory_uri() . '/assets/images/gamifiedTours/cta-GT.webp';
+$gt_guide_text_1   = get_field('gt_guide_text_1')   ?: 'We\'ve created';
+$gt_guide_accent_1 = get_field('gt_guide_accent_1') ?: 'a free Family Guide';
+$gt_guide_text_2   = get_field('gt_guide_text_2')   ?: 'to Amsterdam — so there are';
+$gt_guide_accent_2 = get_field('gt_guide_accent_2') ?: 'no "I\'m bored"';
+$gt_guide_text_3   = get_field('gt_guide_text_3')   ?: 'moments on your trip.';
+$gt_guide_btn_text = get_field('gt_guide_btn_text');
+$gt_guide_pdf      = get_field('gt_guide_pdf')      ?: get_template_directory_uri() . '/assets/presentation.pdf';
+$gt_guide_img      = get_field('gt_guide_img')      ?: get_template_directory_uri() . '/assets/images/gamifiedTours/guide.webp';
+$gt_guide_img_alt  = get_field('gt_guide_img_alt')  ?: 'Free Family Guide to Amsterdam';
 
 get_header(); ?>
 
@@ -91,16 +104,31 @@ get_header(); ?>
   <!-- Секция Experience -->
   <?php get_template_part('templates/experience-case-product'); ?>
   <!-- Секция CTA_GUIDE как CTA -->
-  <section class="cta cta-guide section-special decorated-dark-stats decorated-light-stats" id="cta-guide">
+  <section class="cta cta-guide section-special decorated-dark-stats decorated-light-stats" id="cta-guide" style="
+        background:
+        linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+        linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+        url('<?php echo esc_url($gt_guide_bg); ?>') center / cover no-repeat;">
     <div class="cta-guide__wrapper container">
       <div class="cta-guide__content">
         <h2 class="cta-guide__text">
-          We've created <span class="text-orange--guide">a free Family Guide</span> to Amsterdam —
-          so there are <span class="text-orange--guide">no "I'm bored"</span> moments on your trip.
+          <?php echo esc_html($gt_guide_text_1); ?>
+          <span class="text-orange--guide">
+            <?php echo esc_html($gt_guide_accent_1); ?>
+          </span>
+          <?php echo esc_html($gt_guide_text_2); ?>
+          <span class="text-orange--guide">
+            <?php echo esc_html($gt_guide_accent_2); ?>
+          </span>
+          <?php echo esc_html($gt_guide_text_3); ?>
         </h2>
-        <a class="btn btn-secondary btn--orange cta-guide__btn" href="<?php echo get_template_directory_uri(); ?>/assets/presentation.pdf" target="_blank">Download the Guide</a>
+        <?php if ($gt_guide_pdf && $gt_guide_btn_text) : ?>
+          <a class="btn btn-secondary btn--orange cta-guide__btn" href="<?php echo esc_url($gt_guide_pdf); ?>" target="_blank">
+            <?php echo esc_html($gt_guide_btn_text); ?>
+          </a>
+          <?php endif; ?>
       </div>
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gamifiedTours/guide.webp" alt="Free Family Guide to Amsterdam" class="cta-guide__img" loading="lazy" decoding="async">
+      <img src="<?php echo esc_url($gt_guide_img); ?>" alt="<?php echo esc_attr($gt_guide_img_alt); ?>" class="cta-guide__img" loading="lazy" decoding="async">
     </div>
   </section>
   <!-- Секция Quests -->

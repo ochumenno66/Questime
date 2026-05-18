@@ -1990,10 +1990,6 @@ nav a::after {
 /* GAMIFIED-TOURS */
 /* Cta-guide */
 .cta-guide {
-  background:
-    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
-    url(../assets/images/gamifiedTours/cta-GT.webp) center / cover no-repeat;
   padding: clamp(51px, 16.57vw, 242px) 0;
   position: relative;
   overflow: hidden;
