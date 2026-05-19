@@ -2093,23 +2093,125 @@ body.modal-open {
   opacity: 0.75;
 }
 
-/* Адаптив */
-@media (max-width: 575px) {
-  .contact-modal {
-    padding: 0;
-  }
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(20px, 2vw, 32px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(20px, 2.73vw, 40px);
+  border: 1px solid var(--color-text);
+  border-radius: 48px;
+  background: #f4f1e8;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
 
-  .contact-modal__fields {
+.cookie-banner.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.cookie-banner__icon{
+  flex-shrink: 0;
+  width: clamp(40px, 5.47vw, 80px);
+}
+
+.cookie-banner__content {
+  flex: 1;
+  max-width: 560px;
+}
+
+.cookie-banner__title {
+  margin-bottom: 12px;
+  font-size: clamp(28px, 2.18vw, 42px);
+  line-height: 1.1;
+}
+
+.cookie-banner__text {
+  font-size: clamp(16px, 1.09vw, 20px);
+  line-height: 1.5;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 220px;
+}
+
+.cookie-banner__more,
+.cookie-banner__accept {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .cookie-banner {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    align-items: flex-start;
     gap: 16px;
-    margin-bottom: 16px;
+    padding: 20px;
+    border-radius: 28px;
   }
 
-  .contact-modal__submit {
-    margin: 16px auto 16px;
+  .cookie-banner__icon {
+    width: 52px;
   }
 
-  .contact-modal__whatsapp {
-    font-weight: var(--font-weight-regular);
+  .cookie-banner__content {
+    max-width: 100%;
+  }
+
+  .cookie-banner__title {
+    margin-bottom: 8px;
+    font-size: 28px;
+  }
+
+  .cookie-banner__text {
+    font-size: 16px;
+  }
+
+  .cookie-banner__actions {
+    flex-direction: row;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .cookie-banner__more,
+  .cookie-banner__accept {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .cookie-banner {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 12px 16px;
+  }
+
+  .cookie-banner__actions {
+    grid-column: 1 / -1;
+  }
+
+  .cookie-banner__title {
+    font-size: 24px;
+  }
+
+  .cookie-banner__text {
+    font-size: 15px;
   }
 }
 
@@ -6222,6 +6324,24 @@ body.modal-open {
   /* SCHEDULE */
   .schedule__date-num {
     font-size: 18px;
+  }
+
+  /* MODAL WINDOW */
+  .contact-modal {
+    padding: 0;
+  }
+
+  .contact-modal__fields {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .contact-modal__submit {
+    margin: 16px auto 16px;
+  }
+
+  .contact-modal__whatsapp {
+    font-weight: var(--font-weight-regular);
   }
 }
 

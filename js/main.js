@@ -439,6 +439,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Cookie banner
+  const cookieBanner = document.getElementById("cookieBanner");
+  const cookieAccept = document.getElementById("cookieAccept");
+
+  if (cookieBanner && cookieAccept) {
+    const isCookieAccepted = localStorage.getItem("cookieAccepted");
+
+    if (!isCookieAccepted) {
+      cookieBanner.classList.remove("is-hidden");
+    }
+
+    cookieAccept.addEventListener("click", () => {
+      localStorage.setItem("cookieAccepted", "true");
+
+      cookieBanner.classList.add("is-hidden");
+    });
+    localStorage.clear();
+  }
+
   //FAQ
   const faq = document.querySelector(".faq__list");
 
