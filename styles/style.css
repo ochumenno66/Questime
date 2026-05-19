@@ -1866,7 +1866,8 @@ nav a::after {
   color: var(--color-orange);
 }
 
-.contact-form__fields {
+.contact-form__fields,
+.contact-modal__fields {
   grid-area: fields;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1971,7 +1972,7 @@ nav a::after {
 }
 
 /* MODAL WINDOW */
-.request-modal {
+.contact-modal {
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -1984,12 +1985,16 @@ nav a::after {
   transition: opacity 0.25s ease;
 }
 
-.request-modal.is-open {
+body.modal-open {
+  overflow: hidden;
+}
+
+.contact-modal.is-open {
   opacity: 1;
   pointer-events: auto;
 }
 
-.request-modal__overlay {
+.contact-modal__overlay {
   position: absolute;
   inset: 0;
   background: rgba(25, 26, 24, 0.55);
@@ -1997,13 +2002,13 @@ nav a::after {
   cursor: pointer;
 }
 
-.request-modal__dialog {
+.window-modal {
   position: relative;
   z-index: 1;
   background: var(--color-bg);
-  border-radius: 16px;
+  border-radius: 48px;
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   max-height: calc(100dvh - 32px);
   overflow-y: auto;
   padding: clamp(24px, 3.83vw, 56px) clamp(24px, 3.28vw, 48px);
@@ -2013,19 +2018,18 @@ nav a::after {
   scrollbar-color: var(--light-orange) transparent;
 }
 
-.request-modal.is-open .request-modal__dialog {
+.contact-modal.is-open .window-modal {
   transform: translateY(0) scale(1);
 }
 
-.request-modal__close {
+.modal-close {
   position: absolute;
   top: clamp(12px, 2vw, 20px);
   right: clamp(12px, 2vw, 20px);
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
   border: none;
   background: transparent;
-  color: var(--color-text);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2035,107 +2039,77 @@ nav a::after {
   padding: 0;
 }
 
-.request-modal__close:hover {
+.modal-close:hover {
   background: rgba(25, 26, 24, 0.08);
 }
 
-.request-modal__title {
+.modal-title {
   display: block;
   text-align: center;
 }
 
-.request-modal__desc {
+.modal-desc {
   margin: 0 0 clamp(16px, 2.73vw, 40px);
 }
 
 .contact-form__text,
-.request-modal__desc,
+.modal__desc,
 .contact-form__text-gt {
   font-size: var(--font-secondary);
   line-height: 1.6;
 }
 
-.request-modal__phone {
-  color: var(--color-orange);
-  text-decoration: none;
+.contact-modal__fields {
+  margin-bottom: 20px;
 }
 
-.request-modal__phone:hover {
-  text-decoration: underline;
-}
-
-.request-modal__fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.request-modal__field {
+.contact-modal__actions {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: center;
 }
 
-.contact-form__textarea--modal {
-  grid-area: unset;
-  margin-bottom: 8px;
-  min-height: 100px;
-}
-
-.request-modal__error {
-  font-size: 12px;
-  color: var(--error);
-  min-height: 16px;
-}
-
-.request-modal__success {
+.contact-modal__success {
   text-align: center;
-  color: var(--success);
-  font-size: 16px;
-  padding: 12px 0;
+  padding: 0 0 20px;
 }
 
-.request-modal__submit {
+.contact-modal__submit {
   display: block;
   margin: 20px auto 16px;
 }
 
-.request-modal__whatsapp {
+.contact-modal__whatsapp {
   display: block;
   text-align: center;
   color: var(--color-orange);
-  font-size: clamp(13px, 1vw, 15px);
-  font-weight: var(--font-weight-light);
-  font-family: var(--second-family);
+  font-size: clamp(14px, 1.09vw, 16px);
+  font-weight: var(--font-weight-bold);
   text-decoration: none;
   transition: opacity 0.2s;
 }
 
-.request-modal__whatsapp:hover {
+.contact-modal__whatsapp:hover {
   opacity: 0.75;
 }
 
 /* Адаптив */
 @media (max-width: 575px) {
-  .request-modal {
+  .contact-modal {
     padding: 0;
-    align-items: flex-end;
   }
 
-  .request-modal__dialog {
-    border-radius: 20px 20px 0 0;
-    max-height: 92dvh;
-    padding: 28px 16px 24px;
+  .contact-modal__fields {
+    gap: 16px;
+    margin-bottom: 16px;
   }
 
-  .request-modal__fields {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .contact-modal__submit {
+    margin: 16px auto 16px;
   }
 
-  .request-modal__submit {
-    width: 100%;
+  .contact-modal__whatsapp {
+    font-weight: var(--font-weight-regular);
   }
 }
 
