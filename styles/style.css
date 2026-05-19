@@ -5753,6 +5753,11 @@ body.modal-open {
     padding-bottom: 120px;
   }
 
+  .format__step-num {
+    font-weight: 400;
+    font-size: 24px;
+  }
+
   /* SCHEDULE */
   .schedule__year {
     margin: 16px 0;

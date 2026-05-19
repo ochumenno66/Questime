@@ -71,156 +71,96 @@ get_header(); ?>
     </section>
   <?php endif; ?>
   <!-- Секция Persons -->
-  <section class="persons section-special" id="persons">
-    <div class="container">
-      <div class="persons__list">
-        <div class="persons__dot"></div>
-        <div class="persons__item is-open">
-          <button class="persons__question" aria-expanded="true">
-            <img class="persons__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/person-orange.svg" alt="person" loading="lazy"
-              decoding="async">
-            <h4 class="persons__question-text">Persons</h4>
-            <span class="persons__chevron">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M31.6663 15L19.9997 25L8.33301 15" stroke="#191A18" stroke-width="2.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
-          </button>
-          <div class="persons__answer">
-            <p class="persons__intro">
-              Each character's gender is indicated. M&nbsp;– male, F&nbsp;– female, M/F&nbsp;– the character can be
-              either male or female.
-            </p>
-            <div class="persons__rows">
-              <div class="persons__row">
-                <span class="persons__name">Arthur McGregor (m)</span>
-                <span class="persons__desc">A spoiled, important man who neglects the parents of a younger man. He is
-                  captivated by everything and nothing at once.</span>
-              </div>
+  <?php if (get_field('show_persons_section')) : ?>
 
-              <div class="persons__row">
-                <span class="persons__name">Elliot/Ellie Home (m/f)</span>
-                <span class="persons__desc">A spoiled, important man who neglects the parents of a younger man. He is
-                  captivated by everything and nothing at once.</span>
-              </div>
+    <section class="persons section-special" id="persons">
+      <div class="container">
+        <div class="persons__list">
 
-              <div class="persons__row">
-                <span class="persons__name">Arthur McGregor (m)</span>
-                <span class="persons__desc">A spoiled, important man who neglects the parents of a younger man. He is
-                  captivated by everything and nothing at once.</span>
-              </div>
+          <div class="persons__dot"></div>
 
-              <div class="persons__row">
-                <span class="persons__name">Arthur McGregor (m)</span>
-                <span class="persons__desc">A spoiled, important man who neglects the parents of a younger man. He is
-                  captivated by everything and nothing at once.</span>
+          <div class="persons__item is-open">
+
+            <button class="persons__question" aria-expanded="true">
+
+              <img
+                class="persons__icon"
+                src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/person-orange.svg"
+                alt="person"
+                loading="lazy"
+                decoding="async">
+
+              <?php if (get_field('persons_title')) : ?>
+                <h4 class="persons__question-text">
+                  <?php the_field('persons_title'); ?>
+                </h4>
+              <?php endif; ?>
+
+              <span class="persons__chevron">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M31.6663 15L19.9997 25L8.33301 15"
+                    stroke="#191A18"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+
+            </button>
+
+            <div class="persons__answer">
+
+              <?php if (get_field('persons_intro')) : ?>
+                <p class="persons__intro">
+                  <?php the_field('persons_intro'); ?>
+                </p>
+              <?php endif; ?>
+
+              <div class="persons__rows">
+
+                <?php
+                for ($i = 1; $i <= 4; $i++) :
+
+                  $name = get_field("person_{$i}_name");
+                  $desc = get_field("person_{$i}_desc");
+
+                  if ($name || $desc) :
+                ?>
+
+                    <div class="persons__row">
+
+                      <?php if ($name) : ?>
+                        <span class="persons__name">
+                          <?php echo esc_html($name); ?>
+                        </span>
+                      <?php endif; ?>
+
+                      <?php if ($desc) : ?>
+                        <span class="persons__desc">
+                          <?php echo esc_html($desc); ?>
+                        </span>
+                      <?php endif; ?>
+
+                    </div>
+
+                <?php
+                  endif;
+                endfor;
+                ?>
+
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  <?php endif; ?>
   <!-- Секция Testimonials -->
   <?php get_template_part('templates/testimonials'); ?>
   <!-- Секция Format -->
-  <section class="persons format section-special" id="format">
-    <div class="container">
-      <div class="persons__list">
-        <div class="persons__dot"></div>
-        <div class="persons__item is-open">
-          <button class="persons__question" aria-expanded="true">
-            <img class="persons__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/language-orange.svg" alt="cube" loading="lazy"
-              decoding="async">
-            <h4 class="persons__question-text">Online format — how it works?</h4>
-            <span class="persons__chevron">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M31.6663 15L19.9997 25L8.33301 15" stroke="#191A18" stroke-width="2.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
-          </button>
-          <div class="persons__answer">
-            <div class="format__content">
-              <div class="format__steps-col">
-                <div class="format__step">
-                  <span class="format__step-num">1</span>
-                  <p class="format__step-text">All participants watch a short intro video with the backstory and
-                    meet the characters: the Director, Actor, Maid, Star, Cameraman and Makeup Artist.</p>
-                </div>
-                <div class="format__step">
-                  <span class="format__step-num">2</span>
-                  <p class="format__step-text">Participants are divided into teams and sent to separate breakout
-                    rooms.</p>
-                </div>
-                <div class="format__step">
-                  <span class="format__step-num">3</span>
-                  <p class="format__step-text">Actors rotate between rooms, playing their scenes and interacting
-                    with each team.</p>
-                </div>
-                <div class="format__step">
-                  <span class="format__step-num">4</span>
-                  <p class="format__step-text">Teams complete challenges and mini-games with each character. The
-                    better the team performs, the more information they unlock.</p>
-                </div>
-                <div class="format__step">
-                  <span class="format__step-num"></span>
-                  <p class="format__step-text">We usually run the game on Zoom (but can adapt to other platforms).</p>
-                </div>
-              </div>
-              <div class="format__finale">
-                <span class="format__finale-label">The finale</span>
-                <div class="format__finale-text">
-                  <p>In the final stage, teams must decide who committed the crime.</p>
-                  <p>The ending depends entirely on your observation, logic and teamwork.</p>
-                  <p>Only your insight will determine how The Great Silent Quest ends.</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-secondary format__btn">Request ONLINE</button>
-            <div class="format__photo-wrap format__photo-wrap--left">
-              <img class="format__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/event-page/format-1.webp" alt="Online format photo 1"
-                loading="lazy" />
-            </div>
-
-            <div class="format__photo-wrap format__photo-wrap--right">
-              <img class="format__photo" src="<?php echo get_template_directory_uri(); ?>/assets/images/event-page/format-2.webp" alt="Online format photo 2"
-                loading="lazy" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="persons section-special">
-    <div class="container">
-      <div class="persons__list">
-        <div class="persons__dot"></div>
-        <div class="persons__item is-open">
-          <button class="persons__question" aria-expanded="true">
-            <img class="persons__icon" src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/format-orange.svg" alt="cube" loading="lazy"
-              decoding="async">
-            <h4 class="persons__question-text demo-text">Demo format — how it works?</h4>
-            <span class="persons__chevron">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M31.6663 15L19.9997 25L8.33301 15" stroke="#191A18" stroke-width="2.5" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
-            </span>
-          </button>
-          <div class="persons__answer">
-            <p class="persons__intro">
-              We also offer a free demo game (15–20 minutes) where you can experience key mechanics and challenges.
-              No commitment just leave a request, and we’ll run the demo for your team.
-            </p>
-            <button class="btn btn-secondary format__btn">Request DEMO</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/format'); ?>
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
   <!-- Секция CTA -->
