@@ -4,7 +4,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +17,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot")
+      format("embedded-opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -28,7 +30,8 @@
     url("../assets/fonts/Overpass/Overpass-Regular.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Regular.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +43,8 @@
     url("../assets/fonts/Overpass/Overpass-Light.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Light.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Light.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Light.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Light.eot")
+      format("embedded-opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -83,7 +87,6 @@
   /* Шрифты */
   --font-secondary: clamp(16px, 1.64vw, 24px);
   --font-accent: clamp(14px, 2.19vw, 32px);
-  --font-display: clamp();
 
   /* Цвета */
   --color-bg: #f9f9ef;
@@ -358,7 +361,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -369,7 +373,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-stats.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-stats.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -380,7 +385,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-cta.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-cta.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -391,7 +397,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-header.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-header.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -402,7 +409,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/projects-border-2.svg") center bottom / cover no-repeat;
+  background: url("../assets/images/projects-border-2.svg") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -414,7 +422,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -425,7 +434,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-stats.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-stats.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -436,7 +446,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-cta.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-cta.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -447,7 +458,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/projects-border-1.svg") center top / cover no-repeat;
+  background: url("../assets/images/projects-border-1.svg") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -784,10 +796,12 @@ nav a::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(90deg,
-      #191a18 0%,
-      rgba(25, 26, 24, 0.5) 16%,
-      rgba(25, 26, 24, 0) 31%);
+  background: linear-gradient(
+    90deg,
+    #191a18 0%,
+    rgba(25, 26, 24, 0.5) 16%,
+    rgba(25, 26, 24, 0) 31%
+  );
 }
 
 .hero__wrapper::after {
@@ -918,9 +932,11 @@ nav a::after {
   left: 0;
   width: 180px;
   height: 100%;
-  background: linear-gradient(90deg,
-      var(--color-header-footer-bg) 0%,
-      transparent 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-header-footer-bg) 0%,
+    transparent 100%
+  );
   z-index: 5;
   pointer-events: none;
 }
@@ -1226,11 +1242,13 @@ nav a::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(179.31deg,
-      #191a18 2.33%,
-      rgba(25, 26, 24, 0) 23.3%,
-      rgba(25, 26, 24, 0) 87.64%,
-      #191a18 94.25%);
+  background: linear-gradient(
+    179.31deg,
+    #191a18 2.33%,
+    rgba(25, 26, 24, 0) 23.3%,
+    rgba(25, 26, 24, 0) 87.64%,
+    #191a18 94.25%
+  );
 }
 
 .services__inner {
@@ -1364,10 +1382,12 @@ nav a::after {
 .stats {
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(178.88deg,
+    linear-gradient(
+      178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%),
+      #191a18 99%
+    ),
     url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
@@ -1520,10 +1540,12 @@ nav a::after {
   inset: 0;
   background-image:
     linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
-    linear-gradient(178.88deg,
+    linear-gradient(
+      178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%);
+      #191a18 99%
+    );
   z-index: 0;
   pointer-events: none;
 }
@@ -1837,8 +1859,6 @@ nav a::after {
 
 .contact-form__text,
 .contact-form__text-gt {
-  font-size: var(--font-secondary);
-  line-height: 1.6;
   max-width: 45.087vw;
 }
 
@@ -1846,7 +1866,8 @@ nav a::after {
   color: var(--color-orange);
 }
 
-.contact-form__fields {
+.contact-form__fields,
+.contact-modal__fields {
   grid-area: fields;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1946,7 +1967,203 @@ nav a::after {
   left: -1px;
   width: 50px;
   height: 100%;
-  background: url("../assets/images/Mask-contact.png") repeat-y center / 100% auto;
+  background: url("../assets/images/Mask-contact.png") repeat-y center / 100%
+    auto;
+}
+
+/* MODAL WINDOW */
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.contact-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.contact-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(25, 26, 24, 0.55);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.window-modal {
+  position: relative;
+  z-index: 1;
+  background: var(--color-bg);
+  border-radius: 48px;
+  width: 100%;
+  max-width: 800px;
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: clamp(24px, 3.83vw, 56px) clamp(24px, 3.28vw, 48px);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.28s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--light-orange) transparent;
+}
+
+.contact-modal.is-open .window-modal {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: clamp(12px, 2vw, 20px);
+  right: clamp(12px, 2vw, 20px);
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+  padding: 0;
+}
+
+.modal-close:hover {
+  background: rgba(25, 26, 24, 0.08);
+}
+
+.modal-title {
+  display: block;
+  text-align: center;
+}
+
+.modal-desc {
+  margin: 0 0 clamp(16px, 2.73vw, 40px);
+}
+
+.contact-form__text,
+.modal__desc,
+.contact-form__text-gt {
+  font-size: var(--font-secondary);
+  line-height: 1.6;
+}
+
+.contact-modal__fields {
+  margin-bottom: 20px;
+}
+
+.contact-modal__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-modal__success {
+  text-align: center;
+  padding: 0 0 20px;
+}
+
+.contact-modal__submit {
+  display: block;
+  margin: 20px auto 16px;
+}
+
+.contact-modal__whatsapp {
+  display: block;
+  text-align: center;
+  color: var(--color-orange);
+  font-size: clamp(14px, 1.09vw, 16px);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.contact-modal__whatsapp:hover {
+  opacity: 0.75;
+}
+
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  left: 10px;
+  bottom: 10px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 4.21vw, 32px);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(12px, 4.21vw, 32px);
+  border: 1px solid var(--color-text);
+  border-radius: 48px;
+  background: #f4f1e8;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.cookie-banner.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.cookie-banner__icon {
+  flex-shrink: 0;
+  width: clamp(40px, 10.52vw, 80px);
+}
+
+.cookie-banner__content {
+  display: flex;
+  gap: clamp(20px, 4.21vw, 32px);
+  align-items: center;
+}
+
+.cookie-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2.63vw, 20px);
+}
+
+.cookie-banner__title {
+  font-family: var(--font-family);
+  font-size: clamp(16px, 3.15vw, 24px);
+  color: var(--color-text);
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 208px;
+  max-height: 100px;
+}
+
+.cookie-banner__more,
+.cookie-banner__accept {
+  width: 100%;
+  color: var(--color-text);
+  font-size: clamp(16px, 2.63vw, 20px) !important;
+  border: 1px solid var(--color-text);
+  font-family: var(--font-family);
+  flex: 1;
+}
+
+.cookie-banner__accept {
+  background-color: var(--color-text);
+  color: var(--color-bg);
 }
 
 /* Privacy */
@@ -1990,10 +2207,6 @@ nav a::after {
 /* GAMIFIED-TOURS */
 /* Cta-guide */
 .cta-guide {
-  background:
-    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
-    url(../assets/images/gamifiedTours/cta-GT.webp) center / cover no-repeat;
   padding: clamp(51px, 16.57vw, 242px) 0;
   position: relative;
   overflow: hidden;
@@ -2177,7 +2390,7 @@ nav a::after {
   cursor: pointer;
 }
 
-.faq__dot+.faq__item .faq__question {
+.faq__dot + .faq__item .faq__question {
   padding-top: 0;
 }
 
@@ -2267,7 +2480,8 @@ nav a::after {
 
 .hero-ep {
   position: relative;
-  background: url("../assets/images/paper-EP.png") no-repeat center center / cover;
+  background: url("../assets/images/paper-EP.png") no-repeat center center /
+    cover;
   padding-bottom: 80px;
   padding-top: 70px;
   min-height: auto;
@@ -2650,7 +2864,7 @@ nav a::after {
   cursor: pointer;
 }
 
-.persons__dot+.persons__item .persons__question {
+.persons__dot + .persons__item .persons__question {
   padding-top: 0;
 }
 
@@ -3117,10 +3331,12 @@ nav a::after {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
+      #191a18 100%
+    ),
     url("../assets/images/custom-games/hero-full.jpg") center / cover no-repeat;
   z-index: 0;
 }
@@ -3638,11 +3854,14 @@ nav a::after {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
-    url("../assets/images/about-us/about-us-hero-bg.png") center / cover no-repeat;
+      #191a18 100%
+    ),
+    url("../assets/images/about-us/about-us-hero-bg.png") center / cover
+      no-repeat;
   z-index: 0;
 }
 
@@ -3728,7 +3947,8 @@ nav a::after {
   gap: 8px;
   padding: clamp(24px, 3.28vw, 48px) clamp(20px, 2.73vw, 40px);
   text-align: center;
-  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100% no-repeat;
+  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100%
+    no-repeat;
   height: 280px;
 }
 
@@ -4162,7 +4382,6 @@ nav a::after {
 }
 
 @media (max-width: 1055px) {
-
   /* CUSTOM GAMES */
   /* Projects */
   .projects__btn {
@@ -4646,7 +4865,6 @@ nav a::after {
 }
 
 @media (max-width: 840px) {
-
   /* Страница Custom Games */
   /* Company */
   .label-border-right {
@@ -4672,7 +4890,6 @@ nav a::after {
 }
 
 @media (max-width: 768px) {
-
   /* Хлебные крошки */
   .hero__breadcrumbs {
     flex-wrap: nowrap;
@@ -5125,6 +5342,23 @@ nav a::after {
     align-self: center;
     margin: 0 auto;
   }
+
+  /* COOKIE BANNER */
+  .cookie-banner {
+    align-items: flex-start;
+    border-radius: 24px;
+  }
+
+  .cookie-banner__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: normal;
+  }
+
+  .cookie-banner__actions {
+    flex-direction: row;
+  }
 }
 
 @media (max-width: 680px) {
@@ -5531,10 +5765,16 @@ nav a::after {
   .schedule__buy-btn {
     padding: 5px 8px;
   }
+
+  /* Cookie Banner */
+  .cookie-banner {
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+  }
 }
 
 @media (max-width: 585px) {
-
   /* Страница Custom Games */
   /* Projects */
   .projects-card--2 {
@@ -5560,7 +5800,6 @@ nav a::after {
 }
 
 @media (max-width: 575px) {
-
   h2,
   .h2 {
     font-weight: var(--font-weight-regular);
@@ -5768,7 +6007,8 @@ nav a::after {
     min-height: 150px;
   }
 
-  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta) .cta__title {
+  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta)
+    .cta__title {
     font-size: 14px;
   }
 
@@ -6065,11 +6305,28 @@ nav a::after {
   .schedule__date-num {
     font-size: 18px;
   }
+
+  /* MODAL WINDOW */
+  .contact-modal {
+    padding: 0;
+  }
+
+  .contact-modal__fields {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .contact-modal__submit {
+    margin: 16px auto 16px;
+  }
+
+  .contact-modal__whatsapp {
+    font-weight: var(--font-weight-regular);
+  }
 }
 
 @media (max-width: 480px) {
   .btn-secondary {
-    /*padding: 5px 16px;*/
     font-size: 14px;
   }
 

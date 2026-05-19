@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTestimonialsSwiper();
   window.addEventListener("resize", initTestimonialsSwiper);
 
-  // Form
+  // Form выпадающий список
   document.querySelectorAll(".custom-select").forEach((select) => {
     const trigger = select.querySelector(".custom-select__trigger");
     const valueEl = select.querySelector(".custom-select__value");
@@ -356,6 +356,105 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // Модальное окно
+  const modal = document.getElementById("contactModal");
+  const modalOverlay = document.getElementById("contactModalOverlay");
+  const modalClose = document.getElementById("modalClose");
+  const modalForm = document.querySelector(".contact-modal__form");
+  const modalDesc = document.getElementById("modalDesc");
+  const modalSuccess = document.getElementById("modalSuccess");
+  const openModalButtons = document.querySelectorAll(".open-modal");
+
+  function openModal() {
+    if (!modal) {
+      return;
+    }
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  }
+
+  function closeModal() {
+    if (!modal) {
+      return;
+    }
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+
+    if (modalForm) {
+      modalForm.hidden = false;
+      modalForm.reset();
+    }
+    if (modalDesc) {
+      modalDesc.hidden = false;
+    }
+    if (modalSuccess) {
+      modalSuccess.hidden = true;
+    }
+  }
+
+  openModalButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", closeModal);
+  }
+  if (modalClose) {
+    modalClose.addEventListener("click", closeModal);
+  }
+  document.addEventListener("keydown", (event) => {
+    if (
+      modal &&
+      event.key === "Escape" &&
+      modal.classList.contains("is-open")
+    ) {
+      closeModal();
+    }
+  });
+
+  if (modalForm) {
+    modalForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!modalForm.checkValidity()) {
+        modalForm.reportValidity();
+        return;
+      }
+
+      if (modalDesc) {
+        modalDesc.hidden = true;
+      }
+      modalForm.reset();
+      modalForm.hidden = true;
+
+      if (modalSuccess) {
+        modalSuccess.hidden = false;
+      }
+    });
+  }
+
+  // Cookie banner
+  const cookieBanner = document.getElementById("cookieBanner");
+  const cookieAccept = document.getElementById("cookieAccept");
+
+  if (cookieBanner && cookieAccept) {
+    const cookieAccepted = localStorage.getItem("cookieAccepted");
+
+    if (!cookieAccepted) {
+      cookieBanner.classList.remove("is-hidden");
+    }
+
+    cookieAccept.addEventListener("click", () => {
+      localStorage.setItem("cookieAccepted", "true");
+      cookieBanner.classList.add("is-hidden");
+    });
+  }
 
   //FAQ
   const faq = document.querySelector(".faq__list");
