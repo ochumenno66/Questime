@@ -376,29 +376,28 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
   <!-- Секция Testimonials -->
   <?php get_template_part('templates/testimonials'); ?>
   <!-- Секция Partners -->
+  <?php
+  $pt_title   = get_field('pt_title') ?: 'They have played with us<br>and want more';
+  $pt_gallery = get_field('pt_gallery');
+  ?>
+
   <section class="partners section-special" id="partners">
     <div class="container">
       <div class="partners__inner">
-        <h2 class="text-align partners__title">They have played with us<br>and want more</h2>
+        <h2 class="text-align partners__title"><?php echo wp_kses_post($pt_title); ?></h2>
 
-        <div class="partners__grid">
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/dell.svg" alt="Dell"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/pfizer.svg" alt="Pfizer"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/nestle.svg" alt="Nestle"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/reuters.svg" alt="Reuters"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/colgate.svg" alt="Colgate"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/metro.svg" alt="Metro"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/microsoft.svg" alt="Microsoft"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/visa.svg" alt="Visa"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/BKing.svg" alt="Burger King"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/bayer.svg" alt="Bayer"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/kaspersky.svg" alt="Kaspersky"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/avon.svg" alt="Avon"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/britishcouncil.svg" alt="British Council">
+        <?php if (!empty($pt_gallery) && is_array($pt_gallery)): ?>
+          <div class="partners__grid">
+            <?php foreach ($pt_gallery as $image):
+              $logo_url = $image['url'];
+              $logo_alt = $image['alt'] ?: $image['title'] ?: 'Partner logo';
+            ?>
+              <div class="partners__item">
+                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($logo_alt); ?>">
+              </div>
+            <?php endforeach; ?>
           </div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/BATobacco.svg" alt="British American Tobacco">
-          </div>
-        </div>
+        <?php endif; ?>
 
         <div class="partners__footer">
           <a href="<?php echo home_url('/team-building/'); ?>" class="btn btn-secondary partners__btn">Go to Corporate Events</a>
