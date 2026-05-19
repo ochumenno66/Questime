@@ -444,18 +444,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const cookieAccept = document.getElementById("cookieAccept");
 
   if (cookieBanner && cookieAccept) {
-    const isCookieAccepted = localStorage.getItem("cookieAccepted");
+    const cookieAccepted = localStorage.getItem("cookieAccepted");
 
-    if (!isCookieAccepted) {
+    if (!cookieAccepted) {
       cookieBanner.classList.remove("is-hidden");
     }
 
     cookieAccept.addEventListener("click", () => {
       localStorage.setItem("cookieAccepted", "true");
-
       cookieBanner.classList.add("is-hidden");
     });
-    localStorage.clear();
   }
 
   //FAQ
