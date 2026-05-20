@@ -72,7 +72,13 @@ Template Name: Privacy Policy
                 <p>To exercise any of these rights, please contact us (see Section 9).</p>
                 <hr class="divider" role="separator" aria-hidden="true">
                 <h3>8. Cookies and Tracking</h3>
-                <p>Our website may use essential cookies for proper functionality. We do not use cookies for advertising or profiling. For more details, please see our <a href="#">Cookie Policy</a>.</p>
+                <p><strong>We use cookies!</strong></p>
+                <p>
+                    This website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent.
+                </p>
+                <p>
+                    Our website may use essential cookies for proper functionality. We do not use cookies for advertising or profiling. For more details, please see our <a href="#">Cookie Policy</a>.
+                </p>
                 <hr class="divider" role="separator" aria-hidden="true">
                 <h3>9. Contact Us</h3>
                 <p>If you have any questions about this Privacy Policy or your personal information, you can contact us at:</p>

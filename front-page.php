@@ -263,36 +263,105 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
   <!-- Секция About -->
   <section class="about section-special" id="about">
     <div class="container">
-      <h2 class="text-align">Who we are</h2>
+
+      <?php if (get_field('about_heading')) : ?>
+        <h2 class="text-align">
+          <?php the_field('about_heading'); ?>
+        </h2>
+      <?php endif; ?>
+
       <div class="about__content">
+
         <div class="about__dot"></div>
+
         <div class="about__inner">
+
           <div class="about__team">
-            <div class="about__person">
-              <div class="about__person-photo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Natalia.webp" alt="Natalia Minskaia" loading="lazy" decoding="async" />
+
+            <?php for ($i = 1; $i <= 10; $i++) :
+
+              $photo = get_field("about_person_{$i}_photo");
+              $name  = get_field("about_person_{$i}_name");
+
+              if (!$photo && !$name) {
+                continue;
+              }
+            ?>
+
+              <div class="about__person">
+
+                <?php if ($photo) : ?>
+                  <div class="about__person-photo">
+                    <img
+                      src="<?php echo esc_url($photo['url']); ?>"
+                      alt="<?php echo esc_attr($name); ?>"
+                      loading="lazy"
+                      decoding="async">
+                  </div>
+                <?php endif; ?>
+
+                <?php if ($name) : ?>
+                  <div class="about__person-name">
+                    <?php echo nl2br(esc_html($name)); ?>
+                  </div>
+                <?php endif; ?>
+
               </div>
-              <div class="about__person-name">Natalia<br>Minskaia</div>
-            </div>
-            <div class="about__person">
-              <div class="about__person-photo">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Mark Minskii" loading="lazy" decoding="async" />
-              </div>
-              <div class="about__person-name">Mark<br>Minskii</div>
-            </div>
+
+            <?php endfor; ?>
+
           </div>
-          <ul class="about__facts">
-            <li class="about__fact">We have been in quests and games for 12 years</li>
-            <li class="about__fact">Natalia has a degree of the Gerasimov Cinema University and has completed
-              training
-              with the California Institute of the Arts as well as 8 writing courses</li>
-            <li class="about__fact">Authors of 135 quests and game scenarios</li>
-            <li class="about__fact">Over 400,000 people worldwide have participated in our quests</li>
-            <li class="about__fact">Got Visa 0 in the US and conducted quests &amp; games in Boston &amp; NYC</li>
-            <li class="about__fact">Founders of TravelTech start-up called WhatIfTour. It's an end-to-end</li>
-          </ul>
+
+
+          <?php
+          $facts = get_field('about_facts');
+
+          if ($facts) :
+
+            $facts_array = explode("\n", $facts);
+          ?>
+
+            <ul class="about__facts">
+
+              <?php foreach ($facts_array as $fact) :
+
+                $fact = trim($fact);
+
+                if ($fact) :
+              ?>
+
+                  <li class="about__fact">
+                    <?php echo esc_html($fact); ?>
+                  </li>
+
+              <?php
+                endif;
+              endforeach;
+              ?>
+
+            </ul>
+
+          <?php endif; ?>
+
         </div>
-        <a href="#" class="btn btn-secondary about__btn">Know more about us</a>
+
+        <?php
+        $button_text = get_field('about_button_text');
+        $button_url  = get_field('about_button_url');
+
+        if ($button_text && $button_url) :
+        ?>
+
+          <a
+            href="<?php echo esc_url($button_url); ?>"
+            class="btn btn-secondary about__btn">
+
+            <?php echo esc_html($button_text); ?>
+
+          </a>
+
+        <?php endif; ?>
+
       </div>
     </div>
   </section>
@@ -301,122 +370,34 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
   <!-- Секция CTA -->
-  <section class="cta section-special decorated-light-cta decorated-dark-cta" id="cta" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/cta.webp');">
-    <div class="cta__overlay"></div>
-    <div class="container">
-      <div class="cta__inner">
-        <h2 class="cta__title cta__main-title">
-          <span class="cta__title-orange">City turns</span><span class="cta__title-white"> into a </span><span
-            class="cta__title-orange">gameboard.</span><br>
-          <span class="cta__title-white">Are you ready to play?</span>
-        </h2>
-        <h3 class="cta__desc">Gamified adventures in the heart of the Netherlands</h3>
-        <a class="btn btn-secondary cta__btn btn--transparent">Download Our Presentation</a>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/cta'); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Testimonials -->
-  <section class="testimonials section-special section-decorated-light section-decorated-dark" id="reviews">
-    <div class="container">
-      <div class="testimonials__header">
-        <h2 class="testimonials__title text-align">Stories you don't just hear — you live</h2>
-        <h3 class="testimonials__subtitle h3">For <span class="testimonials__accent">over 13 years</span>, we've
-          created and led <span class="testimonials__accent">500+ gamified tours</span> around the world.</h3>
-      </div>
-    </div>
-
-    <div class="testimonials__carousel swiper">
-      <div class="testimonials__track swiper-wrapper">
-        <div class="testimonials__card testimonials__card--text swiper-slide">
-          <div class="testimonials__card-top">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
-            <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
-              did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
-          </div>
-          <div class="testimonials__author">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
-            <span class="testimonials__name">Alex Frerkel</span>
-          </div>
-        </div>
-
-        <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
-          <div class="testimonials__author">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
-            <span class="testimonials__name">Anna Caplan</span>
-          </div>
-        </div>
-
-        <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
-          <div class="testimonials__author">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
-            <span class="testimonials__name">Metro Company</span>
-          </div>
-        </div>
-
-        <div class="testimonials__card testimonials__card--text swiper-slide">
-          <div class="testimonials__card-top">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/quote.png" alt="quote" class="testimonials__quote-icon">
-            <p class="testimonials__quote-text">We turned to the Questayme team to celebrate our birthday, and they
-              did a fantastic job – bringing together strangers and giving us a wonderful day!</p>
-          </div>
-          <div class="testimonials__author">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/jan.webp" alt="Alex Frerkel" class="testimonials__avatar">
-            <span class="testimonials__name">Alex Frerkel</span>
-          </div>
-        </div>
-
-        <div class="testimonials__card testimonials__card--photo-vertical swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-7.webp" alt="Anna Caplan" class="testimonials__photo">
-          <div class="testimonials__author">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/about-us/maria.webp" alt="Anna Caplan" class="testimonials__avatar">
-            <span class="testimonials__name">Anna Caplan</span>
-          </div>
-        </div>
-
-        <div class="testimonials__card testimonials__card--photo-horizontal swiper-slide">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/gallery/gallery-6.webp" alt="Metro Company" class="testimonials__photo">
-          <div class="testimonials__author">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/main/Mark.webp" alt="Metro Company" class="testimonials__avatar">
-            <span class="testimonials__name">Metro Company</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="testimonials__footer">
-        <a href="#" class="btn btn-secondary testimonials__btn btn--transparent" target="_blank">Read More Reviews</a>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/testimonials'); ?>
   <!-- Секция Partners -->
+  <?php
+  $pt_title   = get_field('pt_title') ?: 'They have played with us<br>and want more';
+  $pt_gallery = get_field('pt_gallery');
+  ?>
+
   <section class="partners section-special" id="partners">
     <div class="container">
       <div class="partners__inner">
-        <h2 class="text-align partners__title">They have played with us<br>and want more</h2>
+        <h2 class="text-align partners__title"><?php echo wp_kses_post($pt_title); ?></h2>
 
-        <div class="partners__grid">
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/dell.svg" alt="Dell"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/pfizer.svg" alt="Pfizer"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/nestle.svg" alt="Nestle"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/reuters.svg" alt="Reuters"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/colgate.svg" alt="Colgate"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/metro.svg" alt="Metro"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/microsoft.svg" alt="Microsoft"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/visa.svg" alt="Visa"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/BKing.svg" alt="Burger King"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/bayer.svg" alt="Bayer"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/kaspersky.svg" alt="Kaspersky"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/avon.svg" alt="Avon"></div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/britishcouncil.svg" alt="British Council">
+        <?php if (!empty($pt_gallery) && is_array($pt_gallery)): ?>
+          <div class="partners__grid">
+            <?php foreach ($pt_gallery as $image):
+              $logo_url = $image['url'];
+              $logo_alt = $image['alt'] ?: $image['title'] ?: 'Partner logo';
+            ?>
+              <div class="partners__item">
+                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($logo_alt); ?>">
+              </div>
+            <?php endforeach; ?>
           </div>
-          <div class="partners__item"><img src="<?php echo get_template_directory_uri(); ?>/assets/icons/partners/BATobacco.svg" alt="British American Tobacco">
-          </div>
-        </div>
+        <?php endif; ?>
 
         <div class="partners__footer">
           <a href="<?php echo home_url('/team-building/'); ?>" class="btn btn-secondary partners__btn">Go to Corporate Events</a>

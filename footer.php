@@ -28,5 +28,7 @@
 <button class="scroll-top" id="scrollTop">↑</button>
 
 <?php wp_footer(); ?>
+<?php get_template_part('templates/modal'); ?>
+<?php get_template_part('templates/cookie-banner'); ?>
 </body>
 </html>
