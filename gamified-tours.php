@@ -80,13 +80,13 @@ get_header(); ?>
         </div>
       </div>
       <?php
-        $reviews_tag = $reviews_url ? 'a' : 'div';
+      $reviews_tag = $reviews_url ? 'a' : 'div';
       ?>
       <<?php echo $reviews_tag; ?>
         class="hero-gt__reviews reviews-badge"
         <?php if ($reviews_url) : ?>
-          href="<?php echo esc_url($reviews_url); ?>"
-          target="_blank"
+        href="<?php echo esc_url($reviews_url); ?>"
+        target="_blank"
         <?php endif; ?>>
         <span class="reviews-badge__label">
           <?php echo esc_html($reviews_label); ?>
@@ -98,7 +98,7 @@ get_header(); ?>
           <?php echo esc_html($reviews_rating); ?>
           (<?php echo esc_html($reviews_count); ?>)
         </span>
-        </<?php echo $reviews_tag; ?>>
+      </<?php echo $reviews_tag; ?>>
     </div>
   </section>
   <!-- Секция Experience -->
@@ -126,116 +126,13 @@ get_header(); ?>
           <a class="btn btn-secondary btn--orange cta-guide__btn" href="<?php echo esc_url($gt_guide_pdf); ?>" target="_blank">
             <?php echo esc_html($gt_guide_btn_text); ?>
           </a>
-          <?php endif; ?>
+        <?php endif; ?>
       </div>
       <img src="<?php echo esc_url($gt_guide_img); ?>" alt="<?php echo esc_attr($gt_guide_img_alt); ?>" class="cta-guide__img" loading="lazy" decoding="async">
     </div>
   </section>
   <!-- Секция Quests -->
-  <section class="quests section-special" id="quests">
-    <div class="container">
-      <h2 class="text-align">Choose Your Adventure</h2>
-      <div class="quests__slider-wrap">
-        <div class="swiper quests__slider">
-          <div class="swiper-wrapper">
-
-            <?php
-            // Получаем товары из категории Gamified Tours
-            $quests = new WP_Query([
-              'post_type'      => 'product',
-              'posts_per_page' => -1,
-              'post_status'    => 'publish',
-              'tax_query'      => [[
-                'taxonomy' => 'product_cat',
-                'field'    => 'slug',
-                'terms'    => 'gamified-tours',
-              ]],
-              'orderby' => 'menu_order',
-              'order'   => 'ASC',
-            ]);
-
-            if ($quests->have_posts()) :
-              while ($quests->have_posts()) :
-                $quests->the_post();
-
-                // Данные товара
-                $product        = wc_get_product(get_the_ID());
-                $title          = get_the_title();
-                $description    = get_the_excerpt() ?: wp_trim_words(get_the_content(), 30);
-                $url            = get_permalink();
-                $thumbnail_url  = get_the_post_thumbnail_url(get_the_ID(), 'large') ?: get_template_directory_uri() . '/assets/images/quests/quests-1.webp';
-
-                // ACF поля
-                $btn1_text    = get_field('quest_btn_schedule_text') ?: 'View Schedule';
-                $btn2_text    = get_field('quest_btn_private_text')  ?: 'Book a Private Tour';
-                $whatsapp_url = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
-
-                // Теги из атрибутов WooCommerce
-                $tags = [];
-                $attributes = $product->get_attributes();
-
-                // Сортировка по position
-                uasort($attributes, function ($a, $b) {
-                  return $a->get_position() <=> $b->get_position();
-                });
-
-                foreach ($attributes as $attribute) {
-                  if (!$attribute->is_taxonomy()) {
-                    $tags[] = $attribute->get_name();
-                  }
-                }
-            ?>
-                <article class="quest-card swiper-slide">
-                  <div class="quest-card__top">
-                    <div class="quest-card__image-wrap">
-                      <div class="quest-card__image">
-                        <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy" />
-                        <span class="quest-card__image-corner"></span>
-                      </div>
-                    </div>
-                    <div class="quest-card__top-text">
-                      <?php if (!empty($tags)) : ?>
-                        <div class="quest-card__tags">
-                          <?php foreach ($tags as $tag) : ?>
-                            <span class="quest-card__tag"><?php echo esc_html($tag); ?></span>
-                          <?php endforeach; ?>
-                        </div>
-                      <?php endif; ?>
-                      <h4 class="quest-card__title"><?php echo esc_html($title); ?></h4>
-                    </div>
-                  </div>
-
-                  <p class="quest-card__desc"><?php echo wp_kses_post($description); ?></p>
-
-                  <div class="quest-card__actions">
-                    <!-- Кнопка 1 — ведёт на страницу товара (event-page) -->
-                    <a href="<?php echo esc_url(home_url('/schedule/')); ?>" class="btn btn-card quest-card__btn-contact btn--orange">
-                      <?php echo esc_html($btn1_text); ?>
-                    </a>
-                    <!-- Кнопка 2 — ссылка из ACF -->
-                    <a href="<?php echo esc_url($whatsapp_url); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-card quest-card__btn-learn">
-                      <?php echo esc_html($btn2_text); ?>
-                    </a>
-                  </div>
-                </article>
-
-              <?php
-              endwhile;
-              wp_reset_postdata();
-            else : ?>
-              <p class="quests__empty">Квесты скоро появятся!</p>
-            <?php endif; ?>
-
-          </div>
-        </div>
-        <div class="quests__nav">
-          <button class="quests__nav-btn quests__btn-prev" aria-label="previous"></button>
-          <div class="quests__pagination"></div>
-          <button class="quests__nav-btn quests__btn-next" aria-label="next"></button>
-        </div>
-      </div>
-    </div>
-  </section>
+  <?php get_template_part('templates/quests'); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Testimonials -->
