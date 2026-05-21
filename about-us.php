@@ -195,23 +195,28 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
     </div>
   </section>
   <!-- Секция Subscribe -->
+  <?php
+  $instagram = get_theme_mod('instagram_url', '#');
+  $threads = get_theme_mod('threads_url', '#');
+  $linkedin = get_theme_mod('linkedin_url', '#');
+  ?>
   <section class="subscribe-about-us section-special decorated-light-stats decorated-dark-stats" id="subscribe-about-us" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/stats.webp');">
     <div class="subscribe-about-us__overlay"></div>
     <div class="container subscribe-about-us__container">
       <h2 class="subscribe-about-us__title">Join Us</h2>
 
       <div class="subscribe-about-us__socials">
-        <a href="#" class="subscribe-about-us__link" target="_blank">
+        <a href="<?php echo esc_url($instagram); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/instagram-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_instagram.svg" alt="Instagram" class="subscribe-about-us__icon">
         </a>
 
-        <a href="#" class="subscribe-about-us__link" target="_blank">
+        <a href="<?php echo esc_url($threads); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/threads-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_threads.svg" alt="Threads" class="subscribe-about-us__icon">
         </a>
 
-        <a href="#" class="subscribe-about-us__link" target="_blank">
+        <a href="<?php echo esc_url($linkedin); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/linkedin-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/logo_linkedin.svg" alt="LinkedIn" class="subscribe-about-us__icon">
         </a>
