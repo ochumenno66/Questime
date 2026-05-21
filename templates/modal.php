@@ -5,8 +5,10 @@ Template Part: Contact Modal
  */
 
 $whatsapp_url = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
-$phone_display = get_theme_mod('phone_display', '+31 6 123 65 246');
-$phone_number = preg_replace('/\D/', '', $phone_display);
+$phone_display = get_theme_mod('phone_display');
+$phone_display = is_string($phone_display) && !empty($phone_display)
+  ? $phone_display
+  : '+31 6 123 65 246';
 
 // Modal — данные из ACF 
 $modal_title             = get_field('modal_title')             ?: "Let's talk!";
@@ -48,7 +50,7 @@ $privacy_policy          = get_permalink(get_page_by_path('privacy-policy'));
             <?php endforeach; ?>
             <p class="contact-form__text">
                 <?php echo esc_html($modal_phone_text); ?>
-                <a class="contact-form__phone" href="tel:<?php echo esc_attr($phone_number); ?>">
+                <a class="contact-form__phone" href="<?php echo esc_url($whatsapp_url); ?>" target="_blank">
                     <?php echo esc_html($phone_display); ?>
                 </a>
             </p>

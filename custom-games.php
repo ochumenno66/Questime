@@ -199,8 +199,6 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
       </div>
     </div>
   </section>
-
-
   <!-- Секция Form -->
   <section class="contact-form contact-form-cg section-special" id="contact-form">
     <div class="container">

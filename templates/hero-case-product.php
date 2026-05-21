@@ -4,9 +4,10 @@
 ?>
 
 <?php $cp_hero_bg = get_field('cp_hero_background'); ?>
+
 <section class="hero-ep" id="hero"
     <?php if ($cp_hero_bg): ?>
-    style="background-image: url('<?php echo esc_url($cp_hero_bg['url']); ?>'); background-size: cover; background-position: center;"
+        style="background-image: url('<?php echo esc_url($cp_hero_bg); ?>'); background-size: cover; background-position: center;"
     <?php endif; ?>>
     <div class="container hero-ep__container">
         <?php questime_breadcrumbs(); ?>
@@ -14,7 +15,7 @@
         <div class="hero-ep__compass">
             <?php $cp_compass = get_field('cp_hero_compass'); ?>
             <?php if ($cp_compass): ?>
-                <img src="<?php echo esc_url($cp_compass['url']); ?>" alt="<?php echo esc_attr($cp_compass['alt']); ?>" />
+                <img src="<?php echo esc_url($cp_compass); ?>" alt="Compass"/>
             <?php else: ?>
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/compass-EP.svg" alt="Compass" />
             <?php endif; ?>
@@ -74,7 +75,7 @@
                 <div class="hero-ep__loupe">
                     <?php $cp_loupe = get_field('cp_hero_loupe'); ?>
                     <?php if ($cp_loupe): ?>
-                        <img src="<?php echo esc_url($cp_loupe['url']); ?>" alt="<?php echo esc_attr($cp_loupe['alt']); ?>" />
+                        <img src="<?php echo esc_url($cp_loupe); ?>" alt="Loupe"/>
                     <?php else: ?>
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/event-page/loupe.svg" alt="loupe" />
                     <?php endif; ?>
