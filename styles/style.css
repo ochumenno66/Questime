@@ -3117,6 +3117,10 @@ body.modal-open {
   flex-direction: column;
 }
 
+.schedule__list.is-hidden {
+  display: none;
+}
+
 .schedule__event-wrapper {
   padding: 24px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
