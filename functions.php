@@ -330,7 +330,6 @@ add_action('init', function () {
 
 // Подключение стилей расписания
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('tours-style', get_template_directory_uri() . '/tours/tours.css', [], '1.0.0');
     wp_enqueue_script('tours-script', get_template_directory_uri() . '/tours/tours.js', ['jquery'], '1.0.0', true);
     wp_enqueue_script('schedule', get_template_directory_uri() . '/js/schedule.js', ['jquery'], '1.0.0', true);
     wp_localize_script('tours-script', 'ToursData', [
