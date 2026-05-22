@@ -1,0 +1,25 @@
+18:00:15 post_id=164 status=publish product_meta=
+18:00:18 post_id=164 status=publish product_meta=167
+18:10:59 post_id=164 status=publish product_meta=
+18:10:59 new product_id after insert=168
+18:11:02 post_id=164 status=publish product_meta=168
+18:15:24 post_id=164 status=trash product_meta=
+18:15:28 post_id=169 status=auto-draft product_meta=
+18:15:54 post_id=169 status=publish product_meta=
+18:15:56 post_id=169 status=publish product_meta=
+18:16:20 post_id=169 status=publish product_meta=
+18:16:20 new product_id after insert=170
+18:16:22 post_id=169 status=publish product_meta=170
+18:22:02 post_id=169 status=trash product_meta=
+18:22:09 post_id=171 status=auto-draft product_meta=
+18:22:39 post_id=171 status=publish product_meta=
+18:22:40 post_id=171 status=publish product_meta=
+18:23:03 post_id=171 status=publish product_meta=
+18:23:04 new product_id after insert=172
+18:23:06 post_id=171 status=publish product_meta=172
+18:26:04 post_id=173 status=auto-draft product_meta=
+18:26:32 post_id=173 status=publish product_meta=
+18:26:34 post_id=173 status=publish product_meta=
+18:26:44 post_id=173 status=publish product_meta=
+18:26:45 new product_id after insert=174
+18:26:47 post_id=173 status=publish product_meta=174
