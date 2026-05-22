@@ -350,10 +350,32 @@ add_action('wp_enqueue_scripts', function () {
 // Подключение модуля экскурсий
 require_once get_template_directory() . '/inc/functions-tours.php';
 
-add_filter('acf/update_value/name=tour_wc_product_id', function($value, $post_id) {
-    $existing = get_post_meta($post_id, 'tour_wc_product_id', true);
-    if (!empty($existing)) {
-        return $existing; // не даём ACF затереть существующее значение
-    }
-    return $value;
-}, 10, 2);
+// Меняем ссылку "Вернуться в магазин" на главную
+add_filter('woocommerce_return_to_shop_redirect', function() {
+    return home_url('/schedule/');
+});
+
+// Меняем текст кнопки
+add_filter('woocommerce_return_to_shop_text', function() {
+    return 'View Schedule';
+});
+
+
+// Убираем лишние поля на странице оформления заказа
+add_filter('woocommerce_checkout_fields', function($fields) {
+    // Убираем поля адреса доставки
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_company']);
+    
+    // Оставляем только имя, фамилию, email и телефон
+    return $fields;
+});
+
+// Убираем секцию доставки полностью
+add_filter('woocommerce_cart_needs_shipping', '__return_false');
+add_filter('woocommerce_cart_needs_shipping_address', '__return_false');

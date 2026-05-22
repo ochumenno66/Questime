@@ -3296,251 +3296,28 @@ body.modal-open {
   border-color: var(--color-white);
 }
 
-
-/* ============================================================
-   КОРЗИНА — страница /cart/
-   Добавь в конец style.css
-   ============================================================ */
-
-.cart-page {
-  padding-top: calc(var(--header-height) + clamp(32px, 4vw, 64px));
-  padding-bottom: clamp(60px, 8vw, 120px);
-  min-height: 70vh;
+/* Корзина */
+.wc-block-components-sidebar-layout.wc-block-cart {
+    padding-top: calc(var(--header-height) + 48px) !important;
+    padding-left: clamp(16px, 4vw, 60px) !important;
+    padding-right: clamp(16px, 4vw, 60px) !important;
+    margin-bottom: 20px !important;
 }
 
-.cart-page__title {
-  font-family: var(--font3);
-  font-size: clamp(32px, 4vw, 60px);
-  margin-bottom: clamp(32px, 4vw, 56px);
-  color: var(--color-text);
+/* Оформление заказа */
+.wc-block-components-sidebar-layout.wc-block-checkout {
+    padding-top: var(--header-height) !important;
+    padding-left: clamp(16px, 4vw, 60px);
+    padding-right: clamp(16px, 4vw, 60px);
+    padding-bottom: clamp(60px, 8vw, 100px) !important;
 }
 
-/* Лэйаут: товары слева, итог справа */
-.cart-page__layout {
-  display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 40px;
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .cart-page__layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ---- Карточка товара в корзине ---- */
-.cart-item {
-  display: grid;
-  grid-template-columns: 80px 1fr auto auto auto auto;
-  align-items: center;
-  gap: 16px 20px;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(222, 200, 132, 0.4);
-}
-
-@media (max-width: 600px) {
-  .cart-item {
-    grid-template-columns: 70px 1fr auto;
-    grid-template-rows: auto auto auto;
-  }
-
-  .cart-item__price { display: none; }
-
-  .cart-item__subtotal {
-    grid-column: 2;
-    font-weight: var(--font-weight-bold);
-  }
-
-  .cart-item__qty {
-    grid-column: 1 / -1;
-  }
-
-  .cart-item__remove {
-    grid-row: 1;
-    grid-column: 3;
-  }
-}
-
-.cart-item__image img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border: 1px solid var(--sandy);
-  display: block;
-}
-
-.cart-item__name a {
-  font-family: var(--font-family);
-  font-size: var(--font-secondary);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-  text-decoration: none;
-  transition: color 0.22s;
-}
-
-.cart-item__name a:hover {
-  color: var(--color-orange);
-}
-
-.cart-item__price,
-.cart-item__subtotal {
-  font-family: var(--font3);
-  font-size: clamp(16px, 1.5vw, 20px);
-  white-space: nowrap;
-}
-
-.cart-item__subtotal {
-  color: var(--color-orange);
-}
-
-/* Кнопка удалить */
-.cart-item__remove .remove {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--sandy);
-  color: var(--color-text);
-  font-size: 20px;
-  line-height: 1;
-  text-decoration: none;
-  transition: all 0.22s;
-  background: transparent;
-}
-
-.cart-item__remove .remove:hover {
-  background: var(--color-orange);
-  border-color: var(--color-orange);
-  color: var(--color-bg);
-}
-
-/* Поле количества */
-.cart-item__qty .quantity input {
-  width: 60px;
-  height: 40px;
-  border: 1px solid var(--sandy);
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--second-family);
-  font-size: 16px;
-  text-align: center;
-  padding: 0 8px;
-}
-
-/* ---- Купон и обновление ---- */
-.cart-page__actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  padding: 24px 0 0;
-}
-
-.cart-page__coupon {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex: 1;
-}
-
-.cart-page__coupon .contact-form__input {
-  max-width: 220px;
-  height: 44px;
-  padding: 0 16px;
-  border: 1px solid var(--sandy);
-  background: var(--color-bg);
-  font-family: var(--second-family);
-  font-size: 14px;
-}
-
-/* ---- Правая колонка: итог ---- */
-.cart-page__sidebar .cart_totals {
-  background: var(--color-card);
-  border: 1px solid var(--sandy);
-  padding: 32px;
-}
-
-.cart-page__sidebar .cart_totals h2 {
-  font-family: var(--font3);
-  font-size: clamp(20px, 2vw, 28px);
-  margin-bottom: 20px;
-  color: var(--color-text);
-}
-
-.cart-page__sidebar .cart_totals table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.cart-page__sidebar .cart_totals table th,
-.cart-page__sidebar .cart_totals table td {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(222, 200, 132, 0.3);
-  font-family: var(--second-family);
-  font-size: var(--font-secondary);
-  text-align: left;
-}
-
-.cart-page__sidebar .cart_totals .order-total th,
-.cart-page__sidebar .cart_totals .order-total td {
-  font-family: var(--font3);
-  font-size: clamp(18px, 1.8vw, 24px);
-  border-bottom: none;
-  padding-top: 16px;
-  color: var(--color-orange);
-}
-
-/* Кнопка оформить заказ */
-.cart-page__sidebar .checkout-button {
-  display: block;
-  width: 100%;
-  background: var(--color-orange);
-  color: var(--color-bg) !important;
-  font-family: var(--second-family);
-  font-size: 14px;
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-align: center;
-  padding: 16px 32px;
-  border: none;
-  cursor: pointer;
-  transition: background 0.22s;
-  text-decoration: none;
-  margin-top: 20px;
-}
-
-.cart-page__sidebar .checkout-button:hover {
-  background: var(--light-orange);
-}
-
-/* Пустая корзина */
-.woocommerce-cart .woocommerce-info {
-  font-family: var(--second-family);
-  font-size: var(--font-secondary);
-  border-top: 3px solid var(--sandy);
-  background: var(--color-card);
-  padding: 20px 24px;
-}
-
-.woocommerce-cart .woocommerce-info .button {
-  background: var(--color-orange);
-  color: var(--color-bg);
-  font-family: var(--second-family);
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 10px 24px;
-  text-decoration: none;
-  display: inline-block;
-  margin-left: 16px;
-  transition: background 0.22s;
-}
-
-.woocommerce-cart .woocommerce-info .button:hover {
-  background: var(--light-orange);
+/* Убираем лишние поля адреса */
+.wc-block-components-address-form__country,
+.wc-block-components-address-form__address_1,
+.wc-block-components-address-form__postcode,
+.wc-block-components-address-form__city {
+    display: none !important;
 }
 
 

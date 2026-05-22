@@ -75,7 +75,8 @@ get_header(); ?>
               $date_str   = (string) get_field('tour_date', $tour->ID);    // формат d.m.Y
               $time_start = get_field('tour_time', $tour->ID);             // "13:00"
               $duration   = (float) get_field('tour_duration', $tour->ID); // часы: 2.5
-              $product_id = (int) get_field('tour_wc_product_id', $tour->ID);
+              $product_raw = get_field('tour_product', $tour->ID);
+              $product_id  = is_object($product_raw) ? (int) $product_raw->ID : (int) $product_raw;
 
               // --- Вычисляем дату ---
               $dt       = function_exists('tour_parse_date') ? tour_parse_date($date_str) : null;
@@ -104,7 +105,7 @@ get_header(); ?>
 
               // --- Ссылка "купить" ---
               $buy_url = ($product_id && class_exists('WooCommerce'))
-                ? add_query_arg(['add-to-cart' => $product_id], wc_get_cart_url())
+                ? add_query_arg(['add-to-cart' => $product_id, 'tour_id' => $tour->ID], wc_get_cart_url())
                 : get_permalink($tour->ID);
 
               // --- Миниатюра ---
