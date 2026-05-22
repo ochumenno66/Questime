@@ -13,9 +13,9 @@
 if (!defined('ABSPATH')) exit;
 
 
-// ============================================================
+
 // 1. РЕГИСТРАЦИЯ CPT "tour"
-// ============================================================
+
 
 add_action('init', 'register_tour_post_type');
 function register_tour_post_type() {
@@ -42,9 +42,9 @@ function register_tour_post_type() {
 }
 
 
-// ============================================================
+
 // 2. РЕГИСТРАЦИЯ ПОЛЕЙ ACF
-// ============================================================
+
 
 add_action('acf/init', 'register_tour_acf_fields');
 function register_tour_acf_fields() {
@@ -129,9 +129,7 @@ function register_tour_acf_fields() {
 }
 
 
-// ============================================================
 // 3. УТИЛИТЫ
-// ============================================================
 
 function tour_parse_date(string $date): ?DateTime {
     if (empty(trim($date))) return null;
@@ -151,7 +149,7 @@ function tour_plural(int $n, string $one, string $few, string $many): string {
     return $many;
 }
 
-// Получаем product_id из поля tour_product (post_object может вернуть объект или ID)
+
 function tour_get_product_id(int $tour_id): int {
     $raw = get_field('tour_product', $tour_id);
     if (is_object($raw)) return (int) $raw->ID;
@@ -159,9 +157,9 @@ function tour_get_product_id(int $tour_id): int {
 }
 
 
-// ============================================================
+
 // 4. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
-// ============================================================
+
 
 function tour_get_price_info(int $post_id): array {
     $date_str = (string) get_field('tour_date', $post_id);
@@ -259,9 +257,9 @@ function tour_get_by_months(): array {
 }
 
 
-// ============================================================
+
 // 5. КОРЗИНА — динамическая цена из экскурсии
-// ============================================================
+
 
 // При добавлении в корзину сохраняем tour_id и цену из экскурсии
 add_filter('woocommerce_add_cart_item_data', function($cart_item_data, $product_id) {
@@ -276,7 +274,7 @@ add_filter('woocommerce_add_cart_item_data', function($cart_item_data, $product_
     // Не добавляем если мест нет
     if ($seats_info['sold_out']) {
         wc_add_notice(__('К сожалению, на эту экскурсию мест больше нет.', 'woocommerce'), 'error');
-        return null; // отменяем добавление
+        return null;
     }
 
     $cart_item_data['tour_id']      = $tour_id;
@@ -322,12 +320,9 @@ add_action('woocommerce_checkout_create_order_line_item', function($item, $cart_
     }
 }, 10, 3);
 
-// Разрешаем продажу товара даже без цены (цена подставляется динамически)
 add_filter('woocommerce_is_purchasable', function($purchasable, $product) {
-    // Проверяем есть ли tour_id в запросе или корзине
     if (!empty($_REQUEST['tour_id'])) return true;
 
-    // В корзине — проверяем есть ли позиции с tour_id для этого товара
     if (function_exists('WC') && WC()->cart) {
         foreach (WC()->cart->get_cart() as $cart_item) {
             if (!empty($cart_item['tour_id']) && $cart_item['product_id'] == $product->get_id()) {
@@ -339,9 +334,7 @@ add_filter('woocommerce_is_purchasable', function($purchasable, $product) {
 }, 10, 2);
 
 
-// ============================================================
 // 6. ОБНОВЛЕНИЕ МЕСТ ПРИ ЗАКАЗЕ
-// ============================================================
 
 add_action('woocommerce_order_status_completed',  'tour_on_order_completed');
 add_action('woocommerce_order_status_processing', 'tour_on_order_completed');
@@ -372,9 +365,7 @@ function tour_on_order_cancelled(int $order_id) {
 }
 
 
-// ============================================================
 // 7. CRON — ежедневное обновление
-// ============================================================
 
 add_action('wp', function() {
     if (!wp_next_scheduled('tour_daily_price_update')) {
@@ -399,9 +390,7 @@ add_action('tour_daily_price_update', function() {
 });
 
 
-// ============================================================
 // 8. AJAX
-// ============================================================
 
 add_action('wp_ajax_tour_get_info',        'ajax_tour_get_info');
 add_action('wp_ajax_nopriv_tour_get_info', 'ajax_tour_get_info');
@@ -417,9 +406,7 @@ function ajax_tour_get_info() {
 }
 
 
-// ============================================================
 // 9. ШОРТКОД [tour_schedule]
-// ============================================================
 
 add_shortcode('tour_schedule', 'tour_schedule_shortcode');
 function tour_schedule_shortcode(): string {

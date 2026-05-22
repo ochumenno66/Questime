@@ -36,14 +36,12 @@ get_header(); ?>
       ?>
 
       <?php if (! empty($months)) :
-        // Год берём из первого месяца
-        $first_key = $months_keys[0];           // формат "YYYY-MM"
+        $first_key = $months_keys[0];
         $current_year = substr($first_key, 0, 4);
       ?>
 
         <span class="schedule__year"><?= esc_html($current_year) ?></span>
 
-        <!-- Вкладки месяцев -->
         <div class="schedule__months" role="tablist" aria-label="Month selector">
 
           <?php foreach ($months as $key => $month) :
@@ -61,7 +59,6 @@ get_header(); ?>
           <?php endforeach; ?>
         </div>
 
-        <!-- Панели с экскурсиями по месяцам -->
         <?php foreach ($months as $key => $month) :
           $is_active = ($key === $months_keys[0]);
         ?>
@@ -71,10 +68,9 @@ get_header(); ?>
             role="list">
             <?php foreach ($month['tours'] as $i => $tour) :
 
-              // --- Данные из ACF ---
-              $date_str   = (string) get_field('tour_date', $tour->ID);    // формат d.m.Y
-              $time_start = get_field('tour_time', $tour->ID);             // "13:00"
-              $duration   = (float) get_field('tour_duration', $tour->ID); // часы: 2.5
+              $date_str   = (string) get_field('tour_date', $tour->ID);
+              $time_start = get_field('tour_time', $tour->ID);
+              $duration   = (float) get_field('tour_duration', $tour->ID);
               $product_raw = get_field('tour_product', $tour->ID);
               $product_id  = is_object($product_raw) ? (int) $product_raw->ID : (int) $product_raw;
 
