@@ -25,6 +25,11 @@ add_action('after_setup_theme', function () {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
     add_theme_support('custom-logo');
+
+    register_nav_menus([
+        'primary' => 'Главное меню (хедер)',
+        'footer'  => 'Меню футера',
+    ]);
 });
 
 // Фавиконки
@@ -174,7 +179,8 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 
 
 // ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
-function questime_social_icons(): void {
+function questime_social_icons(): void
+{
     for ($i = 1; $i <= 4; $i++) {
         $url  = get_theme_mod("social_{$i}_url",  '');
         $icon = get_theme_mod("social_{$i}_icon", '');
@@ -195,7 +201,8 @@ function questime_social_icons(): void {
 
 // ХЛЕБНЫЕ КРОШКИ — автоматические для любой страницы
 // Вызов: questime_breadcrumbs();
-function questime_breadcrumbs(): void {
+function questime_breadcrumbs(): void
+{
     // На главной не показываем
     if (is_front_page()) {
         return;
@@ -217,16 +224,16 @@ function questime_breadcrumbs(): void {
         echo '<a href="' . esc_url(home_url('/gamified-tours/')) . '" class="breadcrumb__link">Gamified Tours</a>';
         echo $sep;
         echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
-    
-    // CPT: Кейсы
-    // Main → Custom Games → Название кейса
+
+        // CPT: Кейсы
+        // Main → Custom Games → Название кейса
     } elseif (is_singular('quest_case')) {
         echo $sep;
         echo '<a href="' . esc_url(home_url('/custom-games/')) . '" class="breadcrumb__link">Custom Games</a>';
         echo $sep;
         echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
 
-    // Обычные страницы с родителем
+        // Обычные страницы с родителем
     } elseif (is_page()) {
         $page    = get_queried_object();
         $parents = array_reverse(get_post_ancestors($page));
@@ -241,7 +248,7 @@ function questime_breadcrumbs(): void {
         echo $sep;
         echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
 
-    // Запись (post)
+        // Запись (post)
     } elseif (is_single()) {
         $categories = get_the_category();
         if (!empty($categories)) {
@@ -253,12 +260,12 @@ function questime_breadcrumbs(): void {
         echo $sep;
         echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
 
-    // Архив / категория
+        // Архив / категория
     } elseif (is_archive()) {
         echo $sep;
         echo '<span class="breadcrumb__current">' . esc_html(get_the_archive_title()) . '</span>';
 
-    // 404
+        // 404
     } elseif (is_404()) {
         echo $sep;
         echo '<span class="breadcrumb__current">404</span>';
@@ -272,15 +279,23 @@ function questime_breadcrumbs(): void {
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 // Подключаем свой шаблон single-product вместо стандартного WooCommerce
-add_filter('woocommerce_locate_template', function ($template, $template_name) {
+add_filter('woocommerce_locate_template', function ($template, $template_name, $template_path) {
+    error_log("WC template: $template_name → $template");
+
     if ($template_name === 'single-product.php') {
         $custom = get_template_directory() . '/single-product.php';
         if (file_exists($custom)) {
             return $custom;
         }
     }
+
+    $theme_template = get_template_directory() . '/woocommerce/' . $template_name;
+    if (file_exists($theme_template)) {
+        return $theme_template;
+    }
+
     return $template;
-}, 10, 2);
+}, 10, 3);
 
 // Поддержка WooCommerce в теме
 add_action('after_setup_theme', function () {
@@ -325,3 +340,47 @@ add_action('init', function () {
         'show_in_rest' => true,
     ]);
 });
+
+// Подключение стилей расписания
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_script('tours-script', get_template_directory_uri() . '/tours/tours.js', ['jquery'], '1.0.0', true);
+    wp_enqueue_script('schedule', get_template_directory_uri() . '/js/schedule.js', ['jquery'], '1.0.0', true);
+    wp_localize_script('tours-script', 'ToursData', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce'    => wp_create_nonce('tour_nonce'),
+        'cart_url' => class_exists('WooCommerce') ? wc_get_cart_url() : '/',
+    ]);
+});
+
+// Подключение модуля экскурсий
+require_once get_template_directory() . '/inc/functions-tours.php';
+
+// Меняем ссылку "Вернуться в магазин" на главную
+add_filter('woocommerce_return_to_shop_redirect', function() {
+    return home_url('/schedule/');
+});
+
+// Меняем текст кнопки
+add_filter('woocommerce_return_to_shop_text', function() {
+    return 'View Schedule';
+});
+
+
+// Убираем лишние поля на странице оформления заказа
+add_filter('woocommerce_checkout_fields', function($fields) {
+    // Убираем поля адреса доставки
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_company']);
+    
+    // Оставляем только имя, фамилию, email и телефон
+    return $fields;
+});
+
+// Убираем секцию доставки полностью
+add_filter('woocommerce_cart_needs_shipping', '__return_false');
+add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
