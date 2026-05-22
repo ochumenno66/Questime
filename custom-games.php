@@ -15,6 +15,40 @@ $cg_btn1_text  = get_field('cg_hero_btn_1_text') ?: 'Request';
 $cg_btn2_text  = get_field('cg_hero_btn_2_text') ?: 'Download the presentation';
 $cg_pdf        = get_field('cg_hero_pdf')        ?: '';
 $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/images/custom-games/hero-full.jpg';
+
+// Блок Company
+// First block — данные из ACF
+$label_1            = get_field('label_1')   ?: 'Team';
+$text_1             = get_field('text_1')    ?: '<p> Our team includes experienced <strong>writers, game designers, illustrators, sound designers, and specialists in chatbots and online games</strong> — everything needed to turn an idea into a complete experience.</p>';
+$scroll_bg_1        = get_field('scroll_background_1');
+$scroll_bg_1_url    = $scroll_bg_1['url']    ?: get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
+$scroll_bg_1_alt    = $scroll_bg_1['alt']    ?: '';
+$label_border_1     = get_field('label_border_1');
+$label_border_1_url = $label_border_1['url'] ?: get_template_directory_uri() . '/assets/icons/border-team-CG.svg';
+$label_border_1_alt = $label_border_1['alt'] ?: '';
+$polaroid_bg_1      = get_field('polaroid_background_1');
+$polaroid_bg_1_url  = $polaroid_bg_1['url'] ?: get_template_directory_uri() . '/assets/images/polaroid-1-cg.png';
+$polaroid_bg_1_alt  = $polaroid_bg_1['alt'] ?: '';
+$photo_1            = get_field('photo_1');
+$photo_1_url        = $photo_1['url']       ?: get_template_directory_uri() . '/assets/images/main/hero-2.jpg';
+$photo_1_alt        = $photo_1['alt']       ?: 'The Great Silent Era';
+
+// Second block — данные из ACF
+$label_2 = get_field('label_2') ?: 'Experience';
+$text_2 = get_field('text_2') ?: '<p>Since <strong>2013</strong>, we have delivered <strong>150+ custom projects</strong> for clients across a wide range of industries, formats and genres.</p>';
+$scroll_bg_2 = get_field('scroll_background_2');
+$scroll_bg_2_url = $scroll_bg_2['url'] ?? get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
+$scroll_bg_2_alt = $scroll_bg_2['alt'] ?? '';
+$label_border_2 = get_field('label_border_2');
+$label_border_2_url = $label_border_2['url'] ?? get_template_directory_uri() . '/assets/icons/border-experience-CG.svg';
+$label_border_2_alt = $label_border_2['alt'] ?? '';
+$polaroid_bg_2 = get_field('polaroid_background_2');
+$polaroid_bg_2_url = $polaroid_bg_2['url'] ?? get_template_directory_uri() . '/assets/images/polaroid-2-cg.png';
+$polaroid_bg_2_alt = $polaroid_bg_2['alt'] ?? '';
+$photo_2 = get_field('photo_2');
+$photo_2_url = $photo_2['url'] ?? get_template_directory_uri() . '/assets/images/main/hero-4.jpg';
+$photo_2_alt = $photo_2['alt'] ?? 'Monopoly: The Golden Age of Amsterdam';
+
 ?>
 
 <main>
@@ -76,41 +110,99 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
   </section>
   <!-- Секция Company -->
   <section class="company section-special">
-    <div class="container">
-      <div class="company__pair company__pair--right-photo">
-        <div class="company__scroll company__scroll--team">
-          <img class="company__scroll-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/roll-CG-AU.webp" alt="">
-          <div class="company__scroll-label">
-            <img class="company__scroll-label-svg label-border-right" src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-team-CG.svg" alt="">
-            <span class="company__scroll-label-text label-text-right">Team</span>
-          </div>
-          <div class="company__scroll-inner">
-            <p class="company__text">Our team includes experienced <strong>writers, game designers, illustrators, sound designers, and specialists in chatbots and online games</strong> — everything needed to turn an idea into a complete experience.</p>
-          </div>
+  <div class="container">
+
+    <!-- FIRST BLOCK -->
+    <div class="company__pair company__pair--right-photo">
+      <div class="company__scroll company__scroll--team">
+        <img 
+          class="company__scroll-bg"
+          src="<?php echo esc_url($scroll_bg_1_url); ?>"
+          alt="<?php echo esc_attr($scroll_bg_1_alt); ?>"
+        >
+        <div class="company__scroll-label">
+          <img 
+            class="company__scroll-label-svg label-border-right"
+            src="<?php echo esc_url($label_border_1_url); ?>"
+            alt="<?php echo esc_attr($label_border_1_alt); ?>"
+          >
+          <span class="company__scroll-label-text label-text-right">
+            <?php echo esc_html($label_1); ?>
+          </span>
         </div>
-        <div class="company__polaroid company__polaroid--1">
-          <img class="company__polaroid-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/polaroid-1-cg.png" alt="">
-          <img class="company__polaroid-img--right" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-2.jpg" alt="The Great Silent Era">
+        <div class="company__scroll-inner">
+          <div class="company__text">
+            <?php echo wp_kses_post($text_1); ?>
+          </div>
         </div>
       </div>
-      <div class="company__pair company__pair--left-photo">
-        <div class="company__polaroid company__polaroid--2">
-          <img class="company__polaroid-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/polaroid-2-cg.png" alt="">
-          <img class="company__polaroid-img--left" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-4.jpg" alt="Monopoly: The Golden Age of Amsterdam">
-        </div>
-        <div class="company__scroll company__scroll--experience">
-          <img class="company__scroll-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/roll-CG-AU.webp" alt="">
-          <div class="company__scroll-label">
-            <img class="company__scroll-label-svg label-border-left" src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-experience-CG.svg" alt="">
-            <span class="company__scroll-label-text label-text-left">Experience</span>
-          </div>
-          <div class="company__scroll-inner">
-            <p class="company__text">Since <strong>2013</strong>, we have delivered <strong>150+ custom projects</strong> for clients across a wide range of industries, formats and genres.</p>
-          </div>
-        </div>
+      <div class="company__polaroid company__polaroid--1">
+        <img 
+          class="company__polaroid-bg"
+          src="<?php echo esc_url($polaroid_bg_1_url); ?>"
+          alt="<?php echo esc_attr($polaroid_bg_1_alt); ?>"
+        >
+        <img 
+          class="company__polaroid-img--right"
+          src="<?php echo esc_url($photo_1_url); ?>"
+          alt="<?php echo esc_attr($photo_1_alt); ?>"
+        >
       </div>
     </div>
-  </section>
+
+    <!-- SECOND BLOCK -->
+    <div class="company__pair company__pair--left-photo">
+
+      <div class="company__polaroid company__polaroid--2">
+
+        <img 
+          class="company__polaroid-bg"
+          src="<?php echo esc_url($polaroid_bg_2_url); ?>"
+          alt="<?php echo esc_attr($polaroid_bg_2_alt); ?>"
+        >
+
+        <img 
+          class="company__polaroid-img--left"
+          src="<?php echo esc_url($photo_2_url); ?>"
+          alt="<?php echo esc_attr($photo_2_alt); ?>"
+        >
+
+      </div>
+
+      <div class="company__scroll company__scroll--experience">
+
+        <img 
+          class="company__scroll-bg"
+          src="<?php echo esc_url($scroll_bg_2_url); ?>"
+          alt="<?php echo esc_attr($scroll_bg_2_alt); ?>"
+        >
+
+        <div class="company__scroll-label">
+
+          <img 
+            class="company__scroll-label-svg label-border-left"
+            src="<?php echo esc_url($label_border_2_url); ?>"
+            alt="<?php echo esc_attr($label_border_2_alt); ?>"
+          >
+
+          <span class="company__scroll-label-text label-text-left">
+            <?php echo esc_html($label_2); ?>
+          </span>
+
+        </div>
+
+        <div class="company__scroll-inner">
+          <div class="company__text">
+            <?php echo wp_kses_post($text_2); ?>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Projects (Cases) -->
@@ -199,8 +291,6 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
       </div>
     </div>
   </section>
-
-
   <!-- Секция Form -->
   <section class="contact-form contact-form-cg section-special" id="contact-form">
     <div class="container">
