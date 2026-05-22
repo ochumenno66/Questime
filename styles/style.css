@@ -3298,10 +3298,11 @@ body.modal-open {
 
 /* Корзина */
 .wc-block-components-sidebar-layout.wc-block-cart {
-    padding-top: calc(var(--header-height) + 48px) !important;
+    padding-top: var(--header-height) !important;
     padding-left: clamp(16px, 4vw, 60px) !important;
     padding-right: clamp(16px, 4vw, 60px) !important;
     margin-bottom: 20px !important;
+    padding-bottom: clamp(60px, 8vw, 100px) !important;
 }
 
 /* Оформление заказа */

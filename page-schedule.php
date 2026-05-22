@@ -111,10 +111,10 @@ get_header(); ?>
               $is_orange = ($i % 2 === 1);
 
               // --- Описание ---
-              $excerpt = get_the_excerpt($tour->ID);
+              $excerpt = $product_id ? get_the_excerpt($product_id) : get_the_excerpt($tour->ID);
 
               // --- Ссылка на страницу экскурсии ---
-              $tour_url = get_permalink($tour->ID);
+              $tour_url = $product_id ? get_permalink($product_id) : get_permalink($tour->ID);
             ?>
 
               <article class="schedule__event-wrapper" role="listitem">
@@ -138,7 +138,7 @@ get_header(); ?>
                     </a>
                     <?php
                     // Подзаголовок — из поля ACF "tour_subtitle", или пустой
-                    $subtitle = get_field('tour_subtitle', $tour->ID);
+                    $subtitle = $product_id ? get_field('tour_subtitle', $product_id) : '';
                     if ($subtitle) :
                     ?>
                       <span class="schedule__quest-subtitle"><?= esc_html($subtitle) ?></span>

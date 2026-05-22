@@ -1,13 +1,11 @@
 <?php
 /**
  * РАСПИСАНИЕ ЭКСКУРСИЙ
- * Подключить в functions.php:
- * require_once get_template_directory() . '/inc/functions-tours.php';
- *
+
  * Принцип: один товар WooCommerce = один квест.
- * CPT "tour" — отдельная дата, привязанная к товару.
+
  * Цена берётся из экскурсии и подставляется в корзину динамически.
- * Товар в WooCommerce может иметь цену 0 — реальная цена из экскурсии.
+ * Товар в WooCommerce имеет цену 0 — реальная цена берётся из экскурсии.
  */
 
 if (!defined('ABSPATH')) exit;
@@ -181,17 +179,24 @@ function tour_get_price_info(int $post_id): array {
     $tour_ts   = $dt->getTimestamp();
     $now_ts    = time();
     $days_left = ($tour_ts - $now_ts) / DAY_IN_SECONDS;
-    $discount  = $days_left > 30;
-    $price     = $discount ? round($base * 0.8) : $base;
+    $product_raw   = get_field('tour_product', $post_id);
+    $product_id    = is_object($product_raw) ? (int) $product_raw->ID : (int) $product_raw;
+    $discount_pct  = $product_id ? (int) get_field('tour_discount_pct',  $product_id) : 10;
+    $discount_days = $product_id ? (int) get_field('tour_discount_days', $product_id) : 30;
+    if (!$discount_pct)  $discount_pct  = 10;
+    if (!$discount_days) $discount_days = 30;
+
+    $discount = $days_left > $discount_days;
+    $price    = $discount ? round($base * (1 - $discount_pct / 100)) : $base;
 
     return [
         'base_price'   => $base,
         'final_price'  => $price,
         'discount'     => $discount,
-        'discount_pct' => 20,
+        'discount_pct' => $discount_pct,
         'days_left'    => (int) ceil($days_left),
         'hours_left'   => (int) ceil($days_left * 24),
-        'deadline_ts'  => $tour_ts - (30 * DAY_IN_SECONDS),
+        'deadline_ts'  => $tour_ts - ($discount_days * DAY_IN_SECONDS),
     ];
 }
 
@@ -405,154 +410,3 @@ function ajax_tour_get_info() {
     ]);
 }
 
-
-// 9. ШОРТКОД [tour_schedule]
-
-add_shortcode('tour_schedule', 'tour_schedule_shortcode');
-function tour_schedule_shortcode(): string {
-    ob_start();
-    $months = tour_get_by_months();
-
-    if (empty($months)) {
-        echo '<p class="tours-empty">Ближайших экскурсий нет. Следите за обновлениями!</p>';
-        return ob_get_clean();
-    }
-
-    $months_keys = array_keys($months);
-    $day_names   = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
-    ?>
-    <div class="tours-wrap" id="tours-wrap">
-
-        <div class="tours-tabs" role="tablist">
-            <?php foreach ($months as $key => $month): ?>
-                <button
-                    class="tours-tab <?= $key === $months_keys[0] ? 'is-active' : '' ?>"
-                    data-month="<?= esc_attr($key) ?>"
-                    role="tab"
-                    aria-selected="<?= $key === $months_keys[0] ? 'true' : 'false' ?>"
-                    aria-controls="month-<?= esc_attr($key) ?>"
-                >
-                    <span class="tours-tab__short"><?= esc_html($month['short']) ?></span>
-                    <span class="tours-tab__year"><?= esc_html($month['year']) ?></span>
-                    <span class="tours-tab__count"><?= count($month['tours']) ?></span>
-                </button>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="tours-panels">
-            <?php foreach ($months as $key => $month): ?>
-                <div
-                    class="tours-panel <?= $key === $months_keys[0] ? 'is-active' : '' ?>"
-                    id="month-<?= esc_attr($key) ?>"
-                    role="tabpanel"
-                >
-                    <div class="tours-list">
-                        <?php foreach ($month['tours'] as $tour):
-                            $price_info = tour_get_price_info($tour->ID);
-                            $seats_info = tour_get_seats_info($tour->ID);
-                            $date_str   = (string) get_field('tour_date', $tour->ID);
-                            $dt         = tour_parse_date($date_str);
-                            $time       = get_field('tour_time', $tour->ID);
-                            $duration   = get_field('tour_duration', $tour->ID);
-                            $meeting    = get_field('tour_meeting_point', $tour->ID);
-                            $product_id = tour_get_product_id($tour->ID);
-
-                            $day_num  = $dt ? $dt->format('d') : '—';
-                            $day_name = $dt ? $day_names[(int)$dt->format('w')] : '';
-
-                            $add_to_cart_url = $product_id
-                                ? add_query_arg([
-                                    'add-to-cart' => $product_id,
-                                    'tour_id'     => $tour->ID,
-                                  ], wc_get_cart_url())
-                                : '#';
-                        ?>
-                        <article
-                            class="tour-card <?= $seats_info['sold_out'] ? 'is-sold-out' : '' ?>"
-                            data-tour-id="<?= $tour->ID ?>"
-                            data-deadline="<?= $price_info['deadline_ts'] * 1000 ?>"
-                            data-discount="<?= $price_info['discount'] ? '1' : '0' ?>"
-                        >
-                            <div class="tour-card__date">
-                                <span class="tour-card__day-num"><?= esc_html($day_num) ?></span>
-                                <span class="tour-card__day-name"><?= esc_html($day_name) ?></span>
-                            </div>
-
-                            <div class="tour-card__body">
-                                <h3 class="tour-card__title"><?= esc_html($tour->post_title) ?></h3>
-
-                                <div class="tour-card__meta">
-                                    <?php if ($time): ?>
-                                    <span class="tour-card__meta-item">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                                        <?= esc_html($time) ?><?php if ($duration): ?> · <?= esc_html($duration) ?> ч<?php endif; ?>
-                                    </span>
-                                    <?php endif; ?>
-                                    <?php if ($meeting): ?>
-                                    <span class="tour-card__meta-item">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                        <?= esc_html($meeting) ?>
-                                    </span>
-                                    <?php endif; ?>
-                                </div>
-
-                                <?php $excerpt = get_the_excerpt($tour->ID); if ($excerpt): ?>
-                                <p class="tour-card__desc"><?= esc_html($excerpt) ?></p>
-                                <?php endif; ?>
-
-                                <?php if ($price_info['discount'] && !$seats_info['sold_out']): ?>
-                                <div class="tour-card__timer" data-deadline="<?= $price_info['deadline_ts'] * 1000 ?>">
-                                    <span class="tour-card__timer-label">Скидка 20% закончится через</span>
-                                    <span class="tour-card__timer-count">
-                                        <span class="timer-d">--</span><em>д</em>
-                                        <span class="timer-h">--</span><em>ч</em>
-                                        <span class="timer-m">--</span><em>м</em>
-                                    </span>
-                                </div>
-                                <?php endif; ?>
-                            </div>
-
-                            <div class="tour-card__aside">
-                                <div class="tour-card__seats">
-                                    <?php if ($seats_info['sold_out']): ?>
-                                        <span class="tour-card__badge tour-card__badge--sold-out">Мест нет</span>
-                                    <?php elseif ($seats_info['few_left']): ?>
-                                        <span class="tour-card__badge tour-card__badge--few">
-                                            Осталось <?= $seats_info['left'] ?> <?= tour_plural($seats_info['left'], 'место', 'места', 'мест') ?>
-                                        </span>
-                                    <?php else: ?>
-                                        <span class="tour-card__seats-count">
-                                            <?= $seats_info['left'] ?> <?= tour_plural($seats_info['left'], 'место', 'места', 'мест') ?>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-
-                                <div class="tour-card__price-wrap">
-                                    <?php if ($price_info['discount']): ?>
-                                        <span class="tour-card__price-old"><?= number_format($price_info['base_price'], 0, '.', ' ') ?> €</span>
-                                        <span class="tour-card__price tour-card__price--sale"><?= number_format($price_info['final_price'], 0, '.', ' ') ?> €</span>
-                                        <span class="tour-card__discount-badge">−20%</span>
-                                    <?php else: ?>
-                                        <span class="tour-card__price"><?= number_format($price_info['final_price'], 0, '.', ' ') ?> €</span>
-                                    <?php endif; ?>
-                                    <span class="tour-card__price-note">с человека</span>
-                                </div>
-
-                                <?php if ($seats_info['sold_out']): ?>
-                                    <button class="tour-card__btn tour-card__btn--disabled" disabled>Нет мест</button>
-                                <?php elseif ($product_id): ?>
-                                    <a href="<?= esc_url($add_to_cart_url) ?>" class="tour-card__btn">Купить билет</a>
-                                <?php else: ?>
-                                    <span class="tour-card__btn tour-card__btn--disabled">Скоро</span>
-                                <?php endif; ?>
-                            </div>
-                        </article>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </div>
-    <?php
-    return ob_get_clean();
-}
