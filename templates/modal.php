@@ -56,27 +56,28 @@ $privacy_policy          = get_permalink(get_page_by_path('privacy-policy'));
             </p>
         </div>
         <?php endif; ?>
-        <form class="contact-modal__form">
+        <form class="contact-modal__form js-contact-form" data-form-type="modal">
+            <input type="hidden" name="form_type" value="modal">
             <div class="contact-modal__fields">
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="text" id="modal-name" placeholder="Name" required>
+                    <input class="contact-form__input" type="text" id="modal-name" name="name" placeholder="Name" required>
                 </div>
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="tel" id="modal-phone" placeholder="Phone number" required>
+                    <input class="contact-form__input" type="tel" id="modal-phone" name="phone" placeholder="Phone number" required>
                 </div>
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="text" id="modal-company" placeholder="Company">
+                    <input class="contact-form__input" type="text" id="modal-company" name="company" placeholder="Company">
                 </div>
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="email" id="modal-email" placeholder="Email" required>
+                    <input class="contact-form__input" type="email" id="modal-email" name="email" placeholder="Email" required>
                 </div>
             </div>
             <div class="contact-modal__field">
-                <textarea class="contact-form__textarea" id="modal-message" placeholder="Text of your request"></textarea>
+                <textarea class="contact-form__textarea" id="modal-message" name="message" placeholder="Text of your request"></textarea>
             </div>
             <div class="contact-modal__actions">
                 <div class="checkbox">
-                    <input type="checkbox" id="modal-agree" required>
+                    <input type="checkbox" id="modal-agree" name="agree" required>
                     <label for="modal-agree">
                         <?php echo esc_html($modal_agree_text_before); ?>
                         <a href="<?php echo esc_url($privacy_policy); ?>" target="_blank" rel="noopener noreferrer">

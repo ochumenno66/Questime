@@ -55,7 +55,8 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'none';
     <h2 class="contact-form__title">
       <?php echo esc_html($gamified_title); ?>
     </h2>
-    <form class="contact-form__wrapper-gt" action="#" method="post">
+    <form class="contact-form__wrapper-gt js-contact-form" data-form-type="gamified" action="#" method="post">
+      <input type="hidden" name="form_type" value="gamified">
       <div class="contact-form__content-gt">
         <p class="contact-form__text-gt text-bottom-gt">
           <?php echo wp_kses_post($gamified_text_1); ?>
@@ -106,7 +107,7 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'none';
           <?php echo esc_html($gamified_button); ?>
         </button>
         <div class="checkbox checkbox-gt">
-          <input type="checkbox" id="agree-gamified" required>
+          <input type="checkbox" id="agree-gamified" name="agree" required>
           <label for="agree-gamified"> By subscribing, you agree to our
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('privacy-policy'))); ?>" target="_blank">
               Privacy Policy
@@ -128,7 +129,8 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'none';
     <h2 class="contact-form__title">
       <?php echo esc_html($default_title); ?>
     </h2>
-    <form class="contact-form__wrapper" action="#" method="post">
+    <form class="contact-form__wrapper js-contact-form" data-form-type="default" action="#" method="post">
+      <input type="hidden" name="form_type" value="default">
       <div class="contact-form__content">
         <div class="contact-form__info">
           <p class="contact-form__text text-bottom">
@@ -156,7 +158,7 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'none';
           <?php echo esc_html($default_button); ?>
         </button>
         <div class="checkbox">
-          <input type="checkbox" id="agree-default" required>
+          <input type="checkbox" id="agree-default" name="agree" required>
           <label for="agree-default">By subscribing, you agree to our
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('privacy-policy'))); ?>" target="_blank">
               Privacy Policy
