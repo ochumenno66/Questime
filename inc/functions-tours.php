@@ -325,18 +325,27 @@ add_action('woocommerce_checkout_create_order_line_item', function($item, $cart_
     }
 }, 10, 3);
 
+// Разрешаем покупку товаров используемых как квесты (цена подставляется из экскурсии)
 add_filter('woocommerce_is_purchasable', function($purchasable, $product) {
-    if (!empty($_REQUEST['tour_id'])) return true;
-
-    if (function_exists('WC') && WC()->cart) {
-        foreach (WC()->cart->get_cart() as $cart_item) {
-            if (!empty($cart_item['tour_id']) && $cart_item['product_id'] == $product->get_id()) {
-                return true;
-            }
-        }
-    }
+    $tours = get_posts([
+        'post_type'      => 'tour',
+        'post_status'    => 'publish',
+        'posts_per_page' => 1,
+        'meta_query'     => [[
+            'key'   => 'tour_product',
+            'value' => $product->get_id(),
+        ]],
+    ]);
+    if (!empty($tours)) return true;
     return $purchasable;
 }, 10, 2);
+
+// Разрешаем добавление в корзину
+add_filter('woocommerce_add_to_cart_validation', function($passed, $product_id, $quantity) {
+    if (!empty($_REQUEST['tour_id'])) return true;
+    return $passed;
+}, 99, 3);
+
 
 
 // 6. ОБНОВЛЕНИЕ МЕСТ ПРИ ЗАКАЗЕ
