@@ -107,6 +107,7 @@ function register_tour_acf_fields() {
                 'name'         => 'tour_wc_product_id',
                 'type'         => 'number',
                 'instructions' => 'Заполняется автоматически при сохранении',
+
             ],
         ],
         'location' => [
@@ -129,6 +130,8 @@ function tour_parse_date(string $date): ?DateTime {
 
 
 // 4. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+
+
 
 function tour_get_price_info(int $post_id): array {
     $date_str = (string) get_field('tour_date', $post_id);
@@ -230,18 +233,41 @@ function tour_get_by_months(): array {
 
 add_action('save_post_tour', 'tour_sync_woocommerce_product', 20, 2);
 function tour_sync_woocommerce_product(int $post_id, WP_Post $post) {
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
-    if ($post->post_status !== 'publish') return;
-    if (!class_exists('WooCommerce')) return;
+    static $is_syncing = false;
+    if ($is_syncing) return;
+    $is_syncing = true;
+
+    file_put_contents(
+        get_template_directory() . '/tour-debug.log',
+        date('H:i:s') . " post_id=$post_id status={$post->post_status} " .
+        "product_meta=" . get_post_meta($post_id, 'tour_wc_product_id', true) . "\n",
+        FILE_APPEND
+    );
+
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        $is_syncing = false;
+        return;
+    }
+    if ($post->post_status !== 'publish') {
+        $is_syncing = false;
+        return;
+    }
+    if (!class_exists('WooCommerce')) {
+        $is_syncing = false;
+        return;
+    }
 
     $date_str = (string) get_field('tour_date', $post_id);
     $dt       = tour_parse_date($date_str);
-    if (!$dt) return;
+    if (!$dt) {
+        $is_syncing = false;
+        return;
+    }
 
     $price_info = tour_get_price_info($post_id);
     $seats_info = tour_get_seats_info($post_id);
     $date_fmt   = $dt->format('d.m.Y');
-    $product_id = (int) get_field('tour_wc_product_id', $post_id);
+    $product_id = (int) get_post_meta($post_id, 'tour_wc_product_id', true);
 
     $product_data = [
         'post_title'  => $post->post_title . ' — ' . $date_fmt,
@@ -254,11 +280,20 @@ function tour_sync_woocommerce_product(int $post_id, WP_Post $post) {
         wp_update_post($product_data);
     } else {
         $product_id = wp_insert_post($product_data);
-        if (!$product_id || is_wp_error($product_id)) return;
 
-        add_action('shutdown', function() use ($post_id, $product_id) {
-            update_post_meta($post_id, 'tour_wc_product_id', $product_id);
-        });
+        file_put_contents(
+            get_template_directory() . '/tour-debug.log',
+            date('H:i:s') . " new product_id after insert=$product_id\n",
+            FILE_APPEND
+        );
+
+        if (!$product_id || is_wp_error($product_id)) {
+            $is_syncing = false;
+            return;
+        }
+
+        update_post_meta($post_id, 'tour_wc_product_id', $product_id);
+        update_post_meta($post_id, '_tour_wc_product_id', 'field_tour_wc_product_id');
     }
 
     wp_set_object_terms($product_id, 'simple', 'product_type');
@@ -279,6 +314,8 @@ function tour_sync_woocommerce_product(int $post_id, WP_Post $post) {
     if (function_exists('wc_delete_product_transients')) {
         wc_delete_product_transients($product_id);
     }
+
+    $is_syncing = false;
 }
 
 

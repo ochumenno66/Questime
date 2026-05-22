@@ -274,15 +274,23 @@ function questime_breadcrumbs(): void
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 // Подключаем свой шаблон single-product вместо стандартного WooCommerce
-add_filter('woocommerce_locate_template', function ($template, $template_name) {
+add_filter('woocommerce_locate_template', function ($template, $template_name, $template_path) {
+    error_log("WC template: $template_name → $template");
+
     if ($template_name === 'single-product.php') {
         $custom = get_template_directory() . '/single-product.php';
         if (file_exists($custom)) {
             return $custom;
         }
     }
+
+    $theme_template = get_template_directory() . '/woocommerce/' . $template_name;
+    if (file_exists($theme_template)) {
+        return $theme_template;
+    }
+
     return $template;
-}, 10, 2);
+}, 10, 3);
 
 // Поддержка WooCommerce в теме
 add_action('after_setup_theme', function () {
@@ -341,3 +349,11 @@ add_action('wp_enqueue_scripts', function () {
 
 // Подключение модуля экскурсий
 require_once get_template_directory() . '/inc/functions-tours.php';
+
+add_filter('acf/update_value/name=tour_wc_product_id', function($value, $post_id) {
+    $existing = get_post_meta($post_id, 'tour_wc_product_id', true);
+    if (!empty($existing)) {
+        return $existing; // не даём ACF затереть существующее значение
+    }
+    return $value;
+}, 10, 2);
