@@ -232,17 +232,30 @@ function tour_get_by_months(): array {
     ];
 
     $months   = [];
-    $today_dt = new DateTime('today');
+    $now_dt   = new DateTime('now', new DateTimeZone('Europe/Amsterdam'));
 
     if ($query->have_posts()) {
         foreach ($query->posts as $post) {
-            $date_str = (string) get_field('tour_date', $post->ID);
-            $dt       = tour_parse_date($date_str);
-            if (!$dt || $dt < $today_dt) continue;
+            $date_str  = (string) get_field('tour_date', $post->ID);
+            $tour_time = get_field('tour_time', $post->ID) ?: '00:00';
+            $dt        = tour_parse_date($date_str);
 
-            $month_num = (int) $dt->format('n');
-            $year      = $dt->format('Y');
-            $month_key = $dt->format('Ym');
+            if (!$dt) continue;
+
+            // Устанавливаем время экскурсии и отнимаем 1 час
+            $time_parts = explode(':', $tour_time);
+            $dt->setTime((int)$time_parts[0], (int)($time_parts[1] ?? 0));
+            $dt->modify('-1 hour');
+
+            // Скрываем если до начала (минус 1 час) уже прошло
+            if ($dt < $now_dt) continue;
+
+            // Восстанавливаем оригинальное время для отображения
+            $dt_display = tour_parse_date($date_str);
+
+            $month_num = (int) $dt_display->format('n');
+            $year      = $dt_display->format('Y');
+            $month_key = $dt_display->format('Ym');
 
             if (!isset($months[$month_key])) {
                 $months[$month_key] = [
@@ -260,7 +273,6 @@ function tour_get_by_months(): array {
     wp_reset_postdata();
     return $months;
 }
-
 
 
 // 5. КОРЗИНА — динамическая цена из экскурсии

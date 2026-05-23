@@ -384,3 +384,39 @@ add_filter('woocommerce_checkout_fields', function($fields) {
 // Убираем секцию доставки полностью
 add_filter('woocommerce_cart_needs_shipping', '__return_false');
 add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
+
+
+// Убираем обязательность полей адреса в блочном checkout
+add_filter('woocommerce_get_country_locale', function($locale) {
+    $not_required = ['address_1', 'address_2', 'city', 'postcode', 'state'];
+    foreach ($locale as $country => $fields) {
+        foreach ($not_required as $field) {
+            if (isset($locale[$country][$field])) {
+                $locale[$country][$field]['required'] = false;
+                $locale[$country][$field]['hidden']   = true;
+            }
+        }
+    }
+    return $locale;
+});
+
+// Форматируем метаданные экскурсии в письме
+add_filter('woocommerce_order_item_get_formatted_meta_data', function($formatted_meta, $item) {
+    foreach ($formatted_meta as $key => $meta) {
+        // Скрываем технические поля
+        if (in_array($meta->key, ['tour_id', 'tour_price'])) {
+            unset($formatted_meta[$key]);
+            continue;
+        }
+        // Переименовываем поля
+        if ($meta->key === 'tour_date') {
+            $meta->display_key = 'Date';
+        }
+        if ($meta->key === 'tour_time') {
+            $meta->display_key = 'Time';
+        }
+    }
+    return $formatted_meta;
+}, 10, 2);
+
+
