@@ -70,6 +70,17 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Pecita";
+  src:
+    url("../assets/fonts/Pecita/Pecita-Regular.ttf") format("truetype"),
+    url("../assets/fonts/Pecita/Pecita-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Pecita/Pecita-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Шрифты */
   /* Шрифт для инпутов меню */
@@ -78,6 +89,8 @@
   --second-family: "Overpass", sans-serif;
   /* Шрифт для заголовков */
   --font3: "Dihjauti", sans-serif;
+  /* Шрифт для каточек со страницы custom games */
+  --font6: "Pecita", sans-serif;
 
   /* Веса шрифтов */
   --font-weight-light: 300;
@@ -492,7 +505,7 @@ header {
 .footer-menu {
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 32px;
 }
 
 nav a {
@@ -524,7 +537,12 @@ nav a::after {
 .header__right {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
+}
+
+.header-buttons__wrapper {
+  display: flex;
+  gap: 16px;
 }
 
 .header-socials__wrapper,
@@ -2227,6 +2245,36 @@ body.modal-open {
   padding: 14px 0;
 }
 
+.footer__bottom {
+  background-color: var(--color-header-footer-bg);
+}
+
+.footer-bottom__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+  background-color: var(--color-header-footer-bg);
+}
+
+.footer__privacy {
+  font-family: var(--second-family);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.22s;
+}
+
+.footer__copyright {
+  font-family: var(--second-family);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
 /* GAMIFIED-TOURS */
 /* Cta-guide */
 .cta-guide {
@@ -3150,6 +3198,10 @@ body.modal-open {
   flex-direction: column;
 }
 
+.schedule__list.is-hidden {
+  display: none;
+}
+
 .schedule__event-wrapper {
   padding: 24px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -3323,6 +3375,31 @@ body.modal-open {
 .schedule__event--orange .schedule__buy-btn {
   color: var(--color-white);
   border-color: var(--color-white);
+}
+
+/* Корзина */
+.wc-block-components-sidebar-layout.wc-block-cart {
+  padding-top: var(--header-height) !important;
+  padding-left: clamp(16px, 4vw, 60px) !important;
+  padding-right: clamp(16px, 4vw, 60px) !important;
+  margin-bottom: 20px !important;
+  padding-bottom: clamp(60px, 8vw, 100px) !important;
+}
+
+/* Оформление заказа */
+.wc-block-components-sidebar-layout.wc-block-checkout {
+  padding-top: var(--header-height) !important;
+  padding-left: clamp(16px, 4vw, 60px);
+  padding-right: clamp(16px, 4vw, 60px);
+  padding-bottom: clamp(60px, 8vw, 100px) !important;
+}
+
+/* Убираем лишние поля адреса */
+.wc-block-components-address-form__country,
+.wc-block-components-address-form__address_1,
+.wc-block-components-address-form__postcode,
+.wc-block-components-address-form__city {
+  display: none !important;
 }
 
 /* CUSTOM GAMES */
@@ -3501,6 +3578,7 @@ body.modal-open {
 }
 
 .company__text {
+  font-size: var(--font-secondary);
   line-height: 160%;
 }
 
@@ -3511,28 +3589,40 @@ body.modal-open {
   align-items: center;
 }
 
+.company__polaroid--1 {
+  margin-left: auto; /* прижимаем вправо в гриде */
+}
+
+.company__polaroid--2 {
+  margin-right: auto; /* прижимаем влево в гриде */
+}
+
 .company__polaroid-bg {
   width: 100%;
   height: auto;
   display: block;
 }
 
+.company__polaroid-content {
+  display: flex;
+}
+
 .company__polaroid-img--right,
 .company__polaroid-img--left {
   position: absolute;
-  top: 18%;
+  top: 16%;
   width: 76%;
   object-fit: cover;
 }
 
 .company__polaroid-img--right {
   left: 13%;
-  height: 65%;
+  height: 55%;
 }
 
 .company__polaroid-img--left {
-  left: 11%;
-  height: 60%;
+  left: 12%;
+  height: 56%;
 }
 
 .company__polaroid--1 .company__polaroid-bg {
@@ -3541,7 +3631,7 @@ body.modal-open {
 
 .company__polaroid--1 .company__polaroid-img--right,
 .company__polaroid--1 .company__polaroid-caption {
-  transform: rotate(7.5deg);
+  transform: rotate(6.5deg);
   transform-origin: center center;
 }
 
@@ -3551,7 +3641,7 @@ body.modal-open {
 
 .company__polaroid--2 .company__polaroid-img--left,
 .company__polaroid--2 .company__polaroid-caption {
-  transform: rotate(-6.5deg);
+  transform: rotate(-6.3deg);
   transform-origin: center center;
 }
 
@@ -3605,6 +3695,16 @@ body.modal-open {
   padding: 36px 86px;
   top: 22px;
   left: 13px;
+}
+
+.company__polaroid-caption--right,
+.company__polaroid-caption--left {
+  margin-top: 18px;
+  font-size: 30px;
+  line-height: 140%;
+  text-align: center;
+  color: var(--color-text);
+  font-family: var(--font6);
 }
 
 /* Projects */
@@ -4282,7 +4382,7 @@ body.modal-open {
 }
 
 /* Adaptive */
-@media (max-width: 1319px) {
+@media (max-width: 1420px) {
   .header-nav {
     display: none;
   }
@@ -4306,7 +4406,9 @@ body.modal-open {
   .footer-nav {
     display: none;
   }
+}
 
+@media (max-width: 1319px) {
   /* form */
   .contact-form__btn {
     grid-column: 1 / 4;
@@ -5410,7 +5512,12 @@ body.modal-open {
     height: 1px;
   }
 
-  .btn-book--mobile {
+  .header__right {
+    display: none;
+  }
+
+  .btn-book--mobile,
+  .btn-schedule--mobile {
     display: flex;
     padding: 7px;
     font-size: 14px;
@@ -6498,6 +6605,12 @@ body.modal-open {
     transform: translateY(-70%) rotate(10deg);
   }
 
+  .footer-bottom__wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
   /* COOKIE BANNER */
   .cookie-banner {
     right: 5px;
@@ -6603,6 +6716,10 @@ body.modal-open {
   }
 
   .projects-card__list a:hover {
+    color: var(--color-orange);
+  }
+
+  .footer__privacy:hover {
     color: var(--color-orange);
   }
 }
