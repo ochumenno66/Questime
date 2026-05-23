@@ -3398,8 +3398,9 @@ body.modal-open {
 .wc-block-components-address-form__country,
 .wc-block-components-address-form__address_1,
 .wc-block-components-address-form__postcode,
-.wc-block-components-address-form__city {
-  display: none !important;
+.wc-block-components-address-form__city,
+.wc-block-components-address-form__address_2-toggle {
+    display: none !important;
 }
 
 /* CUSTOM GAMES */
