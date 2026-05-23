@@ -35,6 +35,11 @@ $polaroid_bg_2 = get_field('polaroid_background_2') ?: get_template_directory_ur
 $photo_2 = get_field('photo_2') ?: get_template_directory_uri() . '/assets/images/custom-games/company-2-cg.png';
 $polaroid_caption_2 = get_field('polaroid_caption_2') ?: 'Monopoly: The Golden Age of Amsterdam';
 
+// Projects (Cases) — данные из ACF
+$projects_cta_text     = get_field('projects_cta_text')      ?: 'You can download our full portfolio';
+$projects_cta_btn_text = get_field('projects_cta_btn_text')  ?: 'Here';
+$projects_cta_file     = get_field('projects_cta_file');
+
 ?>
 
 <main>
@@ -97,7 +102,7 @@ $polaroid_caption_2 = get_field('polaroid_caption_2') ?: 'Monopoly: The Golden A
   <!-- Секция Company -->
   <section class="company section-special">
     <div class="container">
-      <!-- FIRST BLOCK -->
+      <!-- First block -->
       <div class="company__pair company__pair--right-photo">
         <div class="company__scroll company__scroll--team">
           <img class="company__scroll-bg" src="<?php echo esc_url($scroll_bg_1); ?>" alt="Scroll">
@@ -123,7 +128,7 @@ $polaroid_caption_2 = get_field('polaroid_caption_2') ?: 'Monopoly: The Golden A
           </div>
         </div>
       </div>
-      <!-- SECOND BLOCK -->
+      <!-- Second block -->
       <div class="company__pair company__pair--left-photo">
         <div class="company__polaroid company__polaroid--2">
           <img class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_2); ?>" alt="Polaroid">
@@ -233,8 +238,23 @@ $polaroid_caption_2 = get_field('polaroid_caption_2') ?: 'Monopoly: The Golden A
       <div class="projects__btn-card">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-portfolio-CG.svg" alt="" class="projects__btn-border">
         <div class="projects__btn-content">
-          <p class="projects__btn-text">You can download our full portfolio</p>
-          <a href="#" class="btn btn-secondary btn-projects btn--orange">Here</a>
+          <?php if ($projects_cta_text) : ?>
+          <p class="projects__btn-text">
+            <?php echo esc_html($projects_cta_text); ?>
+          </p>
+
+          <?php endif; ?>
+
+          <?php if ($projects_cta_file) : ?>
+          <a href="<?php echo esc_url($projects_cta_file); ?>"
+            class="btn btn-secondary btn-projects btn--orange"
+            target="_blank"
+            download
+          >
+            <?php echo esc_html($projects_cta_btn_text ?: 'Download'); ?>
+          </a>
+
+        <?php endif; ?>
         </div>
       </div>
     </div>

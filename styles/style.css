@@ -73,9 +73,8 @@
 @font-face {
   font-family: "Pecita";
   src:
-    url("../assets/fonts/Pecita/Pecita-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Pecita/Pecita-Regular.woff2") format("woff2"),
-    url("../assets/fonts/Pecita/Pecita-Regular.woff") format("woff");
+    url("../assets/fonts/Pecita/Pecita.woff2") format("woff2"),
+    url("../assets/fonts/Pecita/Pecita.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -3400,7 +3399,7 @@ body.modal-open {
 .wc-block-components-address-form__postcode,
 .wc-block-components-address-form__city,
 .wc-block-components-address-form__address_2-toggle {
-    display: none !important;
+  display: none !important;
 }
 
 /* CUSTOM GAMES */
@@ -3591,21 +3590,17 @@ body.modal-open {
 }
 
 .company__polaroid--1 {
-  margin-left: auto; /* прижимаем вправо в гриде */
+  margin-left: auto;
 }
 
 .company__polaroid--2 {
-  margin-right: auto; /* прижимаем влево в гриде */
+  margin-right: auto;
 }
 
 .company__polaroid-bg {
   width: 100%;
   height: auto;
   display: block;
-}
-
-.company__polaroid-content {
-  display: flex;
 }
 
 .company__polaroid-img--right,
@@ -3618,32 +3613,64 @@ body.modal-open {
 
 .company__polaroid-img--right {
   left: 13%;
-  height: 55%;
+  height: 68%;
 }
 
 .company__polaroid-img--left {
   left: 12%;
-  height: 56%;
+  height: 65%;
+}
+
+.company__polaroid-caption--left,
+.company__polaroid-caption--right {
+  position: absolute;
+  width: 80%;
+  margin: 0;
+  font-family: var(--font6);
+  font-size: clamp(14px, 2.05vw, 30px);
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-text);
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.company__polaroid-caption--right {
+  left: 7%;
+  bottom: 8%;
+}
+
+.company__polaroid-caption--left {
+  left: 15%;
+  bottom: 5%;
 }
 
 .company__polaroid--1 .company__polaroid-bg {
   transform: rotate(2deg);
 }
 
-.company__polaroid--1 .company__polaroid-img--right,
-.company__polaroid--1 .company__polaroid-caption {
-  transform: rotate(6.5deg);
-  transform-origin: center center;
-}
-
 .company__polaroid--2 .company__polaroid-bg {
   transform: rotate(1deg);
 }
 
-.company__polaroid--2 .company__polaroid-img--left,
-.company__polaroid--2 .company__polaroid-caption {
-  transform: rotate(-6.3deg);
+.company__polaroid-img--right,
+.company__polaroid-img--left,
+.company__polaroid-caption--right,
+.company__polaroid-caption--left {
   transform-origin: center center;
+}
+
+.company__polaroid--1 .company__polaroid-img--right,
+.company__polaroid--1 .company__polaroid-caption--right {
+  transform: rotate(6.5deg);
+}
+
+.company__polaroid--2 .company__polaroid-img--left,
+.company__polaroid--2 .company__polaroid-caption--left {
+  transform: rotate(-6.3deg);
 }
 
 .company__scroll-label {
@@ -3653,13 +3680,16 @@ body.modal-open {
   justify-content: center;
 }
 
-.company__scroll--team .company__scroll-label {
+.company__scroll--team .company__scroll-label,
+.company__scroll--experience .company__scroll-label {
   top: 8%;
+}
+
+.company__scroll--team .company__scroll-label {
   right: 8%;
 }
 
 .company__scroll--experience .company__scroll-label {
-  top: 8%;
   left: 8%;
 }
 
@@ -3696,16 +3726,6 @@ body.modal-open {
   padding: 36px 86px;
   top: 22px;
   left: 13px;
-}
-
-.company__polaroid-caption--right,
-.company__polaroid-caption--left {
-  margin-top: 18px;
-  font-size: 30px;
-  line-height: 140%;
-  text-align: center;
-  color: var(--color-text);
-  font-family: var(--font6);
 }
 
 /* Projects */
@@ -3782,37 +3802,43 @@ body.modal-open {
 
 .projects-card__caption {
   position: absolute;
-  width: 78%;
+  width: 72%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-secondary);
-  line-height: 160%;
+  line-height: 1.3;
   text-align: center;
   color: var(--color-orange);
+  overflow-wrap: break-word;
 }
 
 .projects-card--1 .projects-card__caption {
-  bottom: 9.2%;
+  bottom: 11.2%;
   left: 50%;
   transform: translateX(-51%) rotate(5deg);
 }
 
-.projects-card--2 .projects-card__caption,
-.projects-card--4 .projects-card__caption {
-  bottom: 6.6%;
+.projects-card--2 .projects-card__caption {
+  bottom: 8.6%;
   left: 50%;
   transform: translateX(-47%) rotate(-5deg);
 }
 
-.projects-card--4 .projects-card__caption {
-  bottom: 16%;
-}
-
 .projects-card--3 .projects-card__caption {
-  bottom: 14.8%;
+  bottom: 10.8%;
   left: 49%;
   transform: translateX(-51%) rotate(5deg);
+}
+
+.projects-card--4 .projects-card__caption {
+  bottom: 13.6%;
+  left: 50%;
+  transform: translateX(-47%) rotate(-5deg);
 }
 
 .projects-card__paper {
@@ -5795,6 +5821,10 @@ body.modal-open {
   }
 
   /* Company */
+  .company__text {
+    font-size: clamp(12px, 1.09vw, 16px);
+  }
+
   .label-text-right {
     padding: 10px 31px;
   }
