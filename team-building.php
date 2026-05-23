@@ -53,7 +53,7 @@ $tb_btn_text      = get_field('tb_hero_btn_text')   ?: 'Contact us';
           <?php echo esc_html($tb_subtitle); ?>
         </p>
         <div class="hero-tb__actions">
-          <a class="btn btn-secondary btn--orange hero-tb__btn" href="<?php echo esc_url($whatsapp); ?>" target="_blank">
+          <a class="btn btn-secondary btn--orange hero-tb__btn open-modal" data-modal-open href="<?php echo esc_url($whatsapp); ?>" target="_blank">
             <?php echo esc_html($tb_btn_text); ?>
           </a>
         </div>

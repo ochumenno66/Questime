@@ -4,7 +4,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +17,8 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot") format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot")
+      format("embedded-opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -28,7 +30,8 @@
     url("../assets/fonts/Overpass/Overpass-Regular.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Regular.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Regular.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Regular.eot")
+      format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -40,7 +43,8 @@
     url("../assets/fonts/Overpass/Overpass-Light.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Light.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Light.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Light.eot") format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Light.eot")
+      format("embedded-opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -66,6 +70,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Pecita";
+  src:
+    url("../assets/fonts/Pecita/Pecita.woff2") format("woff2"),
+    url("../assets/fonts/Pecita/Pecita.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Шрифты */
   /* Шрифт для инпутов меню */
@@ -74,6 +88,8 @@
   --second-family: "Overpass", sans-serif;
   /* Шрифт для заголовков */
   --font3: "Dihjauti", sans-serif;
+  /* Шрифт для каточек со страницы custom games */
+  --font6: "Pecita", sans-serif;
 
   /* Веса шрифтов */
   --font-weight-light: 300;
@@ -357,7 +373,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -368,7 +385,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-stats.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-stats.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -379,7 +397,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-cta.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-cta.png") center bottom / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -390,7 +409,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-header.png") center bottom / cover no-repeat;
+  background: url("../assets/images/border-dark-header.png") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -401,7 +421,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/projects-border-2.svg") center bottom / cover no-repeat;
+  background: url("../assets/images/projects-border-2.svg") center bottom /
+    cover no-repeat;
   pointer-events: none;
 }
 
@@ -413,7 +434,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -424,7 +446,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-stats.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-stats.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -435,7 +458,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-cta.png") center top / cover no-repeat;
+  background: url("../assets/images/border-light-cta.png") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -446,7 +470,8 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/projects-border-1.svg") center top / cover no-repeat;
+  background: url("../assets/images/projects-border-1.svg") center top / cover
+    no-repeat;
   pointer-events: none;
 }
 
@@ -479,7 +504,7 @@ header {
 .footer-menu {
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 32px;
 }
 
 nav a {
@@ -511,7 +536,12 @@ nav a::after {
 .header__right {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
+}
+
+.header-buttons__wrapper {
+  display: flex;
+  gap: 16px;
 }
 
 .header-socials__wrapper,
@@ -783,10 +813,12 @@ nav a::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(90deg,
-      #191a18 0%,
-      rgba(25, 26, 24, 0.5) 16%,
-      rgba(25, 26, 24, 0) 31%);
+  background: linear-gradient(
+    90deg,
+    #191a18 0%,
+    rgba(25, 26, 24, 0.5) 16%,
+    rgba(25, 26, 24, 0) 31%
+  );
 }
 
 .hero__wrapper::after {
@@ -917,9 +949,11 @@ nav a::after {
   left: 0;
   width: 180px;
   height: 100%;
-  background: linear-gradient(90deg,
-      var(--color-header-footer-bg) 0%,
-      transparent 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-header-footer-bg) 0%,
+    transparent 100%
+  );
   z-index: 5;
   pointer-events: none;
 }
@@ -1240,11 +1274,13 @@ nav a::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(179.31deg,
-      #191a18 2.33%,
-      rgba(25, 26, 24, 0) 23.3%,
-      rgba(25, 26, 24, 0) 87.64%,
-      #191a18 94.25%);
+  background: linear-gradient(
+    179.31deg,
+    #191a18 2.33%,
+    rgba(25, 26, 24, 0) 23.3%,
+    rgba(25, 26, 24, 0) 87.64%,
+    #191a18 94.25%
+  );
 }
 
 .services__inner {
@@ -1378,10 +1414,12 @@ nav a::after {
 .stats {
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(178.88deg,
+    linear-gradient(
+      178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%),
+      #191a18 99%
+    ),
     url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
@@ -1534,10 +1572,12 @@ nav a::after {
   inset: 0;
   background-image:
     linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
-    linear-gradient(178.88deg,
+    linear-gradient(
+      178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%);
+      #191a18 99%
+    );
   z-index: 0;
   pointer-events: none;
 }
@@ -1959,7 +1999,8 @@ nav a::after {
   left: -1px;
   width: 50px;
   height: 100%;
-  background: url("../assets/images/Mask-contact.png") repeat-y center / 100% auto;
+  background: url("../assets/images/Mask-contact.png") repeat-y center / 100%
+    auto;
 }
 
 /* MODAL WINDOW */
@@ -2087,58 +2128,65 @@ body.modal-open {
 /* Cookie Banner */
 .cookie-banner {
   position: fixed;
-  left: 10px;
+  right: 10px;
   bottom: 10px;
   z-index: 999;
   display: flex;
   align-items: center;
-  gap: clamp(20px, 4.21vw, 32px);
-  max-width: 760px;
+  gap: 10px;
+  max-width: 660px;
   margin: 0 auto;
-  padding: clamp(12px, 4.21vw, 32px);
+  padding: 12px;
   border: 1px solid var(--color-text);
-  border-radius: 48px;
-  background: #f4f1e8;
+  border-radius: 25px;
+  background: var(--color-bg);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s ease;
 }
 
 .cookie-banner.is-hidden {
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transform: translateY(20px);
 }
 
+.cookie-banner:not(.is-hidden) {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 .cookie-banner__icon {
   flex-shrink: 0;
-  width: clamp(40px, 10.52vw, 80px);
+  width: 40px;
+}
+
+.cookie-banner__container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .cookie-banner__content {
   display: flex;
-  gap: clamp(20px, 4.21vw, 32px);
-  align-items: center;
-}
-
-.cookie-banner__text {
-  display: flex;
   flex-direction: column;
-  gap: clamp(10px, 2.63vw, 20px);
 }
 
 .cookie-banner__title {
   font-family: var(--font-family);
-  font-size: clamp(16px, 3.15vw, 24px);
+  font-size: clamp(14px, 1.09vw, 16px);
   color: var(--color-text);
 }
 
 .cookie-banner__actions {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  min-width: 208px;
+  gap: 8px;
+  min-width: 152px;
   max-height: 100px;
 }
 
@@ -2146,7 +2194,8 @@ body.modal-open {
 .cookie-banner__accept {
   width: 100%;
   color: var(--color-text);
-  font-size: clamp(16px, 2.63vw, 20px) !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
   border: 1px solid var(--color-text);
   font-family: var(--font-family);
   flex: 1;
@@ -2193,6 +2242,36 @@ body.modal-open {
 /* Footer */
 .footer {
   padding: 14px 0;
+}
+
+.footer__bottom {
+  background-color: var(--color-header-footer-bg);
+}
+
+.footer-bottom__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+  background-color: var(--color-header-footer-bg);
+}
+
+.footer__privacy {
+  font-family: var(--second-family);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.22s;
+}
+
+.footer__copyright {
+  font-family: var(--second-family);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* GAMIFIED-TOURS */
@@ -2353,6 +2432,11 @@ body.modal-open {
   object-fit: cover;
 }
 
+.btn-cg-request {
+  display: flex;
+  margin: 0 auto;
+}
+
 /* TEAM BUILDING */
 /* FAQ */
 .faq__list {
@@ -2381,7 +2465,7 @@ body.modal-open {
   cursor: pointer;
 }
 
-.faq__dot+.faq__item .faq__question {
+.faq__dot + .faq__item .faq__question {
   padding-top: 0;
 }
 
@@ -2471,7 +2555,8 @@ body.modal-open {
 
 .hero-ep {
   position: relative;
-  background: url("../assets/images/paper-EP.png") no-repeat center center / cover;
+  background: url("../assets/images/paper-EP.png") no-repeat center center /
+    cover;
   padding-bottom: 80px;
   padding-top: 70px;
   min-height: auto;
@@ -2854,7 +2939,7 @@ body.modal-open {
   cursor: pointer;
 }
 
-.persons__dot+.persons__item .persons__question {
+.persons__dot + .persons__item .persons__question {
   padding-top: 0;
 }
 
@@ -3117,6 +3202,10 @@ body.modal-open {
   flex-direction: column;
 }
 
+.schedule__list.is-hidden {
+  display: none;
+}
+
 .schedule__event-wrapper {
   padding: 24px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
@@ -3292,6 +3381,32 @@ body.modal-open {
   border-color: var(--color-white);
 }
 
+/* Корзина */
+.wc-block-components-sidebar-layout.wc-block-cart {
+  padding-top: var(--header-height) !important;
+  padding-left: clamp(16px, 4vw, 60px) !important;
+  padding-right: clamp(16px, 4vw, 60px) !important;
+  margin-bottom: 20px !important;
+  padding-bottom: clamp(60px, 8vw, 100px) !important;
+}
+
+/* Оформление заказа */
+.wc-block-components-sidebar-layout.wc-block-checkout {
+  padding-top: var(--header-height) !important;
+  padding-left: clamp(16px, 4vw, 60px);
+  padding-right: clamp(16px, 4vw, 60px);
+  padding-bottom: clamp(60px, 8vw, 100px) !important;
+}
+
+/* Убираем лишние поля адреса */
+.wc-block-components-address-form__country,
+.wc-block-components-address-form__address_1,
+.wc-block-components-address-form__postcode,
+.wc-block-components-address-form__city,
+.wc-block-components-address-form__address_2-toggle {
+  display: none !important;
+}
+
 /* CUSTOM GAMES */
 /* HERO */
 .custom-games-hero__image-wrap--mobile {
@@ -3321,10 +3436,12 @@ body.modal-open {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
+      #191a18 100%
+    ),
     url("../assets/images/custom-games/hero-full.jpg") center / cover no-repeat;
   z-index: 0;
 }
@@ -3477,6 +3594,14 @@ body.modal-open {
   align-items: center;
 }
 
+.company__polaroid--1 {
+  margin-left: auto;
+}
+
+.company__polaroid--2 {
+  margin-right: auto;
+}
+
 .company__polaroid-bg {
   width: 100%;
   height: auto;
@@ -3486,39 +3611,71 @@ body.modal-open {
 .company__polaroid-img--right,
 .company__polaroid-img--left {
   position: absolute;
-  top: 18%;
+  top: 16%;
   width: 76%;
   object-fit: cover;
 }
 
 .company__polaroid-img--right {
   left: 13%;
-  height: 65%;
+  height: 68%;
 }
 
 .company__polaroid-img--left {
-  left: 11%;
-  height: 60%;
+  left: 12%;
+  height: 65%;
+}
+
+.company__polaroid-caption--left,
+.company__polaroid-caption--right {
+  position: absolute;
+  width: 80%;
+  margin: 0;
+  font-family: var(--font6);
+  font-size: clamp(14px, 2.05vw, 30px);
+  line-height: 1.4;
+  text-align: center;
+  color: var(--color-text);
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.company__polaroid-caption--right {
+  left: 7%;
+  bottom: 8%;
+}
+
+.company__polaroid-caption--left {
+  left: 15%;
+  bottom: 5%;
 }
 
 .company__polaroid--1 .company__polaroid-bg {
   transform: rotate(2deg);
 }
 
-.company__polaroid--1 .company__polaroid-img--right,
-.company__polaroid--1 .company__polaroid-caption {
-  transform: rotate(7.5deg);
-  transform-origin: center center;
-}
-
 .company__polaroid--2 .company__polaroid-bg {
   transform: rotate(1deg);
 }
 
-.company__polaroid--2 .company__polaroid-img--left,
-.company__polaroid--2 .company__polaroid-caption {
-  transform: rotate(-6.5deg);
+.company__polaroid-img--right,
+.company__polaroid-img--left,
+.company__polaroid-caption--right,
+.company__polaroid-caption--left {
   transform-origin: center center;
+}
+
+.company__polaroid--1 .company__polaroid-img--right,
+.company__polaroid--1 .company__polaroid-caption--right {
+  transform: rotate(6.5deg);
+}
+
+.company__polaroid--2 .company__polaroid-img--left,
+.company__polaroid--2 .company__polaroid-caption--left {
+  transform: rotate(-6.3deg);
 }
 
 .company__scroll-label {
@@ -3528,13 +3685,16 @@ body.modal-open {
   justify-content: center;
 }
 
-.company__scroll--team .company__scroll-label {
+.company__scroll--team .company__scroll-label,
+.company__scroll--experience .company__scroll-label {
   top: 8%;
+}
+
+.company__scroll--team .company__scroll-label {
   right: 8%;
 }
 
 .company__scroll--experience .company__scroll-label {
-  top: 8%;
   left: 8%;
 }
 
@@ -3647,37 +3807,43 @@ body.modal-open {
 
 .projects-card__caption {
   position: absolute;
-  width: 78%;
+  width: 72%;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   font-family: var(--font-family);
   font-weight: var(--font-weight-regular);
   font-size: var(--font-secondary);
-  line-height: 160%;
+  line-height: 1.3;
   text-align: center;
   color: var(--color-orange);
+  overflow-wrap: break-word;
 }
 
 .projects-card--1 .projects-card__caption {
-  bottom: 9.2%;
+  bottom: 11.2%;
   left: 50%;
   transform: translateX(-51%) rotate(5deg);
 }
 
-.projects-card--2 .projects-card__caption,
-.projects-card--4 .projects-card__caption {
-  bottom: 6.6%;
+.projects-card--2 .projects-card__caption {
+  bottom: 8.6%;
   left: 50%;
   transform: translateX(-47%) rotate(-5deg);
 }
 
-.projects-card--4 .projects-card__caption {
-  bottom: 16%;
-}
-
 .projects-card--3 .projects-card__caption {
-  bottom: 14.8%;
+  bottom: 10.8%;
   left: 49%;
   transform: translateX(-51%) rotate(5deg);
+}
+
+.projects-card--4 .projects-card__caption {
+  bottom: 13.6%;
+  left: 50%;
+  transform: translateX(-47%) rotate(-5deg);
 }
 
 .projects-card__paper {
@@ -3842,11 +4008,14 @@ body.modal-open {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(180deg,
+    linear-gradient(
+      180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%),
-    url("../assets/images/about-us/about-us-hero-bg.png") center / cover no-repeat;
+      #191a18 100%
+    ),
+    url("../assets/images/about-us/about-us-hero-bg.png") center / cover
+      no-repeat;
   z-index: 0;
 }
 
@@ -3932,7 +4101,8 @@ body.modal-open {
   gap: 8px;
   padding: clamp(24px, 3.28vw, 48px) clamp(20px, 2.73vw, 40px);
   text-align: center;
-  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100% no-repeat;
+  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100%
+    no-repeat;
   height: 280px;
 }
 
@@ -4244,7 +4414,7 @@ body.modal-open {
 }
 
 /* Adaptive */
-@media (max-width: 1319px) {
+@media (max-width: 1420px) {
   .header-nav {
     display: none;
   }
@@ -4268,7 +4438,9 @@ body.modal-open {
   .footer-nav {
     display: none;
   }
+}
 
+@media (max-width: 1319px) {
   /* form */
   .contact-form__btn {
     grid-column: 1 / 4;
@@ -4366,7 +4538,6 @@ body.modal-open {
 }
 
 @media (max-width: 1055px) {
-
   /* CUSTOM GAMES */
   /* Projects */
   .projects__btn {
@@ -4850,7 +5021,6 @@ body.modal-open {
 }
 
 @media (max-width: 840px) {
-
   /* Страница Custom Games */
   /* Company */
   .label-border-right {
@@ -4876,7 +5046,6 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
-
   /* Хлебные крошки */
   .hero__breadcrumbs {
     flex-wrap: nowrap;
@@ -5332,19 +5501,27 @@ body.modal-open {
 
   /* COOKIE BANNER */
   .cookie-banner {
-    align-items: flex-start;
-    border-radius: 24px;
+    max-width: 360px;
+    padding: 6px;
   }
 
-  .cookie-banner__content {
-    display: flex;
+  .cookie-banner__container {
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     align-items: normal;
   }
 
   .cookie-banner__actions {
     flex-direction: row;
+  }
+
+  .cookie-banner__title {
+    font-size: 12px;
+  }
+
+  .cookie-banner__text {
+    font-size: 11px;
+    line-height: 1.2;
   }
 }
 
@@ -5367,7 +5544,12 @@ body.modal-open {
     height: 1px;
   }
 
-  .btn-book--mobile {
+  .header__right {
+    display: none;
+  }
+
+  .btn-book--mobile,
+  .btn-schedule--mobile {
     display: flex;
     padding: 7px;
     font-size: 14px;
@@ -5645,7 +5827,7 @@ body.modal-open {
 
   /* Company */
   .company__text {
-    line-height: 140%;
+    font-size: clamp(12px, 1.09vw, 16px);
   }
 
   .label-text-right {
@@ -5752,17 +5934,9 @@ body.modal-open {
   .schedule__buy-btn {
     padding: 5px 8px;
   }
-
-  /* Cookie Banner */
-  .cookie-banner {
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-  }
 }
 
 @media (max-width: 585px) {
-
   /* Страница Custom Games */
   /* Projects */
   .projects-card--2 {
@@ -5788,7 +5962,6 @@ body.modal-open {
 }
 
 @media (max-width: 575px) {
-
   h2,
   .h2 {
     font-weight: var(--font-weight-regular);
@@ -5996,7 +6169,8 @@ body.modal-open {
     min-height: 150px;
   }
 
-  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta) .cta__title {
+  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta)
+    .cta__title {
     font-size: 14px;
   }
 
@@ -6078,6 +6252,10 @@ body.modal-open {
 
   /* Страница Custom Games */
   /* Company */
+  .company__text {
+    font-size: var(--font-secondary);
+  }
+
   .company__pair {
     grid-template-columns: 100%;
     gap: 16px;
@@ -6352,7 +6530,7 @@ body.modal-open {
   /* Страница Custom Games */
   /* Company */
   .company__text {
-    font-size: 11px;
+    font-size: 12px;
   }
 
   .company__scroll--team .company__scroll-label {
@@ -6462,6 +6640,36 @@ body.modal-open {
   .cta-guide__img {
     transform: translateY(-70%) rotate(10deg);
   }
+
+  .footer-bottom__wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* COOKIE BANNER */
+  .cookie-banner {
+    right: 5px;
+    left: 5px;
+    bottom: 5px;
+  }
+
+  .cookie-banner__container {
+    gap: 8px;
+  }
+
+  .cookie-banner__title {
+    font-size: 10px;
+  }
+
+  .cookie-banner__text {
+    font-size: 9px;
+  }
+
+  .cookie-banner__more,
+  .cookie-banner__accept {
+    font-size: 10px !important;
+  }
 }
 
 /* Hover only for desktop  */
@@ -6544,6 +6752,10 @@ body.modal-open {
   }
 
   .projects-card__list a:hover {
+    color: var(--color-orange);
+  }
+
+  .footer__privacy:hover {
     color: var(--color-orange);
   }
 }

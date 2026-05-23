@@ -104,7 +104,7 @@
                           <?php if (get_field('online_format_btn_text')) : ?>
 
                               <button
-                                  class="btn btn-secondary format__btn"
+                                  class="btn btn-secondary format__btn open-modal" data-modal-open
                                   type="button">
                                   <?php the_field('online_format_btn_text'); ?>
                               </button>
@@ -201,7 +201,7 @@
                           <?php if (get_field('demo_button')) : ?>
 
                               <button
-                                  class="btn btn-secondary format__btn"
+                                  class="btn btn-secondary format__btn open-modal" data-modal-open
                                   type="button">
                                   <?php the_field('demo_button'); ?>
                               </button>

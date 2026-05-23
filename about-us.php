@@ -60,7 +60,7 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
         <div class="aboutus-hero__actions">
           <button
             type="button"
-            class="btn btn-secondary btn--orange"
+            class="btn btn-secondary btn--orange open-modal" data-modal-open
             data-modal="request">
             <?php echo esc_html($au_btn1_text); ?>
           </button>

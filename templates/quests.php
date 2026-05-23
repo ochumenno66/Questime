@@ -96,7 +96,7 @@
                                       <?php endif; ?>
                                       <button
                                           type="button"
-                                          class="btn btn-card quest-card__btn-book"
+                                          class="btn btn-card quest-card__btn-book open-modal" data-modal-open
                                           data-modal="request">
                                           <?php echo esc_html($btn_book); ?>
                                       </button>

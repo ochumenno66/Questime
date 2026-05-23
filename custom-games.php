@@ -15,6 +15,31 @@ $cg_btn1_text  = get_field('cg_hero_btn_1_text') ?: 'Request';
 $cg_btn2_text  = get_field('cg_hero_btn_2_text') ?: 'Download the presentation';
 $cg_pdf        = get_field('cg_hero_pdf')        ?: '';
 $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/images/custom-games/hero-full.jpg';
+
+// Блок Company
+// First block — данные из ACF
+$label_1            = get_field('label_1')   ?: 'Team';
+$text_1             = get_field('text_1')    ?: 'Our team includes experienced <strong>writers, game designers, illustrators, sound designers, and specialists in chatbots and online games</strong> — everything needed to turn an idea into a complete experience.';
+$scroll_bg_1        = get_field('scroll_background_1') ?: get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
+$label_border_1     = get_field('label_border_1') ?: get_template_directory_uri() . '/assets/icons/border-team-CG.svg';
+$polaroid_bg_1      = get_field('polaroid_background_1') ?: get_template_directory_uri() . '/assets/images/polaroid-1-cg.png';
+$photo_1            = get_field('photo_1')  ?: get_template_directory_uri() . '/assets/images/custom-games/company-1-cg.png';
+$polaroid_caption_1 = get_field('polaroid_caption_1') ?: 'The Great Silent Era';
+
+// Second block — данные из ACF
+$label_2            = get_field('label_2')   ?: 'Experience';
+$text_2             = get_field('text_2')    ?: 'Since <strong>2013</strong>, we have delivered <strong>150+ custom projects</strong> for clients across a wide range of industries, formats and genres.';
+$scroll_bg_2 = get_field('scroll_background_2') ?: get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
+$label_border_2 = get_field('label_border_2') ?: get_template_directory_uri() . '/assets/icons/border-experience-CG.svg';
+$polaroid_bg_2 = get_field('polaroid_background_2') ?: get_template_directory_uri() . '/assets/images/polaroid-2-cg.png';
+$photo_2 = get_field('photo_2') ?: get_template_directory_uri() . '/assets/images/custom-games/company-2-cg.png';
+$polaroid_caption_2 = get_field('polaroid_caption_2') ?: 'Monopoly: The Golden Age of Amsterdam';
+
+// Projects (Cases) — данные из ACF
+$projects_cta_text     = get_field('projects_cta_text')      ?: 'You can download our full portfolio';
+$projects_cta_btn_text = get_field('projects_cta_btn_text')  ?: 'Here';
+$projects_cta_file     = get_field('projects_cta_file');
+
 ?>
 
 <main>
@@ -77,35 +102,55 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
   <!-- Секция Company -->
   <section class="company section-special">
     <div class="container">
+      <!-- First block -->
       <div class="company__pair company__pair--right-photo">
         <div class="company__scroll company__scroll--team">
-          <img class="company__scroll-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/roll-CG-AU.webp" alt="">
+          <img class="company__scroll-bg" src="<?php echo esc_url($scroll_bg_1); ?>" alt="Scroll">
           <div class="company__scroll-label">
-            <img class="company__scroll-label-svg label-border-right" src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-team-CG.svg" alt="">
-            <span class="company__scroll-label-text label-text-right">Team</span>
+            <img class="company__scroll-label-svg label-border-right" src="<?php echo esc_url($label_border_1); ?>" alt="Border">
+            <span class="company__scroll-label-text label-text-right">
+              <?php echo esc_html($label_1); ?>
+            </span>
           </div>
           <div class="company__scroll-inner">
-            <p class="company__text">Our team includes experienced <strong>writers, game designers, illustrators, sound designers, and specialists in chatbots and online games</strong> — everything needed to turn an idea into a complete experience.</p>
+            <p class="company__text">
+              <?php echo wp_kses_post($text_1); ?>
+            </p>
           </div>
         </div>
         <div class="company__polaroid company__polaroid--1">
-          <img class="company__polaroid-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/polaroid-1-cg.png" alt="">
-          <img class="company__polaroid-img--right" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-2.jpg" alt="The Great Silent Era">
+          <img  class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_1); ?>" alt="">
+          <div class="company__polaroid-content company__polaroid-content--right">
+            <img class="company__polaroid-img company__polaroid-img--right" src="<?php echo esc_url($photo_1); ?>" alt="">
+              <p class="company__polaroid-caption--right">
+                <?php echo esc_html($polaroid_caption_1); ?>
+              </p>
+          </div>
         </div>
       </div>
+      <!-- Second block -->
       <div class="company__pair company__pair--left-photo">
         <div class="company__polaroid company__polaroid--2">
-          <img class="company__polaroid-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/polaroid-2-cg.png" alt="">
-          <img class="company__polaroid-img--left" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/hero-4.jpg" alt="Monopoly: The Golden Age of Amsterdam">
+          <img class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_2); ?>" alt="Polaroid">
+          <div class="company__polaroid-content company__polaroid-content--left">
+            <img class="company__polaroid-img company__polaroid-img--left" src="<?php echo esc_url($photo_2); ?>" alt="Image">
+            <p class="company__polaroid-caption--left">
+              <?php echo esc_html($polaroid_caption_2); ?>
+            </p>
+          </div>
         </div>
         <div class="company__scroll company__scroll--experience">
-          <img class="company__scroll-bg" src="<?php echo get_template_directory_uri(); ?>/assets/images/roll-CG-AU.webp" alt="">
+          <img class="company__scroll-bg" src="<?php echo esc_url($scroll_bg_2); ?>" alt="Scroll">
           <div class="company__scroll-label">
-            <img class="company__scroll-label-svg label-border-left" src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-experience-CG.svg" alt="">
-            <span class="company__scroll-label-text label-text-left">Experience</span>
+            <img class="company__scroll-label-svg label-border-left" src="<?php echo esc_url($label_border_2); ?>" alt="Border">
+            <span class="company__scroll-label-text label-text-left">
+              <?php echo esc_html($label_2); ?>
+            </span>
           </div>
           <div class="company__scroll-inner">
-            <p class="company__text">Since <strong>2013</strong>, we have delivered <strong>150+ custom projects</strong> for clients across a wide range of industries, formats and genres.</p>
+            <p class="company__text">
+              <?php echo wp_kses_post($text_2); ?>
+            </p>
           </div>
         </div>
       </div>
@@ -193,8 +238,23 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
       <div class="projects__btn-card">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-portfolio-CG.svg" alt="" class="projects__btn-border">
         <div class="projects__btn-content">
-          <p class="projects__btn-text">You can download our full portfolio</p>
-          <a href="#" class="btn btn-secondary btn-projects btn--orange">Here</a>
+          <?php if ($projects_cta_text) : ?>
+          <p class="projects__btn-text">
+            <?php echo esc_html($projects_cta_text); ?>
+          </p>
+
+          <?php endif; ?>
+
+          <?php if ($projects_cta_file) : ?>
+          <a href="<?php echo esc_url($projects_cta_file); ?>"
+            class="btn btn-secondary btn-projects btn--orange"
+            target="_blank"
+            download
+          >
+            <?php echo esc_html($projects_cta_btn_text ?: 'Download'); ?>
+          </a>
+
+        <?php endif; ?>
         </div>
       </div>
     </div>
@@ -242,6 +302,10 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
         </div>
       </form>
     </div>
+  </section>
+  <!--Button-->
+  <section class="section-special">
+    <button class="btn btn-secondary btn--orange btn-cg-request open-modal" data-modal-open type="submit">Request a custom game</button>
   </section>
   <!-- Секция Testimonials -->
   <?php get_template_part('templates/testimonials'); ?>

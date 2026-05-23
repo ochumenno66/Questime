@@ -447,7 +447,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const cookieAccepted = localStorage.getItem("cookieAccepted");
 
     if (!cookieAccepted) {
-      cookieBanner.classList.remove("is-hidden");
+      setTimeout(() => {
+        cookieBanner.classList.remove("is-hidden");
+      }, 3000);
     }
 
     cookieAccept.addEventListener("click", () => {

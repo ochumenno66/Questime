@@ -104,7 +104,7 @@ $exp_img_3 = get_field('exp_img_3');
                             </a>
                         <?php endif; ?>
                         <?php if ($exp_btn2_text): ?>
-                            <a href="<?php echo esc_url($whatsapp); ?>" class="btn btn-secondary experience__book" target="_blank">
+                            <a href="<?php echo esc_url($whatsapp); ?>" class="btn btn-secondary experience__book open-modal" data-modal-open target="_blank">
                                 <?php echo esc_html($exp_btn2_text); ?>
                             </a>
                         <?php endif; ?>

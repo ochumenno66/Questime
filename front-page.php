@@ -153,7 +153,7 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
         <?php if ($button_link && $button_text): ?>
           <a
             href="<?php echo esc_url($button_link); ?>"
-            class="btn btn-secondary services__btn btn--orange">
+            class="btn btn-secondary services__btn btn--orange open-modal" data-modal-open>
             <?php echo esc_html($button_text); ?>
           </a>
         <?php endif; ?>
