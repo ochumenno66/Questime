@@ -42,12 +42,12 @@ get_header(); ?>
   <!-- Секция Hero -->
   <section class="hero hero-gt section-special section-decorated-dark" id="hero">
     <?php if ($gt_hero_bg) : ?>
-    <div class="hero-gt--img" style="
+      <div class="hero-gt--img" style="
       background:
       linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
       linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
       url('<?php echo esc_url($gt_hero_bg); ?>') center / cover no-repeat;">
-    </div>
+      </div>
     <?php endif; ?>
     <div class="hero-gt__wrapper container">
       <?php questime_breadcrumbs(); ?>
@@ -123,9 +123,7 @@ get_header(); ?>
       <?php endif; ?>
     </div>
     <?php if ($reviews_label || $reviews_rating || $reviews_count) : ?>
-      <?php
-      $reviews_tag = $reviews_url ? 'a' : 'div';
-      ?>
+    <?php $reviews_tag = $reviews_url ? 'a' : 'div'; ?>
       <<?php echo $reviews_tag; ?>
         class="hero-gt__reviews reviews-badge"
         <?php if ($reviews_url) : ?>
@@ -151,9 +149,8 @@ get_header(); ?>
           </span>
         <?php endif; ?>
       </<?php echo $reviews_tag; ?>>
-    <?php endif; ?>
-  </div>
-</section>
+      <?php endif; ?>
+  </section>
   <!-- Секция Experience -->
   <?php get_template_part('templates/experience'); ?>
   <!-- Секция CTA_GUIDE как CTA -->

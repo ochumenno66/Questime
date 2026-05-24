@@ -418,27 +418,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  if (modalForm) {
-    modalForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      if (!modalForm.checkValidity()) {
-        modalForm.reportValidity();
-        return;
-      }
-
-      if (modalDesc) {
-        modalDesc.hidden = true;
-      }
-      modalForm.reset();
-      modalForm.hidden = true;
-
-      if (modalSuccess) {
-        modalSuccess.hidden = false;
-      }
-    });
-  }
-
   // Cookie banner
   const cookieBanner = document.getElementById("cookieBanner");
   const cookieAccept = document.getElementById("cookieAccept");

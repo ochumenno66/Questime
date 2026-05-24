@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   "use strict";
 
   const ajaxUrl =
@@ -136,4 +136,4 @@
       field.classList.remove("is-error");
     });
   }
-})();
+});
