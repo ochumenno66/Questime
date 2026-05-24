@@ -100,6 +100,7 @@ $projects_cta_file     = get_field('projects_cta_file');
     </div>
   </section>
   <!-- Секция Company -->
+  <?php if (get_field('show_company')) : ?>
   <section class="company section-special">
     <div class="container">
       <!-- First block -->
@@ -156,10 +157,12 @@ $projects_cta_file     = get_field('projects_cta_file');
       </div>
     </div>
   </section>
+  <?php endif; ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Projects (Cases) -->
-  <section class="projects section-special projects-border-1 projects-border-2" id="projects">
+  <?php if (get_field('show_projects')) : ?>
+  <section class="projects projects-border-1 projects-border-2" id="projects">
     <div class="projects__scene container">
 
       <?php
@@ -259,6 +262,9 @@ $projects_cta_file     = get_field('projects_cta_file');
       </div>
     </div>
   </section>
+  <?php endif; ?>
+  <!-- Секция Testimonials -->
+  <?php get_template_part('templates/testimonials'); ?>
   <!-- Секция Form -->
   <section class="contact-form contact-form-cg section-special" id="contact-form">
     <div class="container">
@@ -307,8 +313,6 @@ $projects_cta_file     = get_field('projects_cta_file');
   <section class="section-special">
     <button class="btn btn-secondary btn--orange btn-cg-request open-modal" data-modal-open type="submit">Request a custom game</button>
   </section>
-  <!-- Секция Testimonials -->
-  <?php get_template_part('templates/testimonials'); ?>
 </main>
 
 <?php

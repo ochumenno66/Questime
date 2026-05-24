@@ -84,6 +84,7 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
     </div>
   </section>
   <!-- Секция Stats -->
+  <?php if (get_field('show_stats_au')) : ?>
   <section class="stats-au section-special" id="stats-au">
     <div class="stats-au__wrapper container">
       <div class="stats-au__item">
@@ -121,8 +122,9 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
       </div>
     </div>
   </section>
+  <?php endif; ?>
   <!-- Секция Experience -->
-  <?php get_template_part('templates/experience-case-product'); ?>
+  <?php get_template_part('templates/experience'); ?>
   <!-- Секция Team -->
   <section class="team section-special" id="team">
     <?php if (get_field('team_heading')) : ?>

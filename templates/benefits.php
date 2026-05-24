@@ -2,6 +2,10 @@
 // Переиспользуемая секция Benefits
 // Вызов: get_template_part('templates/benefits');
 
+if (!get_field('show_benefits')) {
+    return;
+}
+
 $benefits_title = get_field('benefits_title') ?: 'Why us?';
 
 // Карточка 1

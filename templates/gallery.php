@@ -3,6 +3,10 @@
     Template Part: Gallery
 */
 
+if (!get_field('show_gallery')) {
+    return;
+}
+
 $acf_all = array_filter([
     get_field('gallery_top_1'),
     get_field('gallery_top_2'),

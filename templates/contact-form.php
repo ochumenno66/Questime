@@ -6,6 +6,10 @@
  * get_template_part('template-parts/contact-form', null, ['type' => 'gamified']); на страницах 
  */
 
+if (!get_field('show_contact_form')) {
+    return;
+}
+
 $form_type = !empty($args['type']) ? $args['type'] : 'default';
 
 $whatsapp_url = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
@@ -33,19 +37,19 @@ $gamified_button = get_field('contact_form_gamified_button')  ?:'Answer me!';
 
 // Gamified form, selected options — данные из ACF
 $option_1_text  = get_field('gt_option_1_text')   ?: 'Private Tour';
-$option_1_value = get_field('gt_option_1_value')  ?: 'private';
+$option_1_value = get_field('gt_option_1_value')  ?: 'Private-Tour';
 
 $option_2_text  = get_field('gt_option_2_text')   ?: 'Small Group Tour';
-$option_2_value = get_field('gt_option_2_value')  ?: 'group';
+$option_2_value = get_field('gt_option_2_value')  ?: 'Small-Group-Tour';
 
 $option_3_text  = get_field('gt_option_3_text')   ?: 'Self-Guided Experience';
-$option_3_value = get_field('gt_option_3_value')  ?: 'self';
+$option_3_value = get_field('gt_option_3_value')  ?: 'Self-Guided-Experience';
 
 $option_4_text  = get_field('gt_option_4_text')   ?: 'Custom Experience';
-$option_4_value = get_field('gt_option_4_value')  ?: 'custom';
+$option_4_value = get_field('gt_option_4_value')  ?: 'Custom-Experience';
 
 $option_5_text  = get_field('gt_option_5_text')   ?: 'Not Sure Yet';
-$option_5_value = get_field('gt_option_5_value')  ?: 'none';
+$option_5_value = get_field('gt_option_5_value')  ?: 'Not-Sure-Yet';
 ?>
 
 <?php if ($form_type === 'gamified') : ?>
