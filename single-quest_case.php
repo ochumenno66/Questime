@@ -11,7 +11,7 @@ get_header();
     <!-- Секция Gallery -->
     <?php get_template_part('templates/gallery'); ?>
     <!-- Секция Experiences -->
-    <?php get_template_part('templates/experience-case-product'); ?>
+    <?php get_template_part('templates/experience'); ?>
     <!-- Секция Testimonials -->
     <?php get_template_part('templates/testimonials'); ?>
     <!-- Секция Format -->

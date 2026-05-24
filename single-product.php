@@ -41,7 +41,7 @@ get_header(); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Experience -->
-  <?php get_template_part('templates/experience-case-product'); ?>
+  <?php get_template_part('templates/experience'); ?>
   <!-- Секция Route -->
   <?php if ($route_enabled && !empty($route_points)) : ?>
     <section class="route section-special" id="route">
