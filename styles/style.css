@@ -1647,8 +1647,6 @@ nav a::after {
 .single-product .gallery-slider,
 .single-quest_case .gallery-slider {
   margin-top: -140px;
-  position: relative;
-  z-index: 2;
 }
 
 .gallery-slider__wrapper {
@@ -1696,8 +1694,9 @@ nav a::after {
   align-items: center;
 }
 
-/* Отступ сверху когда стоит только одно фото */
-.section-top--offset {
+/* Отступ сверху только для single photo на case/product */
+.single-product .section-top--offset,
+.single-quest_case .section-top--offset {
   margin-top: clamp(40px, 5.47vw, 80px);
 }
 
