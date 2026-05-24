@@ -5,8 +5,10 @@ Template Part: Contact Modal
  */
 
 $whatsapp_url = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
-$phone_display = get_theme_mod('phone_display', '+31 6 123 65 246');
-$phone_number = preg_replace('/\D/', '', $phone_display);
+$phone_display = get_theme_mod('phone_display');
+$phone_display = is_string($phone_display) && !empty($phone_display)
+  ? $phone_display
+  : '+31 6 123 65 246';
 
 // Modal — данные из ACF 
 $modal_title             = get_field('modal_title')             ?: "Let's talk!";
@@ -16,7 +18,7 @@ $modal_agree_text_before = get_field('modal_agree_text_before') ?: 'I agree to t
 $modal_policy_text       = get_field('modal_policy_text')       ?: 'Privacy Policy';
 $modal_agree_text_after  = get_field('modal_agree_text_after')  ?: 'and the processing of personal data';
 $modal_submit_text       = get_field('modal_submit_text')       ?: 'Answer me!';
-$modal_success_text      = get_field('modal_success_text')      ?: "Thank you! We'll be in touch soon.";
+$modal_success_text      = get_field('modal_success_text')      ?: "Thank you! We will contact you shortly.";
 $modal_whatsapp_text     = get_field('modal_whatsapp_text')     ?: 'If your question is urgent, feel free to reach out to us on WhatsApp';
 $privacy_policy          = get_permalink(get_page_by_path('privacy-policy'));
 ?>
@@ -48,33 +50,34 @@ $privacy_policy          = get_permalink(get_page_by_path('privacy-policy'));
             <?php endforeach; ?>
             <p class="contact-form__text">
                 <?php echo esc_html($modal_phone_text); ?>
-                <a class="contact-form__phone" href="tel:<?php echo esc_attr($phone_number); ?>">
+                <a class="contact-form__phone" href="<?php echo esc_url($whatsapp_url); ?>" target="_blank">
                     <?php echo esc_html($phone_display); ?>
                 </a>
             </p>
         </div>
         <?php endif; ?>
-        <form class="contact-modal__form">
+        <form class="contact-modal__form js-contact-form" data-form-type="modal">
+            <input type="hidden" name="form_type" value="modal">
             <div class="contact-modal__fields">
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="text" id="modal-name" placeholder="Name" required>
+                    <input class="contact-form__input" type="text" id="modal-name" name="name" placeholder="Name" required>
                 </div>
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="tel" id="modal-phone" placeholder="Phone number" required>
+                    <input class="contact-form__input" type="tel" id="modal-phone" name="phone" placeholder="Phone number" required>
                 </div>
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="text" id="modal-company" placeholder="Company">
+                    <input class="contact-form__input" type="text" id="modal-company" name="company" placeholder="Company">
                 </div>
                 <div class="contact-modal__field">
-                    <input class="contact-form__input" type="email" id="modal-email" placeholder="Email" required>
+                    <input class="contact-form__input" type="email" id="modal-email" name="email" placeholder="Email" required>
                 </div>
             </div>
             <div class="contact-modal__field">
-                <textarea class="contact-form__textarea" id="modal-message" placeholder="Text of your request"></textarea>
+                <textarea class="contact-form__textarea" id="modal-message" name="message" placeholder="Text of your request"></textarea>
             </div>
             <div class="contact-modal__actions">
                 <div class="checkbox">
-                    <input type="checkbox" id="modal-agree" required>
+                    <input type="checkbox" id="modal-agree" name="agree" required>
                     <label for="modal-agree">
                         <?php echo esc_html($modal_agree_text_before); ?>
                         <a href="<?php echo esc_url($privacy_policy); ?>" target="_blank" rel="noopener noreferrer">

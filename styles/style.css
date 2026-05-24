@@ -2432,6 +2432,11 @@ body.modal-open {
   object-fit: cover;
 }
 
+.btn-cg-request {
+  display: flex;
+  margin: 0 auto;
+}
+
 /* TEAM BUILDING */
 /* FAQ */
 .faq__list {

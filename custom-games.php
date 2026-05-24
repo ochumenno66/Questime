@@ -303,6 +303,10 @@ $projects_cta_file     = get_field('projects_cta_file');
       </form>
     </div>
   </section>
+  <!--Button-->
+  <section class="section-special">
+    <button class="btn btn-secondary btn--orange btn-cg-request open-modal" data-modal-open type="submit">Request a custom game</button>
+  </section>
   <!-- Секция Testimonials -->
   <?php get_template_part('templates/testimonials'); ?>
 </main>
