@@ -185,23 +185,19 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'type'    => 'url',
     ]);
 
-    // Leads email in Customizer
-  $wp_customize->add_section('questime_contacts', [
-    'title'    => 'Leads Settings',
-    'priority' => 33,
-  ]);
+    // Письма с формы обратной связи
+    $wp_customize->add_setting('questime_leads_email', [
+        'default'           => get_option('admin_email'),
+        'sanitize_callback' => 'sanitize_email',
+        'transport'         => 'refresh',
+    ]);
 
-  $wp_customize->add_setting('questime_leads_email', [
-    'default'           => get_option('admin_email'),
-    'sanitize_callback' => 'sanitize_email',
-  ]);
-
-  $wp_customize->add_control('questime_leads_email', [
-    'label'       => 'Email for leads',
-    'description' => 'Requests from the website will be sent here',
-    'section'     => 'questime_contacts',
-    'type'        => 'email',
-  ]);
+    $wp_customize->add_control('questime_leads_email', [
+        'label'       => 'Email для заявок',
+        'description' => 'На этот адрес будут приходить заявки с сайта',
+        'section'     => 'questime_contacts_section',
+        'type'        => 'email',
+    ]);
 });
 
 
@@ -368,35 +364,6 @@ add_action('init', function () {
     ]);
 });
 
-// Contact form AJAX handler
-add_action('wp_ajax_nopriv_questime_form', 'questime_ajax_form');
-add_action('wp_ajax_questime_form', 'questime_ajax_form');
-
-function questime_ajax_form(): void {
-  if (!check_ajax_referer('questime_form', 'nonce', false)) {
-    wp_send_json_error(['error' => 'Invalid token'], 403);
-  }
-
-  require_once get_template_directory() . '/inc/form-handler.php';
-  questime_process_form();
-}
-
-// Contact forms script
-add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_script(
-    'questime-form',
-    get_template_directory_uri() . '/assets/js/form.js',
-    [],
-    wp_get_theme()->get('Version'),
-    true
-  );
-
-  wp_localize_script('questime-form', 'questimeData', [
-    'ajaxUrl' => admin_url('admin-ajax.php'),
-    'nonce'   => wp_create_nonce('questime_form'),
-  ]);
-});
-
 // Подключение стилей расписания
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('tours-script', get_template_directory_uri() . '/tours/tours.js', ['jquery'], '1.0.0', true);
@@ -475,4 +442,32 @@ add_filter('woocommerce_order_item_get_formatted_meta_data', function($formatted
     return $formatted_meta;
 }, 10, 2);
 
+// Contact form AJAX handler
+add_action('wp_ajax_nopriv_questime_form', 'questime_ajax_form');
+add_action('wp_ajax_questime_form', 'questime_ajax_form');
 
+function questime_ajax_form(): void {
+  if (!check_ajax_referer('questime_form', 'nonce', false)) {
+    wp_send_json_error(['error' => 'Invalid token'], 403);
+  }
+
+  require_once get_template_directory() . '/inc/form-handler.php';
+  questime_process_form();
+}
+
+
+// Contact forms script
+add_action('wp_enqueue_scripts', function () {
+  wp_enqueue_script(
+    'questime-form',
+    get_template_directory_uri() . '/assets/js/form.js',
+    [],
+    wp_get_theme()->get('Version'),
+    true
+  );
+
+  wp_localize_script('questime-form', 'questimeData', [
+    'ajaxUrl' => admin_url('admin-ajax.php'),
+    'nonce'   => wp_create_nonce('questime_form'),
+  ]);
+});

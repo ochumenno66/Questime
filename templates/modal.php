@@ -18,7 +18,7 @@ $modal_agree_text_before = get_field('modal_agree_text_before') ?: 'I agree to t
 $modal_policy_text       = get_field('modal_policy_text')       ?: 'Privacy Policy';
 $modal_agree_text_after  = get_field('modal_agree_text_after')  ?: 'and the processing of personal data';
 $modal_submit_text       = get_field('modal_submit_text')       ?: 'Answer me!';
-$modal_success_text      = get_field('modal_success_text')      ?: "Thank you! We'll be in touch soon.";
+$modal_success_text      = get_field('modal_success_text')      ?: "Thank you! We will contact you shortly.";
 $modal_whatsapp_text     = get_field('modal_whatsapp_text')     ?: 'If your question is urgent, feel free to reach out to us on WhatsApp';
 $privacy_policy          = get_permalink(get_page_by_path('privacy-policy'));
 ?>
