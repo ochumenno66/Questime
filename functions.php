@@ -460,7 +460,7 @@ function questime_ajax_form(): void {
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_script(
     'questime-form',
-    get_template_directory_uri() . '/assets/js/form.js',
+    get_template_directory_uri() . '/js/form.js',
     [],
     wp_get_theme()->get('Version'),
     true

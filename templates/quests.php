@@ -11,7 +11,7 @@
 
                       <?php
                         $btn_schedule = get_field('quest_btn_schedule_text') ?: 'View Schedule';
-                        $schedule_link = get_field('quest_btn_schedule_link');
+                        $schedule_link = get_field('quest_btn_schedule_link') ?: home_url('/schedule/');
 
                         $btn_book = get_field('quest_btn_book_text') ?: 'Book a Private Tour';
                         $btn_learn = get_field('quest_btn_learn_text') ?: 'Learn more';
@@ -54,54 +54,57 @@
                                 }
                         ?>
 
-                              <article class="quest-card swiper-slide">
-                                  <div class="quest-card__top">
-                                      <div class="quest-card__image-wrap">
-                                          <div class="quest-card__image">
-                                              <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy" />
-                                              <span class="quest-card__image-corner"></span>
-                                          </div>
-                                      </div>
-                                      <div class="quest-card__top-text">
-                                          <?php if (!empty($tags)) : ?>
-                                              <div class="quest-card__tags">
-                                                  <?php foreach ($tags as $tag) : ?>
-                                                      <span class="quest-card__tag"><?php echo esc_html($tag); ?></span>
-                                                  <?php endforeach; ?>
-                                              </div>
-                                          <?php endif; ?>
-                                          <h4 class="quest-card__title"><?php echo esc_html($title); ?></h4>
-                                      </div>
-                                  </div>
+                            <article class="quest-card swiper-slide">
+                                <div class="quest-card__top">
+                                    <div class="quest-card__image-wrap">
+                                        <div class="quest-card__image">
+                                            <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy" />
+                                            <span class="quest-card__image-corner"></span>
+                                        </div>
+                                    </div>
+                                    <div class="quest-card__top-text">
+                                        <?php if (!empty($tags)) : ?>
+                                            <div class="quest-card__tags">
+                                                <?php foreach ($tags as $tag) : ?>
+                                                    <span class="quest-card__tag"><?php echo esc_html($tag); ?></span>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                        <h4 class="quest-card__title"><?php echo esc_html($title); ?></h4>
+                                    </div>
+                                </div>
 
-                                  <div class="quest-card__desc-wrap">
-                                      <p class="quest-card__desc"><?php echo wp_kses_post($description); ?></p>
+                                <div class="quest-card__desc-wrap">
+                                    <p class="quest-card__desc"><?php echo wp_kses_post($description); ?></p>
 
-                                      <a href="<?php echo esc_url($url); ?>" class="btn btn-card quest-card__btn-learn">
-                                          <?php echo esc_html($btn_learn); ?>
-                                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="#D75300" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
-                                          </svg>
-                                      </a>
-                                  </div>
+                                    <a href="<?php echo esc_url($url); ?>" class="btn btn-card quest-card__btn-learn">
+                                        <?php echo esc_html($btn_learn); ?>
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.5 2.5L7.5 6L4.5 9.5" stroke="#D75300" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                </div>
 
-                                  <div class="quest-card__actions">
-                                      <?php if ($schedule_link) : ?>
-                                          <a
-                                              href="<?php echo esc_url($schedule_link['url']); ?>"
-                                              class="btn btn-card quest-card__btn-schedule btn--orange"
-                                              target="<?php echo esc_attr($schedule_link['target'] ?: '_self'); ?>">
-                                              <?php echo esc_html($btn_schedule); ?>
-                                          </a>
-                                      <?php endif; ?>
-                                      <button
-                                          type="button"
-                                          class="btn btn-card quest-card__btn-book open-modal" data-modal-open
-                                          data-modal="request">
-                                          <?php echo esc_html($btn_book); ?>
-                                      </button>
-                                  </div>
-                              </article>
+                                <div class="quest-card__actions">
+                                    <?php if ($schedule_link) : 
+                                        $link_url    = is_array($schedule_link) ? $schedule_link['url'] : $schedule_link;
+                                        $link_target = is_array($schedule_link) && !empty($schedule_link['target']) ? $schedule_link['target'] : '_self';
+                                    ?>
+                                        <a
+                                            href="<?php echo esc_url($link_url); ?>"
+                                            class="btn btn-card quest-card__btn-schedule btn--orange"
+                                            target="<?php echo esc_attr($link_target); ?>">
+                                            <?php echo esc_html($btn_schedule); ?>
+                                        </a>
+                                    <?php endif; ?>
+                                    <button
+                                        type="button"
+                                        class="btn btn-card quest-card__btn-book open-modal" data-modal-open
+                                        data-modal="request">
+                                        <?php echo esc_html($btn_book); ?>
+                                    </button>
+                                </div>
+                            </article>
 
                           <?php
                             endwhile;
