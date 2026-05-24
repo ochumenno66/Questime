@@ -1641,8 +1641,14 @@ nav a::after {
 
 /* Gallery */
 .gallery-slider {
-  margin-top: -140px;
   overflow: hidden;
+}
+
+.single-product .gallery-slider,
+.single-quest_case .gallery-slider {
+  margin-top: -140px;
+  position: relative;
+  z-index: 2;
 }
 
 .gallery-slider__wrapper {
