@@ -266,49 +266,7 @@ $projects_cta_file     = get_field('projects_cta_file');
   <!-- Секция Testimonials -->
   <?php get_template_part('templates/testimonials'); ?>
   <!-- Секция Form -->
-  <section class="contact-form contact-form-cg section-special" id="contact-form">
-    <div class="container">
-      <h2 class="contact-form__title">Let's plan your adventure</h2>
-      <form class="contact-form__wrapper-gt" action="#" method="post">
-        <div class="contact-form__content-gt">
-          <p class="contact-form__text-gt text-bottom-gt">Have a question? Want to organize a private experience or a custom gamified tour? Tell us what you're looking for!<br> Natalia or Mark will personally get back to you within one business day.</p>
-          <p class="contact-form__text-gt">Prefer to talk it through?<br> Call us directly at <a class="contact-form__phone" href="https://wa.me/31612365246" target="_blank">+31 6 123 65 246</a> — we'd love to hear your plans.</p>
-        </div>
-        <div class="contact-form__row">
-          <input class="contact-form__input" type="text" name="name" placeholder="Name*" required>
-          <input class="contact-form__input" type="email" name="email" placeholder="Email*" required>
-        </div>
-        <div class="custom-select input-interest" id="interestSelect">
-          <div class="custom-select__trigger contact-form__input">
-            <span class="custom-select__value">What are you interested in?*</span>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M25.3327 12L15.9993 20L6.66602 12" stroke="#191A18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </div>
-          <ul class="custom-select__dropdown">
-            <li class="custom-select__option" data-value="private">Private Tour</li>
-            <li class="custom-select__option" data-value="group">Small Group Tour</li>
-            <li class="custom-select__option" data-value="self">Self-Guided Experience</li>
-            <li class="custom-select__option" data-value="custom">Custom Experience</li>
-            <li class="custom-select__option" data-value="none">Not Sure Yet</li>
-          </ul>
-          <input type="hidden" name="interest" required>
-        </div>
-        <input class="contact-form__input input-date" type="text" name="Preferred Date" placeholder="Preferred Date" required>
-        <textarea class="contact-form__textarea-gt input-textarea" name="message" placeholder="Text of your request" required></textarea>
-        <div class="contact-form__actions-gt">
-          <button class="btn btn-secondary contact-form__btn-gt btn--orange" type="submit">Answer me!</button>
-          <div class="checkbox checkbox-gt">
-            <input type="checkbox" id="agree" required>
-            <label for="agree">By subscribing, you agree to our <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></label>
-          </div>
-        </div>
-        <div class="contact-form__image-wrapper-gt">
-          <img class="contact-form__image-gt" src="<?php echo get_template_directory_uri(); ?>/assets/images/main/contact.jpg" alt="Nataly and Mark">
-        </div>
-      </form>
-    </div>
-  </section>
+  <?php get_template_part('templates/contact-form', null, ['type' => 'gamified']); ?>
   <!--Button-->
   <section class="section-special">
     <button class="btn btn-secondary btn--orange btn-cg-request open-modal" data-modal-open type="submit">Request a custom game</button>
