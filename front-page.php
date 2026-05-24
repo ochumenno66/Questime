@@ -277,35 +277,41 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
   <?php get_template_part('templates/testimonials'); ?>
   <!-- Секция Partners -->
   <?php
-  $pt_title = get_field('pt_title') ?: 'They have played with us<br>and want more';
-  $logos = [];
-  for ($i = 1; $i <= 14; $i++) {
-    $logo = get_field("pt_logo_{$i}");
-    if ($logo) $logos[] = $logo;
-  }
+  if (function_exists('get_field') && !get_field('partners_hide')) :
+
+    $pt_title = get_field('pt_title') ?: 'They have played with us<br>and want more';
+    $logos = [];
+    for ($i = 1; $i <= 14; $i++) {
+      $logo = get_field("pt_logo_{$i}");
+      if ($logo) $logos[] = $logo;
+    }
   ?>
 
-  <section class="partners section-special" id="partners">
-    <div class="container">
-      <div class="partners__inner">
-        <h2 class="text-align partners__title"><?php echo wp_kses_post($pt_title); ?></h2>
+    <section class="partners section-special" id="partners">
+      <div class="container">
+        <div class="partners__inner">
+          <h2 class="text-align partners__title"><?php echo wp_kses_post($pt_title); ?></h2>
 
-        <?php if (!empty($logos)): ?>
-          <div class="partners__grid">
-            <?php foreach ($logos as $logo): ?>
-              <div class="partners__item">
-                <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt'] ?: $logo['title'] ?: 'Partner logo'); ?>">
-              </div>
-            <?php endforeach; ?>
+          <?php if (!empty($logos)): ?>
+            <div class="partners__grid">
+              <?php foreach ($logos as $logo): ?>
+                <div class="partners__item">
+                  <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt'] ?: $logo['title'] ?: 'Partner logo'); ?>">
+                </div>
+              <?php endforeach; ?>
+            </div>
+          <?php endif; ?>
+
+          <div class="partners__footer">
+            <a href="<?php echo home_url('/team-building/'); ?>" class="btn btn-secondary partners__btn">Go to Corporate Events</a>
           </div>
-        <?php endif; ?>
-
-        <div class="partners__footer">
-          <a href="<?php echo home_url('/team-building/'); ?>" class="btn btn-secondary partners__btn">Go to Corporate Events</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+  <?php
+  endif;
+  ?>
   <!-- Секция Form -->
   <?php get_template_part('templates/contact-form', null, ['type' => 'default']); ?>
 </main>

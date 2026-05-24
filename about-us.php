@@ -196,6 +196,11 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
   </section>
   <!-- Секция Subscribe -->
   <?php
+
+  if (function_exists('get_field') && get_field('subscribe_hide')) {
+    return;
+  }
+
   $instagram = get_theme_mod('instagram_url', '#');
   $threads = get_theme_mod('threads_url', '#');
   $linkedin = get_theme_mod('linkedin_url', '#');

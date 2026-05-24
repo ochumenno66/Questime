@@ -4,13 +4,16 @@
 // Используется на страницах: front-page, about-us, gamified-tours, team-building, event-page, case-page
 ?>
 
-<?php
-$cta_bg          = get_field('cta_background');
+if (function_exists('get_field') && get_field('cta_hide')) {
+return;
+}
+
+$cta_bg = get_field('cta_background');
 $cta_extra_class = get_field('cta_extra_class') ?: '';
-$cta_subtitle    = get_field('cta_subtitle');
-$cta_pdf         = get_field('cta_pdf');
-$cta_btn_text    = get_field('cta_btn_text') ?: 'Download PDF';
-$whatsapp        = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
+$cta_subtitle = get_field('cta_subtitle');
+$cta_pdf = get_field('cta_pdf');
+$cta_btn_text = get_field('cta_btn_text') ?: 'Download PDF';
+$whatsapp = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
 $cta_wa_btn_text = get_field('cta_wa_btn_text');
 ?>
 

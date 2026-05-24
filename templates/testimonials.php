@@ -2,14 +2,18 @@
 // Template part: Testimonials — универсальный шаблон
 // ACF fields prefix: tm_
 // Используется на страницах: custom-games, front-page, gamified-tours, single-product, single-quest_case, team-building
-?>
 
-<?php
+if (function_exists('get_field') && get_field('testimonials_hide')) {
+    return;
+}
+
 $has_any_card = false;
-for ($i = 1; $i <= 6; $i++) {
-    if (get_field("tm_card_{$i}_type") && get_field("tm_card_{$i}_name")) {
-        $has_any_card = true;
-        break;
+if (function_exists('get_field')) {
+    for ($i = 1; $i <= 6; $i++) {
+        if (get_field("tm_card_{$i}_type") && get_field("tm_card_{$i}_name")) {
+            $has_any_card = true;
+            break;
+        }
     }
 }
 

@@ -5,6 +5,11 @@
 ?>
 
 <?php
+
+if (function_exists('get_field') && get_field('experience_hide')) {
+    return;
+}
+
 $exp_section_class   = get_field('exp_section_class') ?: '';
 $exp_section_title   = get_field('exp_section_title');
 $exp_row2_reverse    = get_field('exp_row2_reverse');
