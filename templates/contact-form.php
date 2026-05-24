@@ -6,6 +6,10 @@
  * get_template_part('template-parts/contact-form', null, ['type' => 'gamified']); на страницах 
  */
 
+if (!get_field('show_contact_form')) {
+    return;
+}
+
 $form_type = !empty($args['type']) ? $args['type'] : 'default';
 
 $whatsapp_url = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');

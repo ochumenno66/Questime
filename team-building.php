@@ -80,7 +80,7 @@ $tb_btn_text      = get_field('tb_hero_btn_text')   ?: 'Contact us';
     </div>
   </section>
   <!-- Секция Experience -->
-  <?php get_template_part('templates/experience-case-product'); ?>
+  <?php get_template_part('templates/experience'); ?>
   <!-- Секция Stats -->
   <?php get_template_part('templates/stats'); ?>
   <!-- Секция Quests -->

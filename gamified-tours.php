@@ -102,8 +102,9 @@ get_header(); ?>
     </div>
   </section>
   <!-- Секция Experience -->
-  <?php get_template_part('templates/experience-case-product'); ?>
+  <?php get_template_part('templates/experience'); ?>
   <!-- Секция CTA_GUIDE как CTA -->
+  <?php if (get_field('show_guide')) : ?>
   <section class="cta cta-guide section-special decorated-dark-stats decorated-light-stats" id="cta-guide" style="
         background:
         linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
@@ -131,6 +132,7 @@ get_header(); ?>
       <img src="<?php echo esc_url($gt_guide_img); ?>" alt="<?php echo esc_attr($gt_guide_img_alt); ?>" class="cta-guide__img" loading="lazy" decoding="async">
     </div>
   </section>
+  <?php endif; ?>
   <!-- Секция Quests -->
   <?php get_template_part('templates/quests'); ?>
   <!-- Секция Gallery -->
