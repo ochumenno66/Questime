@@ -1641,6 +1641,7 @@ nav a::after {
 
 /* Gallery */
 .gallery-slider {
+  margin-top: -140px;
   overflow: hidden;
 }
 
@@ -2542,9 +2543,6 @@ body.modal-open {
 
 /* EVENTS PAGE */
 /* HERO */
-.hero-ep {
-  margin-bottom: 0;
-}
 
 /* Хлебные крошки */
 .hero-ep .hero__breadcrumbs {
@@ -2554,6 +2552,7 @@ body.modal-open {
 }
 
 .hero-ep {
+  margin-bottom: 140px;
   position: relative;
   background: url("../assets/images/paper-EP.png") no-repeat center center /
     cover;

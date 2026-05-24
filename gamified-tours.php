@@ -137,10 +137,10 @@ get_header(); ?>
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Testimonials -->
   <?php get_template_part('templates/testimonials'); ?>
-  <!-- Секция CTA -->
-  <?php get_template_part('templates/cta'); ?>
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
+  <!-- Секция CTA -->
+  <?php get_template_part('templates/cta'); ?>
   <!-- Секция Form -->
   <?php get_template_part('templates/contact-form', null, ['type' => 'gamified']); ?>
   <!-- Секция FAQ -->
