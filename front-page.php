@@ -277,8 +277,12 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
   <?php get_template_part('templates/testimonials'); ?>
   <!-- Секция Partners -->
   <?php
-  $pt_title   = get_field('pt_title') ?: 'They have played with us<br>and want more';
-  $pt_gallery = get_field('pt_gallery');
+  $pt_title = get_field('pt_title') ?: 'They have played with us<br>and want more';
+  $logos = [];
+  for ($i = 1; $i <= 14; $i++) {
+    $logo = get_field("pt_logo_{$i}");
+    if ($logo) $logos[] = $logo;
+  }
   ?>
 
   <section class="partners section-special" id="partners">
@@ -286,14 +290,11 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
       <div class="partners__inner">
         <h2 class="text-align partners__title"><?php echo wp_kses_post($pt_title); ?></h2>
 
-        <?php if (!empty($pt_gallery) && is_array($pt_gallery)): ?>
+        <?php if (!empty($logos)): ?>
           <div class="partners__grid">
-            <?php foreach ($pt_gallery as $image):
-              $logo_url = $image['url'];
-              $logo_alt = $image['alt'] ?: $image['title'] ?: 'Partner logo';
-            ?>
+            <?php foreach ($logos as $logo): ?>
               <div class="partners__item">
-                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($logo_alt); ?>">
+                <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt'] ?: $logo['title'] ?: 'Partner logo'); ?>">
               </div>
             <?php endforeach; ?>
           </div>
