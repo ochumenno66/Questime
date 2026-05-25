@@ -12,13 +12,9 @@ $reviews_label  = get_theme_mod('reviews_label');
 $reviews_url    = get_theme_mod('reviews_url');
 
 $tb_hero_bg       = get_field('tb_hero_bg');
-$tb_tagline       = get_field('tb_hero_tagline');
-$tb_accent_text_1 = get_field('tb_hero_accent_1');
-$tb_text_1        = get_field('tb_hero_text_1');
-$tb_accent_text_2 = get_field('tb_hero_accent_2');
-$tb_text_2        = get_field('tb_hero_text_2');
-$tb_accent_text_3 = get_field('tb_hero_accent_3');
-$tb_subtitle      = get_field('tb_hero_subtitle');
+$tb_hero_tagline  = get_field('tb_hero_tagline');
+$tb_hero_title    = get_field('tb_hero_title');
+$tb_hero_subtitle = get_field('tb_hero_subtitle');
 $tb_btn_text      = get_field('tb_hero_btn_text');
 ?>
 
@@ -30,59 +26,31 @@ $tb_btn_text      = get_field('tb_hero_btn_text');
         background:
         linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
         linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
-        url('<?php echo esc_url($tb_hero_bg); ?>') center / cover no-repeat;">
+        url('<?php echo esc_url($tb_hero_bg); ?>') center / cover no-repeat;
+      ">
       </div>
     <?php endif; ?>
     <div class="hero-tb__wrapper container">
       <?php questime_breadcrumbs(); ?>
       <div class="hero-tb__content text-align">
-        <?php if ($tb_tagline) : ?>
-          <p class="hero-tb__tagline">
-            <?php echo esc_html($tb_tagline); ?>
-          </p>
+        <?php if ($tb_hero_tagline) : ?>
+          <div class="hero-tb__tagline">
+            <?php echo wp_kses_post($tb_hero_tagline); ?>
+          </div>
         <?php endif; ?>
-        <?php if (
-          $tb_accent_text_1 ||
-          $tb_text_1 ||
-          $tb_accent_text_2 ||
-          $tb_text_2 ||
-          $tb_accent_text_3
-        ) : ?>
+        <?php if ($tb_hero_title) : ?>
           <h1 class="hero-tb__title">
-            <?php if ($tb_accent_text_1) : ?>
-              <span class="hero-tb__accent">
-                <?php echo esc_html($tb_accent_text_1); ?>
-              </span>
-            <?php endif; ?>
-            <?php if ($tb_text_1) : ?>
-              <?php echo esc_html($tb_text_1); ?><br>
-            <?php endif; ?>
-            <?php if ($tb_accent_text_2) : ?>
-              <span class="hero-tb__accent">
-                <?php echo esc_html($tb_accent_text_2); ?>
-              </span>
-            <?php endif; ?>
-            <?php if ($tb_text_2) : ?>
-              <?php echo esc_html($tb_text_2); ?>
-            <?php endif; ?>
-            <?php if ($tb_accent_text_3) : ?>
-              <span class="hero-tb__accent">
-                <?php echo esc_html($tb_accent_text_3); ?>
-              </span>
-            <?php endif; ?>
+            <?php echo wp_kses_post($tb_hero_title); ?>
           </h1>
         <?php endif; ?>
-        <?php if ($tb_subtitle) : ?>
-          <p class="hero-tb__subtitle">
-            <?php echo esc_html($tb_subtitle); ?>
-          </p>
+        <?php if ($tb_hero_subtitle) : ?>
+          <div class="hero-tb__subtitle">
+            <?php echo wp_kses_post($tb_hero_subtitle); ?>
+          </div>
         <?php endif; ?>
-        <?php if ($tb_btn_text && $whatsapp) : ?>
+        <?php if ($tb_btn_text) : ?>
           <div class="hero-tb__actions">
-            <a class="btn btn-secondary btn--orange hero-tb__btn open-modal"
-              data-modal-open
-              href="<?php echo esc_url($whatsapp); ?>"
-              target="_blank">
+            <a class="btn btn-secondary btn--orange hero-tb__btn open-modal" href="<?php echo esc_url($whatsapp); ?>" target="_blank">
               <?php echo esc_html($tb_btn_text); ?>
             </a>
           </div>
@@ -90,9 +58,8 @@ $tb_btn_text      = get_field('tb_hero_btn_text');
       </div>
       <?php if ($reviews_label || $reviews_rating || $reviews_count) : ?>
         <?php $reviews_tag = $reviews_url ? 'a' : 'div'; ?>
-        <<?php echo $reviews_tag; ?>
-          class="hero-tb__reviews reviews-badge"
-          <?php if ($reviews_url) : ?>
+        <<?php echo $reviews_tag; ?> class="hero-tb__reviews reviews-badge"
+          <?php if ($reviews_url) : ?> 
             href="<?php echo esc_url($reviews_url); ?>"
             target="_blank"
           <?php endif; ?>>
@@ -102,7 +69,7 @@ $tb_btn_text      = get_field('tb_hero_btn_text');
             </span>
           <?php endif; ?>
           <?php if ($reviews_rating || $reviews_count) : ?>
-            <span class="reviews-badge__stars">
+            <span class="reviews-badge__stars" aria-label="<?php echo esc_attr($reviews_rating); ?> out of 5 stars">
               ★★★★★
             </span>
             <span class="reviews-badge__score">

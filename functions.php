@@ -455,7 +455,6 @@ function questime_ajax_form(): void {
   questime_process_form();
 }
 
-
 // Contact forms script
 add_action('wp_enqueue_scripts', function () {
   wp_enqueue_script(
@@ -471,3 +470,39 @@ add_action('wp_enqueue_scripts', function () {
     'nonce'   => wp_create_nonce('questime_form'),
   ]);
 });
+
+// Кастомные стили TinyMCE для текстовых WYSIWYG полей 
+function questime_mce_buttons($buttons) { 
+    array_unshift($buttons, 'styleselect'); 
+    return $buttons; 
+    } 
+add_filter('mce_buttons_2', 'questime_mce_buttons'); 
+
+// Регистрируем кастомные стили для редактора TinyMCE 
+function questime_tinymce_styles(array $init_array): array { 
+    $style_formats = [ 
+        [ 
+            'title' => 'Orange Text', 
+            'inline' => 'span', 
+            'classes' => 'text-orange', 
+        ], 
+        [ 
+            'title' => 'Dark Text', 
+            'inline' => 'span', 
+            'classes' => 'text-dark', 
+        ], 
+        [ 
+            'title' => 'White Text', 
+            'inline' => 'span', 
+            'classes' => 'text-white', 
+        ], 
+        [ 
+            'title' => 'Uppercase', 
+            'inline' => 'span', 
+            'classes' => 'text-uppercase', 
+        ],
+    ]; 
+    $init_array['style_formats'] = wp_json_encode($style_formats); 
+    return $init_array; 
+} 
+add_filter('tiny_mce_before_init', 'questime_tinymce_styles');
