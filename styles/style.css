@@ -307,6 +307,18 @@ a {
   pointer-events: none;
 }
 
+.text-dark {
+  color: var(--color-text);
+}
+
+.text-white {
+  color: var(--color-bg);
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 button {
   cursor: pointer;
 }
@@ -4338,16 +4350,18 @@ body.modal-open {
   text-align: center;
 }
 
+.hero-gt__title p,
+.hero-gt__subtitle p,
+.hero-tb__title p,
+.hero-tb__subtitle p,
+.hero-tb__tagline p {
+  margin: 0;
+}
+
 .hero-gt__title,
 .hero-tb__title {
   color: var(--color-bg);
   display: block;
-}
-
-.hero-gt__accent,
-.hero-tb__accent {
-  color: var(--color-orange);
-  text-transform: uppercase;
 }
 
 .hero-tb__tagline,
@@ -4384,6 +4398,7 @@ body.modal-open {
   background-color: var(--color-text);
   border-radius: 48px;
   padding: 16px 32px;
+  margin-top: auto;
 }
 
 .reviews-badge {

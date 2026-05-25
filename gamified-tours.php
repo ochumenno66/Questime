@@ -11,16 +11,8 @@ $reviews_label  = get_theme_mod('reviews_label');
 $reviews_url    = get_theme_mod('reviews_url');
 
 $gt_hero_bg       = get_field('gt_hero_bg');
-$gt_text_1        = get_field('gt_hero_text_1');
-$gt_accent_text_1 = get_field('gt_hero_accent_1');
-$gt_text_2        = get_field('gt_hero_text_2');
-$gt_accent_text_2 = get_field('gt_hero_accent_2');
-$gt_text_3        = get_field('gt_hero_text_3');
-$gt_accent_text_3 = get_field('gt_hero_accent_3');
-$gt_text_4        = get_field('gt_hero_text_4');
-$gt_text_5        = get_field('gt_hero_text_5');
-$gt_text_6        = get_field('gt_hero_text_6');
-$gt_subtitle      = get_field('gt_hero_subtitle');
+$gt_hero_title    = get_field('gt_hero_title');
+$gt_hero_subtitle = get_field('gt_hero_subtitle');
 $gt_btn_1_text    = get_field('gt_hero_btn_1_text');
 $gt_btn_2_text    = get_field('gt_hero_btn_2_text');
 
@@ -43,92 +35,46 @@ get_header(); ?>
   <section class="hero hero-gt section-special section-decorated-dark" id="hero">
     <?php if ($gt_hero_bg) : ?>
       <div class="hero-gt--img" style="
-      background:
-      linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-      linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
-      url('<?php echo esc_url($gt_hero_bg); ?>') center / cover no-repeat;">
+        background:
+        linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+        linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+        url('<?php echo esc_url($gt_hero_bg); ?>') center / cover no-repeat;
+        ">
       </div>
     <?php endif; ?>
     <div class="hero-gt__wrapper container">
       <?php questime_breadcrumbs(); ?>
       <div class="hero-gt__content text-align">
-        <?php if (
-        $gt_text_1 ||
-        $gt_accent_text_1 ||
-        $gt_text_2 ||
-        $gt_accent_text_2 ||
-        $gt_text_3 ||
-        $gt_accent_text_3 ||
-        $gt_text_4 ||
-        $gt_text_5 ||
-        $gt_text_6
-        ) : ?>
-        <h1 class="hero-gt__title">
-          <?php if ($gt_text_1) : ?>
-            <?php echo esc_html($gt_text_1); ?>
-          <?php endif; ?>
-          <?php if ($gt_accent_text_1) : ?>
-            <span class="hero-gt__accent">
-              <?php echo esc_html($gt_accent_text_1); ?>
-            </span>
-          <?php endif; ?>
-          <?php if ($gt_text_2) : ?>
-            <?php echo esc_html($gt_text_2); ?>
-          <?php endif; ?>
-          <?php if ($gt_accent_text_2) : ?>
-            <span class="hero-gt__accent">
-              <?php echo esc_html($gt_accent_text_2); ?>
-            </span>
-          <?php endif; ?>
-          <?php if ($gt_text_3) : ?>
-            <?php echo esc_html($gt_text_3); ?>
-          <?php endif; ?>
-          <?php if ($gt_accent_text_3) : ?>
-            <span class="hero-gt__accent">
-              <?php echo esc_html($gt_accent_text_3); ?>
-            </span>
-          <?php endif; ?>
-          <?php if ($gt_text_4) : ?>
-            <?php echo esc_html($gt_text_4); ?><br>
-          <?php endif; ?>
-          <?php if ($gt_text_5) : ?>
-            <?php echo esc_html($gt_text_5); ?><br>
-          <?php endif; ?>
-          <?php if ($gt_text_6) : ?>
-            <?php echo esc_html($gt_text_6); ?>
-          <?php endif; ?>
-        </h1>
-      <?php endif; ?>
-        <?php if ($gt_subtitle) : ?>
-        <p class="hero-gt__subtitle">
-          <?php echo esc_html($gt_subtitle); ?>
-        </p>
-      <?php endif; ?>
-      <?php if ($gt_btn_1_text || $gt_btn_2_text) : ?>
-        <div class="hero-gt__actions">
-          <?php if ($gt_btn_1_text) : ?>
-            <a class="btn btn-secondary btn--orange hero-gt__btn"
-              href="<?php echo esc_url(home_url('/schedule/')); ?>">
-              <?php echo esc_html($gt_btn_1_text); ?>
-            </a>
-          <?php endif; ?>
-          <?php if ($gt_btn_2_text) : ?>
-            <button class="btn btn-secondary btn--transparent hero-gt__btn open-modal"
-              type="button"
-              data-modal-open>
-              <?php echo esc_html($gt_btn_2_text); ?>
-            </button>
-          <?php endif; ?>
-        </div>
-      <?php endif; ?>
-    </div>
-    <?php if ($reviews_label || $reviews_rating || $reviews_count) : ?>
-    <?php $reviews_tag = $reviews_url ? 'a' : 'div'; ?>
-      <<?php echo $reviews_tag; ?>
-        class="hero-gt__reviews reviews-badge"
-        <?php if ($reviews_url) : ?>
-          href="<?php echo esc_url($reviews_url); ?>"
-          target="_blank"
+        <?php if ($gt_hero_title) : ?>
+          <h1 class="hero-gt__title">
+            <?php echo wp_kses_post($gt_hero_title); ?>
+          </h1>
+        <?php endif; ?>
+        <?php if ($gt_hero_subtitle) : ?>
+          <div class="hero-gt__subtitle">
+            <?php echo wp_kses_post($gt_hero_subtitle); ?>
+          </div>
+        <?php endif; ?>
+        <?php if ($gt_btn_1_text || $gt_btn_2_text) : ?>
+          <div class="hero-gt__actions">
+            <?php if ($gt_btn_1_text) : ?>
+              <a class="btn btn-secondary btn--orange hero-gt__btn" href="<?php echo esc_url(home_url('/schedule/')); ?>">
+                <?php echo esc_html($gt_btn_1_text); ?>
+              </a>
+            <?php endif; ?>
+            <?php if ($gt_btn_2_text) : ?>
+              <button class="btn btn-secondary btn--transparent hero-gt__btn open-modal" type="button" data-modal-open>
+                <?php echo esc_html($gt_btn_2_text); ?>
+              </button>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
+      </div>
+      <?php if ($reviews_label || $reviews_rating || $reviews_count) : ?>
+        <?php $reviews_tag = $reviews_url ? 'a' : 'div'; ?>
+        <<?php echo $reviews_tag; ?> class="hero-gt__reviews reviews-badge"
+          <?php if ($reviews_url) : ?>
+            href="<?php echo esc_url($reviews_url); ?>"
         <?php endif; ?>>
         <?php if ($reviews_label) : ?>
           <span class="reviews-badge__label">
@@ -136,7 +82,7 @@ get_header(); ?>
           </span>
         <?php endif; ?>
         <?php if ($reviews_rating || $reviews_count) : ?>
-          <span class="reviews-badge__stars">
+          <span class="reviews-badge__stars" aria-label="<?php echo esc_attr($reviews_rating); ?> out of 5 stars">
             ★★★★★
           </span>
           <span class="reviews-badge__score">
@@ -150,6 +96,7 @@ get_header(); ?>
         <?php endif; ?>
       </<?php echo $reviews_tag; ?>>
       <?php endif; ?>
+    </div>
   </section>
   <!-- Секция Experience -->
   <?php get_template_part('templates/experience'); ?>
