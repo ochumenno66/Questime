@@ -30,7 +30,7 @@ $tm_btn_class      = get_field('tm_btn_class') ?: 'btn-card';
     <div class="container">
         <div class="testimonials__header">
             <?php if ($tm_title): ?>
-                <h2 class="testimonials__title text-align"><?php echo esc_html($tm_title); ?></h2>
+                <h2 class="testimonials__title text-align"><?php echo wp_kses_post($tm_title); ?></h2>
             <?php endif; ?>
             <?php if ($tm_subtitle): ?>
                 <h3 class="testimonials__subtitle h3"><?php echo wp_kses_post($tm_subtitle); ?></h3>
