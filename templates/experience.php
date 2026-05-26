@@ -23,7 +23,7 @@ $exp_img_3 = get_field('exp_img_3');
 
 <section class="experience section-special <?php echo esc_attr($exp_section_class); ?>" id="experience">
     <?php if ($exp_section_title): ?>
-        <h2 class="team__title text-align"><?php echo esc_html($exp_section_title); ?></h2>
+        <h2 class="team__title text-align"><?php echo wp_kses_post($exp_section_title); ?></h2>
     <?php endif; ?>
     <div class="container">
 
@@ -56,14 +56,14 @@ $exp_img_3 = get_field('exp_img_3');
             </div>
             <div class="experience__col--gains">
                 <?php if ($exp_gains_title): ?>
-                    <h3 class="experience__gains-title"><?php echo esc_html($exp_gains_title); ?></h3>
+                    <h3 class="experience__gains-title"><?php echo wp_kses_post($exp_gains_title); ?></h3>
                     <ul class="experience__list">
                         <?php for ($i = 1; $i <= 5; $i++): ?>
                             <?php $gain = get_field("exp_gain_{$i}"); ?>
                             <?php if ($gain): ?>
                                 <li class="experience__item">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/tick.svg" alt="" class="experience__tick" loading="lazy" decoding="async">
-                                    <?php echo esc_html($gain); ?>
+                                    <?php echo wp_kses_post($gain); ?>
                                 </li>
                             <?php endif; ?>
                         <?php endfor; ?>
@@ -94,18 +94,18 @@ $exp_img_3 = get_field('exp_img_3');
         <?php if ($exp_badge || $exp_btn1_text || $exp_btn2_text): ?>
             <div class="experience__actions">
                 <?php if ($exp_badge): ?>
-                    <span class="experience__badge"><?php echo esc_html($exp_badge); ?></span>
+                    <span class="experience__badge"><?php echo wp_kses_post($exp_badge); ?></span>
                 <?php endif; ?>
                 <?php if ($exp_btn1_text || $exp_btn2_text): ?>
                     <div class="experience__btns">
                         <?php if ($exp_btn1_text): ?>
                             <a href="<?php echo esc_url($exp_btn1_url); ?>" class="btn btn-secondary <?php echo esc_attr($exp_btn1_class); ?>">
-                                <?php echo esc_html($exp_btn1_text); ?>
+                                <?php echo wp_kses_post($exp_btn1_text); ?>
                             </a>
                         <?php endif; ?>
                         <?php if ($exp_btn2_text): ?>
                             <a href="<?php echo esc_url($whatsapp); ?>" class="btn btn-secondary experience__book open-modal" data-modal-open target="_blank">
-                                <?php echo esc_html($exp_btn2_text); ?>
+                                <?php echo wp_kses_post($exp_btn2_text); ?>
                             </a>
                         <?php endif; ?>
                     </div>
