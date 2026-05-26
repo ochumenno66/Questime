@@ -25,14 +25,14 @@ $cta_wa_btn_text = get_field('cta_wa_btn_text');
             </h2>
 
             <?php if ($cta_subtitle): ?>
-                <h3 class="cta__desc"><?php echo esc_html($cta_subtitle); ?></h3>
+                <h3 class="cta__desc"><?php echo wp_kses_post($cta_subtitle); ?></h3>
             <?php endif; ?>
 
             <?php if ($cta_pdf): ?>
                 <a href="<?php echo esc_url($cta_pdf['url']); ?>"
                     class="btn btn-secondary cta__btn btn--transparent"
                     download="<?php echo esc_attr($cta_pdf['title'] ?: 'Questime_Presentation'); ?>">
-                    <?php echo esc_html($cta_btn_text); ?>
+                    <?php echo wp_kses_post($cta_btn_text); ?>
                 </a>
             <?php endif; ?>
 
@@ -40,7 +40,7 @@ $cta_wa_btn_text = get_field('cta_wa_btn_text');
                 <a href="<?php echo esc_url($whatsapp); ?>"
                     class="btn btn-secondary cta__btn btn--transparent"
                     target="_blank">
-                    <?php echo esc_html($cta_wa_btn_text); ?>
+                    <?php echo wp_kses_post($cta_wa_btn_text); ?>
                 </a>
             <?php endif; ?>
 
