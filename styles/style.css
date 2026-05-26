@@ -4,8 +4,7 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot")
-      format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Regular.eot") format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -17,8 +16,7 @@
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff2") format("woff2"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.woff") format("woff"),
     url("../assets/fonts/Dihjauti/Dihjauti-Bold.ttf") format("truetype"),
-    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot")
-      format("embedded-opentype");
+    url("../assets/fonts/Dihjauti/Dihjauti-Bold.eot") format("embedded-opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -30,8 +28,7 @@
     url("../assets/fonts/Overpass/Overpass-Regular.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Regular.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Regular.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Regular.eot")
-      format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Regular.eot") format("embedded-opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -43,8 +40,7 @@
     url("../assets/fonts/Overpass/Overpass-Light.woff2") format("woff2"),
     url("../assets/fonts/Overpass/Overpass-Light.woff") format("woff"),
     url("../assets/fonts/Overpass/Overpass-Light.ttf") format("truetype"),
-    url("../assets/fonts/Overpass/Overpass-Light.eot")
-      format("embedded-opentype");
+    url("../assets/fonts/Overpass/Overpass-Light.eot") format("embedded-opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -385,8 +381,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark.png") center bottom / cover
-    no-repeat;
+  background: url("../assets/images/border-dark.png") center bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -397,8 +392,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-stats.png") center bottom /
-    cover no-repeat;
+  background: url("../assets/images/border-dark-stats.png") center bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -409,8 +403,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-cta.png") center bottom / cover
-    no-repeat;
+  background: url("../assets/images/border-dark-cta.png") center bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -421,8 +414,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-dark-header.png") center bottom /
-    cover no-repeat;
+  background: url("../assets/images/border-dark-header.png") center bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -433,8 +425,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/projects-border-2.svg") center bottom /
-    cover no-repeat;
+  background: url("../assets/images/projects-border-2.svg") center bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -446,8 +437,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light.png") center top / cover
-    no-repeat;
+  background: url("../assets/images/border-light.png") center top / cover no-repeat;
   pointer-events: none;
 }
 
@@ -458,8 +448,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-stats.png") center top / cover
-    no-repeat;
+  background: url("../assets/images/border-light-stats.png") center top / cover no-repeat;
   pointer-events: none;
 }
 
@@ -470,8 +459,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/border-light-cta.png") center top / cover
-    no-repeat;
+  background: url("../assets/images/border-light-cta.png") center top / cover no-repeat;
   pointer-events: none;
 }
 
@@ -482,8 +470,7 @@ button {
   left: 0;
   width: 100%;
   height: var(--tear-height);
-  background: url("../assets/images/projects-border-1.svg") center top / cover
-    no-repeat;
+  background: url("../assets/images/projects-border-1.svg") center top / cover no-repeat;
   pointer-events: none;
 }
 
@@ -825,12 +812,10 @@ nav a::after {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(
-    90deg,
-    #191a18 0%,
-    rgba(25, 26, 24, 0.5) 16%,
-    rgba(25, 26, 24, 0) 31%
-  );
+  background: linear-gradient(90deg,
+      #191a18 0%,
+      rgba(25, 26, 24, 0.5) 16%,
+      rgba(25, 26, 24, 0) 31%);
 }
 
 .hero__wrapper::after {
@@ -961,11 +946,9 @@ nav a::after {
   left: 0;
   width: 180px;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--color-header-footer-bg) 0%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      var(--color-header-footer-bg) 0%,
+      transparent 100%);
   z-index: 5;
   pointer-events: none;
 }
@@ -1286,13 +1269,11 @@ nav a::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    179.31deg,
-    #191a18 2.33%,
-    rgba(25, 26, 24, 0) 23.3%,
-    rgba(25, 26, 24, 0) 87.64%,
-    #191a18 94.25%
-  );
+  background: linear-gradient(179.31deg,
+      #191a18 2.33%,
+      rgba(25, 26, 24, 0) 23.3%,
+      rgba(25, 26, 24, 0) 87.64%,
+      #191a18 94.25%);
 }
 
 .services__inner {
@@ -1426,12 +1407,10 @@ nav a::after {
 .stats {
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(
-      178.88deg,
+    linear-gradient(178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%
-    ),
+      #191a18 99%),
     url(../assets/images/main/stats-bg.jpg);
   background-size: cover;
   background-position: center;
@@ -1584,12 +1563,10 @@ nav a::after {
   inset: 0;
   background-image:
     linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
-    linear-gradient(
-      178.88deg,
+    linear-gradient(178.88deg,
       #191a18 0.92%,
       rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%
-    );
+      #191a18 99%);
   z-index: 0;
   pointer-events: none;
 }
@@ -2017,8 +1994,7 @@ nav a::after {
   left: -1px;
   width: 50px;
   height: 100%;
-  background: url("../assets/images/Mask-contact.png") repeat-y center / 100%
-    auto;
+  background: url("../assets/images/Mask-contact.png") repeat-y center / 100% auto;
 }
 
 /* MODAL WINDOW */
@@ -2483,7 +2459,7 @@ body.modal-open {
   cursor: pointer;
 }
 
-.faq__dot + .faq__item .faq__question {
+.faq__dot+.faq__item .faq__question {
   padding-top: 0;
 }
 
@@ -2571,8 +2547,7 @@ body.modal-open {
 .hero-ep {
   margin-bottom: 140px;
   position: relative;
-  background: url("../assets/images/paper-EP.png") no-repeat center center /
-    cover;
+  background: url("../assets/images/paper-EP.png") no-repeat center center / cover;
   padding-bottom: 80px;
   padding-top: 70px;
   min-height: auto;
@@ -2955,7 +2930,7 @@ body.modal-open {
   cursor: pointer;
 }
 
-.persons__dot + .persons__item .persons__question {
+.persons__dot+.persons__item .persons__question {
   padding-top: 0;
 }
 
@@ -3188,9 +3163,15 @@ body.modal-open {
 
 .schedule__months {
   display: flex;
-  justify-content: center;
   gap: 16px;
   margin-bottom: clamp(20px, 2.733vw, 40px);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.schedule__months::-webkit-scrollbar {
+  display: none;
 }
 
 .schedule__month-btn {
@@ -3205,6 +3186,7 @@ body.modal-open {
     background 0.2s,
     color 0.2s,
     border-color 0.2s;
+  flex: 0 0 auto;
 }
 
 .schedule__month-btn.is-active {
@@ -3452,12 +3434,10 @@ body.modal-open {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%
-    ),
+      #191a18 100%),
     url("../assets/images/custom-games/hero-full.jpg") center / cover no-repeat;
   z-index: 0;
 }
@@ -4024,14 +4004,11 @@ body.modal-open {
   inset: 0;
   background:
     linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       #191a18 0%,
       rgba(25, 26, 24, 0) 49.04%,
-      #191a18 100%
-    ),
-    url("../assets/images/about-us/about-us-hero-bg.png") center / cover
-      no-repeat;
+      #191a18 100%),
+    url("../assets/images/about-us/about-us-hero-bg.png") center / cover no-repeat;
   z-index: 0;
 }
 
@@ -4117,8 +4094,7 @@ body.modal-open {
   gap: 8px;
   padding: clamp(24px, 3.28vw, 48px) clamp(20px, 2.73vw, 40px);
   text-align: center;
-  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100%
-    no-repeat;
+  background: url("../assets/images/roll-CG-AU.webp") center / 100% 100% no-repeat;
   height: 280px;
 }
 
@@ -4460,6 +4436,7 @@ body.modal-open {
 }
 
 @media (max-width: 1319px) {
+
   /* form */
   .contact-form__btn {
     grid-column: 1 / 4;
@@ -4557,6 +4534,7 @@ body.modal-open {
 }
 
 @media (max-width: 1055px) {
+
   /* CUSTOM GAMES */
   /* Projects */
   .projects__btn {
@@ -5040,6 +5018,7 @@ body.modal-open {
 }
 
 @media (max-width: 840px) {
+
   /* Страница Custom Games */
   /* Company */
   .label-border-right {
@@ -5065,6 +5044,7 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
+
   /* Хлебные крошки */
   .hero__breadcrumbs {
     flex-wrap: nowrap;
@@ -5919,11 +5899,6 @@ body.modal-open {
     margin: 16px 0;
   }
 
-  .schedule__months {
-    justify-content: space-between;
-    gap: 0;
-  }
-
   .schedule__month-btn {
     padding: 2px 16px;
   }
@@ -5956,6 +5931,7 @@ body.modal-open {
 }
 
 @media (max-width: 585px) {
+
   /* Страница Custom Games */
   /* Projects */
   .projects-card--2 {
@@ -5981,6 +5957,7 @@ body.modal-open {
 }
 
 @media (max-width: 575px) {
+
   h2,
   .h2 {
     font-weight: var(--font-weight-regular);
@@ -6188,8 +6165,7 @@ body.modal-open {
     min-height: 150px;
   }
 
-  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta)
-    .cta__title {
+  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta) .cta__title {
     font-size: 14px;
   }
 
@@ -6755,7 +6731,7 @@ body.modal-open {
   }
 
   /* SCHEDULE */
-  .schedule__month-btn:hover {
+  .schedule__month-btn:not(.is-active):hover {
     border-color: var(--color-orange);
     color: var(--color-orange);
   }
