@@ -77,7 +77,7 @@ $gamified_phone_html = sprintf(
   esc_html($gamified_phone_after)
 );
 
-// Gamified form, selected options — данные из ACF
+// Gamified form, выпадающий список с турами — данные из ACF
 $option_1_text  = get_field('gt_option_1_text');
 $option_2_text  = get_field('gt_option_2_text');
 $option_3_text  = get_field('gt_option_3_text');

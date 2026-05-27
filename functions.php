@@ -262,6 +262,56 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'section' => 'questime_modal_section',
         'type'    => 'textarea',
     ]);
+
+    // Cookie
+    $wp_customize->add_section('questime_cookie_section', [
+    'title'    => 'Cookie Banner',
+    'priority' => 34,
+    ]);
+
+    $wp_customize->add_setting('cookie_title', [
+    'default'           => 'We Care About Your Privacy',
+    'sanitize_callback' => 'sanitize_text_field',
+]);
+
+$wp_customize->add_control('cookie_title', [
+    'label'   => 'Cookie title',
+    'section' => 'questime_cookie_section',
+    'type'    => 'text',
+]);
+
+$wp_customize->add_setting('cookie_text', [
+    'default'           => '',
+    'sanitize_callback' => 'sanitize_textarea_field',
+]);
+
+$wp_customize->add_control('cookie_text', [
+    'label'   => 'Cookie text',
+    'section' => 'questime_cookie_section',
+    'type'    => 'textarea',
+]);
+
+$wp_customize->add_setting('cookie_accept_text', [
+    'default'           => 'OK',
+    'sanitize_callback' => 'sanitize_text_field',
+]);
+
+$wp_customize->add_control('cookie_accept_text', [
+    'label'   => 'Accept button text',
+    'section' => 'questime_cookie_section',
+    'type'    => 'text',
+]);
+
+$wp_customize->add_setting('cookie_learn_more_text', [
+    'default'           => 'Learn more',
+    'sanitize_callback' => 'sanitize_text_field',
+]);
+
+$wp_customize->add_control('cookie_learn_more_text', [
+    'label'   => 'Learn more text',
+    'section' => 'questime_cookie_section',
+    'type'    => 'text',
+]);
 });
 
 // ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
