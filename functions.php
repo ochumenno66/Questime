@@ -19,16 +19,7 @@ add_action('wp_enqueue_scripts', function () {
             wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $maps_key . '&callback=initRouteMap&loading=async', [], null, true);
         }
     }
-
-    // Contact forms script
-add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_script('questime-form', get_template_directory_uri() . '/js/form.js', [], wp_get_theme()->get('Version'), true);
-    wp_localize_script('questime-form', 'questimeData', [
-    'ajaxUrl' => admin_url('admin-ajax.php'),
-    'nonce'   => wp_create_nonce('questime_form'),
-    ]);
-    });
-    });
+});
 
 add_action('after_setup_theme', function () {
     add_theme_support('title-tag');
@@ -112,6 +103,18 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'label'   => 'WhatsApp ссылка',
         'section' => 'questime_contacts_section',
         'type'    => 'url',
+    ]);
+
+    $wp_customize->add_setting('phone_display', [
+        'default'           => '+31 6 356 40 923',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+
+    $wp_customize->add_control('phone_display', [
+        'label'   => 'Номер телефона',
+        'description' => 'Писать в таком формате: +31 6 356 40 923',
+        'section' => 'questime_contacts_section',
+        'type'    => 'text',
     ]);
 
     $wp_customize->add_section('questime_api_section', [
@@ -198,8 +201,68 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'section'     => 'questime_contacts_section',
         'type'        => 'email',
     ]);
-});
 
+    // Modal window
+    $wp_customize->add_section('questime_modal_section', [
+        'title'    => 'Модальное окно',
+        'priority' => 33,
+    ]);
+
+    $wp_customize->add_setting('modal_title', [
+        'default'           => "Let's talk!",
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+
+    $wp_customize->add_control('modal_title', [
+        'label'   => 'Заголовок модалки',
+        'section' => 'questime_modal_section',
+        'type'    => 'text',
+    ]);
+
+    $wp_customize->add_setting('modal_description', [
+        'default'           => '',
+        'sanitize_callback' => 'wp_kses_post',
+    ]);
+
+    $wp_customize->add_control('modal_description', [
+        'label'   => 'Текст модалки',
+        'section' => 'questime_modal_section',
+        'type'    => 'textarea',
+    ]);
+
+    $wp_customize->add_setting('modal_phone_text', [
+        'default'           => 'Our number is',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+
+    $wp_customize->add_control('modal_phone_text', [
+        'label'   => 'Текст телефона',
+        'section' => 'questime_modal_section',
+        'type'    => 'text',
+    ]);
+
+    $wp_customize->add_setting('modal_submit_text', [
+        'default'           => 'Answer me!',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
+
+    $wp_customize->add_control('modal_submit_text', [
+        'label'   => 'Текст кнопки',
+        'section' => 'questime_modal_section',
+        'type'    => 'text',
+    ]);
+
+    $wp_customize->add_setting('modal_whatsapp_text', [
+        'default'           => 'If your question is urgent, feel free to reach out to us on WhatsApp',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ]);
+
+    $wp_customize->add_control('modal_whatsapp_text', [
+        'label'   => 'WhatsApp текст',
+        'section' => 'questime_modal_section',
+        'type'    => 'textarea',
+    ]);
+});
 
 // ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
 function questime_social_icons(): void
@@ -479,30 +542,34 @@ function questime_mce_buttons($buttons) {
 add_filter('mce_buttons_2', 'questime_mce_buttons'); 
 
 // Регистрируем кастомные стили для редактора TinyMCE 
-function questime_tinymce_styles(array $init_array): array { 
-    $style_formats = [ 
-        [ 
-            'title' => 'Orange Text', 
-            'inline' => 'span', 
-            'classes' => 'text-orange', 
-        ], 
-        [ 
-            'title' => 'Dark Text', 
-            'inline' => 'span', 
-            'classes' => 'text-dark', 
-        ], 
-        [ 
-            'title' => 'White Text', 
-            'inline' => 'span', 
-            'classes' => 'text-white', 
-        ], 
-        [ 
-            'title' => 'Uppercase', 
-            'inline' => 'span', 
-            'classes' => 'text-uppercase', 
+function questime_tinymce_styles($init_array) {
+
+    $style_formats = [
+        [
+            'title' => 'Orange Text',
+            'inline' => 'span',
+            'classes' => 'text-orange',
         ],
-    ]; 
-    $init_array['style_formats'] = wp_json_encode($style_formats); 
-    return $init_array; 
-} 
+        [
+            'title' => 'Dark Text',
+            'inline' => 'span',
+            'classes' => 'text-dark',
+        ],
+        [
+            'title' => 'White Text',
+            'inline' => 'span',
+            'classes' => 'text-white',
+        ],
+        [
+            'title' => 'Uppercase',
+            'inline' => 'span',
+            'classes' => 'text-uppercase',
+        ],
+    ];
+
+    $init_array['style_formats'] = wp_json_encode($style_formats);
+
+    return $init_array;
+}
+
 add_filter('tiny_mce_before_init', 'questime_tinymce_styles');

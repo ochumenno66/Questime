@@ -16,40 +16,91 @@ $whatsapp_url = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
 $phone_display = get_theme_mod('phone_display');
 $phone_display = is_string($phone_display) && !empty($phone_display)
   ? $phone_display
-  : '+31 6 123 65 246';
+  : '+31 6 356 40 923';
 
 
 // Default form — данные из ACF
-$contact_image = get_field('contact_form_image');
+$contact_image     = get_field('contact_form_image');
 $contact_image_url = !empty($contact_image['url'])
   ? $contact_image['url']
   : get_template_directory_uri() . '/assets/images/main/contact.jpg';
-$default_title   = get_field('contact_form_title')    ?: "Let's talk!";
-$default_text_1  = get_field('contact_form_text_1')   ?: 'Feel free to ask your question or make a request directly. Nataly or Mark will contact you within one business day.';
-$default_text_2  = get_field('contact_form_text_2')   ?:'Prefer to call? Please do!';
-$default_button  = get_field('contact_form_button')   ?:'Answer me!';
+$default_title     = get_field('contact_form_title') ?: "Let's talk!";
+$contact_content   = get_field('contact_form_content');
+$contact_content   = $contact_content ?: '
+<p>
+  Feel free to ask your question or make a request directly.
+  Nataly or Mark will contact you within one business day.
+</p>
+<p>
+  Prefer to call? Please do!
+</p>
+';
+$default_button     = get_field('contact_form_button')     ?: 'Answer me!';
+$default_phone_text = get_field('contact_form_phone_text') ?: 'Our number is';
+$default_phone_html = sprintf(
+  '<p class="contact-form__text contact-form__text--phone">
+    %s
+    <a class="contact-form__phone" href="%s" target="_blank">%s</a>
+  </p>',
+  esc_html($default_phone_text),
+  esc_url($whatsapp_url),
+  esc_html($phone_display)
+);
 
 // Gamified form — данные из ACF
-$gamified_title  = get_field('contact_form_gamified_title')   ?:"Let's plan your adventure";
-$gamified_text_1 = get_field('contact_form_gamified_text_1')  ?:"Have a question? Want to organize a private experience or a custom gamified tour? Tell us what you're looking for!<br>Natalia or Mark will personally get back to you within one business day.";
-$gamified_text_2 = get_field('contact_form_gamified_text_2')  ?:"Prefer to talk it through?<br>Call us directly at";
-$gamified_button = get_field('contact_form_gamified_button')  ?:'Answer me!';
+$gamified_title   = get_field('contact_form_gamified_title')   ?:"Let's plan your adventure";
+$gamified_content = get_field('contact_form_gamified_content');
+$gamified_content = $gamified_content ?: '
+<p>
+  Have a question? Want to organize a private experience or a custom gamified tour?
+  Tell us what you\'re looking for!
+</p>
+<p>
+  Natalia or Mark will personally get back to you within one business day.
+</p>
+<p>
+  Prefer to talk it through?
+</p>
+';
+$gamified_button       = get_field('contact_form_gamified_button')       ?:'Answer me!';
+$gamified_phone_before = get_field('contact_form_gamified_phone_before') ?: 'Call us directly at';
+$gamified_phone_after  = get_field('contact_form_gamified_phone_after')  ?: '— we’d love to hear your plans.';
+$gamified_phone_html = sprintf(
+  '<p class="contact-form__text-gt contact-form__text-gt--phone">
+    %s
+    <a class="contact-form__phone" href="%s" target="_blank">%s</a>
+    %s
+  </p>',
+  esc_html($gamified_phone_before),
+  esc_url($whatsapp_url),
+  esc_html($phone_display),
+  esc_html($gamified_phone_after)
+);
 
 // Gamified form, selected options — данные из ACF
-$option_1_text  = get_field('gt_option_1_text')   ?: 'Private Tour';
-$option_1_value = get_field('gt_option_1_value')  ?: 'Private-Tour';
+$option_1_text  = get_field('gt_option_1_text');
+$option_2_text  = get_field('gt_option_2_text');
+$option_3_text  = get_field('gt_option_3_text');
+$option_4_text  = get_field('gt_option_4_text');
+$option_5_text  = get_field('gt_option_5_text');
 
-$option_2_text  = get_field('gt_option_2_text')   ?: 'Small Group Tour';
-$option_2_value = get_field('gt_option_2_value')  ?: 'Small-Group-Tour';
-
-$option_3_text  = get_field('gt_option_3_text')   ?: 'Self-Guided Experience';
-$option_3_value = get_field('gt_option_3_value')  ?: 'Self-Guided-Experience';
-
-$option_4_text  = get_field('gt_option_4_text')   ?: 'Custom Experience';
-$option_4_value = get_field('gt_option_4_value')  ?: 'Custom-Experience';
-
-$option_5_text  = get_field('gt_option_5_text')   ?: 'Not Sure Yet';
-$option_5_value = get_field('gt_option_5_value')  ?: 'Not-Sure-Yet';
+$options = [
+  [
+    'text'  => $option_1_text,
+  ],
+  [
+    'text'  => $option_2_text,
+  ],
+  [
+    'text'  => $option_3_text,
+  ],
+  [
+    'text'  => $option_4_text,
+  ],
+  [
+    'text'  => $option_5_text,
+  ],
+];
 ?>
 
 <?php if ($form_type === 'gamified') : ?>
@@ -61,16 +112,9 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'Not-Sure-Yet';
     </h2>
     <form class="contact-form__wrapper-gt js-contact-form" data-form-type="gamified" action="#" method="post">
       <input type="hidden" name="form_type" value="gamified">
-      <div class="contact-form__content-gt">
-        <p class="contact-form__text-gt text-bottom-gt">
-          <?php echo wp_kses_post($gamified_text_1); ?>
-        </p>
-        <p class="contact-form__text-gt">
-          <?php echo wp_kses_post($gamified_text_2); ?>
-          <a class="contact-form__phone" href="<?php echo esc_url($whatsapp_url); ?>" target="_blank">
-            <?php echo esc_html($phone_display); ?>
-          </a>
-        </p>
+      <div class="contact-form__content-gt wysiwyg-content">
+        <?php echo wp_kses_post($gamified_content); ?>
+        <?php echo wp_kses_post($gamified_phone_html); ?>
       </div>
       <div class="contact-form__row">
         <input class="contact-form__input" type="text" name="name" placeholder="Name*" required>
@@ -86,21 +130,19 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'Not-Sure-Yet';
           </svg>
         </div>
         <ul class="custom-select__dropdown">
-          <li class="custom-select__option" data-value="<?php echo esc_attr($option_1_value); ?>">
-            <?php echo esc_html($option_1_text); ?>
-          </li>
-          <li class="custom-select__option" data-value="<?php echo esc_attr($option_2_value); ?>">
-            <?php echo esc_html($option_2_text); ?>
-          </li>
-          <li class="custom-select__option" data-value="<?php echo esc_attr($option_3_value); ?>">
-            <?php echo esc_html($option_3_text); ?>
-          </li>
-          <li class="custom-select__option" data-value="<?php echo esc_attr($option_4_value); ?>">
-            <?php echo esc_html($option_4_text); ?>
-          </li>
-          <li class="custom-select__option" data-value="<?php echo esc_attr($option_5_value); ?>">
-            <?php echo esc_html($option_5_text); ?>
-          </li>
+          <?php foreach ($options as $option) : ?>
+            <?php
+              $text = !empty($option['text'])
+              ? trim($option['text'])
+              : '';
+              $value = sanitize_title($text);
+            ?>
+          <?php if (!empty($text)) : ?>
+            <li class="custom-select__option" data-value="<?php echo esc_attr($value); ?>">
+              <?php echo esc_html($text); ?>
+            </li>
+          <?php endif; ?>
+          <?php endforeach; ?>
         </ul>
         <input type="hidden" name="interest" required>
       </div>
@@ -123,6 +165,16 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'Not-Sure-Yet';
         <img class="contact-form__image-gt" src="<?php echo esc_url($contact_image_url); ?>" alt="">
       </div>
     </form>
+    <div class="contact-form__success contact-form__success-gt js-form-success" hidden>
+      <div class="contact-form__success-inner">
+        <h3 class="contact-form__success-title">
+          Thank you!
+        </h3>
+        <p class="contact-form__success-text">
+          We will contact you shortly.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -137,17 +189,8 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'Not-Sure-Yet';
       <input type="hidden" name="form_type" value="default">
       <div class="contact-form__content">
         <div class="contact-form__info">
-          <p class="contact-form__text text-bottom">
-            <?php echo esc_html($default_text_1); ?>
-          </p>
-          <p class="contact-form__text">
-            <?php echo esc_html($default_text_2); ?>
-          </p>
-          <p class="contact-form__text">Our number is
-            <a class="contact-form__phone" href="<?php echo esc_url($whatsapp_url); ?>" target="_blank">
-              <?php echo esc_html($phone_display); ?>
-            </a>
-          </p>
+          <?php echo wp_kses_post($contact_content); ?>
+          <?php echo wp_kses_post($default_phone_html); ?>
         </div>
       </div>
       <div class="contact-form__fields">
@@ -163,11 +206,22 @@ $option_5_value = get_field('gt_option_5_value')  ?: 'Not-Sure-Yet';
         </button>
         <div class="checkbox">
           <input type="checkbox" id="agree-default" name="agree" required>
-          <label for="agree-default">By subscribing, you agree to our
+          <label for="agree-default">
+            By subscribing, you agree to our
             <a href="<?php echo esc_url(get_permalink(get_page_by_path('privacy-policy'))); ?>" target="_blank">
               Privacy Policy
             </a>
           </label>
+        </div>
+      </div>
+      <div class="contact-form__success js-form-success" hidden>
+        <div class="contact-form__success-inner">
+          <h3 class="contact-form__success-title">
+            Thank you!
+          </h3>
+          <p class="contact-form__success-text">
+            We will contact you shortly.
+          </p>
         </div>
       </div>
       <div class="contact-form__image-wrapper">
