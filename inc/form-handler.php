@@ -158,7 +158,7 @@ function questime_process_form(): void
   if ($sent) {
 
     wp_send_json_success([
-      'message' => 'Thank you! We will contact you soon.'
+      'message' => 'Thank you! We will contact you shortly.'
     ]);
 
   } else {

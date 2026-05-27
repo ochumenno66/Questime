@@ -77,47 +77,69 @@ document.addEventListener('DOMContentLoaded', function () {
       const field = form.querySelector(`[name="${fieldName}"]`);
 
       if (!field) return;
-
       field.classList.add("is-error");
-
       let errorElement = field.parentNode.querySelector(".form-error");
 
       if (!errorElement) {
         errorElement = document.createElement("div");
         errorElement.className = "form-error";
-
         field.parentNode.appendChild(errorElement);
       }
-
       errorElement.textContent = message;
     });
   }
 
-  function showSuccess(form, message) {
-    const successElement = createFormMessage(form, "form-success");
+function showSuccess(form) {
+  const successElement =
+    form.parentElement.querySelector(".js-form-success");
+  if (!successElement) return;
+  form.reset();
+  const formType = form.dataset.formType;
 
-    successElement.textContent =
-      message || "Thank you! We will contact you soon.";
+  // DEFAULT FORM
+  if (formType === "default") {
+    const elementsToHide = form.querySelectorAll(`
+      .contact-form__content,
+      .contact-form__fields,
+      .contact-form__textarea,
+      .contact-form__actions
+    `);
+    elementsToHide.forEach((element) => {
+      element.classList.add("is-hidden");
+    });
+    successElement.hidden = false;
 
     setTimeout(() => {
-      successElement.remove();
+      elementsToHide.forEach((element) => {
+        element.classList.remove("is-hidden");
+      });
+      successElement.hidden = true;
     }, 5000);
   }
+
+  // GAMIFIED FORM
+  if (formType === "gamified") {
+    form.classList.add("is-hidden");
+    successElement.hidden = false;
+
+    setTimeout(() => {
+      form.classList.remove("is-hidden");
+      successElement.hidden = true;
+    }, 5000);
+  }
+}
 
   function showFormError(form, message) {
     const errorElement = createFormMessage(
       form,
       "form-error form-error--general",
     );
-
     errorElement.textContent = message;
   }
 
   function createFormMessage(form, className) {
     const messageElement = document.createElement("div");
-
     messageElement.className = className;
-
     form.appendChild(messageElement);
 
     return messageElement;
