@@ -214,7 +214,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ]);
 
     $wp_customize->add_control('modal_title', [
-        'label'   => 'Заголовок модалки',
+        'label'   => 'Заголовок',
         'section' => 'questime_modal_section',
         'type'    => 'text',
     ]);
@@ -225,7 +225,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ]);
 
     $wp_customize->add_control('modal_description', [
-        'label'   => 'Текст модалки',
+        'label'   => 'Основной текст',
         'section' => 'questime_modal_section',
         'type'    => 'textarea',
     ]);
@@ -236,7 +236,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ]);
 
     $wp_customize->add_control('modal_phone_text', [
-        'label'   => 'Текст телефона',
+        'label'   => 'Текст перед номером телефона',
         'section' => 'questime_modal_section',
         'type'    => 'text',
     ]);
@@ -258,60 +258,60 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     ]);
 
     $wp_customize->add_control('modal_whatsapp_text', [
-        'label'   => 'WhatsApp текст',
+        'label'   => 'Текст на предложение, которое с сылкой на whatsapp',
         'section' => 'questime_modal_section',
         'type'    => 'textarea',
     ]);
 
     // Cookie
     $wp_customize->add_section('questime_cookie_section', [
-    'title'    => 'Cookie Banner',
-    'priority' => 34,
+        'title'    => 'Cookie Banner',
+        'priority' => 34,
     ]);
 
     $wp_customize->add_setting('cookie_title', [
-    'default'           => 'We Care About Your Privacy',
-    'sanitize_callback' => 'sanitize_text_field',
-]);
+        'default'           => 'We Care About Your Privacy',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
 
-$wp_customize->add_control('cookie_title', [
-    'label'   => 'Cookie title',
-    'section' => 'questime_cookie_section',
-    'type'    => 'text',
-]);
+    $wp_customize->add_control('cookie_title', [
+        'label'   => 'Заголовок',
+        'section' => 'questime_cookie_section',
+        'type'    => 'text',
+    ]);
 
-$wp_customize->add_setting('cookie_text', [
-    'default'           => '',
-    'sanitize_callback' => 'sanitize_textarea_field',
-]);
+    $wp_customize->add_setting('cookie_text', [
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ]);
 
-$wp_customize->add_control('cookie_text', [
-    'label'   => 'Cookie text',
-    'section' => 'questime_cookie_section',
-    'type'    => 'textarea',
-]);
+    $wp_customize->add_control('cookie_text', [
+        'label'   => 'Текст',
+        'section' => 'questime_cookie_section',
+        'type'    => 'textarea',
+    ]);
 
-$wp_customize->add_setting('cookie_accept_text', [
-    'default'           => 'OK',
-    'sanitize_callback' => 'sanitize_text_field',
-]);
+    $wp_customize->add_setting('cookie_accept_text', [
+        'default'           => 'OK',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
 
-$wp_customize->add_control('cookie_accept_text', [
-    'label'   => 'Accept button text',
-    'section' => 'questime_cookie_section',
-    'type'    => 'text',
-]);
+    $wp_customize->add_control('cookie_accept_text', [
+        'label'   => 'Текст кнопки согласия',
+        'section' => 'questime_cookie_section',
+        'type'    => 'text',
+    ]);
 
-$wp_customize->add_setting('cookie_learn_more_text', [
-    'default'           => 'Learn more',
-    'sanitize_callback' => 'sanitize_text_field',
-]);
+    $wp_customize->add_setting('cookie_learn_more_text', [
+        'default'           => 'Learn more',
+        'sanitize_callback' => 'sanitize_text_field',
+    ]);
 
-$wp_customize->add_control('cookie_learn_more_text', [
-    'label'   => 'Learn more text',
-    'section' => 'questime_cookie_section',
-    'type'    => 'text',
-]);
+    $wp_customize->add_control('cookie_learn_more_text', [
+        'label'   => 'Текст с политикой',
+        'section' => 'questime_cookie_section',
+        'type'    => 'text',
+    ]);
 });
 
 // ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
