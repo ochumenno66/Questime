@@ -595,6 +595,7 @@ add_filter('mce_buttons_2', 'questime_mce_buttons');
 function questime_tinymce_styles($init_array) {
 
     $style_formats = [
+        // Inline: цвета и типографика
         [
             'title' => 'Orange Text',
             'inline' => 'span',
@@ -618,8 +619,6 @@ function questime_tinymce_styles($init_array) {
     ];
 
     $init_array['style_formats'] = wp_json_encode($style_formats);
-
     return $init_array;
 }
-
 add_filter('tiny_mce_before_init', 'questime_tinymce_styles');

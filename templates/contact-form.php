@@ -1,9 +1,9 @@
 <?php
-/**
- * Template Part: Contact Form
- * Usage:
- * get_template_part('template-parts/contact-form', null, ['type' => 'default']); на страницах
- * get_template_part('template-parts/contact-form', null, ['type' => 'gamified']); на страницах 
+/*
+  Template Part: Contact Form
+  Подключается:
+  get_template_part('template-parts/contact-form', null, ['type' => 'default']); на страницах
+  get_template_part('template-parts/contact-form', null, ['type' => 'gamified']); на страницах 
  */
 
 if (!get_field('show_contact_form')) {

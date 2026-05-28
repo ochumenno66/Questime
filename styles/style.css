@@ -1572,43 +1572,23 @@ nav a::after {
 /* Cta */
 .cta {
   position: relative;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding-top: clamp(60px, 7.29vw, 140px);
-  padding-bottom: clamp(60px, 7.29vw, 140px);
+  padding: clamp(51px, 9.57vw, 140px) 0;
 }
 
-.cta__overlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
-    linear-gradient(
-      178.88deg,
-      #191a18 0.92%,
-      rgba(25, 26, 24, 0) 49.96%,
-      #191a18 99%
-    );
-  z-index: 0;
-  pointer-events: none;
+.cta__wrapper {
+  align-items: center;
+  width: 100%;
 }
 
-.cta .container {
-  position: relative;
-  z-index: 1;
-}
-
-.cta__inner {
+.cta__content {
+  margin: 0 auto;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 40px;
-}
-
-.cta__title {
-  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+  gap: clamp(16px, 2.73vw, 40px);
 }
 
 .cta__title-orange {
@@ -1619,31 +1599,25 @@ nav a::after {
   color: var(--color-white);
 }
 
-.cta__desc {
+.cta__main-title {
+  text-transform: uppercase;
   color: var(--color-white);
   font-size: var(--font-accent);
+  font-family: var(--font3);
   text-align: center;
+  line-height: 129%;
+  letter-spacing: 0.05em;
+}
+
+.cta__desc {
+  font-size: var(--font-accent);
+  line-height: 150%;
+  color: var(--color-bg);
 }
 
 .cta__btn {
-  margin-top: clamp(8px, 1.36vw, 20px);
-  padding: 12px 40px;
-}
-
-.about-cta .cta__btn,
-.cta--event-page .cta__btn {
-  margin-top: 0;
-}
-
-.cta--gamified,
-.cta--event-page,
-.cta--team-building {
-  min-height: clamp(318px, 34.24vw, 500px);
-  align-content: center;
-}
-
-.cta__line {
-  display: inline;
+  margin-top: 40px;
+  width: fit-content;
 }
 
 .cta__line:first-child {
@@ -2230,8 +2204,6 @@ body.modal-open {
   transform: translateY(20px);
 }
 
-
-
 .experience__col--text ul {
   display: flex;
   flex-direction: column;
@@ -2247,17 +2219,14 @@ body.modal-open {
 }
 
 .experience__col--text ul li::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 3px;
   left: 0;
   width: 18px;
   height: 18px;
-  background: url('../assets/icons/tick.svg') center / contain no-repeat;
+  background: url("../assets/icons/tick.svg") center / contain no-repeat;
 }
-
-
-
 
 .cookie-banner:not(.is-hidden) {
   opacity: 1;
@@ -4867,21 +4836,6 @@ body.modal-open {
     padding: 16px 0 12px;
   }
 
-  /* CTA */
-  .cta__inner {
-    gap: 16px;
-  }
-
-  .cta--gamified .cta__line {
-    display: block;
-    width: 100%;
-    margin-bottom: 8px;
-  }
-
-  .cta--gamified .cta__line:last-child {
-    margin-bottom: 0;
-  }
-
   /* Testimonials */
   .testimonials__track {
     height: auto;
@@ -5264,6 +5218,15 @@ body.modal-open {
   .benefits__btn {
     margin: 24px auto 0;
     padding: 6px 16px;
+  }
+
+  /* CTA */
+  .cta__desc {
+    text-transform: none;
+  }
+
+  .cta__btn {
+    margin-top: 0;
   }
 
   /* Form */
@@ -6264,23 +6227,6 @@ body.modal-open {
     flex-direction: column;
     align-items: center;
     gap: 40px;
-  }
-
-  /* CTA */
-  .cta--gamified,
-  .cta--event-page,
-  .cta--team-building {
-    min-height: 150px;
-  }
-
-  :is(.cta--gamified, .cta--team-building, .cta--event-page, .about-cta)
-    .cta__title {
-    font-size: 14px;
-  }
-
-  .cta__main-title {
-    text-transform: uppercase;
-    font-size: 16px;
   }
 
   /* Testimonials */
