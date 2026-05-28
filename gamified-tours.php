@@ -18,11 +18,16 @@ $gt_btn_2_text    = get_field('gt_hero_btn_2_text');
 
 // Блок - CTA_GUIDE
 $gt_guide_bg       = get_field('gt_guide_bg')       ?: get_template_directory_uri() . '/assets/images/gamifiedTours/cta-GT.webp';
-$gt_guide_text_1   = get_field('gt_guide_text_1')   ?: 'We\'ve created';
-$gt_guide_accent_1 = get_field('gt_guide_accent_1') ?: 'a free Family Guide';
-$gt_guide_text_2   = get_field('gt_guide_text_2')   ?: 'to Amsterdam — so there are';
-$gt_guide_accent_2 = get_field('gt_guide_accent_2') ?: 'no "I\'m bored"';
-$gt_guide_text_3   = get_field('gt_guide_text_3')   ?: 'moments on your trip.';
+$gt_guide_content  = get_field('gt_guide_content');
+$gt_guide_content = $gt_guide_content ?: '
+<p>
+  We’ve created
+  <span class="text-orange--guide">a free Family Guide</span>
+  to Amsterdam — so there are
+  <span class="text-orange--guide">no "I’m bored"</span>
+  moments on your trip.
+</p>
+';
 $gt_guide_btn_text = get_field('gt_guide_btn_text');
 $gt_guide_pdf      = get_field('gt_guide_pdf')      ?: get_template_directory_uri() . '/assets/presentation.pdf';
 $gt_guide_img      = get_field('gt_guide_img')      ?: get_template_directory_uri() . '/assets/images/gamifiedTours/guide.webp';
@@ -109,16 +114,8 @@ get_header(); ?>
         url('<?php echo esc_url($gt_guide_bg); ?>') center / cover no-repeat;">
     <div class="cta-guide__wrapper container">
       <div class="cta-guide__content">
-        <h2 class="cta-guide__text">
-          <?php echo esc_html($gt_guide_text_1); ?>
-          <span class="text-orange--guide">
-            <?php echo esc_html($gt_guide_accent_1); ?>
-          </span>
-          <?php echo esc_html($gt_guide_text_2); ?>
-          <span class="text-orange--guide">
-            <?php echo esc_html($gt_guide_accent_2); ?>
-          </span>
-          <?php echo esc_html($gt_guide_text_3); ?>
+        <h2 class="cta-guide__text wysiwyg-content">
+          <?php echo wp_kses_post($gt_guide_content); ?>
         </h2>
         <?php if ($gt_guide_pdf && $gt_guide_btn_text) : ?>
           <a class="btn btn-secondary btn--orange cta-guide__btn" href="<?php echo esc_url($gt_guide_pdf); ?>" target="_blank">
