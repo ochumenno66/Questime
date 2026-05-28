@@ -439,6 +439,10 @@ add_action('after_setup_theme', function () {
 });
 
 
+add_filter( 'woocommerce_return_to_shop_redirect', function() {
+    return home_url( '/gamified-tours/' );
+} );
+
 // Регистрация CPT: quest_case
 add_action('init', function () {
     register_post_type('quest_case', [
@@ -623,3 +627,4 @@ function questime_tinymce_styles($init_array) {
 }
 
 add_filter('tiny_mce_before_init', 'questime_tinymce_styles');
+
