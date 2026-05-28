@@ -149,7 +149,33 @@ document.addEventListener("DOMContentLoaded", () => {
     pagination: {
       el: ".quests__pagination",
     },
+    on: {
+      init: function () {
+        checkLoopAndArrows(this);
+      },
+      resize: function () {
+        checkLoopAndArrows(this);
+      },
+    },
   });
+
+  function checkLoopAndArrows(swiper) {
+    const slidesCount = swiper.slides.length;
+    const currentSlidesPerView = swiper.params.slidesPerView;
+
+    if (slidesCount <= currentSlidesPerView) {
+      swiper.params.loop = false;
+      swiper.navigation.nextEl.style.display = "none";
+      swiper.navigation.prevEl.style.display = "none";
+      swiper.update();
+    } else {
+      swiper.params.loop = true;
+      swiper.navigation.nextEl.style.display = "";
+      swiper.navigation.prevEl.style.display = "";
+      swiper.update();
+    }
+  }
+
   // Счетчик в секции СТАТИСТИКА
   const counters = document.querySelectorAll(".stat-number");
   const statsWrapper = document.querySelector(".stats__wrapper");
