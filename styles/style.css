@@ -2204,30 +2204,6 @@ body.modal-open {
   transform: translateY(20px);
 }
 
-.experience__col--text ul {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin: 24px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.experience__col--text ul li {
-  position: relative;
-  padding-left: 32px;
-}
-
-.experience__col--text ul li::before {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 0;
-  width: 18px;
-  height: 18px;
-  background: url("../assets/icons/tick.svg") center / contain no-repeat;
-}
-
 .cookie-banner:not(.is-hidden) {
   opacity: 1;
   visibility: visible;
@@ -2774,6 +2750,30 @@ body.modal-open {
 }
 
 /* Experience */
+.experience__col--text ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience__col--text ul li {
+  position: relative;
+  padding-left: 32px;
+}
+
+.experience__col--text ul li::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  background: url("../assets/icons/tick.svg") center / contain no-repeat;
+}
+
 .experience {
   overflow-x: clip;
 }

@@ -2,174 +2,98 @@
 // Template part: Experience — универсальный шаблон
 // ACF fields prefix: exp_
 // Используется на страницах: single-product, single-quest_case, about-us, gamified-tours
+
+$show_experience_section = get_field('show_experience_section'); 
+if ($show_experience_section): 
+
+$experience_title = get_field('experience_title');  
+$row_1_reverse = get_field('row_1_reverse'); 
+$row_1_content = get_field('row_1_content'); 
+$row_1_image = get_field('row_1_image'); 
+$row_2_reverse = get_field('row_2_reverse'); 
+$row_2_content = get_field('row_2_content'); 
+$row_2_image = get_field('row_2_image');  
+$row_3_reverse = get_field('row_3_reverse'); 
+$row_3_content = get_field('row_3_content'); 
+$row_3_image = get_field('row_3_image'); 
+$experience_badge = get_field('experience_badge'); 
+$experience_btn_1_text = get_field('experience_btn_1_text'); 
+$experience_btn_2_text = get_field('experience_btn_2_text');  
+
+$rows = [ 
+    [ 
+        'reverse' => $row_1_reverse, 
+        'content' => $row_1_content, 
+        'image' => $row_1_image, 
+    ], 
+    [ 
+        'reverse' => $row_2_reverse, 
+        'content' => $row_2_content, 
+        'image' => $row_2_image, 
+    ], 
+    [ 
+        'reverse' => $row_3_reverse, 
+        'content' => $row_3_content, 
+        'image' => $row_3_image, 
+    ], 
+];
 ?>
 
-<?php
-$exp_section_class = get_field('exp_section_class') ?: '';
-$exp_section_title = get_field('exp_section_title');
-$exp_row2_reverse  = get_field('exp_row2_reverse');
-
-$exp_badge         = get_field('exp_badge');
-$exp_btn1_text     = get_field('exp_btn1_text');
-$exp_btn1_url      = get_field('exp_btn1_url') ?: '#';
-$exp_btn2_text     = get_field('exp_btn2_text');
-
-$whatsapp = get_theme_mod('whatsapp_url', 'https://wa.me/31635640923');
-
-$exp_img_1 = get_field('exp_img_1');
-$exp_img_2 = get_field('exp_img_2');
-$exp_img_3 = get_field('exp_img_3');
-?>
-
-<section class="experience section-special <?php echo esc_attr($exp_section_class); ?>" id="experience">
-
-    <?php if ($exp_section_title): ?>
-        <h2 class="team__title text-align">
-            <?php echo esc_html($exp_section_title); ?>
-        </h2>
-    <?php endif; ?>
-
+<section class="experience section-special" id="experience"> 
+    <?php if ($experience_title): ?> 
+        <h2 class="team__title text-align"> 
+            <?php echo esc_html($experience_title); ?> 
+        </h2> 
+    <?php endif; ?> 
     <div class="container">
+        <?php foreach ($rows as $row): ?> 
+            <?php if (!$row['content'] && !$row['image']) continue; ?> 
+            <div class="experience__row <?php echo $row['reverse'] ? 'experience__row--img-first' : ''; ?>"> 
+                <?php if ($row['reverse'] && $row['image']): ?> 
+                    <div class="experience__col--img"> 
+                        <div class="experience__img-wrapper"> 
+                            <img src="<?php echo esc_url($row['image']); ?>" alt="" class="experience__img" loading="lazy" decoding="async" > 
+                        </div> 
+                    </div> 
+                <?php endif; ?> 
+                <?php if ($row['content']): ?> 
+                    <div class="experience__col--text"> 
+                        <?php echo wp_kses_post($row['content']); ?> 
+                    </div> 
+                <?php endif; ?> 
+                <?php if (!$row['reverse'] && $row['image']): ?> 
+                    <div class="experience__col--img"> 
+                        <div class="experience__img-wrapper"> 
+                            <img src="<?php echo esc_url($row['image']); ?>" alt="" class="experience__img" loading="lazy" decoding="async" > 
+                        </div> 
+                    </div> 
+                <?php endif; ?> 
+            </div> 
+        <?php endforeach; ?> 
+            <?php if ( $experience_badge || $experience_btn_1_text || $experience_btn_2_text ): ?> 
+                <div class="experience__actions"> 
+                    <?php if ($experience_badge): ?> 
+                        <span class="experience__badge"> 
+                            <?php echo esc_html($experience_badge); ?> 
+                        </span> 
+                    <?php endif; ?> 
+                    <?php if ( $experience_btn_1_text || $experience_btn_2_text ): ?> 
+                        <div class="experience__btns"> 
+                            <?php if ($experience_btn_1_text): ?> 
+                                <a href="/schedule" class="btn btn-secondary btn-experience btn--orange" > 
+                                    <?php echo esc_html($experience_btn_1_text); ?> 
+                                </a> 
+                            <?php endif; ?> 
+                            <?php if ($experience_btn_2_text): ?> 
+                                <button type="button" class="btn btn-secondary experience__book open-modal" > 
+                                    <?php echo esc_html($experience_btn_2_text); ?> 
+                                </button> 
+                            <?php endif; ?> 
+                        </div> 
+                    <?php endif; ?> 
+                </div> 
+            <?php endif; ?> 
+    </div> 
+</section> 
 
-        <!-- Row 1 -->
-        <div class="experience__row">
-
-            <div class="experience__col--text">
-                <?php echo wp_kses_post(get_field('exp_text_1')); ?>
-            </div>
-
-            <div class="experience__col--img">
-                <div class="experience__img-wrapper">
-
-                    <?php if ($exp_img_1): ?>
-                        <img
-                            src="<?php echo esc_url($exp_img_1['url']); ?>"
-                            alt="<?php echo esc_attr($exp_img_1['alt']); ?>"
-                            class="experience__img"
-                            loading="lazy"
-                            decoding="async">
-                    <?php else: ?>
-                        <img
-                            src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-1.webp"
-                            alt="Experience"
-                            class="experience__img"
-                            loading="lazy"
-                            decoding="async">
-                    <?php endif; ?>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Row 2 -->
-        <div class="experience__row experience__row--img-first <?php echo $exp_row2_reverse ? 'experience-reverse--ep' : ''; ?>">
-
-            <div class="experience__col--img">
-                <div class="experience__img-wrapper">
-
-                    <?php if ($exp_img_2): ?>
-                        <img
-                            src="<?php echo esc_url($exp_img_2['url']); ?>"
-                            alt="<?php echo esc_attr($exp_img_2['alt']); ?>"
-                            class="experience__img"
-                            loading="lazy"
-                            decoding="async">
-                    <?php else: ?>
-                        <img
-                            src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-2.webp"
-                            alt="Experience"
-                            class="experience__img"
-                            loading="lazy"
-                            decoding="async">
-                    <?php endif; ?>
-
-                </div>
-            </div>
-
-            <div class="experience__col--text">
-                <?php echo wp_kses_post(get_field('exp_text_2')); ?>
-            </div>
-
-        </div>
-
-        <!-- Row 3 -->
-        <div class="experience__row">
-
-            <div class="experience__col--text">
-                <?php echo wp_kses_post(get_field('exp_text_3')); ?>
-            </div>
-
-            <div class="experience__col--img">
-                <div class="experience__img-wrapper">
-
-                    <?php if ($exp_img_3): ?>
-                        <img
-                            src="<?php echo esc_url($exp_img_3['url']); ?>"
-                            alt="<?php echo esc_attr($exp_img_3['alt']); ?>"
-                            class="experience__img"
-                            loading="lazy"
-                            decoding="async">
-                    <?php else: ?>
-                        <img
-                            src="<?php echo get_template_directory_uri(); ?>/assets/images/team-building/expirience-TB-3.webp"
-                            alt="Experience"
-                            class="experience__img"
-                            loading="lazy"
-                            decoding="async">
-                    <?php endif; ?>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Actions -->
-        <?php if ($exp_badge || $exp_btn1_text || $exp_btn2_text): ?>
-
-            <div class="experience__actions">
-
-                <?php if ($exp_badge): ?>
-                    <span class="experience__badge">
-                        <?php echo esc_html($exp_badge); ?>
-                    </span>
-                <?php endif; ?>
-
-                <?php if ($exp_btn1_text || $exp_btn2_text): ?>
-
-                    <div class="experience__btns">
-
-                        <?php if ($exp_btn1_text): ?>
-                            <a
-                                href="<?php echo esc_url($exp_btn1_url); ?>"
-                                class="btn btn-secondary btn-experience btn--orange">
-
-                                <?php echo esc_html($exp_btn1_text); ?>
-
-                            </a>
-                        <?php endif; ?>
-
-                        <?php if ($exp_btn2_text): ?>
-                            <a
-                                href="<?php echo esc_url($whatsapp); ?>"
-                                class="btn btn-secondary experience__book open-modal"
-                                data-modal-open
-                                target="_blank"
-                                rel="noopener noreferrer">
-
-                                <?php echo esc_html($exp_btn2_text); ?>
-
-                            </a>
-                        <?php endif; ?>
-
-                    </div>
-
-                <?php endif; ?>
-
-            </div>
-
-        <?php endif; ?>
-
-    </div>
-
-</section>
+<?php endif; ?>
