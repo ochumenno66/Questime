@@ -34,6 +34,14 @@ $s2_text   = get_field('au_stats_2_text') ?: 'experience';
 $s3_icon   = get_field('au_stats_3_icon') ?: get_template_directory_uri() . '/assets/icons/format-black-EP-AU.svg';
 $s3_number = get_field('au_stats_3_number') ?: '10 000 events';
 $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
+
+// Subscribe — данные из ACF
+$show_socials_block = get_field('show_socials_block');
+$socials_background = get_field('socials_background');
+$socials_title      = get_field('socials_title');
+$linkedin_url       = get_theme_mod('linkedin_url');
+$threads_url        = get_theme_mod('threads_url');
+$instagram_url      = get_theme_mod('instagram_url');
 ?>
 
 <main>
@@ -85,43 +93,43 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
   </section>
   <!-- Секция Stats -->
   <?php if (get_field('show_stats_au')) : ?>
-  <section class="stats-au section-special" id="stats-au">
-    <div class="stats-au__wrapper container">
-      <div class="stats-au__item">
-        <div class="stats-au__card">
-          <img class="stats-au__icon" src="<?php echo esc_url($s1_icon); ?>" alt="<?php echo esc_attr($s1_number); ?>">
-          <p class="stats-au__number">
-            <?php echo esc_html($s1_number); ?>
-          </p>
-          <p class="stats-au__text">
-            <?php echo esc_html($s1_text); ?>
-          </p>
+    <section class="stats-au section-special" id="stats-au">
+      <div class="stats-au__wrapper container">
+        <div class="stats-au__item">
+          <div class="stats-au__card">
+            <img class="stats-au__icon" src="<?php echo esc_url($s1_icon); ?>" alt="<?php echo esc_attr($s1_number); ?>">
+            <p class="stats-au__number">
+              <?php echo esc_html($s1_number); ?>
+            </p>
+            <p class="stats-au__text">
+              <?php echo esc_html($s1_text); ?>
+            </p>
+          </div>
+        </div>
+        <div class="stats-au__item">
+          <div class="stats-au__card">
+            <img class="stats-au__icon" src="<?php echo esc_url($s2_icon); ?>" alt="<?php echo esc_attr($s2_number); ?>">
+            <p class="stats-au__number">
+              <?php echo esc_html($s2_number); ?>
+            </p>
+            <p class="stats-au__text">
+              <?php echo esc_html($s2_text); ?>
+            </p>
+          </div>
+        </div>
+        <div class="stats-au__item">
+          <div class="stats-au__card">
+            <img class="stats-au__icon" src="<?php echo esc_url($s3_icon); ?>" alt="<?php echo esc_attr($s3_number); ?>">
+            <p class="stats-au__number">
+              <?php echo esc_html($s3_number); ?>
+            </p>
+            <p class="stats-au__text">
+              <?php echo esc_html($s3_text); ?>
+            </p>
+          </div>
         </div>
       </div>
-      <div class="stats-au__item">
-        <div class="stats-au__card">
-          <img class="stats-au__icon" src="<?php echo esc_url($s2_icon); ?>" alt="<?php echo esc_attr($s2_number); ?>">
-          <p class="stats-au__number">
-            <?php echo esc_html($s2_number); ?>
-          </p>
-          <p class="stats-au__text">
-            <?php echo esc_html($s2_text); ?>
-          </p>
-        </div>
-      </div>
-      <div class="stats-au__item">
-        <div class="stats-au__card">
-          <img class="stats-au__icon" src="<?php echo esc_url($s3_icon); ?>" alt="<?php echo esc_attr($s3_number); ?>">
-          <p class="stats-au__number">
-            <?php echo esc_html($s3_number); ?>
-          </p>
-          <p class="stats-au__text">
-            <?php echo esc_html($s3_text); ?>
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
   <?php endif; ?>
   <!-- Секция Experience -->
   <?php get_template_part('templates/experience'); ?>
@@ -197,51 +205,41 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
     </div>
   </section>
   <!-- Секция Subscribe -->
-  <?php
-  // Соцсеть #1 — Linkedin
-  $linkedin_url  = get_theme_mod('social_1_url', '#');
-  $linkedin_icon = get_theme_mod('social_1_icon', '');
-
-  // Соцсеть #2 — Threads
-  $threads_url  = get_theme_mod('social_2_url', '#');
-  $threads_icon = get_theme_mod('social_2_icon', '');
-
-  // Соцсеть #3 — Instagram
-  $instagram_url  = get_theme_mod('social_3_url', '#');
-  $instagram_icon = get_theme_mod('social_3_icon', '');
-  ?>
-
-  <section class="subscribe-about-us section-special decorated-light-stats decorated-dark-stats" id="subscribe-about-us" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/main/stats.webp');">
-    <div class="subscribe-about-us__overlay"></div>
-    <div class="container subscribe-about-us__container">
-      <h2 class="subscribe-about-us__title">Join Us</h2>
-
-      <div class="subscribe-about-us__socials">
-
-        <?php if (!empty($instagram_icon)) : ?>
-          <a href="<?php echo esc_url($instagram_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/instagram-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-            <img src="<?php echo esc_url($instagram_icon); ?>" alt="Instagram" class="subscribe-about-us__icon">
-          </a>
+  <?php if ($show_socials_block): ?>
+    <section class="subscribe-about-us section-special decorated-light-stats decorated-dark-stats" id="subscribe-about-us" style="
+    background:
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
+    linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%), 
+    url('<?php echo esc_url($socials_background); ?>') center / cover no-repeat;;">
+      <div class="container subscribe-about-us__container">
+        <?php if ($socials_title): ?>
+          <h2 class="subscribe-about-us__title">
+            <?php echo esc_html($socials_title); ?>
+          </h2>
         <?php endif; ?>
-
-        <?php if (!empty($threads_icon)) : ?>
-          <a href="<?php echo esc_url($threads_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/threads-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-            <img src="<?php echo esc_url($threads_icon); ?>" alt="Threads" class="subscribe-about-us__icon">
-          </a>
-        <?php endif; ?>
-
-        <?php if (!empty($linkedin_icon)) : ?>
-          <a href="<?php echo esc_url($linkedin_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/linkedin-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-            <img src="<?php echo esc_url($linkedin_icon); ?>" alt="LinkedIn" class="subscribe-about-us__icon">
-          </a>
-        <?php endif; ?>
-
+        <div class="subscribe-about-us__socials">
+          <?php if ($instagram_url): ?>
+            <a href="<?php echo esc_url($instagram_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/instagram-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/instagram.svg" alt="Instagram" class="subscribe-about-us__icon">
+            </a>
+          <?php endif; ?>
+          <?php if ($threads_url): ?>
+            <a href="<?php echo esc_url($threads_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/threads-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/threads.svg" alt="Threads" class="subscribe-about-us__icon">
+            </a>
+          <?php endif; ?>
+          <?php if ($linkedin_url): ?>
+            <a href="<?php echo esc_url($linkedin_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/linkedin-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/linkedin.svg" alt="LinkedIn" class="subscribe-about-us__icon">
+            </a>
+          <?php endif; ?>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
   <!-- Секция Benefits -->
   <?php get_template_part('templates/benefits'); ?>
   <!-- Секция CTA -->

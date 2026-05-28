@@ -42,6 +42,117 @@ add_action('wp_head', function () {
 // КАСТОМАЙЗЕР — социальные сети (иконка + ссылка, до 4 штук) + Google maps api ключ
 add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 
+    $wp_customize->add_section('questime_socials_section', [
+        'title' => 'Социальные сети',
+        'priority' => 30,
+    ]);
+
+    $wp_customize->add_setting('linkedin_url', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('linkedin_url', [
+        'label' => 'LinkedIn ссылка',
+        'section' => 'questime_socials_section',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('linkedin_icon', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'linkedin_icon', [
+        'label' => 'LinkedIn иконка',
+        'section' => 'questime_socials_section',
+    ]));
+
+    $wp_customize->add_setting('linkedin_alt', [
+        'default' => 'LinkedIn',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('linkedin_alt', [
+        'label' => 'LinkedIn alt',
+        'section' => 'questime_socials_section',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('instagram_url', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('instagram_url', [
+        'label' => 'Instagram ссылка',
+        'section' => 'questime_socials_section',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('instagram_icon', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'instagram_icon', [
+        'label' => 'Instagram иконка',
+        'section' => 'questime_socials_section',
+    ]));
+
+    $wp_customize->add_setting('instagram_alt', [
+        'default' => 'Instagram',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('instagram_alt', [
+        'label' => 'Instagram alt',
+        'section' => 'questime_socials_section',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('threads_url', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('threads_url', [
+        'label' => 'Threads ссылка',
+        'section' => 'questime_socials_section',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('threads_icon', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'threads_icon', [
+        'label' => 'Threads иконка',
+        'section' => 'questime_socials_section',
+    ]));
+
+    $wp_customize->add_setting('threads_alt', [
+        'default' => 'Threads',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('threads_alt', [
+        'label' => 'Threads alt',
+        'section' => 'questime_socials_section',
+        'type' => 'text',
+    ]);
+
+    /* 
     $wp_customize->add_panel('questime_socials_panel', [
         'title'    => 'Социальные сети',
         'priority' => 30,
@@ -85,7 +196,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
             'section' => "questime_social_{$i}",
             'type'    => 'text',
         ]);
-    }
+    }*/
 
     // Контакты
     $wp_customize->add_section('questime_contacts_section', [
