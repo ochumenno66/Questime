@@ -1583,7 +1583,7 @@ nav a::after {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(0deg, rgba(25, 26, 24, 0.25), rgba(25, 26, 24, 0.45)),
+    linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
     linear-gradient(
       178.88deg,
       #191a18 0.92%,
@@ -2792,19 +2792,23 @@ body.modal-open {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: clamp(16px, 2.73vw, 40px);
+  gap: clamp(20px, 5.46vw, 88px);
 }
 
 .experience__col--text,
 .experience__col--gains {
-  flex: 3 1 0%;
+  flex:  1 1 auto;
+  max-width: 620px;
   min-width: 0;
 }
 
 .experience__col--img {
-  flex: 2 1 0%;
-  min-width: 0;
-  max-width: 453px;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
 }
 
 .experience__img-wrapper {
@@ -2822,11 +2826,11 @@ body.modal-open {
   width: 100%;
   height: auto;
   object-fit: contain;
-  box-shadow: 15px 15px 0 0 var(--color-orange);
+  box-shadow: 10px 10px 0 0 var(--color-orange);
 }
 
 .experience__row--img-first .experience__img {
-  box-shadow: -15px 15px 0 0 var(--color-orange);
+  box-shadow: -10px 10px 0 0 var(--color-orange);
 }
 
 .experience__p {
@@ -5050,7 +5054,6 @@ body.modal-open {
   /* Experience */
   .experience__row {
     justify-content: space-between;
-    gap: 20px;
   }
 
   .persons__rows {
@@ -5341,11 +5344,11 @@ body.modal-open {
   }
 
   .experience__img {
-    box-shadow: 0 10px 0 0 var(--color-orange);
+    box-shadow: 8px 8px 0 0 var(--color-orange);
   }
 
   .experience__row--img-first .experience__img {
-    box-shadow: 0 10px 0 0 var(--color-orange);
+    box-shadow: 8px 8px 0 0 var(--color-orange);
   }
 
   .experience__actions {
@@ -6069,14 +6072,6 @@ body.modal-open {
   .experience {
     margin-top: 20px;
     /*margin-bottom: 20px;*/
-  }
-
-  .experience__img {
-    box-shadow: 0 8px 0 0 var(--color-orange);
-  }
-
-  .experience__row--img-first .experience__img {
-    box-shadow: 0 8px 0 0 var(--color-orange);
   }
 
   /* Quests */
