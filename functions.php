@@ -439,6 +439,10 @@ add_action('after_setup_theme', function () {
 });
 
 
+add_filter('woocommerce_return_to_shop_redirect', function () {
+    return home_url('/gamified-tours/');
+});
+
 // Регистрация CPT: quest_case
 add_action('init', function () {
     register_post_type('quest_case', [
@@ -492,18 +496,18 @@ add_action('wp_enqueue_scripts', function () {
 require_once get_template_directory() . '/inc/functions-tours.php';
 
 // Меняем ссылку "Вернуться в магазин" на главную
-add_filter('woocommerce_return_to_shop_redirect', function() {
+add_filter('woocommerce_return_to_shop_redirect', function () {
     return home_url('/schedule/');
 });
 
 // Меняем текст кнопки
-add_filter('woocommerce_return_to_shop_text', function() {
+add_filter('woocommerce_return_to_shop_text', function () {
     return 'View Schedule';
 });
 
 
 // Убираем лишние поля на странице оформления заказа
-add_filter('woocommerce_checkout_fields', function($fields) {
+add_filter('woocommerce_checkout_fields', function ($fields) {
     // Убираем поля адреса доставки
     unset($fields['billing']['billing_address_1']);
     unset($fields['billing']['billing_address_2']);
@@ -512,7 +516,7 @@ add_filter('woocommerce_checkout_fields', function($fields) {
     unset($fields['billing']['billing_country']);
     unset($fields['billing']['billing_state']);
     unset($fields['billing']['billing_company']);
-    
+
     // Оставляем только имя, фамилию, email и телефон
     return $fields;
 });
@@ -523,7 +527,7 @@ add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
 
 
 // Убираем обязательность полей адреса в блочном checkout
-add_filter('woocommerce_get_country_locale', function($locale) {
+add_filter('woocommerce_get_country_locale', function ($locale) {
     $not_required = ['address_1', 'address_2', 'city', 'postcode', 'state'];
     foreach ($locale as $country => $fields) {
         foreach ($not_required as $field) {
@@ -537,7 +541,7 @@ add_filter('woocommerce_get_country_locale', function($locale) {
 });
 
 // Форматируем метаданные экскурсии в письме
-add_filter('woocommerce_order_item_get_formatted_meta_data', function($formatted_meta, $item) {
+add_filter('woocommerce_order_item_get_formatted_meta_data', function ($formatted_meta, $item) {
     foreach ($formatted_meta as $key => $meta) {
         // Скрываем технические поля
         if (in_array($meta->key, ['tour_id', 'tour_price'])) {
@@ -559,40 +563,43 @@ add_filter('woocommerce_order_item_get_formatted_meta_data', function($formatted
 add_action('wp_ajax_nopriv_questime_form', 'questime_ajax_form');
 add_action('wp_ajax_questime_form', 'questime_ajax_form');
 
-function questime_ajax_form(): void {
-  if (!check_ajax_referer('questime_form', 'nonce', false)) {
-    wp_send_json_error(['error' => 'Invalid token'], 403);
-  }
+function questime_ajax_form(): void
+{
+    if (!check_ajax_referer('questime_form', 'nonce', false)) {
+        wp_send_json_error(['error' => 'Invalid token'], 403);
+    }
 
-  require_once get_template_directory() . '/inc/form-handler.php';
-  questime_process_form();
+    require_once get_template_directory() . '/inc/form-handler.php';
+    questime_process_form();
 }
 
 // Contact forms script
 add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_script(
-    'questime-form',
-    get_template_directory_uri() . '/js/form.js',
-    [],
-    wp_get_theme()->get('Version'),
-    true
-  );
+    wp_enqueue_script(
+        'questime-form',
+        get_template_directory_uri() . '/js/form.js',
+        [],
+        wp_get_theme()->get('Version'),
+        true
+    );
 
-  wp_localize_script('questime-form', 'questimeData', [
-    'ajaxUrl' => admin_url('admin-ajax.php'),
-    'nonce'   => wp_create_nonce('questime_form'),
-  ]);
+    wp_localize_script('questime-form', 'questimeData', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('questime_form'),
+    ]);
 });
 
 // Кастомные стили TinyMCE для текстовых WYSIWYG полей 
-function questime_mce_buttons($buttons) { 
-    array_unshift($buttons, 'styleselect'); 
-    return $buttons; 
-    } 
-add_filter('mce_buttons_2', 'questime_mce_buttons'); 
+function questime_mce_buttons($buttons)
+{
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+add_filter('mce_buttons_2', 'questime_mce_buttons');
 
 // Регистрируем кастомные стили для редактора TinyMCE 
-function questime_tinymce_styles($init_array) {
+function questime_tinymce_styles($init_array)
+{
 
     $style_formats = [
         // Inline: цвета и типографика
@@ -616,9 +623,23 @@ function questime_tinymce_styles($init_array) {
             'inline' => 'span',
             'classes' => 'text-uppercase',
         ],
+        // Блочные: параграф и заголовок
+        [
+            'title' => 'Experience Paragraph',
+            'block' => 'p',
+            'classes' => 'experience__p',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Experience Row title (orange h3)',
+            'block' => 'h3',
+            'classes' => 'experience__gains-title',
+            'wrapper' => false,
+        ]
     ];
 
     $init_array['style_formats'] = wp_json_encode($style_formats);
     return $init_array;
 }
+
 add_filter('tiny_mce_before_init', 'questime_tinymce_styles');

@@ -2750,6 +2750,10 @@ body.modal-open {
 }
 
 /* Experience */
+.experience h2 {
+  margin-bottom: 62px;
+}
+
 .experience__col--text ul {
   display: flex;
   flex-direction: column;
@@ -2774,21 +2778,16 @@ body.modal-open {
   background: url("../assets/icons/tick.svg") center / contain no-repeat;
 }
 
-.experience {
-  overflow-x: clip;
-}
-
 .experience .container {
   display: flex;
   flex-direction: column;
-  gap: clamp(30px, 3.83vw, 56px);
-  max-width: 1164px;
-  padding: 0 24px;
+  gap: clamp(50px, 7.53vw, 110px);
+  padding: 0 49px;
 }
 
 .experience__row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: clamp(16px, 2.73vw, 40px);
 }
@@ -2809,6 +2808,7 @@ body.modal-open {
   display: block;
   width: 100%;
   transform: rotate(5deg);
+  aspect-ratio: 430 / 295;
 }
 
 .experience__row--img-first .experience__img-wrapper {
@@ -2818,8 +2818,8 @@ body.modal-open {
 .experience__img {
   display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   box-shadow: 15px 15px 0 0 var(--color-orange);
 }
 
@@ -2828,7 +2828,7 @@ body.modal-open {
 }
 
 .experience__p {
-  margin: 0 0 clamp(8px, 1.09vw, 16px);
+  margin: 0 0 20px;
 }
 
 .experience__p:last-child {
@@ -2837,8 +2837,8 @@ body.modal-open {
 
 .experience__gains-title {
   font-size: var(--font-secondary);
+  font-family: var(--font-family);
   margin: 0 0 clamp(10px, 1.09vw, 16px);
-  text-transform: uppercase;
 }
 
 .experience__list {
@@ -3473,14 +3473,52 @@ body.modal-open {
   padding-bottom: clamp(60px, 8vw, 100px) !important;
 }
 
+/* Страница успешного заказа */
+.woocommerce-order-received div.woocommerce {
+  padding-top: var(--header-height);
+  padding-left: clamp(16px, 4vw, 60px);
+  padding-right: clamp(16px, 4vw, 60px);
+  padding-bottom: clamp(60px, 8vw, 100px);
+}
+
+/* Пустая корзина — только когда пуста */
+.woocommerce-cart
+  .wp-block-woocommerce-cart.alignwide:has(
+    .wp-block-woocommerce-empty-cart-block
+  ) {
+  padding-top: var(--header-height) !important;
+  padding-left: clamp(16px, 4vw, 60px) !important;
+  padding-right: clamp(16px, 4vw, 60px) !important;
+  padding-bottom: clamp(60px, 8vw, 100px) !important;
+}
+
+/* Скрыть hr, заголовок "Новинки магазина" и сетку товаров */
+.wp-block-woocommerce-empty-cart-block hr,
+.wp-block-woocommerce-empty-cart-block
+  h2.wp-block-heading:not(.wc-block-cart__empty-cart__title),
+.wp-block-woocommerce-empty-cart-block
+  [data-block-name="woocommerce/product-new"] {
+  display: none !important;
+}
+
+/* Центрировать смайлик и текст */
+.wp-block-woocommerce-empty-cart-block {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 50vh;
+  text-align: center;
+}
+
 /* Убираем лишние поля адреса */
-.wc-block-components-address-form__country,
+/* .wc-block-components-address-form__country,
 .wc-block-components-address-form__address_1,
 .wc-block-components-address-form__postcode,
 .wc-block-components-address-form__city,
 .wc-block-components-address-form__address_2-toggle {
   display: none !important;
-}
+} */
 
 /* CUSTOM GAMES */
 /* HERO */
@@ -5281,15 +5319,22 @@ body.modal-open {
   }
 
   /* Experience */
+  .experience h2 {
+    display: none;
+  }
+
   .experience .container {
-    padding: 0 24px;
-    gap: 40px;
+    padding: 0 30px;
   }
 
   .experience__row {
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 37px;
+  }
+
+  .experience__row:nth-child(2) {
+    flex-direction: column-reverse;
   }
 
   .experience__col--img {
@@ -5307,9 +5352,15 @@ body.modal-open {
     max-width: none;
   }
 
-  .experience__p,
+  .experience__p {
+    text-align: left;
+  }
+
   .experience__gains-title {
     text-align: left;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    font-weight: var(--font-weight-light);
   }
 
   .experience__item {
@@ -5333,11 +5384,11 @@ body.modal-open {
   }
 
   .experience__img {
-    box-shadow: 0 10px 0 0 var(--color-orange);
+    box-shadow: -10px 10px 0 0 var(--color-orange);
   }
 
   .experience__row--img-first .experience__img {
-    box-shadow: 0 10px 0 0 var(--color-orange);
+    box-shadow: 10px 10px 0 0 var(--color-orange);
   }
 
   .experience__actions {
@@ -6064,11 +6115,11 @@ body.modal-open {
   }
 
   .experience__img {
-    box-shadow: 0 8px 0 0 var(--color-orange);
+    box-shadow: -8px 8px 0 0 var(--color-orange);
   }
 
   .experience__row--img-first .experience__img {
-    box-shadow: 0 8px 0 0 var(--color-orange);
+    box-shadow: 8px 8px 0 0 var(--color-orange);
   }
 
   /* Quests */
