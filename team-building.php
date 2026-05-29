@@ -55,34 +55,34 @@ $tb_btn_text      = get_field('tb_hero_btn_text');
             </a>
           </div>
         <?php endif; ?>
-      </div>
-      <?php if ($reviews_label || $reviews_rating || $reviews_count) : ?>
-        <?php $reviews_tag = $reviews_url ? 'a' : 'div'; ?>
-        <<?php echo $reviews_tag; ?> class="hero-tb__reviews reviews-badge"
-          <?php if ($reviews_url) : ?> 
+        <?php if ($reviews_label || $reviews_rating || $reviews_count) : ?>
+          <?php $reviews_tag = $reviews_url ? 'a' : 'div'; ?>
+          <<?php echo $reviews_tag; ?> class="hero-tb__reviews reviews-badge"
+            <?php if ($reviews_url) : ?>
             href="<?php echo esc_url($reviews_url); ?>"
             target="_blank"
-          <?php endif; ?>>
-          <?php if ($reviews_label) : ?>
-            <span class="reviews-badge__label">
-              <?php echo esc_html($reviews_label); ?>
-            </span>
-          <?php endif; ?>
-          <?php if ($reviews_rating || $reviews_count) : ?>
-            <span class="reviews-badge__stars" aria-label="<?php echo esc_attr($reviews_rating); ?> out of 5 stars">
-              ★★★★★
-            </span>
-            <span class="reviews-badge__score">
-              <?php if ($reviews_rating) : ?>
-                <?php echo esc_html($reviews_rating); ?>
-              <?php endif; ?>
-              <?php if ($reviews_count) : ?>
-                (<?php echo esc_html($reviews_count); ?>)
-              <?php endif; ?>
-            </span>
-          <?php endif; ?>
-        </<?php echo $reviews_tag; ?>>
-      <?php endif; ?>
+            <?php endif; ?>>
+            <?php if ($reviews_label) : ?>
+              <span class="reviews-badge__label">
+                <?php echo esc_html($reviews_label); ?>
+              </span>
+            <?php endif; ?>
+            <?php if ($reviews_rating || $reviews_count) : ?>
+              <span class="reviews-badge__stars" aria-label="<?php echo esc_attr($reviews_rating); ?> out of 5 stars">
+                ★★★★★
+              </span>
+              <span class="reviews-badge__score">
+                <?php if ($reviews_rating) : ?>
+                  <?php echo esc_html($reviews_rating); ?>
+                <?php endif; ?>
+                <?php if ($reviews_count) : ?>
+                  (<?php echo esc_html($reviews_count); ?>)
+                <?php endif; ?>
+              </span>
+            <?php endif; ?>
+          </<?php echo $reviews_tag; ?>>
+        <?php endif; ?>
+      </div>
     </div>
   </section>
   <!-- Секция Experience -->
