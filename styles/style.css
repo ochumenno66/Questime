@@ -1886,12 +1886,8 @@ nav a::after {
   max-width: 45.087vw;
 }
 
-.contact-form__content-gt p:not(:last-child) {
-  margin-bottom: 16px;
-}
-
-.contact-form__content-gt p:last-of-type {
-  margin-top: 32px;
+.contact-form__content-gt p:first-of-type {
+  margin-bottom: 24px;
 }
 
 .contact-form__info p,
@@ -3824,7 +3820,7 @@ body.modal-open {
 
 .label-border-left {
   left: 19px;
-  top: 20px;
+  top: 13px;
 }
 
 .company__scroll-label-text {
@@ -4333,22 +4329,8 @@ body.modal-open {
 
 /* Subscribe */
 .subscribe-about-us {
-  background-size: cover;
-  background-position: center;
   padding-top: clamp(100px, 12.32vw, 180px);
   padding-bottom: clamp(100px, 12.32vw, 180px);
-}
-
-.subscribe {
-  background-image: url(../assets/images/main/stats.webp);
-  background-size: cover;
-  background-position: center;
-  height: 200px;
-}
-
-.subscribe-about-us.decorated-light-stats::before,
-.subscribe-about-us.decorated-dark-stats::after {
-  z-index: 2;
 }
 
 .subscribe-about-us__container {
@@ -6076,10 +6058,6 @@ body.modal-open {
   .h2 {
     font-weight: var(--font-weight-regular);
     line-height: 160%;
-  }
-
-  .subscribe-about-us__socials {
-    gap: 40px;
   }
 
   /* 404 PAGE */

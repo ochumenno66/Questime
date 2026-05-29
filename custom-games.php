@@ -101,167 +101,139 @@ $projects_cta_file     = get_field('projects_cta_file');
   </section>
   <!-- Секция Company -->
   <?php if (get_field('show_company')) : ?>
-  <section class="company section-special">
-    <div class="container">
-      <!-- First block -->
-      <div class="company__pair company__pair--right-photo">
-        <div class="company__scroll company__scroll--team">
-          <img class="company__scroll-bg" src="<?php echo esc_url($scroll_bg_1); ?>" alt="Scroll">
-          <div class="company__scroll-label">
-            <img class="company__scroll-label-svg label-border-right" src="<?php echo esc_url($label_border_1); ?>" alt="Border">
-            <span class="company__scroll-label-text label-text-right">
-              <?php echo esc_html($label_1); ?>
-            </span>
+    <section class="company section-special">
+      <div class="container">
+        <!-- First block -->
+        <div class="company__pair company__pair--right-photo">
+          <div class="company__scroll company__scroll--team">
+            <img class="company__scroll-bg" src="<?php echo esc_url($scroll_bg_1); ?>" alt="Scroll">
+            <div class="company__scroll-label">
+              <img class="company__scroll-label-svg label-border-right" src="<?php echo esc_url($label_border_1); ?>" alt="Border">
+              <span class="company__scroll-label-text label-text-right">
+                <?php echo esc_html($label_1); ?>
+              </span>
+            </div>
+            <div class="company__scroll-inner company__text">
+              <?php echo apply_filters('the_content', $text_1); ?>
+            </div>
           </div>
-          <div class="company__scroll-inner">
-            <p class="company__text">
-              <?php echo wp_kses_post($text_1); ?>
-            </p>
-          </div>
-        </div>
-        <div class="company__polaroid company__polaroid--1">
-          <img  class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_1); ?>" alt="">
-          <div class="company__polaroid-content company__polaroid-content--right">
-            <img class="company__polaroid-img company__polaroid-img--right" src="<?php echo esc_url($photo_1); ?>" alt="">
+          <div class="company__polaroid company__polaroid--1">
+            <img class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_1); ?>" alt="">
+            <div class="company__polaroid-content company__polaroid-content--right">
+              <img class="company__polaroid-img company__polaroid-img--right" src="<?php echo esc_url($photo_1); ?>" alt="">
               <p class="company__polaroid-caption--right">
                 <?php echo esc_html($polaroid_caption_1); ?>
               </p>
+            </div>
+          </div>
+        </div>
+        <!-- Second block -->
+        <div class="company__pair company__pair--left-photo">
+          <div class="company__polaroid company__polaroid--2">
+            <img class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_2); ?>" alt="Polaroid">
+            <div class="company__polaroid-content company__polaroid-content--left">
+              <img class="company__polaroid-img company__polaroid-img--left" src="<?php echo esc_url($photo_2); ?>" alt="Image">
+              <p class="company__polaroid-caption--left">
+                <?php echo esc_html($polaroid_caption_2); ?>
+              </p>
+            </div>
+          </div>
+          <div class="company__scroll company__scroll--experience">
+            <img class="company__scroll-bg" src="<?php echo esc_url($scroll_bg_2); ?>" alt="Scroll">
+            <div class="company__scroll-label">
+              <img class="company__scroll-label-svg label-border-left" src="<?php echo esc_url($label_border_2); ?>" alt="Border">
+              <span class="company__scroll-label-text label-text-left">
+                <?php echo esc_html($label_2); ?>
+              </span>
+            </div>
+            <div class="company__scroll-inner company__text">
+              <?php echo apply_filters('the_content', $text_2); ?>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Second block -->
-      <div class="company__pair company__pair--left-photo">
-        <div class="company__polaroid company__polaroid--2">
-          <img class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_2); ?>" alt="Polaroid">
-          <div class="company__polaroid-content company__polaroid-content--left">
-            <img class="company__polaroid-img company__polaroid-img--left" src="<?php echo esc_url($photo_2); ?>" alt="Image">
-            <p class="company__polaroid-caption--left">
-              <?php echo esc_html($polaroid_caption_2); ?>
-            </p>
-          </div>
-        </div>
-        <div class="company__scroll company__scroll--experience">
-          <img class="company__scroll-bg" src="<?php echo esc_url($scroll_bg_2); ?>" alt="Scroll">
-          <div class="company__scroll-label">
-            <img class="company__scroll-label-svg label-border-left" src="<?php echo esc_url($label_border_2); ?>" alt="Border">
-            <span class="company__scroll-label-text label-text-left">
-              <?php echo esc_html($label_2); ?>
-            </span>
-          </div>
-          <div class="company__scroll-inner">
-            <p class="company__text">
-              <?php echo wp_kses_post($text_2); ?>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
   <?php endif; ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Projects (Cases) -->
   <?php if (get_field('show_projects')) : ?>
-  <section class="projects projects-border-1 projects-border-2" id="projects">
-    <div class="projects__scene container">
-
-      <?php
-      $categories = get_terms([
-        'taxonomy'   => 'case_category',
-        'hide_empty' => true,
-        'orderby'    => 'term_order',
-      ]);
-
-      if (!empty($categories) && !is_wp_error($categories)) :
-        $card_index = 1;
-        foreach ($categories as $cat) :
-
-          $cat_image = get_field('case_cat_image', 'case_category_' . $cat->term_id)
-            ?: get_template_directory_uri() . '/assets/images/main/hero-2.jpg';
-
-          $frame_num = (($card_index - 1) % 4) + 1;
-
-          $cases = new WP_Query([
-            'post_type'      => 'quest_case',
-            'post_status'    => 'publish',
-            'posts_per_page' => -1,
-            'tax_query'      => [[
-              'taxonomy' => 'case_category',
-              'field'    => 'term_id',
-              'terms'    => $cat->term_id,
-            ]],
-            'orderby' => 'menu_order',
-            'order'   => 'ASC',
-          ]);
-      ?>
-
-          <div class="projects-card projects-card--<?php echo $card_index; ?>">
-            <div class="projects-card__polaroid">
-              <img
-                src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/project-card-<?php echo $frame_num; ?>.png"
-                alt=""
-                class="projects-card__frame">
-              <img
-                src="<?php echo esc_url($cat_image); ?>"
-                alt="<?php echo esc_attr($cat->name); ?>"
-                class="projects-card__photo">
-              <p class="projects-card__caption"><?php echo esc_html($cat->name); ?></p>
-            </div>
-
-            <?php if ($cases->have_posts()) : ?>
-              <div class="projects-card__paper">
-                <ul class="projects-card__list">
-                  <?php while ($cases->have_posts()) : $cases->the_post(); ?>
-                    <li>
-                      <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </li>
-                  <?php endwhile;
-                  wp_reset_postdata(); ?>
-                </ul>
-                <button class="projects-card__toggle" aria-expanded="false">
-                  <span class="projects-card__toggle-text">Expand the list</span>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 4V16.25L17.25 11L18 11.66L11.5 18.16L5 11.66L5.75 11L11 16.25V4H12Z" fill="#DEC884" />
-                  </svg>
-                </button>
+    <section class="projects projects-border-1 projects-border-2" id="projects">
+      <div class="projects__scene container">
+        <?php $categories = get_terms([
+          'taxonomy'   => 'case_category',
+          'hide_empty' => true,
+          'orderby'    => 'term_order',
+        ]);
+        if (!empty($categories) && !is_wp_error($categories)) :
+          $card_index = 1;
+          foreach ($categories as $cat) :
+            $cat_image = get_field('case_cat_image', 'case_category_' . $cat->term_id)
+              ?: get_template_directory_uri() . '/assets/images/main/hero-2.jpg';
+            $frame_num = (($card_index - 1) % 4) + 1;
+            $cases = new WP_Query([
+              'post_type'      => 'quest_case',
+              'post_status'    => 'publish',
+              'posts_per_page' => -1,
+              'tax_query'      => [[
+                'taxonomy' => 'case_category',
+                'field'    => 'term_id',
+                'terms'    => $cat->term_id,
+              ]],
+              'orderby' => 'menu_order',
+              'order'   => 'ASC',
+            ]);
+        ?>
+            <div class="projects-card projects-card--<?php echo $card_index; ?>">
+              <div class="projects-card__polaroid">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/custom-games/project-card-<?php echo $frame_num; ?>.png" alt="Project Card" class="projects-card__frame">
+                <img src="<?php echo esc_url($cat_image); ?>" alt="<?php echo esc_attr($cat->name); ?>" class="projects-card__photo">
+                <p class="projects-card__caption"><?php echo esc_html($cat->name); ?></p>
               </div>
-            <?php endif; ?>
-          </div>
-
-        <?php
-          $card_index++;
-        endforeach;
-      else : ?>
-        <p>Cases coming soon!</p>
-      <?php endif; ?>
-
-    </div>
-
-    <div class="projects__btn">
-      <div class="projects__btn-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-portfolio-CG.svg" alt="" class="projects__btn-border">
-        <div class="projects__btn-content">
-          <?php if ($projects_cta_text) : ?>
-          <p class="projects__btn-text">
-            <?php echo esc_html($projects_cta_text); ?>
-          </p>
-
-          <?php endif; ?>
-
-          <?php if ($projects_cta_file) : ?>
-          <a href="<?php echo esc_url($projects_cta_file); ?>"
-            class="btn btn-secondary btn-projects btn--orange"
-            target="_blank"
-            download
-          >
-            <?php echo esc_html($projects_cta_btn_text ?: 'Download'); ?>
-          </a>
-
+              <?php if ($cases->have_posts()) : ?>
+                <div class="projects-card__paper">
+                  <ul class="projects-card__list">
+                    <?php while ($cases->have_posts()) : $cases->the_post(); ?>
+                      <li>
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                      </li>
+                    <?php endwhile;
+                    wp_reset_postdata(); ?>
+                  </ul>
+                  <button class="projects-card__toggle" aria-expanded="false">
+                    <span class="projects-card__toggle-text">Expand the list</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 4V16.25L17.25 11L18 11.66L11.5 18.16L5 11.66L5.75 11L11 16.25V4H12Z" fill="#DEC884" />
+                    </svg>
+                  </button>
+                </div>
+              <?php endif; ?>
+            </div>
+          <?php
+            $card_index++;
+          endforeach;
+        else : ?>
+          <p>Cases coming soon!</p>
         <?php endif; ?>
-        </div>
       </div>
-    </div>
-  </section>
+      <?php if ($projects_cta_file) : ?>
+        <div class="projects__btn">
+          <div class="projects__btn-card">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/border-portfolio-CG.svg" alt="Border" class="projects__btn-border">
+            <div class="projects__btn-content">
+              <?php if ($projects_cta_text) : ?>
+                <p class="projects__btn-text">
+                  <?php echo esc_html($projects_cta_text); ?>
+                </p>
+              <?php endif; ?>
+              <a href="<?php echo esc_url($projects_cta_file); ?>" class="btn btn-secondary btn-projects btn--orange" target="_blank" download>
+                <?php echo esc_html($projects_cta_btn_text ?: 'Download'); ?>
+              </a>
+            </div>
+          </div>
+        </div>
+      <?php endif; ?>
+    </section>
   <?php endif; ?>
   <!-- Секция Testimonials -->
   <?php get_template_part('templates/testimonials'); ?>
