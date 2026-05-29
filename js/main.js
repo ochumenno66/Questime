@@ -327,21 +327,25 @@ document.addEventListener("DOMContentLoaded", () => {
   let testimonialsSwiper;
 
   function initTestimonialsSwiper() {
-    const screenWidth = window.innerWidth;
+    const carousel = document.querySelector(".testimonials__carousel");
 
-    if (screenWidth > 575) {
+    if (!carousel) return;
+    
+    const slidesCount = Number(carousel.dataset.count);
+    const isSliderEnabled = window.innerWidth > 479 && slidesCount >= 5;
+
+    if (isSliderEnabled) {
       if (!testimonialsSwiper) {
         testimonialsSwiper = new Swiper(".testimonials__carousel", {
           loop: true,
           grabCursor: true,
           centeredSlides: false,
-          slidesPerView: "auto",
           spaceBetween: 24,
+          slidesPerView: "auto",
         });
       }
     } else {
       if (testimonialsSwiper) {
-        // destroy(true, true) — удаляет объект и ВСЕ инлайновые стили
         testimonialsSwiper.destroy(true, true);
         testimonialsSwiper = null;
       }
@@ -350,6 +354,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initTestimonialsSwiper();
   window.addEventListener("resize", initTestimonialsSwiper);
+
+  // Модальное окно для видео с отзывов
+  const videoModal = document.querySelector(".video-modal");
+  const videoModalVideo = document.querySelector(".video-modal__video");
+  const videoModalClose = document.querySelector(".video-modal__close");
+  const videoModalOverlay = document.querySelector(".video-modal__overlay");
+
+  if (videoModal && videoModalVideo && videoModalClose && videoModalOverlay) {
+    document
+      .querySelectorAll(".testimonials__video-preview")
+      .forEach((preview) => {
+        preview.addEventListener("click", () => {
+          const videoUrl = preview.dataset.video;
+          videoModalVideo.src = videoUrl;
+          videoModal.classList.add("active");
+          videoModalVideo.play();
+        });
+      });
+
+    function closeVideoModal() {
+      videoModal.classList.remove("active");
+      videoModalVideo.pause();
+      videoModalVideo.src = "";
+    }
+
+    videoModalClose.addEventListener("click", closeVideoModal);
+    videoModalOverlay.addEventListener("click", closeVideoModal);
+  }
 
   // Form выпадающий список
   document.querySelectorAll(".custom-select").forEach((select) => {
@@ -370,7 +402,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         options.forEach((o) => o.classList.remove("is-selected"));
         option.classList.add("is-selected");
-
         select.classList.remove("is-open");
       });
     });
