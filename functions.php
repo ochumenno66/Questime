@@ -428,6 +428,27 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 // ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
 function questime_social_icons(): void
 {
+    $networks = ['linkedin', 'instagram', 'threads'];
+
+    foreach ($networks as $network) {
+        $url  = get_theme_mod("{$network}_url", '');
+        $icon = get_theme_mod("{$network}_icon", '');
+        $alt  = get_theme_mod("{$network}_alt", ucfirst($network));
+
+        if (empty($url) || empty($icon)) {
+            continue;
+        }
+
+        printf(
+            '<a class="social-icon" href="%s" target="_blank" rel="noopener noreferrer"><img src="%s" alt="%s"></a>',
+            esc_url($url),
+            esc_url($icon),
+            esc_attr($alt)
+        );
+    }
+}
+/*function questime_social_icons(): void
+{
     for ($i = 1; $i <= 4; $i++) {
         $url  = get_theme_mod("social_{$i}_url",  '');
         $icon = get_theme_mod("social_{$i}_icon", '');
@@ -444,7 +465,7 @@ function questime_social_icons(): void
             esc_attr($alt)
         );
     }
-}
+}*/
 
 // ХЛЕБНЫЕ КРОШКИ — автоматические для любой страницы
 // Вызов: questime_breadcrumbs();

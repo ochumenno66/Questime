@@ -39,9 +39,20 @@ $s3_text   = get_field('au_stats_3_text') ?: 'for groups 6 – 800 people';
 $show_socials_block = get_field('show_socials_block');
 $socials_background = get_field('socials_background');
 $socials_title      = get_field('socials_title');
+
 $linkedin_url       = get_theme_mod('linkedin_url');
+$linkedin_icon      = get_theme_mod('linkedin_icon');
+$linkedin_alt       = get_theme_mod('linkedin_alt');
+
 $threads_url        = get_theme_mod('threads_url');
+$threads_icon       = get_theme_mod('threads_icon');
+$threads_alt        = get_theme_mod('threads_alt');
+
 $instagram_url      = get_theme_mod('instagram_url');
+$instagram_icon     = get_theme_mod('instagram_icon');
+$instagram_alt      = get_theme_mod('instagram_alt');
+
+
 ?>
 
 <main>
@@ -221,19 +232,19 @@ $instagram_url      = get_theme_mod('instagram_url');
           <?php if ($instagram_url): ?>
             <a href="<?php echo esc_url($instagram_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/instagram-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/instagram.svg" alt="Instagram" class="subscribe-about-us__icon">
+              <img src="<?php echo esc_url($instagram_icon); ?>" alt="<?php echo esc_attr($instagram_alt); ?>" class="subscribe-about-us__icon">
             </a>
           <?php endif; ?>
           <?php if ($threads_url): ?>
             <a href="<?php echo esc_url($threads_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/threads-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/threads.svg" alt="Threads" class="subscribe-about-us__icon">
+              <img src="<?php echo esc_url($threads_icon); ?>" alt="<?php echo esc_attr($threads_alt); ?>" class="subscribe-about-us__icon">
             </a>
           <?php endif; ?>
           <?php if ($linkedin_url): ?>
             <a href="<?php echo esc_url($linkedin_url); ?>" class="subscribe-about-us__link" target="_blank" rel="noopener noreferrer">
               <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/linkedin-rhomb.svg" alt="" class="subscribe-about-us__rhomb">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/icons/about-us/linkedin.svg" alt="LinkedIn" class="subscribe-about-us__icon">
+              <img src="<?php echo esc_url($linkedin_icon); ?>" alt="<?php echo esc_attr($linkedin_alt); ?>" class="subscribe-about-us__icon">
             </a>
           <?php endif; ?>
         </div>
