@@ -42,7 +42,7 @@ get_header(); ?>
       <div class="hero-gt--img" style="
         background:
         linear-gradient(0deg, rgba(25, 26, 24, 0.7), rgba(25, 26, 24, 0.7)),
-        linear-gradient(to bottom, #191a18 10%, transparent 72%, #191a18 100%),
+        linear-gradient(180deg, #191a18 0%, rgba(25, 26, 24, 0) 49.04%, #191a18 100%),
         url('<?php echo esc_url($gt_hero_bg); ?>') center / cover no-repeat;
         ">
       </div>

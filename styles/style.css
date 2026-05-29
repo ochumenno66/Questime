@@ -4494,6 +4494,13 @@ body.modal-open {
   gap: clamp(16px, 3.28vw, 48px);
 }
 
+.hero-gt--img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-gt__title,
 .hero-tb__title {
   color: var(--color-bg);
