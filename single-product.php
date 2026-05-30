@@ -26,7 +26,7 @@ for ($i = 1; $i <= 10; $i++) {
   ];
 }
 
-// Передаём данные каты в JS
+// Передаём данные карты в JS
 add_action('wp_footer', function () use ($route_points) {
   if (!empty($route_points)) {
     echo '<script>window.routePointsData = ' . wp_json_encode($route_points) . ';</script>';

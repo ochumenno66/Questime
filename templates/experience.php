@@ -16,7 +16,6 @@ if ($show_experience_section):
     $row_3_reverse                 = get_field('row_3_reverse');
     $row_3_content                 = get_field('row_3_content');
     $row_3_image                   = get_field('row_3_image');
-    $experience_badge              = get_field('experience_badge');
     $experience_schedule_btn_text  = get_field('experience_schedule_btn_text');
     $experience_linkedin_btn_text  = get_field('experience_linkedin_btn_text');
     $experience_modal_btn_text     = get_field('experience_modal_btn_text');
@@ -41,7 +40,7 @@ if ($show_experience_section):
     ];
 ?>
 
-    <section class="experience" id="experience">
+    <section class="experience section-special" id="experience">
         <?php if ($experience_title): ?>
             <h2 class="team__title text-align">
                 <?php echo esc_html($experience_title); ?>
@@ -72,6 +71,12 @@ if ($show_experience_section):
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
+            <?php
+            $product_id = get_the_ID();
+            $experience_badge = function_exists('tour_get_next_badge_for_product')
+                ? tour_get_next_badge_for_product($product_id)
+                : '';
+            ?>
             <?php if ($experience_badge || $experience_schedule_btn_text || $experience_linkedin_btn_text || $experience_modal_btn_text): ?>
                 <div class="experience__actions">
                     <?php if ($experience_badge): ?>
@@ -87,7 +92,10 @@ if ($show_experience_section):
                                 </a>
                             <?php endif; ?>
                             <?php if ($experience_linkedin_btn_text && $experience_linkedin_btn_url): ?>
-                                <a href="<?php echo esc_url($experience_linkedin_btn_url); ?>" class="btn btn-secondary btn-experience btn--orange" target="_blank" rel="noopener noreferrer">
+                                <a href="<?php echo esc_url($experience_linkedin_btn_url); ?>"
+                                    class="btn btn-secondary btn-experience btn--orange"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
                                     <?php echo esc_html($experience_linkedin_btn_text); ?>
                                 </a>
                             <?php endif; ?>

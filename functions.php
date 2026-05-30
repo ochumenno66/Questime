@@ -734,7 +734,7 @@ function questime_tinymce_styles($init_array)
 {
 
     $style_formats = [
-        // Inline: цвета и типографика
+        /* Цвета и типографика */
         [
             'title' => 'Orange Text',
             'inline' => 'span',
@@ -755,7 +755,7 @@ function questime_tinymce_styles($init_array)
             'inline' => 'span',
             'classes' => 'text-uppercase',
         ],
-        // Блочные: параграф и заголовок
+        /* Параграф и заголовок */
         [
             'title' => 'Experience Paragraph',
             'block' => 'p',
