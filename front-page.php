@@ -286,12 +286,12 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
       $logo = get_field("pt_logo_{$i}");
       if ($logo) $logos[] = $logo;
     }
+    $pt_button_text = get_field('pt_button_text');
   ?>
     <section class="partners section-special" id="partners">
       <div class="container">
         <div class="partners__inner">
           <h2 class="text-align partners__title"><?php echo wp_kses_post($pt_title); ?></h2>
-
           <?php if (!empty($logos)): ?>
             <div class="partners__grid">
               <?php foreach ($logos as $logo): ?>
@@ -301,10 +301,11 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
               <?php endforeach; ?>
             </div>
           <?php endif; ?>
-
-          <div class="partners__footer">
-            <a href="<?php echo home_url('/team-building/'); ?>" class="btn btn-secondary partners__btn">Go to Corporate Events</a>
-          </div>
+          <?php if ($pt_button_text) : ?>
+            <a href="<?php echo esc_url(home_url('/team-building/')); ?>" class="btn btn-secondary partners__btn">
+              <?php echo esc_html($pt_button_text); ?>
+            </a>
+          <?php endif; ?>
         </div>
       </div>
     </section>
