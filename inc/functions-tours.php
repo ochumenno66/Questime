@@ -1,4 +1,5 @@
 <?php
+
 /**
  * РАСПИСАНИЕ ЭКСКУРСИЙ
 
@@ -16,7 +17,8 @@ if (!defined('ABSPATH')) exit;
 
 
 add_action('init', 'register_tour_post_type');
-function register_tour_post_type() {
+function register_tour_post_type()
+{
     register_post_type('tour', [
         'labels' => [
             'name'               => 'Экскурсии',
@@ -45,7 +47,8 @@ function register_tour_post_type() {
 
 
 add_action('acf/init', 'register_tour_acf_fields');
-function register_tour_acf_fields() {
+function register_tour_acf_fields()
+{
     if (!function_exists('acf_add_local_field_group')) return;
 
     acf_add_local_field_group([
@@ -129,7 +132,8 @@ function register_tour_acf_fields() {
 
 // 3. УТИЛИТЫ
 
-function tour_parse_date(string $date): ?DateTime {
+function tour_parse_date(string $date): ?DateTime
+{
     if (empty(trim($date))) return null;
     foreach (['d.m.Y', 'Ymd', 'Y-m-d', 'd/m/Y'] as $format) {
         $dt = DateTime::createFromFormat($format, $date);
@@ -138,7 +142,8 @@ function tour_parse_date(string $date): ?DateTime {
     return null;
 }
 
-function tour_plural(int $n, string $one, string $few, string $many): string {
+function tour_plural(int $n, string $one, string $few, string $many): string
+{
     $mod10  = $n % 10;
     $mod100 = $n % 100;
     if ($mod100 >= 11 && $mod100 <= 19) return $many;
@@ -148,18 +153,19 @@ function tour_plural(int $n, string $one, string $few, string $many): string {
 }
 
 
-function tour_get_product_id(int $tour_id): int {
+function tour_get_product_id(int $tour_id): int
+{
     $raw = get_field('tour_product', $tour_id);
     if (is_object($raw)) return (int) $raw->ID;
     return (int) $raw;
 }
 
 
-
 // 4. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
 
 
-function tour_get_price_info(int $post_id): array {
+function tour_get_price_info(int $post_id): array
+{
     $date_str = (string) get_field('tour_date', $post_id);
     $base     = (float) get_field('tour_price', $post_id);
 
@@ -200,7 +206,8 @@ function tour_get_price_info(int $post_id): array {
     ];
 }
 
-function tour_get_seats_info(int $post_id): array {
+function tour_get_seats_info(int $post_id): array
+{
     $total = (int) get_field('tour_seats_total', $post_id);
     $taken = (int) get_field('tour_seats_taken', $post_id);
     $left  = max(0, $total - $taken);
@@ -215,7 +222,65 @@ function tour_get_seats_info(int $post_id): array {
     ];
 }
 
-function tour_get_by_months(): array {
+function tour_get_next_badge_for_product(int $product_id): string
+{
+    if (!$product_id) {
+        return '';
+    }
+
+    $tours = get_posts([
+        'post_type'      => 'tour',
+        'post_status'    => 'publish',
+        'posts_per_page' => -1,
+        'meta_query'     => [[
+            'key'   => 'tour_product',
+            'value' => $product_id,
+        ]],
+    ]);
+
+    if (empty($tours)) {
+        return '';
+    }
+
+    $next_tour = null;
+    $now_dt    = new DateTime('now', new DateTimeZone('Europe/Amsterdam'));
+
+    foreach ($tours as $tour) {
+        $date_str  = (string) get_field('tour_date', $tour->ID);
+        $tour_time = get_field('tour_time', $tour->ID) ?: '00:00';
+        $dt        = tour_parse_date($date_str);
+
+        if (!$dt) {
+            continue;
+        }
+
+        $time_parts = explode(':', $tour_time);
+        $dt->setTime(
+            (int) $time_parts[0],
+            (int) ($time_parts[1] ?? 0)
+        );
+
+        $compare_dt = clone $dt;
+        $compare_dt->modify('-1 hour');
+
+        if ($compare_dt < $now_dt) {
+            continue;
+        }
+
+        if ($next_tour === null || $dt < $next_tour) {
+            $next_tour = clone $dt;
+        }
+    }
+
+    if (!$next_tour) {
+        return '';
+    }
+
+    return 'The next event is ' . $next_tour->format('F j \a\t g:i A');
+}
+
+function tour_get_by_months(): array
+{
     $query = new WP_Query([
         'post_type'      => 'tour',
         'post_status'    => 'publish',
@@ -226,9 +291,18 @@ function tour_get_by_months(): array {
     ]);
 
     $ru_months = [
-        1=>'Январь', 2=>'Февраль', 3=>'Март', 4=>'Апрель',
-        5=>'Май', 6=>'Июнь', 7=>'Июль', 8=>'Август',
-        9=>'Сентябрь', 10=>'Октябрь', 11=>'Ноябрь', 12=>'Декабрь',
+        1 => 'Январь',
+        2 => 'Февраль',
+        3 => 'Март',
+        4 => 'Апрель',
+        5 => 'Май',
+        6 => 'Июнь',
+        7 => 'Июль',
+        8 => 'Август',
+        9 => 'Сентябрь',
+        10 => 'Октябрь',
+        11 => 'Ноябрь',
+        12 => 'Декабрь',
     ];
 
     $months   = [];
@@ -279,7 +353,7 @@ function tour_get_by_months(): array {
 
 
 // При добавлении в корзину сохраняем tour_id и цену из экскурсии
-add_filter('woocommerce_add_cart_item_data', function($cart_item_data, $product_id) {
+add_filter('woocommerce_add_cart_item_data', function ($cart_item_data, $product_id) {
     if (empty($_REQUEST['tour_id'])) return $cart_item_data;
 
     $tour_id = (int) $_REQUEST['tour_id'];
@@ -305,7 +379,7 @@ add_filter('woocommerce_add_cart_item_data', function($cart_item_data, $product_
 }, 10, 2);
 
 // Подставляем цену из экскурсии в корзину
-add_action('woocommerce_before_calculate_totals', function($cart) {
+add_action('woocommerce_before_calculate_totals', function ($cart) {
     if (is_admin() && !defined('DOING_AJAX')) return;
     if (did_action('woocommerce_before_calculate_totals') >= 2) return;
 
@@ -317,7 +391,7 @@ add_action('woocommerce_before_calculate_totals', function($cart) {
 }, 20);
 
 // Показываем дату и время в корзине и оформлении заказа
-add_filter('woocommerce_get_item_data', function($item_data, $cart_item) {
+add_filter('woocommerce_get_item_data', function ($item_data, $cart_item) {
     if (!empty($cart_item['tour_date'])) {
         $item_data[] = ['key' => 'Дата',  'value' => $cart_item['tour_date']];
     }
@@ -328,7 +402,7 @@ add_filter('woocommerce_get_item_data', function($item_data, $cart_item) {
 }, 10, 2);
 
 // Сохраняем tour_id и цену в метаданные позиции заказа
-add_action('woocommerce_checkout_create_order_line_item', function($item, $cart_item_key, $values) {
+add_action('woocommerce_checkout_create_order_line_item', function ($item, $cart_item_key, $values) {
     if (!empty($values['tour_id'])) {
         $item->add_meta_data('tour_id',   $values['tour_id'],      true);
         $item->add_meta_data('tour_date', $values['tour_date'],    true);
@@ -338,7 +412,7 @@ add_action('woocommerce_checkout_create_order_line_item', function($item, $cart_
 }, 10, 3);
 
 // Разрешаем покупку товаров используемых как квесты (цена подставляется из экскурсии)
-add_filter('woocommerce_is_purchasable', function($purchasable, $product) {
+add_filter('woocommerce_is_purchasable', function ($purchasable, $product) {
     $tours = get_posts([
         'post_type'      => 'tour',
         'post_status'    => 'publish',
@@ -353,7 +427,7 @@ add_filter('woocommerce_is_purchasable', function($purchasable, $product) {
 }, 10, 2);
 
 // Разрешаем добавление в корзину
-add_filter('woocommerce_add_to_cart_validation', function($passed, $product_id, $quantity) {
+add_filter('woocommerce_add_to_cart_validation', function ($passed, $product_id, $quantity) {
     if (!empty($_REQUEST['tour_id'])) return true;
     return $passed;
 }, 99, 3);
@@ -365,7 +439,8 @@ add_filter('woocommerce_add_to_cart_validation', function($passed, $product_id, 
 add_action('woocommerce_order_status_completed',  'tour_on_order_completed');
 add_action('woocommerce_order_status_processing', 'tour_on_order_completed');
 
-function tour_on_order_completed(int $order_id) {
+function tour_on_order_completed(int $order_id)
+{
     $order = wc_get_order($order_id);
     if (!$order) return;
     foreach ($order->get_items() as $item) {
@@ -379,7 +454,8 @@ function tour_on_order_completed(int $order_id) {
 add_action('woocommerce_order_status_cancelled', 'tour_on_order_cancelled');
 add_action('woocommerce_order_status_refunded',  'tour_on_order_cancelled');
 
-function tour_on_order_cancelled(int $order_id) {
+function tour_on_order_cancelled(int $order_id)
+{
     $order = wc_get_order($order_id);
     if (!$order) return;
     foreach ($order->get_items() as $item) {
@@ -393,13 +469,13 @@ function tour_on_order_cancelled(int $order_id) {
 
 // 7. CRON — ежедневное обновление
 
-add_action('wp', function() {
+add_action('wp', function () {
     if (!wp_next_scheduled('tour_daily_price_update')) {
         wp_schedule_event(time(), 'daily', 'tour_daily_price_update');
     }
 });
 
-add_action('tour_daily_price_update', function() {
+add_action('tour_daily_price_update', function () {
     // Помечаем прошедшие экскурсии как черновики
     $tours = get_posts([
         'post_type'      => 'tour',
@@ -421,7 +497,8 @@ add_action('tour_daily_price_update', function() {
 add_action('wp_ajax_tour_get_info',        'ajax_tour_get_info');
 add_action('wp_ajax_nopriv_tour_get_info', 'ajax_tour_get_info');
 
-function ajax_tour_get_info() {
+function ajax_tour_get_info()
+{
     check_ajax_referer('tour_nonce', 'nonce');
     $tour_id = (int) $_POST['tour_id'];
     if (!$tour_id) wp_send_json_error('No tour ID');
@@ -430,4 +507,3 @@ function ajax_tour_get_info() {
         'seats' => tour_get_seats_info($tour_id),
     ]);
 }
-

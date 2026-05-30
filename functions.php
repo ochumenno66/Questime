@@ -42,6 +42,117 @@ add_action('wp_head', function () {
 // КАСТОМАЙЗЕР — социальные сети (иконка + ссылка, до 4 штук) + Google maps api ключ
 add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 
+    $wp_customize->add_section('questime_socials_section', [
+        'title' => 'Социальные сети',
+        'priority' => 30,
+    ]);
+
+    $wp_customize->add_setting('linkedin_url', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('linkedin_url', [
+        'label' => 'LinkedIn ссылка',
+        'section' => 'questime_socials_section',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('linkedin_icon', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'linkedin_icon', [
+        'label' => 'LinkedIn иконка',
+        'section' => 'questime_socials_section',
+    ]));
+
+    $wp_customize->add_setting('linkedin_alt', [
+        'default' => 'LinkedIn',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('linkedin_alt', [
+        'label' => 'LinkedIn alt',
+        'section' => 'questime_socials_section',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('instagram_url', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('instagram_url', [
+        'label' => 'Instagram ссылка',
+        'section' => 'questime_socials_section',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('instagram_icon', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'instagram_icon', [
+        'label' => 'Instagram иконка',
+        'section' => 'questime_socials_section',
+    ]));
+
+    $wp_customize->add_setting('instagram_alt', [
+        'default' => 'Instagram',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('instagram_alt', [
+        'label' => 'Instagram alt',
+        'section' => 'questime_socials_section',
+        'type' => 'text',
+    ]);
+
+    $wp_customize->add_setting('threads_url', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('threads_url', [
+        'label' => 'Threads ссылка',
+        'section' => 'questime_socials_section',
+        'type' => 'url',
+    ]);
+
+    $wp_customize->add_setting('threads_icon', [
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'threads_icon', [
+        'label' => 'Threads иконка',
+        'section' => 'questime_socials_section',
+    ]));
+
+    $wp_customize->add_setting('threads_alt', [
+        'default' => 'Threads',
+        'sanitize_callback' => 'sanitize_text_field',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('threads_alt', [
+        'label' => 'Threads alt',
+        'section' => 'questime_socials_section',
+        'type' => 'text',
+    ]);
+
+    /* 
     $wp_customize->add_panel('questime_socials_panel', [
         'title'    => 'Социальные сети',
         'priority' => 30,
@@ -85,7 +196,7 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
             'section' => "questime_social_{$i}",
             'type'    => 'text',
         ]);
-    }
+    }*/
 
     // Контакты
     $wp_customize->add_section('questime_contacts_section', [
@@ -317,6 +428,27 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
 // ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
 function questime_social_icons(): void
 {
+    $networks = ['linkedin', 'instagram', 'threads'];
+
+    foreach ($networks as $network) {
+        $url  = get_theme_mod("{$network}_url", '');
+        $icon = get_theme_mod("{$network}_icon", '');
+        $alt  = get_theme_mod("{$network}_alt", ucfirst($network));
+
+        if (empty($url) || empty($icon)) {
+            continue;
+        }
+
+        printf(
+            '<a class="social-icon" href="%s" target="_blank" rel="noopener noreferrer"><img src="%s" alt="%s"></a>',
+            esc_url($url),
+            esc_url($icon),
+            esc_attr($alt)
+        );
+    }
+}
+/*function questime_social_icons(): void
+{
     for ($i = 1; $i <= 4; $i++) {
         $url  = get_theme_mod("social_{$i}_url",  '');
         $icon = get_theme_mod("social_{$i}_icon", '');
@@ -333,7 +465,7 @@ function questime_social_icons(): void
             esc_attr($alt)
         );
     }
-}
+}*/
 
 // ХЛЕБНЫЕ КРОШКИ — автоматические для любой страницы
 // Вызов: questime_breadcrumbs();
@@ -439,9 +571,9 @@ add_action('after_setup_theme', function () {
 });
 
 
-add_filter( 'woocommerce_return_to_shop_redirect', function() {
-    return home_url( '/gamified-tours/' );
-} );
+add_filter('woocommerce_return_to_shop_redirect', function () {
+    return home_url('/gamified-tours/');
+});
 
 // Регистрация CPT: quest_case
 add_action('init', function () {
@@ -496,18 +628,18 @@ add_action('wp_enqueue_scripts', function () {
 require_once get_template_directory() . '/inc/functions-tours.php';
 
 // Меняем ссылку "Вернуться в магазин" на главную
-add_filter('woocommerce_return_to_shop_redirect', function() {
+add_filter('woocommerce_return_to_shop_redirect', function () {
     return home_url('/schedule/');
 });
 
 // Меняем текст кнопки
-add_filter('woocommerce_return_to_shop_text', function() {
+add_filter('woocommerce_return_to_shop_text', function () {
     return 'View Schedule';
 });
 
 
 // Убираем лишние поля на странице оформления заказа
-add_filter('woocommerce_checkout_fields', function($fields) {
+add_filter('woocommerce_checkout_fields', function ($fields) {
     // Убираем поля адреса доставки
     unset($fields['billing']['billing_address_1']);
     unset($fields['billing']['billing_address_2']);
@@ -516,7 +648,7 @@ add_filter('woocommerce_checkout_fields', function($fields) {
     unset($fields['billing']['billing_country']);
     unset($fields['billing']['billing_state']);
     unset($fields['billing']['billing_company']);
-    
+
     // Оставляем только имя, фамилию, email и телефон
     return $fields;
 });
@@ -527,7 +659,7 @@ add_filter('woocommerce_cart_needs_shipping_address', '__return_false');
 
 
 // Убираем обязательность полей адреса в блочном checkout
-add_filter('woocommerce_get_country_locale', function($locale) {
+add_filter('woocommerce_get_country_locale', function ($locale) {
     $not_required = ['address_1', 'address_2', 'city', 'postcode', 'state'];
     foreach ($locale as $country => $fields) {
         foreach ($not_required as $field) {
@@ -541,7 +673,7 @@ add_filter('woocommerce_get_country_locale', function($locale) {
 });
 
 // Форматируем метаданные экскурсии в письме
-add_filter('woocommerce_order_item_get_formatted_meta_data', function($formatted_meta, $item) {
+add_filter('woocommerce_order_item_get_formatted_meta_data', function ($formatted_meta, $item) {
     foreach ($formatted_meta as $key => $meta) {
         // Скрываем технические поля
         if (in_array($meta->key, ['tour_id', 'tour_price'])) {
@@ -563,42 +695,46 @@ add_filter('woocommerce_order_item_get_formatted_meta_data', function($formatted
 add_action('wp_ajax_nopriv_questime_form', 'questime_ajax_form');
 add_action('wp_ajax_questime_form', 'questime_ajax_form');
 
-function questime_ajax_form(): void {
-  if (!check_ajax_referer('questime_form', 'nonce', false)) {
-    wp_send_json_error(['error' => 'Invalid token'], 403);
-  }
+function questime_ajax_form(): void
+{
+    if (!check_ajax_referer('questime_form', 'nonce', false)) {
+        wp_send_json_error(['error' => 'Invalid token'], 403);
+    }
 
-  require_once get_template_directory() . '/inc/form-handler.php';
-  questime_process_form();
+    require_once get_template_directory() . '/inc/form-handler.php';
+    questime_process_form();
 }
 
 // Contact forms script
 add_action('wp_enqueue_scripts', function () {
-  wp_enqueue_script(
-    'questime-form',
-    get_template_directory_uri() . '/js/form.js',
-    [],
-    wp_get_theme()->get('Version'),
-    true
-  );
+    wp_enqueue_script(
+        'questime-form',
+        get_template_directory_uri() . '/js/form.js',
+        [],
+        wp_get_theme()->get('Version'),
+        true
+    );
 
-  wp_localize_script('questime-form', 'questimeData', [
-    'ajaxUrl' => admin_url('admin-ajax.php'),
-    'nonce'   => wp_create_nonce('questime_form'),
-  ]);
+    wp_localize_script('questime-form', 'questimeData', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('questime_form'),
+    ]);
 });
 
 // Кастомные стили TinyMCE для текстовых WYSIWYG полей 
-function questime_mce_buttons($buttons) { 
-    array_unshift($buttons, 'styleselect'); 
-    return $buttons; 
-    } 
-add_filter('mce_buttons_2', 'questime_mce_buttons'); 
+function questime_mce_buttons($buttons)
+{
+    array_unshift($buttons, 'styleselect');
+    return $buttons;
+}
+add_filter('mce_buttons_2', 'questime_mce_buttons');
 
 // Регистрируем кастомные стили для редактора TinyMCE 
-function questime_tinymce_styles($init_array) {
+function questime_tinymce_styles($init_array)
+{
 
     $style_formats = [
+        /* Цвета и типографика */
         [
             'title' => 'Orange Text',
             'inline' => 'span',
@@ -619,12 +755,23 @@ function questime_tinymce_styles($init_array) {
             'inline' => 'span',
             'classes' => 'text-uppercase',
         ],
+        /* Параграф и заголовок */
+        [
+            'title' => 'Experience Paragraph',
+            'block' => 'p',
+            'classes' => 'experience__p',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Experience Row title (orange h3)',
+            'block' => 'h3',
+            'classes' => 'experience__gains-title',
+            'wrapper' => false,
+        ]
     ];
 
     $init_array['style_formats'] = wp_json_encode($style_formats);
-
     return $init_array;
 }
 
 add_filter('tiny_mce_before_init', 'questime_tinymce_styles');
-
