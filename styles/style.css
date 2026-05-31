@@ -3127,6 +3127,11 @@ body.modal-open {
   line-height: 155%;
 }
 
+.persons__rows {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
 .persons__row {
   display: grid;
   grid-template-columns: 220px 1fr;

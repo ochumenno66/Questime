@@ -538,15 +538,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const rows = document.querySelectorAll(".persons__row");
   const item = document.querySelector(".persons__item");
   const btn = document.querySelector(".persons__question");
+  const rowsContainer = document.querySelector(".persons__rows");
 
   const visibleCount = 5;
 
   if (rows.length > visibleCount) {
-    rows.forEach((row, index) => {
-      if (index >= visibleCount) {
-        row.classList.add("hidden");
-      }
-    });
+    const visibleHeight = [...rows]
+      .slice(0, visibleCount)
+      .reduce((sum, row) => sum + row.offsetHeight, 0);
+
+    rowsContainer.style.maxHeight = `${visibleHeight}px`;
 
     let isOpen = false;
 
@@ -555,11 +556,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       isOpen = !isOpen;
 
-      rows.forEach((row, index) => {
-        if (index >= visibleCount) {
-          row.classList.toggle("hidden", !isOpen);
-        }
-      });
+      if (isOpen) {
+        rowsContainer.style.maxHeight = rowsContainer.scrollHeight + "px";
+      } else {
+        rowsContainer.style.maxHeight = `${visibleHeight}px`;
+      }
 
       item.classList.toggle("is-open", isOpen);
     });
