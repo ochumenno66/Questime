@@ -1784,6 +1784,7 @@ nav a::after {
 
 .testimonials__carousel--few .swiper-wrapper {
   justify-content: center;
+  gap: 24px;
 }
 
 .testimonials__carousel--single .testimonials__photo {
@@ -2833,6 +2834,8 @@ body.modal-open {
 .experience__col--text ul li {
   position: relative;
   padding-left: 32px;
+  font-size: var(--font-secondary);
+  margin-bottom: clamp(16px, 1.64vw, 24px);
 }
 
 .experience__col--text ul li::before {
@@ -2896,6 +2899,8 @@ body.modal-open {
 
 .experience__p {
   margin: 0 0 20px;
+  font-size: var(--font-secondary);
+  line-height: 160%;
 }
 
 .experience__p:last-child {
@@ -4464,7 +4469,8 @@ body.modal-open {
   gap: clamp(16px, 3.28vw, 48px);
 }
 
-.hero-gt--img {
+.hero-gt--img,
+.hero-tb--img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -4516,6 +4522,7 @@ body.modal-open {
   margin-top: 32px;
 }
 
+.hero-tb__reviews,
 .hero-gt__reviews {
   padding: 16px 32px;
 }
@@ -6556,8 +6563,14 @@ body.modal-open {
 
   /* Страница Team building */
   /* HERO */
-  .hero-tb__title {
-    font-size: 21px;
+  .hero-tb__content,
+  .hero-gt__content {
+    margin-top: 0;
+  }
+
+  .hero-tb__title,
+  .hero-gt__title {
+    font-size: 23px;
   }
 
   /* Event page */
@@ -6722,7 +6735,8 @@ body.modal-open {
     padding: 4px 11px;
   }
 
-  .hero-gt__reviews {
+  .hero-gt__reviews,
+  .hero-tb__reviews {
     padding: 2px 16px;
   }
 
