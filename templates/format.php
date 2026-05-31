@@ -24,17 +24,6 @@
                               </h4>
                           <?php endif; ?>
 
-                          <span class="persons__chevron">
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                  <path
-                                      d="M31.6663 15L19.9997 25L8.33301 15"
-                                      stroke="#191A18"
-                                      stroke-width="2.5"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round" />
-                              </svg>
-                          </span>
-
                       </button>
 
                       <div class="persons__answer">
@@ -176,17 +165,6 @@
                                   <?php the_field('demo_title'); ?>
                               </h4>
                           <?php endif; ?>
-
-                          <span class="persons__chevron">
-                              <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                                  <path
-                                      d="M31.6663 15L19.9997 25L8.33301 15"
-                                      stroke="#191A18"
-                                      stroke-width="2.5"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round" />
-                              </svg>
-                          </span>
 
                       </button>
 
