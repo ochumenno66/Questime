@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".testimonials__carousel");
 
     if (!carousel) return;
-    
+
     const slidesCount = Number(carousel.dataset.count);
     const isSliderEnabled = window.innerWidth > 479 && slidesCount >= 5;
 
@@ -534,45 +534,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //Persons and Format
-  const personsLists = document.querySelectorAll(".persons__list");
+  //Persons
+  const rows = document.querySelectorAll(".persons__row");
+  const item = document.querySelector(".persons__item");
+  const btn = document.querySelector(".persons__question");
 
-  personsLists.forEach((persons) => {
-    const item = persons.querySelector(".persons__item");
+  const visibleCount = 5;
 
-    if (!item) return;
-
-    const btn = item.querySelector(".persons__question");
-    const answer = item.querySelector(".persons__answer");
-
-    if (!btn || !answer) return;
-
-    function openItem() {
-      item.classList.add("is-open");
-      btn.setAttribute("aria-expanded", "true");
-      answer.style.maxHeight = answer.scrollHeight + "px";
-    }
-
-    function closeItem() {
-      item.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      answer.style.maxHeight = null;
-    }
-
-    if (item.classList.contains("is-open")) {
-      openItem();
-    }
-
-    btn.addEventListener("click", () => {
-      const isOpen = item.classList.contains("is-open");
-
-      if (isOpen) {
-        closeItem();
-      } else {
-        openItem();
+  if (rows.length > visibleCount) {
+    rows.forEach((row, index) => {
+      if (index >= visibleCount) {
+        row.classList.add("hidden");
       }
     });
-  });
+
+    let isOpen = false;
+
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      isOpen = !isOpen;
+
+      rows.forEach((row, index) => {
+        if (index >= visibleCount) {
+          row.classList.toggle("hidden", !isOpen);
+        }
+      });
+
+      item.classList.toggle("is-open", isOpen);
+    });
+  }
 
   /* Выпадающий список в блоке projects на странице Custom Games */
   const cards = document.querySelectorAll(".projects-card");
