@@ -79,7 +79,7 @@ get_header(); ?>
 
           <div class="persons__dot"></div>
 
-          <div class="persons__item is-open">
+          <div class="persons__item">
 
             <button class="persons__question" aria-expanded="true">
 
@@ -120,7 +120,7 @@ get_header(); ?>
               <div class="persons__rows">
 
                 <?php
-                for ($i = 1; $i <= 4; $i++) :
+                for ($i = 1; $i <= 30; $i++) :
 
                   $name = get_field("person_{$i}_name");
                   $desc = get_field("person_{$i}_desc");

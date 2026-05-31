@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const carousel = document.querySelector(".testimonials__carousel");
 
     if (!carousel) return;
-    
+
     const slidesCount = Number(carousel.dataset.count);
     const isSliderEnabled = window.innerWidth > 479 && slidesCount >= 5;
 
@@ -534,45 +534,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //Persons and Format
-  const personsLists = document.querySelectorAll(".persons__list");
+  //Persons
+  const rows = document.querySelectorAll(".persons__row");
+  const item = document.querySelector(".persons__item");
+  const btn = document.querySelector(".persons__question");
+  const rowsContainer = document.querySelector(".persons__rows");
 
-  personsLists.forEach((persons) => {
-    const item = persons.querySelector(".persons__item");
+  const visibleCount = 5;
 
-    if (!item) return;
+  if (rows.length > visibleCount) {
+    const visibleHeight = [...rows]
+      .slice(0, visibleCount)
+      .reduce((sum, row) => sum + row.offsetHeight, 0);
 
-    const btn = item.querySelector(".persons__question");
-    const answer = item.querySelector(".persons__answer");
+    rowsContainer.style.maxHeight = `${visibleHeight}px`;
 
-    if (!btn || !answer) return;
+    let isOpen = false;
 
-    function openItem() {
-      item.classList.add("is-open");
-      btn.setAttribute("aria-expanded", "true");
-      answer.style.maxHeight = answer.scrollHeight + "px";
-    }
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    function closeItem() {
-      item.classList.remove("is-open");
-      btn.setAttribute("aria-expanded", "false");
-      answer.style.maxHeight = null;
-    }
-
-    if (item.classList.contains("is-open")) {
-      openItem();
-    }
-
-    btn.addEventListener("click", () => {
-      const isOpen = item.classList.contains("is-open");
+      isOpen = !isOpen;
 
       if (isOpen) {
-        closeItem();
+        rowsContainer.style.maxHeight = rowsContainer.scrollHeight + "px";
       } else {
-        openItem();
+        rowsContainer.style.maxHeight = `${visibleHeight}px`;
       }
+
+      item.classList.toggle("is-open", isOpen);
     });
-  });
+  }
 
   /* Выпадающий список в блоке projects на странице Custom Games */
   const cards = document.querySelectorAll(".projects-card");
