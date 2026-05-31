@@ -20,7 +20,7 @@ $cg_bg = get_field('cg_hero_bg') ?: get_template_directory_uri() . '/assets/imag
 // First block — данные из ACF
 $label_1            = get_field('label_1')   ?: 'Team';
 $text_1             = get_field('text_1')    ?: 'Our team includes experienced <strong>writers, game designers, illustrators, sound designers, and specialists in chatbots and online games</strong> — everything needed to turn an idea into a complete experience.';
-$scroll_bg_1        = get_field('scroll_background_1') ?: get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
+$scroll_bg_1        = get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
 $label_border_1     = get_field('label_border_1') ?: get_template_directory_uri() . '/assets/icons/border-team-CG.svg';
 $polaroid_bg_1      = get_field('polaroid_background_1') ?: get_template_directory_uri() . '/assets/images/polaroid-1-cg.png';
 $photo_1            = get_field('photo_1')  ?: get_template_directory_uri() . '/assets/images/custom-games/company-1-cg.png';
@@ -29,10 +29,10 @@ $polaroid_caption_1 = get_field('polaroid_caption_1') ?: 'The Great Silent Era';
 // Second block — данные из ACF
 $label_2            = get_field('label_2')   ?: 'Experience';
 $text_2             = get_field('text_2')    ?: 'Since <strong>2013</strong>, we have delivered <strong>150+ custom projects</strong> for clients across a wide range of industries, formats and genres.';
-$scroll_bg_2 = get_field('scroll_background_2') ?: get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
-$label_border_2 = get_field('label_border_2') ?: get_template_directory_uri() . '/assets/icons/border-experience-CG.svg';
-$polaroid_bg_2 = get_field('polaroid_background_2') ?: get_template_directory_uri() . '/assets/images/polaroid-2-cg.png';
-$photo_2 = get_field('photo_2') ?: get_template_directory_uri() . '/assets/images/custom-games/company-2-cg.png';
+$scroll_bg_2        = get_template_directory_uri() . '/assets/images/roll-CG-AU.webp';
+$label_border_2     = get_field('label_border_2') ?: get_template_directory_uri() . '/assets/icons/border-experience-CG.svg';
+$polaroid_bg_2      = get_field('polaroid_background_2') ?: get_template_directory_uri() . '/assets/images/polaroid-2-cg.png';
+$photo_2            = get_field('photo_2') ?: get_template_directory_uri() . '/assets/images/custom-games/company-2-cg.png';
 $polaroid_caption_2 = get_field('polaroid_caption_2') ?: 'Monopoly: The Golden Age of Amsterdam';
 
 // Projects (Cases) — данные из ACF
