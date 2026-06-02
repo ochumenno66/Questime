@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
 function showSuccess(form) {
+  console.log("SUCCESS", form);
   const successElement =
     form.parentElement.querySelector(".js-form-success");
   if (!successElement) return;
@@ -126,6 +127,22 @@ function showSuccess(form) {
       form.classList.remove("is-hidden");
       successElement.hidden = true;
     }, 5000);
+  }
+
+  // MODAL WINDOW
+  if (formType === "modal") {
+  const modalDesc = document.getElementById("modalDesc");
+  const modalSuccess = document.getElementById("modalSuccess");
+
+  form.hidden = true;
+
+  if (modalDesc) {
+    modalDesc.hidden = true;
+  }
+
+  if (modalSuccess) {
+    modalSuccess.hidden = false;
+  }
   }
 }
 

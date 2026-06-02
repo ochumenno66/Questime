@@ -118,9 +118,9 @@ $projects_cta_file     = get_field('projects_cta_file');
             </div>
           </div>
           <div class="company__polaroid company__polaroid--1">
-            <img class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_1); ?>" alt="">
+            <img class="company__polaroid-bg" src="<?php echo esc_url($polaroid_bg_1); ?>" alt="Polaroid">
             <div class="company__polaroid-content company__polaroid-content--right">
-              <img class="company__polaroid-img company__polaroid-img--right" src="<?php echo esc_url($photo_1); ?>" alt="">
+              <img class="company__polaroid-img company__polaroid-img--right" src="<?php echo esc_url($photo_1); ?>" alt="Image">
               <p class="company__polaroid-caption--right">
                 <?php echo esc_html($polaroid_caption_1); ?>
               </p>
@@ -158,7 +158,7 @@ $projects_cta_file     = get_field('projects_cta_file');
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Projects (Cases) -->
   <?php if (get_field('show_projects')) : ?>
-    <section class="projects projects-border-1 projects-border-2" id="projects">
+    <section class="projects projects-border-1 projects-border-2 section-special" id="projects">
       <div class="projects__scene container">
         <?php $categories = get_terms([
           'taxonomy'   => 'case_category',

@@ -53,7 +53,7 @@ if ($show_experience_section):
                     <?php if ($row['reverse'] && $row['image']): ?>
                         <div class="experience__col--img">
                             <div class="experience__img-wrapper">
-                                <img src="<?php echo esc_url($row['image']); ?>" alt="" class="experience__img" loading="lazy" decoding="async">
+                                <img src="<?php echo esc_url($row['image']); ?>" alt="Image" class="experience__img" loading="lazy" decoding="async">
                             </div>
                         </div>
                     <?php endif; ?>
@@ -65,7 +65,7 @@ if ($show_experience_section):
                     <?php if (!$row['reverse'] && $row['image']): ?>
                         <div class="experience__col--img">
                             <div class="experience__img-wrapper">
-                                <img src="<?php echo esc_url($row['image']); ?>" alt="" class="experience__img" loading="lazy" decoding="async">
+                                <img src="<?php echo esc_url($row['image']); ?>" alt="Image" class="experience__img" loading="lazy" decoding="async">
                             </div>
                         </div>
                     <?php endif; ?>
