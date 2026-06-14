@@ -41,7 +41,7 @@ $has_btn = !empty($presentation);
 
     <?php if ($has_btn) : ?>
         </div>
-        <a href="<?php echo esc_url($presentation); ?>" download class="btn btn-secondary btn-download btn--transparent">
+        <a href="<?php echo esc_url($presentation); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-download btn--transparent">
         <span>Download Our Presentation</span>
         </a>
     </div>
