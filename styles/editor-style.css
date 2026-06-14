@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "Lora";
+  src:
+    url("../assets/fonts/Lora/Lora-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Lora/Lora-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lora";
+  src:
+    url("../assets/fonts/Lora/Lora-Bold.woff2") format("woff2"),
+    url("../assets/fonts/Lora/Lora-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Шрифты */
+  /* Шрифт для инпутов меню */
+  --font-family: "Lora", sans-serif;
+
+  /* Шрифты */
+  --font-secondary: clamp(16px, 1.64vw, 24px);
+
+  /* Цвета */
+  --color-bg: #f9f9ef;
+  --color-text: #191a18;
+  --color-orange: #d75300;
+}
+
+.text-orange {
+  color: var(--color-orange);
+  text-decoration: none;
+  cursor: default;
+  pointer-events: none;
+}
+.text-dark {
+  color: var(--color-text);
+}
+.text-white {
+  color: var(--color-bg);
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.experience__p {
+  margin: 0 0 20px;
+  font-size: var(--font-secondary);
+  line-height: 160%;
+  text-align: left;
+}
+.experience__gains-title {
+  font-size: var(--font-secondary);
+  font-family: var(--font-family);
+  margin: 0 0 clamp(10px, 1.09vw, 16px);
+}

@@ -775,3 +775,13 @@ function questime_tinymce_styles($init_array)
 }
 
 add_filter('tiny_mce_before_init', 'questime_tinymce_styles');
+
+add_filter('tiny_mce_before_init', 'questime_tinymce_styles');
+
+
+function questime_editor_styles()
+{
+    add_editor_style('styles/editor-style.css');
+}
+
+add_action('after_setup_theme', 'questime_editor_styles');

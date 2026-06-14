@@ -2901,6 +2901,7 @@ body.modal-open {
   margin: 0 0 20px;
   font-size: var(--font-secondary);
   line-height: 160%;
+  text-align: left;
 }
 
 .experience__p:last-child {
@@ -5389,10 +5390,6 @@ body.modal-open {
     max-width: none;
   }
 
-  .experience__p {
-    text-align: left;
-  }
-
   .experience__gains-title {
     text-align: left;
     text-transform: uppercase;
@@ -6321,6 +6318,7 @@ body.modal-open {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 24px;
   }
 
   .testimonials__card {
