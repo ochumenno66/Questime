@@ -86,7 +86,8 @@ $instagram_alt      = get_theme_mod('instagram_alt');
           <?php if ($au_pdf) : ?>
             <a
               href="<?php echo esc_url($au_pdf); ?>"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-secondary btn-download btn--transparent">
               <?php echo esc_html($au_btn2_text); ?>
             </a>
