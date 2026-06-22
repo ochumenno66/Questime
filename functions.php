@@ -780,6 +780,30 @@ function questime_tinymce_styles($init_array)
             'block' => 'h3',
             'classes' => 'experience__gains-title',
             'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy заголовок h2',
+            'block' => 'h2',
+            'classes' => 'privacy-title',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy заголовок h3',
+            'block' => 'h3',
+            'classes' => 'privacy-subtitle',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy Paragraph',
+            'block' => 'p',
+            'classes' => 'privacy-p',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy разделитель',
+            'block' => 'hr',
+            'classes' => 'divider',
+            'wrapper' => false,
         ]
     ];
 

@@ -2340,19 +2340,20 @@ body.modal-open {
 
 /* Privacy */
 .privacy-content {
-  margin: 50px 0;
+  margin-top: var(--tear-height);
+  margin-bottom: var(--tear-height);
 }
 
-.privacy-content h2 {
+.privacy-title {
   margin-bottom: 15px;
   line-height: 1.4;
 }
 
-.privacy-content h3 {
+.privacy-subtitle {
   margin: 20px 0 10px;
 }
 
-.privacy-content p {
+.privacy-p {
   margin-bottom: 12px;
 }
 
