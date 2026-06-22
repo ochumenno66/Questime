@@ -1718,11 +1718,13 @@ nav a::after {
   width: 340px;
 }
 
-.testimonials__card--photo-vertical {
+.testimonials__card--photo-vertical,
+.testimonials__card--video-vertical {
   width: 290px;
 }
 
-.testimonials__card--photo-horizontal {
+.testimonials__card--photo-horizontal,
+.testimonials__card--video-horizontal {
   width: 360px;
 }
 
@@ -1815,11 +1817,22 @@ nav a::after {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.video-modal--horizontal .video-modal__content {
   width: min(90vw, 900px);
+  max-height: 90vh;
+}
+
+.video-modal--vertical .video-modal__content {
+  width: min(90vw, 420px);
+  max-height: 90vh;
 }
 
 .video-modal__video {
+  display: block;
   width: 100%;
+  max-height: 90vh;
   border-radius: 24px;
 }
 
@@ -6342,6 +6355,10 @@ body.modal-open {
 
   .testimonials__footer {
     margin-top: 32px;
+  }
+
+  .video-modal--vertical .video-modal__content {
+    width: min(90vw, 380px);
   }
 
   /* Form */
