@@ -70,6 +70,8 @@ get_header(); ?>
       </div>
     </section>
   <?php endif; ?>
+  <!-- Секция Video -->
+  <?php get_template_part('templates/video-banner'); ?>
   <!-- Секция Persons -->
   <?php if (get_field('show_persons_section')) : ?>
 
