@@ -598,6 +598,19 @@ add_action('init', function () {
         'show_in_rest' => true,
     ]);
 
+    //Убираем поле описание для категории кейса
+    add_action('admin_head', function () {
+        $screen = get_current_screen();
+
+        if ($screen && $screen->taxonomy === 'case_category') {
+            echo '<style>
+                .term-description-wrap {
+                    display: none !important;
+                }
+            </style>';
+        }
+    });
+
     // Таксономия категорий кейсов
     register_taxonomy('case_category', 'quest_case', [
         'labels' => [
