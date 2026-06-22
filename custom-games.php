@@ -74,7 +74,7 @@ $projects_cta_file     = get_field('projects_cta_file');
 
           <button
             type="button"
-            class="btn btn-secondary btn--orange"
+            class="btn btn-secondary btn--orange open-modal"
             data-modal="request">
             <?php echo esc_html($cg_btn1_text); ?>
           </button>
@@ -82,7 +82,8 @@ $projects_cta_file     = get_field('projects_cta_file');
           <?php if ($cg_pdf) : ?>
             <a
               href="<?php echo esc_url($cg_pdf); ?>"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               class="btn btn-secondary btn-download btn--transparent">
               <?php echo esc_html($cg_btn2_text); ?>
             </a>
