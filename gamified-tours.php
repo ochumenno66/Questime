@@ -128,7 +128,7 @@ get_header(); ?>
     </section>
   <?php endif; ?>
   <!-- Секция Quests -->
-  <?php get_template_part('templates/quests'); ?>
+  <?php get_template_part('templates/quests', null, ['category' => 'gamified-tours']); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Testimonials -->

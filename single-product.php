@@ -166,7 +166,7 @@ get_header(); ?>
   <!-- Секция CTA -->
   <?php get_template_part('templates/cta'); ?>
   <!-- Секция Quests -->
-  <?php get_template_part('templates/quests'); ?>
+  <?php get_template_part('templates/quests', null, ['category' => 'related']); ?>
   <!-- Секция Form -->
   <?php get_template_part('templates/contact-form', null, ['type' => 'default']); ?>
 </main>

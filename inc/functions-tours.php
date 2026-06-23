@@ -127,6 +127,34 @@ function register_tour_acf_fields()
             [['param' => 'post_type', 'operator' => '==', 'value' => 'tour']],
         ],
     ]);
+
+    // ACF-поля для товара (product): блок You may also like
+    acf_add_local_field_group([
+        'key'    => 'group_product_quests_fields',
+        'title'  => 'You may also like',
+        'fields' => [
+            [
+                'key'           => 'field_quests_related_heading',
+                'label'         => 'Заголовок секции',
+                'name'          => 'quests_related_heading',
+                'type'          => 'text',
+                'default_value' => 'You may also like',
+            ],
+            [
+                'key'           => 'field_quests_related_products',
+                'label'         => 'Похожие квесты',
+                'name'          => 'quests_related_products',
+                'type'          => 'post_object',
+                'post_type'     => ['product'],
+                'return_format' => 'object',
+                'multiple'      => 1,
+                'ui'            => 1,
+            ],
+        ],
+        'location' => [
+            [['param' => 'post_type', 'operator' => '==', 'value' => 'product']],
+        ],
+    ]);
 }
 
 
@@ -507,3 +535,60 @@ function ajax_tour_get_info()
         'seats' => tour_get_seats_info($tour_id),
     ]);
 }
+
+// 9. ЗАЩИТА ОТ ДУБЛЕЙ ЭКСКУРСИЙ
+// Один товар может быть в нескольких категориях (gamified-tours, corporate-events),
+// но экскурсия (tour) должна создаваться только одна на конкретную дату+время+товар.
+// При сохранении экскурсии проверяем: нет ли уже другой экскурсии для того же товара
+// с той же датой и временем. Если есть — показываем предупреждение в админке.
+ 
+add_action('acf/save_post', function ($post_id) {
+    if (get_post_type($post_id) !== 'tour') return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+ 
+    $product_raw = get_field('tour_product', $post_id);
+    $product_id  = is_object($product_raw) ? (int) $product_raw->ID : (int) $product_raw;
+    $tour_date   = get_field('tour_date', $post_id);
+    $tour_time   = get_field('tour_time', $post_id);
+ 
+    if (!$product_id || !$tour_date) return;
+ 
+    // Ищем другие экскурсии для того же товара с той же датой и временем
+    $duplicates = get_posts([
+        'post_type'      => 'tour',
+        'post_status'    => ['publish', 'draft', 'pending'],
+        'posts_per_page' => -1,
+        'post__not_in'   => [$post_id],
+        'meta_query'     => [
+            'relation' => 'AND',
+            ['key' => 'tour_product', 'value' => $product_id],
+            ['key' => 'tour_date',    'value' => $tour_date],
+            ['key' => 'tour_time',    'value' => $tour_time],
+        ],
+    ]);
+
+    if (!empty($duplicates)) {
+        // Добавляем уведомление в adminbar через transient
+        $product_title = get_the_title($product_id);
+        set_transient(
+            'tour_duplicate_warning_' . get_current_user_id(),
+            sprintf(
+                'Внимание: для товара "%s" уже существует экскурсия на %s в %s (ID: %s). Проверьте, не создаёте ли вы дубль.',
+                $product_title,
+                $tour_date,
+                $tour_time,
+                implode(', ', array_column($duplicates, 'ID'))
+            ),
+            60
+        );
+    }
+}, 20);
+
+// Показываем предупреждение о дубле в админке
+add_action('admin_notices', function () {
+    $msg = get_transient('tour_duplicate_warning_' . get_current_user_id());
+    if ($msg) {
+        delete_transient('tour_duplicate_warning_' . get_current_user_id());
+        echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html($msg) . '</p></div>';
+    }
+});

@@ -488,10 +488,43 @@ function questime_breadcrumbs(): void
     // WooCommerce: страница товара
     // Main → Gamified Tours → Название товара
     if (function_exists('is_product') && is_product()) {
-        echo $sep;
-        echo '<a href="' . esc_url(home_url('/gamified-tours/')) . '" class="breadcrumb__link">Gamified Tours</a>';
-        echo $sep;
-        echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
+    $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+    $home    = home_url('/');
+
+    $cat_map = [
+        'gamified-tours' => ['label' => 'Gamified Tours',  'url' => home_url('/gamified-tours/')],
+        'team-building'  => ['label' => 'Corporate Events', 'url' => home_url('/team-building/')],
+    ];
+
+    $crumb = null;
+
+    foreach ($cat_map as $slug => $data) {
+        if (strpos($referer, '/' . $slug . '/') !== false) {
+            $crumb = $data;
+            break;
+        }
+    }
+
+    if (!$crumb) {
+        $terms = get_the_terms(get_the_ID(), 'product_cat');
+        if (!empty($terms) && !is_wp_error($terms)) {
+            foreach ($terms as $term) {
+                if (isset($cat_map[$term->slug])) {
+                    $crumb = $cat_map[$term->slug];
+                    break;
+                }
+            }
+        }
+    }
+
+    if (!$crumb) {
+        $crumb = $cat_map['gamified-tours'];
+    }
+
+    echo $sep;
+    echo '<a href="' . esc_url($crumb['url']) . '" class="breadcrumb__link">' . esc_html($crumb['label']) . '</a>';
+    echo $sep;
+    echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
 
         // CPT: Кейсы
         // Main → Custom Games → Название кейса
