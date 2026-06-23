@@ -61,6 +61,7 @@
                                               <div class="quest-card__image">
                                                   <img src="<?php echo esc_url($thumbnail_url); ?>" alt="<?php echo esc_attr($title); ?>" loading="lazy" />
                                                   <span class="quest-card__image-corner"></span>
+                                                  <span class="quest-card__image-corner2"></span>
                                               </div>
                                           </a>
                                       </div>
