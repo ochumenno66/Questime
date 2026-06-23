@@ -1098,6 +1098,11 @@ nav a::after {
   object-fit: cover;
   display: block;
   filter: sepia(0.7) contrast(1.1) brightness(0.9);
+  transition: filter 0.3s ease;
+}
+
+.quest-card__image-link:hover .quest-card__image img {
+  filter: none;
 }
 
 .quest-card__image-corner::before {
