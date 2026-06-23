@@ -6181,7 +6181,7 @@ body.modal-open {
   .quest-card {
     padding: 12px;
     border-radius: 24px;
-    background: rgba(229, 131, 69, 0.15);
+    background: #f7e7d6;
   }
 
   .quest-card__top {
@@ -6198,7 +6198,7 @@ body.modal-open {
   .quest-card__image::after,
   .quest-card__image-corner::before,
   .quest-card__image-corner::after {
-    background: rgba(229, 131, 69, 0.15);
+    background: #f7e7d6;
   }
 
   .quest-card__top-text {
