@@ -11,7 +11,7 @@ function initRouteMap() {
 
   routeMap = new google.maps.Map(document.getElementById("map"), {
     center,
-    zoom: 13,
+    zoom: 16,
     mapTypeControl: false,
     streetViewControl: false,
     fullscreenControl: false,
@@ -19,6 +19,16 @@ function initRouteMap() {
       { featureType: "poi", elementType: "labels", stylers: [{ visibility: "off" }] }
     ]
   });
+
+  if (routePoints.length > 1) {
+    const bounds = new google.maps.LatLngBounds();
+    routePoints.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
+    routeMap.fitBounds(bounds, 60);
+
+    google.maps.event.addListenerOnce(routeMap, "bounds_changed", function () {
+      if (routeMap.getZoom() > 17) routeMap.setZoom(17);
+    });
+  }
 
   const list = document.getElementById("routePointList");
 
