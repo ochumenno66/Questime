@@ -151,6 +151,11 @@ get_header(); ?>
                       <p class="schedule__desc-text"><?= esc_html($excerpt) ?></p>
                     <?php endif; ?>
 
+                    <?php $meeting_point = get_field('tour_meeting_point', $tour->ID); ?>
+                    <?php if ($meeting_point) : ?>
+                      <p class="schedule__meeting-place"><?= esc_html($meeting_point) ?></p>
+                    <?php endif; ?>
+
                     <div class="schedule__price-wrapper">
 
                       <?php if ($sold_out) : ?>
