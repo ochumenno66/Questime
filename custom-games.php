@@ -227,7 +227,7 @@ $projects_cta_file     = get_field('projects_cta_file');
                   <?php echo esc_html($projects_cta_text); ?>
                 </p>
               <?php endif; ?>
-              <a href="<?php echo esc_url($projects_cta_file); ?>" class="btn btn-secondary btn-projects btn--orange" target="_blank" download>
+              <a href="<?php echo esc_url($projects_cta_file); ?>" class="btn btn-secondary btn-projects btn--orange" target="_blank" rel="noopener noreferrer">
                 <?php echo esc_html($projects_cta_btn_text ?: 'Download'); ?>
               </a>
             </div>

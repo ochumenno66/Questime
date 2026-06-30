@@ -52,17 +52,30 @@ if (get_field('show_testimonials')) :
                 <?php foreach ($filled_cards as $card) :
                     $text = $card['text'] ?? '';
                     $image = $card['image'] ?? '';
-                    $video = $card['video'] ?? '';
+                    $video_horizontal = $card['video_horizontal'] ?? '';
+                    $video_vertical = $card['video_vertical'] ?? '';
                     $avatar = $card['avatar'] ?? '';
                     $name = $card['name'] ?? '';
                     $has_image = !empty($image);
-                    $has_video = !empty($video);
+                    $is_horizontal = !empty($video_horizontal);
+                    $is_vertical = !empty($video_vertical);
+                    $has_video = $is_horizontal || $is_vertical;
+                    $video_url = '';
+                    if ($is_horizontal) {
+                        $video_url = $video_horizontal['url'];
+                    }
+                    if ($is_vertical) {
+                        $video_url = $video_vertical['url'];
+                    }
                     $card_class = 'testimonials__card--text';
                     if ($has_image) {
                         $card_class = 'testimonials__card--photo-vertical';
                     }
-                    if ($has_video) {
-                        $card_class = 'testimonials__card--photo-horizontal';
+                    if ($is_horizontal) {
+                        $card_class = 'testimonials__card--video-horizontal';
+                    }
+                    if ($is_vertical) {
+                        $card_class = 'testimonials__card--video-vertical';
                     }
                 ?>
                     <div class="testimonials__card <?php echo $card_class; ?> swiper-slide">
@@ -80,7 +93,8 @@ if (get_field('show_testimonials')) :
                         <?php if ($has_video) : ?>
                             <div
                                 class="testimonials__video-preview"
-                                data-video="<?php echo esc_url($video['url']); ?>">
+                                data-video="<?php echo esc_url($video_url); ?>"
+                                data-video-type="<?php echo $is_vertical ? 'vertical' : 'horizontal'; ?>">
                                 <?php if ($image) : ?>
                                     <img
                                         src="<?php echo esc_url($image['url']); ?>"
