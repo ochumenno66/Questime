@@ -155,6 +155,32 @@ function register_tour_acf_fields()
             [['param' => 'post_type', 'operator' => '==', 'value' => 'product']],
         ],
     ]);
+    // ACF-поля для главной страницы: блок Quests на главной
+    acf_add_local_field_group([
+        'key'    => 'group_home_quests_fields',
+        'title'  => 'Квесты на главной странице',
+        'fields' => [
+            [
+                'key'          => 'field_home_quests_heading',
+                'label'        => 'Заголовок секции',
+                'name'         => 'home_quests_heading',
+                'type'         => 'text',
+            ],
+            [
+                'key'           => 'field_home_quests_products',
+                'label'         => 'Квесты для показа на главной',
+                'name'          => 'home_quests_products',
+                'type'          => 'post_object',
+                'post_type'     => ['product'],
+                'return_format' => 'object',
+                'multiple'      => 1,
+                'ui'            => 1,
+            ],
+        ],
+        'location' => [
+            [['param' => 'page_type', 'operator' => '==', 'value' => 'front_page']],
+        ],
+    ]);
 }
 
 

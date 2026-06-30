@@ -16,9 +16,10 @@
  *   get_template_part('templates/quests', null, ['category' => 'related']);          // You may also like
  */
 
-$_ctx      = isset($args) && is_array($args) ? $args : [];
-$_category = isset($_ctx['category']) ? $_ctx['category'] : 'gamified-tours';
+$_ctx        = isset($args) && is_array($args) ? $args : [];
+$_category   = isset($_ctx['category']) ? $_ctx['category'] : 'gamified-tours';
 $_is_related = ($_category === 'related');
+$_is_home    = ($_category === 'home');
 
 // --- Вспомогательная функция: есть ли у товара активная будущая экскурсия ---
 if (!function_exists('_questime_product_has_active_tour')) {
@@ -44,8 +45,9 @@ if (!function_exists('_questime_product_has_active_tour')) {
 
 // --- Заголовок секции ---
 if ($_is_related) {
-    // "You may also like" — заголовок из ACF или дефолт
     $section_heading = get_field('quests_related_heading') ?: 'You may also like';
+} elseif ($_is_home) {
+    $section_heading = get_field('home_quests_heading', 'option') ?: (get_field('home_quests_heading') ?: '');
 } else {
     $section_heading = get_field('quests_heading') ?: '';
 }
@@ -63,6 +65,16 @@ if ($_is_related) {
     $quest_posts = [];
     if (!empty($related_raw) && is_array($related_raw)) {
         foreach ($related_raw as $item) {
+            $quest_posts[] = is_object($item) ? $item : get_post((int)$item);
+        }
+        $quest_posts = array_filter($quest_posts);
+    }
+    $has_posts = !empty($quest_posts);
+} elseif ($_is_home) {
+    $home_raw = get_field('home_quests_products', get_the_ID());
+    $quest_posts = [];
+    if (!empty($home_raw) && is_array($home_raw)) {
+        foreach ($home_raw as $item) {
             $quest_posts[] = is_object($item) ? $item : get_post((int)$item);
         }
         $quest_posts = array_filter($quest_posts);
@@ -101,7 +113,7 @@ if ($_is_related) {
                     <?php if ($has_posts) :
                         // Если запрос через WP_Query — нужно перебрать через loop
                         // Если related — у нас уже массив WP_Post
-                        if (!$_is_related) {
+                        if (!$_is_related && !$_is_home) {
                             // Сбросим query и будем использовать posts напрямую
                             wp_reset_postdata();
                         }
