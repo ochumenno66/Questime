@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const progress = Math.min(elapsed / duration, 1);
 
       counters.forEach((counter) => {
-        const target = +counter.dataset.target.replace(/\s/g, "");
+        const target = parseFloat(counter.dataset.target.replace(/[^\d.]/g, ""));
         counter.textContent = Math.floor(target * progress).toLocaleString();
       });
 
