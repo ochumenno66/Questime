@@ -90,7 +90,7 @@ $tb_btn_text      = get_field('tb_hero_btn_text');
   <!-- Секция Stats -->
   <?php get_template_part('templates/stats'); ?>
   <!-- Секция Quests -->
-  <?php get_template_part('templates/quests'); ?>
+  <?php get_template_part('templates/quests', null, ['category' => 'corporate-events']); ?>
   <!-- Секция Gallery -->
   <?php get_template_part('templates/gallery'); ?>
   <!-- Секция Testimonials -->
