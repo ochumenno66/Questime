@@ -598,6 +598,19 @@ add_action('init', function () {
         'show_in_rest' => true,
     ]);
 
+    //Убираем поле описание для категории кейса
+    add_action('admin_head', function () {
+        $screen = get_current_screen();
+
+        if ($screen && $screen->taxonomy === 'case_category') {
+            echo '<style>
+                .term-description-wrap {
+                    display: none !important;
+                }
+            </style>';
+        }
+    });
+
     // Таксономия категорий кейсов
     register_taxonomy('case_category', 'quest_case', [
         'labels' => [
@@ -766,6 +779,30 @@ function questime_tinymce_styles($init_array)
             'title' => 'Experience Row title (orange h3)',
             'block' => 'h3',
             'classes' => 'experience__gains-title',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy заголовок h2',
+            'block' => 'h2',
+            'classes' => 'privacy-title',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy заголовок h3',
+            'block' => 'h3',
+            'classes' => 'privacy-subtitle',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy Paragraph',
+            'block' => 'p',
+            'classes' => 'privacy-p',
+            'wrapper' => false,
+        ],
+        [
+            'title' => 'Privacy Policy разделитель',
+            'block' => 'hr',
+            'classes' => 'divider',
             'wrapper' => false,
         ]
     ];

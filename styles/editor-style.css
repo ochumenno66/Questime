@@ -30,6 +30,7 @@
   --color-bg: #f9f9ef;
   --color-text: #191a18;
   --color-orange: #d75300;
+  --color-form-input: rgba(25, 26, 24, 0.5);
 }
 
 .text-orange {
@@ -57,4 +58,10 @@
   font-size: var(--font-secondary);
   font-family: var(--font-family);
   margin: 0 0 clamp(10px, 1.09vw, 16px);
+}
+.privacy-content hr,
+.divider {
+  margin: 46px 0;
+  border: 0;
+  border-top: 1px solid var(--color-form-input);
 }
