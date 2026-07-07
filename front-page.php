@@ -102,7 +102,7 @@ $arrow_svg = '<svg class="hero-card-arrow" width="18" height="17" viewBox="0 0 1
 
   </section>
   <!-- Секция Quests -->
-  <?php get_template_part('templates/quests'); ?>
+  <?php get_template_part('templates/quests', null, ['category' => 'home']); ?>
   <!-- Секция Services -->
   <section class="services section-special section-decorated-light section-decorated-dark" id="services">
     <?php

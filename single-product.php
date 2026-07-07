@@ -168,7 +168,12 @@ get_header(); ?>
   <!-- Секция CTA -->
   <?php get_template_part('templates/cta'); ?>
   <!-- Секция Quests -->
-  <?php get_template_part('templates/quests'); ?>
+  <?php
+  $_related_products = get_field('quests_related_products');
+  if (!empty($_related_products)) :
+  ?>
+      <?php get_template_part('templates/quests', null, ['category' => 'related']); ?>
+  <?php endif; ?>
   <!-- Секция Form -->
   <?php get_template_part('templates/contact-form', null, ['type' => 'default']); ?>
 </main>

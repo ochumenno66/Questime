@@ -152,52 +152,6 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'type' => 'text',
     ]);
 
-    /* 
-    $wp_customize->add_panel('questime_socials_panel', [
-        'title'    => 'Социальные сети',
-        'priority' => 30,
-    ]);
-
-    for ($i = 1; $i <= 4; $i++) {
-        $wp_customize->add_section("questime_social_{$i}", [
-            'title'    => "Соцсеть #{$i}",
-            'panel'    => 'questime_socials_panel',
-            'priority' => $i * 10,
-        ]);
-
-        $wp_customize->add_setting("social_{$i}_url", [
-            'default'           => '',
-            'sanitize_callback' => 'esc_url_raw',
-            'transport'         => 'refresh',
-        ]);
-        $wp_customize->add_control("social_{$i}_url", [
-            'label'   => 'Ссылка',
-            'section' => "questime_social_{$i}",
-            'type'    => 'url',
-        ]);
-
-        $wp_customize->add_setting("social_{$i}_icon", [
-            'default'           => '',
-            'sanitize_callback' => 'esc_url_raw',
-            'transport'         => 'refresh',
-        ]);
-        $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, "social_{$i}_icon", [
-            'label'   => 'Иконка (SVG / PNG)',
-            'section' => "questime_social_{$i}",
-        ]));
-
-        $wp_customize->add_setting("social_{$i}_alt", [
-            'default'           => '',
-            'sanitize_callback' => 'sanitize_text_field',
-            'transport'         => 'refresh',
-        ]);
-        $wp_customize->add_control("social_{$i}_alt", [
-            'label'   => 'Alt / название сети',
-            'section' => "questime_social_{$i}",
-            'type'    => 'text',
-        ]);
-    }*/
-
     // Контакты
     $wp_customize->add_section('questime_contacts_section', [
         'title'    => 'Контакты',
@@ -373,56 +327,6 @@ add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
         'section' => 'questime_modal_section',
         'type'    => 'textarea',
     ]);
-
-    // Cookie
-    $wp_customize->add_section('questime_cookie_section', [
-        'title'    => 'Cookie Banner',
-        'priority' => 34,
-    ]);
-
-    $wp_customize->add_setting('cookie_title', [
-        'default'           => 'We Care About Your Privacy',
-        'sanitize_callback' => 'sanitize_text_field',
-    ]);
-
-    $wp_customize->add_control('cookie_title', [
-        'label'   => 'Заголовок',
-        'section' => 'questime_cookie_section',
-        'type'    => 'text',
-    ]);
-
-    $wp_customize->add_setting('cookie_text', [
-        'default'           => '',
-        'sanitize_callback' => 'sanitize_textarea_field',
-    ]);
-
-    $wp_customize->add_control('cookie_text', [
-        'label'   => 'Текст',
-        'section' => 'questime_cookie_section',
-        'type'    => 'textarea',
-    ]);
-
-    $wp_customize->add_setting('cookie_accept_text', [
-        'default'           => 'OK',
-        'sanitize_callback' => 'sanitize_text_field',
-    ]);
-
-    $wp_customize->add_control('cookie_accept_text', [
-        'label'   => 'Текст кнопки согласия',
-        'section' => 'questime_cookie_section',
-        'type'    => 'text',
-    ]);
-
-    $wp_customize->add_setting('cookie_learn_more_text', [
-        'default'           => 'Learn more',
-        'sanitize_callback' => 'sanitize_text_field',
-    ]);
-
-    $wp_customize->add_control('cookie_learn_more_text', [
-        'label'   => 'Текст с политикой',
-        'section' => 'questime_cookie_section',
-        'type'    => 'text',
-    ]);
 });
 
 // ХЕЛПЕР: вывод иконок соцсетей — вызывается в header.php и footer.php
@@ -447,25 +351,6 @@ function questime_social_icons(): void
         );
     }
 }
-/*function questime_social_icons(): void
-{
-    for ($i = 1; $i <= 4; $i++) {
-        $url  = get_theme_mod("social_{$i}_url",  '');
-        $icon = get_theme_mod("social_{$i}_icon", '');
-        $alt  = get_theme_mod("social_{$i}_alt",  'social');
-
-        if (empty($url) || empty($icon)) {
-            continue;
-        }
-
-        printf(
-            '<a class="social-icon" href="%s" target="_blank" rel="noopener noreferrer"><img src="%s" alt="%s"></a>' . "\n",
-            esc_url($url),
-            esc_url($icon),
-            esc_attr($alt)
-        );
-    }
-}*/
 
 // ХЛЕБНЫЕ КРОШКИ — автоматические для любой страницы
 // Вызов: questime_breadcrumbs();
@@ -488,8 +373,56 @@ function questime_breadcrumbs(): void
     // WooCommerce: страница товара
     // Main → Gamified Tours → Название товара
     if (function_exists('is_product') && is_product()) {
+        $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
+
+        $cat_map = [
+            'gamified-tours' => ['label' => 'Gamified Tours',  'url' => home_url('/gamified-tours/')],
+            'corporate-events' => ['label' => 'Corporate Events', 'url' => home_url('/team-building/')],
+        ];
+
+        $crumb = null;
+
+        foreach ($cat_map as $slug => $data) {
+            if (strpos($referer, '/' . $slug . '/') !== false) {
+                $crumb = $data;
+                break;
+            }
+        }
+
+        if (!$crumb) {
+            // Сначала пробуем Primary category из Yoast SEO
+            if (class_exists('WPSEO_Primary_Term')) {
+                $primary_term_obj = new WPSEO_Primary_Term('product_cat', get_the_ID());
+                $primary_term_id  = $primary_term_obj->get_primary_term();
+
+                if ($primary_term_id) {
+                    $primary_term = get_term($primary_term_id, 'product_cat');
+                    if ($primary_term && !is_wp_error($primary_term) && isset($cat_map[$primary_term->slug])) {
+                        $crumb = $cat_map[$primary_term->slug];
+                    }
+                }
+            }
+        }
+
+        if (!$crumb) {
+            // Фолбэк: первая подходящая категория товара по порядку
+            $terms = get_the_terms(get_the_ID(), 'product_cat');
+            if (!empty($terms) && !is_wp_error($terms)) {
+                foreach ($terms as $term) {
+                    if (isset($cat_map[$term->slug])) {
+                        $crumb = $cat_map[$term->slug];
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (!$crumb) {
+            $crumb = $cat_map['gamified-tours'];
+        }
+
         echo $sep;
-        echo '<a href="' . esc_url(home_url('/gamified-tours/')) . '" class="breadcrumb__link">Gamified Tours</a>';
+        echo '<a href="' . esc_url($crumb['url']) . '" class="breadcrumb__link">' . esc_html($crumb['label']) . '</a>';
         echo $sep;
         echo '<span class="breadcrumb__current">' . esc_html(get_the_title()) . '</span>';
 
@@ -548,7 +481,6 @@ add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 // Подключаем свой шаблон single-product вместо стандартного WooCommerce
 add_filter('woocommerce_locate_template', function ($template, $template_name, $template_path) {
-    error_log("WC template: $template_name → $template");
 
     if ($template_name === 'single-product.php') {
         $custom = get_template_directory() . '/single-product.php';
@@ -597,6 +529,18 @@ add_action('init', function () {
         'rewrite'      => ['slug' => 'cases'],
         'show_in_rest' => true,
     ]);
+
+    //Убираем поле описание для категории кейса
+    add_action('admin_head', function () {
+        $screen = get_current_screen();
+        if ($screen && $screen->taxonomy === 'case_category') {
+            echo '<style>
+                .term-description-wrap {
+                    display: none !important;
+                }
+            </style>';
+        }
+    });
 
     //Убираем поле описание для категории кейса
     add_action('admin_head', function () {
@@ -770,13 +714,13 @@ function questime_tinymce_styles($init_array)
         ],
         /* Параграф и заголовок */
         [
-            'title' => 'Experience Paragraph',
+            'title' => 'блок Experience отдельное предложение/параграф',
             'block' => 'p',
             'classes' => 'experience__p',
             'wrapper' => false,
         ],
         [
-            'title' => 'Experience Row title (orange h3)',
+            'title' => 'блок Experience заголовок (orange h3)',
             'block' => 'h3',
             'classes' => 'experience__gains-title',
             'wrapper' => false,
@@ -813,12 +757,16 @@ function questime_tinymce_styles($init_array)
 
 add_filter('tiny_mce_before_init', 'questime_tinymce_styles');
 
-add_filter('tiny_mce_before_init', 'questime_tinymce_styles');
-
-
 function questime_editor_styles()
 {
     add_editor_style('styles/editor-style.css');
 }
 
 add_action('after_setup_theme', 'questime_editor_styles');
+
+/* Очищаем WYSIWYG-поля ACF от пустых строк с &nbsp; */
+add_filter('acf/update_value/type=wysiwyg', function ($value) {
+    $value = preg_replace('/^\s*&nbsp;\s*$/mi', '', $value);
+    $value = preg_replace('/<p>(?:\s|&nbsp;)*<\/p>/i', '', $value);
+    return $value;
+}, 10);
