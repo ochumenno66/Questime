@@ -9,7 +9,7 @@ get_header();
 $au_bg         = get_field('au_hero_bg')        ?: '';
 $au_title      = get_field('au_hero_title')     ?: 'About our team';
 $au_text       = get_field('au_hero_text')      ?: 'We believe that the greatest happiness is the happiness of communication and smart entertainment.';
-$au_image      = get_field('au_hero_image')     ?: get_template_directory_uri() . '/assets/images/about-us/about-us-hero.png';
+$au_image      = get_field('au_hero_image')     ?: get_template_directory_uri() . '/assets/images/about-us/153.webp';
 $au_image_alt  = get_field('au_hero_image_alt') ?: 'About us hero';
 $au_btn1_text  = get_field('au_hero_btn_1_text') ?: 'Request';
 $au_btn2_text  = get_field('au_hero_btn_2_text') ?: 'Download the presentation';
